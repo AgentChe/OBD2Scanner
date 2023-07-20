@@ -7,16 +7,24 @@
 
 // TODO
 final class GlobalDefinitions {
+    static let domain = "https://swimming.kyotosaka.com"
+    static let apiKey = "5bdrvh6B0W3A9MCePmRc"
+    
     static let otterScaleHost = "https://api.korrekted.com"
-    static let otterScaleApiKey = "qln0E4bCcZglB2u5"
+    static let otterScaleApiKey = "0fNghzpLmJbbiLQd"
     
-    static let appleAppID = "6449972006"
+    static let appleAppID = "6450157950"
     
-    static let applicationTag = "MEDICAL_GUIDES"
+    static let applicationTag = "SWIMMING"
     static let amplitudeApiKey = "11f36fb9021dbfca4a1349a3b2284224"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
-    static let termsOfServiceUrl = "https://awesum-apps.com/terms"
-    static let privacyPolicyUrl = "https://awesum-apps.com/policy"
-    static let contactUsUrl = "https://awesum-apps.com/contact"
+    static let termsOfServiceUrl = "https://kyotosaka.com/terms.html"
+    static let privacyPolicyUrl = "https://kyotosaka.com/policy.html"
+    static let contactUsUrl = "https://kyotosaka.com/index.html#careers"
+    
+    enum Paygate {
+        static let defaultLifetime = "training.app.soccer.endless"
+        static let defaultMonthly = "training.app.soccer.monthly"
+    }
 }

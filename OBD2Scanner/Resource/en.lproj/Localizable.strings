@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  OBD2Scanner
+
+  Created by Андрей Чернышев on 20.07.2023.
+  
+*/
+
+// MARK: General
+"Cancel" = "Cancel";
+"Continue" = "Continue";
+"Next" = "Next";
+
+// MARK: ImagePicker
+"ImagePicker.TakePhoto" = "Take a photo";
+"ImagePicker.CameraRoll" = "Camera roll";
+"ImagePicker.PhotoLibrary" = "Photo library";
+
+// MARK: TryAgain
+"TryAgain.Title" = "The app failed to perform a request";
+"TryAgain.SubTitle" = "If there’s a connection issue on your side try one more time. If the connection is fine and the error keeps on repeating please get in touch with the support";
+"TryAgain.Button" = "Try again";
+"TryAgain.Contact" = "Contact the support";
+
+// MARK: Splash
+"Splash.Preloader1" = "Checking your account...";
+"Splash.Preloader2" = "Syncing the soccer library";
+"Splash.Preloader3" = "Setting up your account...";

@@ -26,3 +26,13 @@
 "Splash.Preloader1" = "Checking your account...";
 "Splash.Preloader2" = "Syncing the soccer library";
 "Splash.Preloader3" = "Setting up your account...";
+
+// MARK: SelectVehicleUnit
+"SelectVehicleUnit.Title.Year" = "Year";
+"SelectVehicleUnit.Title.Brand" = "Car brand";
+"SelectVehicleUnit.Title.Model" = "Model";
+"SelectVehicleUnit.BrandAndModel" = "Brand and model";
+
+// MARK: AddVehicle
+"AddVehicle.Preloader" = "Setting dashboard for your %@...";
+"AddVehicle.Completed" = "All Done!";

@@ -26,14 +26,6 @@ final class SplashViewController: UIViewController {
         
         activity(state: .sdkInitialize)
         
-        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
-            guard let self = self else {
-                return .never()
-            }
-            
-            return self.open(error: error)
-        }
-        
         sdkInitialize.observe { [weak self] in
             self?.activity(state: .library)
             self?.viewModel.validationComplete.accept(Void())
@@ -73,16 +65,14 @@ private extension SplashViewController {
     
     // TODO
     func openScreen(at step: SplashViewModel.Step) {
-//        switch step {
-//        case .onboarding:
-//            UIApplication.shared.keyWindow?.rootViewController = OnboardingViewController.make()
-//        case .main:
-//            UIApplication.shared.keyWindow?.rootViewController = MainViewController.make()
-//        case .paygate:
-//            let vc = PaygateViewController.make()
-//            vc.delegate = self
-//            present(vc, animated: true)
-//        }
+        switch step {
+        case .addVehicle:
+            let nc = NavigationController(rootViewController: SelectVehicleUnitViewController.make(unit: .year))
+            UIApplication.shared.keyWindow?.rootViewController = nc
+        case .main:
+            let nc = NavigationController(rootViewController: HomeViewController.make())
+            UIApplication.shared.keyWindow?.rootViewController = nc
+        }
     }
     
     func activity(state: SplashActivity) {
@@ -95,21 +85,5 @@ private extension SplashViewController {
             .letterSpacing(-0.17.scale)
             .textAlignment(.center)
         mainView.preloaderLabel.attributedText = state.text.attributed(with: attrs)
-    }
-    
-    func open(error: Error) -> Observable<Void> {
-        Observable<Void>
-            .create { [weak self] observe in
-                guard let self = self else {
-                    return Disposables.create()
-                }
-                
-                let vc = TryAgainViewController.make(error: error) {
-                    observe.onNext(())
-                }
-                self.present(vc, animated: true)
-                
-                return Disposables.create()
-            }
     }
 }

@@ -5,26 +5,20 @@
 //  Created by Andrey Chernyshev on 16.01.2021.
 //
 
-// TODO
 final class GlobalDefinitions {
-    static let domain = "https://swimming.kyotosaka.com"
-    static let apiKey = "5bdrvh6B0W3A9MCePmRc"
+    static let vehiclesDomain = "https://vehicles.mustname.com"
+    static let vehiclesAccessToken = "83NcxF8W5PGfNDxZayRpCEHJ"
     
     static let otterScaleHost = "https://api.korrekted.com"
-    static let otterScaleApiKey = "0fNghzpLmJbbiLQd"
+    static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
-    static let appleAppID = "6450157950"
+    static let appleAppID = "" // TODO
     
-    static let applicationTag = "SWIMMING"
+    static let applicationTag = "OBD2_SCANNER"
     static let amplitudeApiKey = "11f36fb9021dbfca4a1349a3b2284224"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
-    static let termsOfServiceUrl = "https://kyotosaka.com/terms.html"
-    static let privacyPolicyUrl = "https://kyotosaka.com/policy.html"
-    static let contactUsUrl = "https://kyotosaka.com/index.html#careers"
-    
-    enum Paygate {
-        static let defaultLifetime = "training.app.soccer.endless"
-        static let defaultMonthly = "training.app.soccer.monthly"
-    }
+    static let termsOfServiceUrl = "" // TODO
+    static let privacyPolicyUrl = "" // TODO
+    static let contactUsUrl = "" // TODO
 }

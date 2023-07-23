@@ -63,8 +63,6 @@
 		DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE12A698E1100471667 /* IAPProduct.swift */; };
 		DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE32A698E1100471667 /* IAPError.swift */; };
 		DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */; };
-		DE2F0AF02A698E1100471667 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE72A698E1100471667 /* Session.swift */; };
-		DE2F0AF12A698E1100471667 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE82A698E1100471667 /* SessionManager.swift */; };
 		DE2F0AF42A698E4A00471667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF32A698E4A00471667 /* GoogleService-Info.plist */; };
 		DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */; };
 		DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */; };
@@ -77,11 +75,32 @@
 		DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B0B2A69944A00471667 /* SplashView.swift */; };
 		DE2F0B0F2A69957000471667 /* SplashActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B0E2A69957000471667 /* SplashActivity.swift */; };
 		DE2F0B112A69957D00471667 /* SplashReceiptValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B102A69957D00471667 /* SplashReceiptValidationObserver.swift */; };
-		DE2F0B222A6996C400471667 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B132A6996C400471667 /* ProfileManager.swift */; };
-		DE2F0B2A2A6996C400471667 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B1E2A6996C400471667 /* LoginRequest.swift */; };
-		DE2F0B2B2A6996C400471667 /* SyncTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B1F2A6996C400471667 /* SyncTokensRequest.swift */; };
 		DE2F0B312A69984000471667 /* TryAgainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B2F2A69984000471667 /* TryAgainView.swift */; };
 		DE2F0B322A69984000471667 /* TryAgainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B302A69984000471667 /* TryAgainViewController.swift */; };
+		DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B352A6AC5C800471667 /* Vehicle.swift */; };
+		DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B372A6AC61E00471667 /* VehicleManager.swift */; };
+		DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */; };
+		DE2F0B3E2A6AC75900471667 /* GetVehicleYearsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3D2A6AC75900471667 /* GetVehicleYearsResponse.swift */; };
+		DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */; };
+		DE2F0B432A6AC7E700471667 /* GetVehicleBrandsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B422A6AC7E700471667 /* GetVehicleBrandsResponse.swift */; };
+		DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */; };
+		DE2F0B482A6AC86A00471667 /* GetVehicleModelsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B472A6AC86A00471667 /* GetVehicleModelsResponse.swift */; };
+		DE2F0B4B2A6AC8E900471667 /* GetVehicleImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B4A2A6AC8E900471667 /* GetVehicleImageRequest.swift */; };
+		DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B4C2A6AC8EF00471667 /* GetVehicleImageResponse.swift */; };
+		DE2F0B502A6ACB3C00471667 /* GarageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B4F2A6ACB3C00471667 /* GarageManager.swift */; };
+		DE2F0B542A6AD34E00471667 /* SelectVehicleUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B532A6AD34E00471667 /* SelectVehicleUnitViewController.swift */; };
+		DE2F0B562A6AD35500471667 /* SelectVehicleUnitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B552A6AD35500471667 /* SelectVehicleUnitViewModel.swift */; };
+		DE2F0B582A6AD36000471667 /* SelectVehicleUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B572A6AD36000471667 /* SelectVehicleUnitView.swift */; };
+		DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B5B2A6D0A5300471667 /* SVUTableView.swift */; };
+		DE2F0B5E2A6D0A6000471667 /* SVUTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B5D2A6D0A6000471667 /* SVUTableElement.swift */; };
+		DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B602A6D0A7600471667 /* SVUTableCell.swift */; };
+		DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B622A6D218D00471667 /* SVUVehicleCell.swift */; };
+		DE2F0B672A6D2F2B00471667 /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B662A6D2F2B00471667 /* AddVehicleViewController.swift */; };
+		DE2F0B692A6D2F3200471667 /* AddVehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B682A6D2F3200471667 /* AddVehicleViewModel.swift */; };
+		DE2F0B6B2A6D2F3E00471667 /* AddVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B6A2A6D2F3E00471667 /* AddVehicleView.swift */; };
+		DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B6D2A6D408300471667 /* HomeViewController.swift */; };
+		DE2F0B702A6D408900471667 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */; };
+		DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B712A6D408D00471667 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,8 +163,6 @@
 		DE2F0AE12A698E1100471667 /* IAPProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		DE2F0AE32A698E1100471667 /* IAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
-		DE2F0AE72A698E1100471667 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		DE2F0AE82A698E1100471667 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DE2F0AF32A698E4A00471667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
@@ -158,11 +175,32 @@
 		DE2F0B0B2A69944A00471667 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		DE2F0B0E2A69957000471667 /* SplashActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashActivity.swift; sourceTree = "<group>"; };
 		DE2F0B102A69957D00471667 /* SplashReceiptValidationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReceiptValidationObserver.swift; sourceTree = "<group>"; };
-		DE2F0B132A6996C400471667 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
-		DE2F0B1E2A6996C400471667 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		DE2F0B1F2A6996C400471667 /* SyncTokensRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTokensRequest.swift; sourceTree = "<group>"; };
 		DE2F0B2F2A69984000471667 /* TryAgainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryAgainView.swift; sourceTree = "<group>"; };
 		DE2F0B302A69984000471667 /* TryAgainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryAgainViewController.swift; sourceTree = "<group>"; };
+		DE2F0B352A6AC5C800471667 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		DE2F0B372A6AC61E00471667 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
+		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
+		DE2F0B3D2A6AC75900471667 /* GetVehicleYearsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsResponse.swift; sourceTree = "<group>"; };
+		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
+		DE2F0B422A6AC7E700471667 /* GetVehicleBrandsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsResponse.swift; sourceTree = "<group>"; };
+		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
+		DE2F0B472A6AC86A00471667 /* GetVehicleModelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsResponse.swift; sourceTree = "<group>"; };
+		DE2F0B4A2A6AC8E900471667 /* GetVehicleImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleImageRequest.swift; sourceTree = "<group>"; };
+		DE2F0B4C2A6AC8EF00471667 /* GetVehicleImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleImageResponse.swift; sourceTree = "<group>"; };
+		DE2F0B4F2A6ACB3C00471667 /* GarageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageManager.swift; sourceTree = "<group>"; };
+		DE2F0B532A6AD34E00471667 /* SelectVehicleUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleUnitViewController.swift; sourceTree = "<group>"; };
+		DE2F0B552A6AD35500471667 /* SelectVehicleUnitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleUnitViewModel.swift; sourceTree = "<group>"; };
+		DE2F0B572A6AD36000471667 /* SelectVehicleUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleUnitView.swift; sourceTree = "<group>"; };
+		DE2F0B5B2A6D0A5300471667 /* SVUTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVUTableView.swift; sourceTree = "<group>"; };
+		DE2F0B5D2A6D0A6000471667 /* SVUTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVUTableElement.swift; sourceTree = "<group>"; };
+		DE2F0B602A6D0A7600471667 /* SVUTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVUTableCell.swift; sourceTree = "<group>"; };
+		DE2F0B622A6D218D00471667 /* SVUVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVUVehicleCell.swift; sourceTree = "<group>"; };
+		DE2F0B662A6D2F2B00471667 /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
+		DE2F0B682A6D2F3200471667 /* AddVehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewModel.swift; sourceTree = "<group>"; };
+		DE2F0B6A2A6D2F3E00471667 /* AddVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleView.swift; sourceTree = "<group>"; };
+		DE2F0B6D2A6D408300471667 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DE2F0B712A6D408D00471667 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -389,9 +427,9 @@
 		DE2F0ADA2A698E1100471667 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F0B122A6996C400471667 /* Profile */,
+				DE2F0B4E2A6ACB2F00471667 /* Garage */,
+				DE2F0B332A6AC5B500471667 /* Vehicle */,
 				DE2F0ADB2A698E1100471667 /* Purchase */,
-				DE2F0AE52A698E1100471667 /* Session */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -426,26 +464,11 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		DE2F0AE52A698E1100471667 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0AE62A698E1100471667 /* Models */,
-				DE2F0AE82A698E1100471667 /* SessionManager.swift */,
-			);
-			path = Session;
-			sourceTree = "<group>";
-		};
-		DE2F0AE62A698E1100471667 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0AE72A698E1100471667 /* Session.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F0B6C2A6D407900471667 /* Home */,
+				DE2F0B512A6AD31200471667 /* AddVehicle */,
 				DE2F0B2E2A69984000471667 /* TryAgain */,
 				DE2F0B062A69943300471667 /* Splash */,
 			);
@@ -492,24 +515,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		DE2F0B122A6996C400471667 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0B1A2A6996C400471667 /* Request */,
-				DE2F0B132A6996C400471667 /* ProfileManager.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		DE2F0B1A2A6996C400471667 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0B1E2A6996C400471667 /* LoginRequest.swift */,
-				DE2F0B1F2A6996C400471667 /* SyncTokensRequest.swift */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
 		DE2F0B2E2A69984000471667 /* TryAgain */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +522,146 @@
 				DE2F0B2F2A69984000471667 /* TryAgainView.swift */,
 			);
 			path = TryAgain;
+			sourceTree = "<group>";
+		};
+		DE2F0B332A6AC5B500471667 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B392A6AC62700471667 /* Request */,
+				DE2F0B372A6AC61E00471667 /* VehicleManager.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		DE2F0B342A6AC5C100471667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B352A6AC5C800471667 /* Vehicle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE2F0B392A6AC62700471667 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B492A6AC8D900471667 /* GetVehicleImage */,
+				DE2F0B442A6AC85900471667 /* GetVehicleModels */,
+				DE2F0B3F2A6AC7C300471667 /* GetVehicleBrands */,
+				DE2F0B3A2A6AC63500471667 /* GetVehicleYears */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DE2F0B3A2A6AC63500471667 /* GetVehicleYears */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */,
+				DE2F0B3D2A6AC75900471667 /* GetVehicleYearsResponse.swift */,
+			);
+			path = GetVehicleYears;
+			sourceTree = "<group>";
+		};
+		DE2F0B3F2A6AC7C300471667 /* GetVehicleBrands */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */,
+				DE2F0B422A6AC7E700471667 /* GetVehicleBrandsResponse.swift */,
+			);
+			path = GetVehicleBrands;
+			sourceTree = "<group>";
+		};
+		DE2F0B442A6AC85900471667 /* GetVehicleModels */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */,
+				DE2F0B472A6AC86A00471667 /* GetVehicleModelsResponse.swift */,
+			);
+			path = GetVehicleModels;
+			sourceTree = "<group>";
+		};
+		DE2F0B492A6AC8D900471667 /* GetVehicleImage */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B4A2A6AC8E900471667 /* GetVehicleImageRequest.swift */,
+				DE2F0B4C2A6AC8EF00471667 /* GetVehicleImageResponse.swift */,
+			);
+			path = GetVehicleImage;
+			sourceTree = "<group>";
+		};
+		DE2F0B4E2A6ACB2F00471667 /* Garage */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B342A6AC5C100471667 /* Model */,
+				DE2F0B4F2A6ACB3C00471667 /* GarageManager.swift */,
+			);
+			path = Garage;
+			sourceTree = "<group>";
+		};
+		DE2F0B512A6AD31200471667 /* AddVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B652A6D2EA200471667 /* AddVehicle */,
+				DE2F0B522A6AD32400471667 /* SelectVehicleUnit */,
+			);
+			path = AddVehicle;
+			sourceTree = "<group>";
+		};
+		DE2F0B522A6AD32400471667 /* SelectVehicleUnit */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B592A6D0A3B00471667 /* Views */,
+				DE2F0B532A6AD34E00471667 /* SelectVehicleUnitViewController.swift */,
+				DE2F0B552A6AD35500471667 /* SelectVehicleUnitViewModel.swift */,
+				DE2F0B572A6AD36000471667 /* SelectVehicleUnitView.swift */,
+			);
+			path = SelectVehicleUnit;
+			sourceTree = "<group>";
+		};
+		DE2F0B592A6D0A3B00471667 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B5A2A6D0A4100471667 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE2F0B5A2A6D0A4100471667 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B5F2A6D0A6300471667 /* Cells */,
+				DE2F0B5B2A6D0A5300471667 /* SVUTableView.swift */,
+				DE2F0B5D2A6D0A6000471667 /* SVUTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE2F0B5F2A6D0A6300471667 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B602A6D0A7600471667 /* SVUTableCell.swift */,
+				DE2F0B622A6D218D00471667 /* SVUVehicleCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE2F0B652A6D2EA200471667 /* AddVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B662A6D2F2B00471667 /* AddVehicleViewController.swift */,
+				DE2F0B682A6D2F3200471667 /* AddVehicleViewModel.swift */,
+				DE2F0B6A2A6D2F3E00471667 /* AddVehicleView.swift */,
+			);
+			path = AddVehicle;
+			sourceTree = "<group>";
+		};
+		DE2F0B6C2A6D407900471667 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B6D2A6D408300471667 /* HomeViewController.swift */,
+				DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */,
+				DE2F0B712A6D408D00471667 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -640,16 +785,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2F0B5E2A6D0A6000471667 /* SVUTableElement.swift in Sources */,
 				DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */,
 				DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */,
 				DE2F0AD72A698E0B00471667 /* AmplitudeManager.swift in Sources */,
 				DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */,
+				DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */,
+				DE2F0B672A6D2F2B00471667 /* AddVehicleViewController.swift in Sources */,
+				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
+				DE2F0B3E2A6AC75900471667 /* GetVehicleYearsResponse.swift in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
 				DE2F0B112A69957D00471667 /* SplashReceiptValidationObserver.swift in Sources */,
-				DE2F0AF12A698E1100471667 /* SessionManager.swift in Sources */,
-				DE2F0B2A2A6996C400471667 /* LoginRequest.swift in Sources */,
-				DE2F0B2B2A6996C400471667 /* SyncTokensRequest.swift in Sources */,
+				DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */,
+				DE2F0B432A6AC7E700471667 /* GetVehicleBrandsResponse.swift in Sources */,
 				DE2F0AC22A698E0B00471667 /* RequestReview.swift in Sources */,
 				DE2F0AC32A698E0B00471667 /* ImagePicker.swift in Sources */,
 				DE2F0AD02A698E0B00471667 /* PushNotificationsManager.swift in Sources */,
@@ -660,50 +809,65 @@
 				DE2F0AB22A698E0B00471667 /* UIViewRxExtension.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */,
+				DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */,
 				DE2F0ABE2A698E0B00471667 /* SignError.swift in Sources */,
 				DE2F0AD62A698E0B00471667 /* BranchManager.swift in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
 				DE2F0AAE2A698E0B00471667 /* Date+Extension.swift in Sources */,
 				DE2F0AC12A698E0B00471667 /* Weak.swift in Sources */,
+				DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */,
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
+				DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */,
 				DE2F0ABA2A698E0B00471667 /* ScreenSize.swift in Sources */,
+				DE2F0B482A6AC86A00471667 /* GetVehicleModelsResponse.swift in Sources */,
 				DE2F0B322A69984000471667 /* TryAgainViewController.swift in Sources */,
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
+				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */,
 				DE2F0AD22A698E0B00471667 /* PushNotificationsModel.swift in Sources */,
+				DE2F0B692A6D2F3200471667 /* AddVehicleViewModel.swift in Sources */,
 				DE2F0AB02A698E0B00471667 /* ObservableAndSingle+Extension.swift in Sources */,
+				DE2F0B582A6AD36000471667 /* SelectVehicleUnitView.swift in Sources */,
+				DE2F0B542A6AD34E00471667 /* SelectVehicleUnitViewController.swift in Sources */,
 				DE2F0ACA2A698E0B00471667 /* PaddingTextField.swift in Sources */,
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
+				DE2F0B502A6ACB3C00471667 /* GarageManager.swift in Sources */,
 				DE2F0AC52A698E0B00471667 /* Toast.swift in Sources */,
 				DE2F0AAC2A698E0B00471667 /* UIDevice+Extension.swift in Sources */,
+				DE2F0B4B2A6AC8E900471667 /* GetVehicleImageRequest.swift in Sources */,
 				DE2F0ACB2A698E0B00471667 /* PaddingLabel.swift in Sources */,
 				DE2F0ABC2A698E0B00471667 /* XOREncryption.swift in Sources */,
 				DE2F0AC02A698E0B00471667 /* ContentError.swift in Sources */,
 				DE2F0B312A69984000471667 /* TryAgainView.swift in Sources */,
+				DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
+				DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */,
+				DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */,
 				DE2F0AD52A698E0B00471667 /* AppsFlyerManager.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
 				DE2F0AB92A698E0B00471667 /* TextAttributes.swift in Sources */,
-				DE2F0B222A6996C400471667 /* ProfileManager.swift in Sources */,
-				DE2F0AF02A698E1100471667 /* Session.swift in Sources */,
 				DE2F0ACC2A698E0B00471667 /* CircleView.swift in Sources */,
 				DE2F0ACE2A698E0B00471667 /* CircleProgressView.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
 				DE2F0AC92A698E0B00471667 /* Spinner.swift in Sources */,
 				DE2F0AEA2A698E1100471667 /* PurchaseValidationObserver.swift in Sources */,
+				DE2F0B562A6AD35500471667 /* SelectVehicleUnitViewModel.swift in Sources */,
 				DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
+				DE2F0B6B2A6D2F3E00471667 /* AddVehicleView.swift in Sources */,
 				DE2F0AB32A698E0B00471667 /* GlobalDefinitions.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0AD12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DE2F0AEB2A698E1100471667 /* ProductPrice.swift in Sources */,
 				DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */,
+				DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,
 				DE2F0ABD2A698E0B00471667 /* Fonts.swift in Sources */,
+				DE2F0B702A6D408900471667 /* HomeViewModel.swift in Sources */,
 				DE2F0AAF2A698E0B00471667 /* Collection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

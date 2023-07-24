@@ -63,7 +63,6 @@ private extension SplashViewController {
         }
     }
     
-    // TODO
     func openScreen(at step: SplashViewModel.Step) {
         switch step {
         case .addVehicle:

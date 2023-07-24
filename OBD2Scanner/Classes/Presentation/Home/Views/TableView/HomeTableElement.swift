@@ -6,6 +6,16 @@
 //
 
 enum HomeTableElement {
-    case vehicle(Vehicle)
-    case connect
+    case vehicle(HomeVehicleElement)
+    case connect(HomeConnectElement)
+    case dtc
+}
+
+struct HomeVehicleElement {
+    let vehicle: Vehicle
+    let adapterState: OBDAdapterState
+}
+
+enum HomeConnectElement {
+    case connect, disconnect
 }

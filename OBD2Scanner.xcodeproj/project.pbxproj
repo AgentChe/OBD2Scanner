@@ -106,6 +106,38 @@
 		DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */; };
 		DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */; };
 		DE2F0B7F2A6E669100471667 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7E2A6E669100471667 /* GradientButton.swift */; };
+		DE2F0BAD2A6E755900471667 /* LTOBD2CaptureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B872A6E755800471667 /* LTOBD2CaptureFile.m */; };
+		DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B882A6E755800471667 /* LTOBD2ProtocolISO14230_4.m */; };
+		DE2F0BAF2A6E755900471667 /* LTOBD2Protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B892A6E755800471667 /* LTOBD2Protocol.m */; };
+		DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B8F2A6E755800471667 /* LTOBD2AdapterELM327.m */; };
+		DE2F0BB12A6E755900471667 /* LTOBD2PerformanceTrackingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B902A6E755800471667 /* LTOBD2PerformanceTrackingResult.m */; };
+		DE2F0BB22A6E755900471667 /* LTOBD2Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B932A6E755900471667 /* LTOBD2Adapter.m */; };
+		DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B952A6E755900471667 /* LTBTLEWriteCharacteristicStream.m */; };
+		DE2F0BB42A6E755900471667 /* LTOBD2MonitorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B962A6E755900471667 /* LTOBD2MonitorResult.m */; };
+		DE2F0BB52A6E755900471667 /* LTBTLESerialTransporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B982A6E755900471667 /* LTBTLESerialTransporter.m */; };
+		DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B992A6E755900471667 /* LTOBD2Mode6TestResult.m */; };
+		DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B9E2A6E755900471667 /* LTOBD2DTC.m */; };
+		DE2F0BB82A6E755900471667 /* LTVIN.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B9F2A6E755900471667 /* LTVIN.m */; };
+		DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA12A6E755900471667 /* LTOBD2Command.m */; };
+		DE2F0BBA2A6E755900471667 /* LTSupportAutomotive.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA42A6E755900471667 /* LTSupportAutomotive.m */; };
+		DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA52A6E755900471667 /* LTOBD2ProtocolISO9141_2.m */; };
+		DE2F0BBC2A6E755900471667 /* LTBTLEReadCharacteristicStream.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA62A6E755900471667 /* LTBTLEReadCharacteristicStream.m */; };
+		DE2F0BBD2A6E755900471667 /* LTOBD2O2Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA82A6E755900471667 /* LTOBD2O2Sensor.m */; };
+		DE2F0BBE2A6E755900471667 /* LTOBD2PID.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BA92A6E755900471667 /* LTOBD2PID.m */; };
+		DE2F0BBF2A6E755900471667 /* LTOBD2AdapterCaptureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BAA2A6E755900471667 /* LTOBD2AdapterCaptureFile.m */; };
+		DE2F0BC02A6E755900471667 /* LTOBD2ProtocolISO15765_4.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BAB2A6E755900471667 /* LTOBD2ProtocolISO15765_4.m */; };
+		DE2F0BC12A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BAC2A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m */; };
+		DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */; };
+		DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BC62A6E80F500471667 /* DTC.swift */; };
+		DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BC92A6E835500471667 /* DTCViewController.swift */; };
+		DE2F0BCC2A6E835A00471667 /* DTCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BCB2A6E835A00471667 /* DTCViewModel.swift */; };
+		DE2F0BCE2A6E835E00471667 /* DTCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BCD2A6E835E00471667 /* DTCView.swift */; };
+		DE2F0BD02A6E856500471667 /* HomeDTCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BCF2A6E856500471667 /* HomeDTCCell.swift */; };
+		DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BD32A6E8A2600471667 /* DTCTableView.swift */; };
+		DE2F0BD62A6E8A2D00471667 /* DTCTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BD52A6E8A2D00471667 /* DTCTableElement.swift */; };
+		DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BD82A6E8A3B00471667 /* DTCVehicleCell.swift */; };
+		DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */; };
+		DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +243,60 @@
 		DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVehicleCell.swift; sourceTree = "<group>"; };
 		DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConnectCell.swift; sourceTree = "<group>"; };
 		DE2F0B7E2A6E669100471667 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		DE2F0B812A6E755800471667 /* OBD2Scanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OBD2Scanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		DE2F0B832A6E755800471667 /* LTBTLEWriteCharacteristicStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBTLEWriteCharacteristicStream.h; sourceTree = "<group>"; };
+		DE2F0B842A6E755800471667 /* LTOBD2CaptureFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2CaptureFile.h; sourceTree = "<group>"; };
+		DE2F0B852A6E755800471667 /* LTOBD2Mode6TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2Mode6TestResult.h; sourceTree = "<group>"; };
+		DE2F0B862A6E755800471667 /* LTOBD2ProtocolISO14230_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2ProtocolISO14230_4.h; sourceTree = "<group>"; };
+		DE2F0B872A6E755800471667 /* LTOBD2CaptureFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2CaptureFile.m; sourceTree = "<group>"; };
+		DE2F0B882A6E755800471667 /* LTOBD2ProtocolISO14230_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2ProtocolISO14230_4.m; sourceTree = "<group>"; };
+		DE2F0B892A6E755800471667 /* LTOBD2Protocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2Protocol.m; sourceTree = "<group>"; };
+		DE2F0B8A2A6E755800471667 /* LTBTLESerialTransporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBTLESerialTransporter.h; sourceTree = "<group>"; };
+		DE2F0B8B2A6E755800471667 /* LTOBD2ProtocolSAEJ1850.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2ProtocolSAEJ1850.h; sourceTree = "<group>"; };
+		DE2F0B8C2A6E755800471667 /* LTSupportAutomotive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSupportAutomotive.h; sourceTree = "<group>"; };
+		DE2F0B8D2A6E755800471667 /* LTOBD2AdapterELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2AdapterELM327.h; sourceTree = "<group>"; };
+		DE2F0B8E2A6E755800471667 /* LTOBD2PerformanceTrackingResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2PerformanceTrackingResult.h; sourceTree = "<group>"; };
+		DE2F0B8F2A6E755800471667 /* LTOBD2AdapterELM327.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2AdapterELM327.m; sourceTree = "<group>"; };
+		DE2F0B902A6E755800471667 /* LTOBD2PerformanceTrackingResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2PerformanceTrackingResult.m; sourceTree = "<group>"; };
+		DE2F0B912A6E755900471667 /* LTOBD2PID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2PID.h; sourceTree = "<group>"; };
+		DE2F0B922A6E755900471667 /* LTOBD2Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2Protocol.h; sourceTree = "<group>"; };
+		DE2F0B932A6E755900471667 /* LTOBD2Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2Adapter.m; sourceTree = "<group>"; };
+		DE2F0B942A6E755900471667 /* LTBTLEReadCharacteristicStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBTLEReadCharacteristicStream.h; sourceTree = "<group>"; };
+		DE2F0B952A6E755900471667 /* LTBTLEWriteCharacteristicStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBTLEWriteCharacteristicStream.m; sourceTree = "<group>"; };
+		DE2F0B962A6E755900471667 /* LTOBD2MonitorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2MonitorResult.m; sourceTree = "<group>"; };
+		DE2F0B972A6E755900471667 /* LTOBD2Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2Adapter.h; sourceTree = "<group>"; };
+		DE2F0B982A6E755900471667 /* LTBTLESerialTransporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBTLESerialTransporter.m; sourceTree = "<group>"; };
+		DE2F0B992A6E755900471667 /* LTOBD2Mode6TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2Mode6TestResult.m; sourceTree = "<group>"; };
+		DE2F0B9A2A6E755900471667 /* LTOBD2DTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2DTC.h; sourceTree = "<group>"; };
+		DE2F0B9B2A6E755900471667 /* LTOBD2ProtocolISO9141_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2ProtocolISO9141_2.h; sourceTree = "<group>"; };
+		DE2F0B9C2A6E755900471667 /* LTOBD2Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2Command.h; sourceTree = "<group>"; };
+		DE2F0B9D2A6E755900471667 /* LTVIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTVIN.h; sourceTree = "<group>"; };
+		DE2F0B9E2A6E755900471667 /* LTOBD2DTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2DTC.m; sourceTree = "<group>"; };
+		DE2F0B9F2A6E755900471667 /* LTVIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTVIN.m; sourceTree = "<group>"; };
+		DE2F0BA02A6E755900471667 /* LTOBD2ProtocolISO15765_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2ProtocolISO15765_4.h; sourceTree = "<group>"; };
+		DE2F0BA12A6E755900471667 /* LTOBD2Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2Command.m; sourceTree = "<group>"; };
+		DE2F0BA22A6E755900471667 /* LTOBD2O2Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2O2Sensor.h; sourceTree = "<group>"; };
+		DE2F0BA32A6E755900471667 /* LTOBD2MonitorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2MonitorResult.h; sourceTree = "<group>"; };
+		DE2F0BA42A6E755900471667 /* LTSupportAutomotive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSupportAutomotive.m; sourceTree = "<group>"; };
+		DE2F0BA52A6E755900471667 /* LTOBD2ProtocolISO9141_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2ProtocolISO9141_2.m; sourceTree = "<group>"; };
+		DE2F0BA62A6E755900471667 /* LTBTLEReadCharacteristicStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBTLEReadCharacteristicStream.m; sourceTree = "<group>"; };
+		DE2F0BA72A6E755900471667 /* LTOBD2AdapterCaptureFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTOBD2AdapterCaptureFile.h; sourceTree = "<group>"; };
+		DE2F0BA82A6E755900471667 /* LTOBD2O2Sensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2O2Sensor.m; sourceTree = "<group>"; };
+		DE2F0BA92A6E755900471667 /* LTOBD2PID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2PID.m; sourceTree = "<group>"; };
+		DE2F0BAA2A6E755900471667 /* LTOBD2AdapterCaptureFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2AdapterCaptureFile.m; sourceTree = "<group>"; };
+		DE2F0BAB2A6E755900471667 /* LTOBD2ProtocolISO15765_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2ProtocolISO15765_4.m; sourceTree = "<group>"; };
+		DE2F0BAC2A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTOBD2ProtocolSAEJ1850.m; sourceTree = "<group>"; };
+		DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapter.swift; sourceTree = "<group>"; };
+		DE2F0BC62A6E80F500471667 /* DTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTC.swift; sourceTree = "<group>"; };
+		DE2F0BC92A6E835500471667 /* DTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCViewController.swift; sourceTree = "<group>"; };
+		DE2F0BCB2A6E835A00471667 /* DTCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCViewModel.swift; sourceTree = "<group>"; };
+		DE2F0BCD2A6E835E00471667 /* DTCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCView.swift; sourceTree = "<group>"; };
+		DE2F0BCF2A6E856500471667 /* HomeDTCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTCCell.swift; sourceTree = "<group>"; };
+		DE2F0BD32A6E8A2600471667 /* DTCTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCTableView.swift; sourceTree = "<group>"; };
+		DE2F0BD52A6E8A2D00471667 /* DTCTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCTableElement.swift; sourceTree = "<group>"; };
+		DE2F0BD82A6E8A3B00471667 /* DTCVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCVehicleCell.swift; sourceTree = "<group>"; };
+		DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCell.swift; sourceTree = "<group>"; };
+		DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapterState.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -286,6 +372,7 @@
 		DE2F0A6F2A698DA400471667 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F0B802A6E753900471667 /* LTBLT */,
 				DE2F0A702A698E0B00471667 /* Misc */,
 				DE2F0ADA2A698E1100471667 /* Service */,
 				DE2F0AF22A698E1C00471667 /* Presentation */,
@@ -438,6 +525,7 @@
 		DE2F0ADA2A698E1100471667 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F0BC22A6E78B600471667 /* OBDAdapter */,
 				DE2F0B4E2A6ACB2F00471667 /* Garage */,
 				DE2F0B332A6AC5B500471667 /* Vehicle */,
 				DE2F0ADB2A698E1100471667 /* Purchase */,
@@ -478,6 +566,7 @@
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F0BC82A6E834700471667 /* DTC */,
 				DE2F0B6C2A6D407900471667 /* Home */,
 				DE2F0B512A6AD31200471667 /* AddVehicle */,
 				DE2F0B2E2A69984000471667 /* TryAgain */,
@@ -699,6 +788,113 @@
 			children = (
 				DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */,
 				DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */,
+				DE2F0BCF2A6E856500471667 /* HomeDTCCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE2F0B802A6E753900471667 /* LTBLT */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B942A6E755900471667 /* LTBTLEReadCharacteristicStream.h */,
+				DE2F0BA62A6E755900471667 /* LTBTLEReadCharacteristicStream.m */,
+				DE2F0B8A2A6E755800471667 /* LTBTLESerialTransporter.h */,
+				DE2F0B982A6E755900471667 /* LTBTLESerialTransporter.m */,
+				DE2F0B832A6E755800471667 /* LTBTLEWriteCharacteristicStream.h */,
+				DE2F0B952A6E755900471667 /* LTBTLEWriteCharacteristicStream.m */,
+				DE2F0B972A6E755900471667 /* LTOBD2Adapter.h */,
+				DE2F0B932A6E755900471667 /* LTOBD2Adapter.m */,
+				DE2F0BA72A6E755900471667 /* LTOBD2AdapterCaptureFile.h */,
+				DE2F0BAA2A6E755900471667 /* LTOBD2AdapterCaptureFile.m */,
+				DE2F0B8D2A6E755800471667 /* LTOBD2AdapterELM327.h */,
+				DE2F0B8F2A6E755800471667 /* LTOBD2AdapterELM327.m */,
+				DE2F0B842A6E755800471667 /* LTOBD2CaptureFile.h */,
+				DE2F0B872A6E755800471667 /* LTOBD2CaptureFile.m */,
+				DE2F0B9C2A6E755900471667 /* LTOBD2Command.h */,
+				DE2F0BA12A6E755900471667 /* LTOBD2Command.m */,
+				DE2F0B9A2A6E755900471667 /* LTOBD2DTC.h */,
+				DE2F0B9E2A6E755900471667 /* LTOBD2DTC.m */,
+				DE2F0B852A6E755800471667 /* LTOBD2Mode6TestResult.h */,
+				DE2F0B992A6E755900471667 /* LTOBD2Mode6TestResult.m */,
+				DE2F0BA32A6E755900471667 /* LTOBD2MonitorResult.h */,
+				DE2F0B962A6E755900471667 /* LTOBD2MonitorResult.m */,
+				DE2F0BA22A6E755900471667 /* LTOBD2O2Sensor.h */,
+				DE2F0BA82A6E755900471667 /* LTOBD2O2Sensor.m */,
+				DE2F0B8E2A6E755800471667 /* LTOBD2PerformanceTrackingResult.h */,
+				DE2F0B902A6E755800471667 /* LTOBD2PerformanceTrackingResult.m */,
+				DE2F0B912A6E755900471667 /* LTOBD2PID.h */,
+				DE2F0BA92A6E755900471667 /* LTOBD2PID.m */,
+				DE2F0B922A6E755900471667 /* LTOBD2Protocol.h */,
+				DE2F0B892A6E755800471667 /* LTOBD2Protocol.m */,
+				DE2F0B9B2A6E755900471667 /* LTOBD2ProtocolISO9141_2.h */,
+				DE2F0BA52A6E755900471667 /* LTOBD2ProtocolISO9141_2.m */,
+				DE2F0B862A6E755800471667 /* LTOBD2ProtocolISO14230_4.h */,
+				DE2F0B882A6E755800471667 /* LTOBD2ProtocolISO14230_4.m */,
+				DE2F0BA02A6E755900471667 /* LTOBD2ProtocolISO15765_4.h */,
+				DE2F0BAB2A6E755900471667 /* LTOBD2ProtocolISO15765_4.m */,
+				DE2F0B8B2A6E755800471667 /* LTOBD2ProtocolSAEJ1850.h */,
+				DE2F0BAC2A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m */,
+				DE2F0B8C2A6E755800471667 /* LTSupportAutomotive.h */,
+				DE2F0BA42A6E755900471667 /* LTSupportAutomotive.m */,
+				DE2F0B9D2A6E755900471667 /* LTVIN.h */,
+				DE2F0B9F2A6E755900471667 /* LTVIN.m */,
+				DE2F0B812A6E755800471667 /* OBD2Scanner-Bridging-Header.h */,
+			);
+			path = LTBLT;
+			sourceTree = "<group>";
+		};
+		DE2F0BC22A6E78B600471667 /* OBDAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BC52A6E80E500471667 /* Model */,
+				DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */,
+			);
+			path = OBDAdapter;
+			sourceTree = "<group>";
+		};
+		DE2F0BC52A6E80E500471667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BC62A6E80F500471667 /* DTC.swift */,
+				DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE2F0BC82A6E834700471667 /* DTC */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BD12A6E8A1600471667 /* Views */,
+				DE2F0BC92A6E835500471667 /* DTCViewController.swift */,
+				DE2F0BCB2A6E835A00471667 /* DTCViewModel.swift */,
+				DE2F0BCD2A6E835E00471667 /* DTCView.swift */,
+			);
+			path = DTC;
+			sourceTree = "<group>";
+		};
+		DE2F0BD12A6E8A1600471667 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BD22A6E8A1B00471667 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE2F0BD22A6E8A1B00471667 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BD72A6E8A3000471667 /* Cells */,
+				DE2F0BD32A6E8A2600471667 /* DTCTableView.swift */,
+				DE2F0BD52A6E8A2D00471667 /* DTCTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE2F0BD72A6E8A3000471667 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0BD82A6E8A3B00471667 /* DTCVehicleCell.swift */,
+				DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -737,6 +933,7 @@
 				TargetAttributes = {
 					DE2F0A562A698C0100471667 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -828,18 +1025,22 @@
 				DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */,
 				DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */,
 				DE2F0AD72A698E0B00471667 /* AmplitudeManager.swift in Sources */,
+				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,
 				DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */,
+				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
 				DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */,
 				DE2F0B672A6D2F2B00471667 /* AddVehicleViewController.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
 				DE2F0B3E2A6AC75900471667 /* GetVehicleYearsResponse.swift in Sources */,
+				DE2F0BBD2A6E755900471667 /* LTOBD2O2Sensor.m in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
 				DE2F0B112A69957D00471667 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */,
 				DE2F0B432A6AC7E700471667 /* GetVehicleBrandsResponse.swift in Sources */,
 				DE2F0AC22A698E0B00471667 /* RequestReview.swift in Sources */,
 				DE2F0AC32A698E0B00471667 /* ImagePicker.swift in Sources */,
+				DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */,
 				DE2F0AD02A698E0B00471667 /* PushNotificationsManager.swift in Sources */,
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
 				DE2F0B0F2A69957000471667 /* SplashActivity.swift in Sources */,
@@ -847,12 +1048,18 @@
 				DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */,
 				DE2F0B762A6E61AE00471667 /* HomeTableView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIViewRxExtension.swift in Sources */,
+				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
+				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */,
 				DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */,
 				DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */,
+				DE2F0BAD2A6E755900471667 /* LTOBD2CaptureFile.m in Sources */,
+				DE2F0BCC2A6E835A00471667 /* DTCViewModel.swift in Sources */,
 				DE2F0ABE2A698E0B00471667 /* SignError.swift in Sources */,
 				DE2F0AD62A698E0B00471667 /* BranchManager.swift in Sources */,
+				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
+				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
 				DE2F0AAE2A698E0B00471667 /* Date+Extension.swift in Sources */,
 				DE2F0AC12A698E0B00471667 /* Weak.swift in Sources */,
@@ -860,12 +1067,20 @@
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
 				DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */,
 				DE2F0ABA2A698E0B00471667 /* ScreenSize.swift in Sources */,
+				DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */,
+				DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */,
 				DE2F0B482A6AC86A00471667 /* GetVehicleModelsResponse.swift in Sources */,
 				DE2F0B322A69984000471667 /* TryAgainViewController.swift in Sources */,
+				DE2F0BBF2A6E755900471667 /* LTOBD2AdapterCaptureFile.m in Sources */,
+				DE2F0BB42A6E755900471667 /* LTOBD2MonitorResult.m in Sources */,
+				DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */,
+				DE2F0BC02A6E755900471667 /* LTOBD2ProtocolISO15765_4.m in Sources */,
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */,
+				DE2F0BBA2A6E755900471667 /* LTSupportAutomotive.m in Sources */,
+				DE2F0BB12A6E755900471667 /* LTOBD2PerformanceTrackingResult.m in Sources */,
 				DE2F0AD22A698E0B00471667 /* PushNotificationsModel.swift in Sources */,
 				DE2F0B7F2A6E669100471667 /* GradientButton.swift in Sources */,
 				DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */,
@@ -878,6 +1093,7 @@
 				DE2F0B502A6ACB3C00471667 /* GarageManager.swift in Sources */,
 				DE2F0AC52A698E0B00471667 /* Toast.swift in Sources */,
 				DE2F0AAC2A698E0B00471667 /* UIDevice+Extension.swift in Sources */,
+				DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */,
 				DE2F0B4B2A6AC8E900471667 /* GetVehicleImageRequest.swift in Sources */,
 				DE2F0ACB2A698E0B00471667 /* PaddingLabel.swift in Sources */,
 				DE2F0ABC2A698E0B00471667 /* XOREncryption.swift in Sources */,
@@ -885,8 +1101,11 @@
 				DE2F0B312A69984000471667 /* TryAgainView.swift in Sources */,
 				DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
+				DE2F0BC12A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
 				DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */,
+				DE2F0BD62A6E8A2D00471667 /* DTCTableElement.swift in Sources */,
 				DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */,
+				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
 				DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */,
 				DE2F0AD52A698E0B00471667 /* AppsFlyerManager.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
@@ -894,18 +1113,28 @@
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
 				DE2F0AB92A698E0B00471667 /* TextAttributes.swift in Sources */,
 				DE2F0ACC2A698E0B00471667 /* CircleView.swift in Sources */,
+				DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */,
 				DE2F0ACE2A698E0B00471667 /* CircleProgressView.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
 				DE2F0AC92A698E0B00471667 /* Spinner.swift in Sources */,
 				DE2F0AEA2A698E1100471667 /* PurchaseValidationObserver.swift in Sources */,
+				DE2F0BCE2A6E835E00471667 /* DTCView.swift in Sources */,
 				DE2F0B562A6AD35500471667 /* SelectVehicleUnitViewModel.swift in Sources */,
 				DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
+				DE2F0BB82A6E755900471667 /* LTVIN.m in Sources */,
 				DE2F0B6B2A6D2F3E00471667 /* AddVehicleView.swift in Sources */,
+				DE2F0BAF2A6E755900471667 /* LTOBD2Protocol.m in Sources */,
 				DE2F0AB32A698E0B00471667 /* GlobalDefinitions.swift in Sources */,
+				DE2F0BBE2A6E755900471667 /* LTOBD2PID.m in Sources */,
+				DE2F0BB22A6E755900471667 /* LTOBD2Adapter.m in Sources */,
+				DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */,
+				DE2F0BB52A6E755900471667 /* LTBTLESerialTransporter.m in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
+				DE2F0BBC2A6E755900471667 /* LTBTLEReadCharacteristicStream.m in Sources */,
 				DE2F0AD12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DE2F0AEB2A698E1100471667 /* ProductPrice.swift in Sources */,
+				DE2F0BD02A6E856500471667 /* HomeDTCCell.swift in Sources */,
 				DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */,
 				DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,
@@ -1058,10 +1287,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OBD2Scanner/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Permission is required to establish a connection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1072,12 +1306,16 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.OBD2Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = app.books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BookSummaries Dev";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OBD2Scanner/Classes/LTBLT/OBD2Scanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1089,10 +1327,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OBD2Scanner/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Permission is required to establish a connection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1103,12 +1346,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.OBD2Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = app.books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BookSummaries Dev";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OBD2Scanner/Classes/LTBLT/OBD2Scanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

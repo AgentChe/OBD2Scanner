@@ -13,6 +13,7 @@ final class HomeTableView: UITableView {
     lazy var elements = [HomeTableElement]()
     
     private lazy var didTapConnectTrigger = PublishRelay<Void>()
+    private lazy var didTapDTCTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -36,6 +37,10 @@ extension HomeTableView {
     var didTapConnect: Signal<Void> {
         didTapConnectTrigger.asSignal()
     }
+    
+    var didTapDTC: Signal<Void> {
+        didTapDTCTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -50,8 +55,12 @@ extension HomeTableView: UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: String(describing: HomeVehicleCell.self), for: indexPath) as! HomeVehicleCell
             cell.setup(element: element)
             return cell
-        case .connect:
-            return dequeueReusableCell(withIdentifier: String(describing: HomeConnectCell.self), for: indexPath) as! HomeConnectCell
+        case .connect(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: HomeConnectCell.self), for: indexPath) as! HomeConnectCell
+            cell.setup(element: element)
+            return cell
+        case .dtc:
+            return dequeueReusableCell(withIdentifier: String(describing: HomeDTCCell.self), for: indexPath)
         }
     }
 }
@@ -66,6 +75,8 @@ extension HomeTableView: UITableViewDelegate {
         switch elements[indexPath.row] {
         case .connect:
             didTapConnectTrigger.accept(Void())
+        case .dtc:
+            didTapDTCTrigger.accept(Void())
         default:
             return
         }
@@ -77,6 +88,7 @@ private extension HomeTableView {
     func initialize() {
         register(HomeVehicleCell.self, forCellReuseIdentifier: String(describing: HomeVehicleCell.self))
         register(HomeConnectCell.self, forCellReuseIdentifier: String(describing: HomeConnectCell.self))
+        register(HomeDTCCell.self, forCellReuseIdentifier: String(describing: HomeDTCCell.self))
         
         dataSource = self
         delegate = self

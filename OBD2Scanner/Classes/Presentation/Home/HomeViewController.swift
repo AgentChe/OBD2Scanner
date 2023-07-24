@@ -23,7 +23,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: HomeViewModel.Input(
-            didTapConnect: mainView.tableView.didTapConnect
+            didTapDTC: mainView.tableView.didTapDTC
         ))
         
         output.brandModel
@@ -35,6 +35,24 @@ final class HomeViewController: UIViewController {
         output.elements
             .drive(Binder(mainView.tableView) { base, elements in
                 base.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+        
+        output.route
+            .drive(Binder(self) { base, route in
+                base.route(route)
+            })
+            .disposed(by: disposeBag)
+        
+        let adapterState = output.adapterState
+        mainView.tableView.didTapConnect
+            .withLatestFrom(adapterState)
+            .emit(to: Binder(OBDAdapter.shared) { base, adapterState in
+                if adapterState == .connected {
+                    base.disconnect()
+                } else {
+                    base.connect()
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -50,5 +68,16 @@ extension HomeViewController {
         let vc = HomeViewController()
         vc.navigationItem.backButtonTitle = " "
         return vc
+    }
+}
+
+// MARK: Private
+private extension HomeViewController {
+    func route(_ route: HomeViewModel.Route) {
+        switch route {
+        case .dtc:
+            let vc = DTCViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

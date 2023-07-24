@@ -47,15 +47,20 @@ final class HomeVehicleCell: UITableViewCell {
 
 // MARK: Public
 extension HomeVehicleCell {
-    func setup(element: Vehicle) {
-        if let url = element.imageUrl {
+    func setup(element: HomeVehicleElement) {
+        let vehicle = element.vehicle
+        
+        if let url = vehicle.imageUrl {
             vehicleImageView.kf.setImage(with: url)
         }
         
-        let brandModel = String(format: "%@ %@", element.brand, element.model)
+        let brandModel = String(format: "%@ %@", vehicle.brand, vehicle.model)
         brandModelLabel.attributedText = brandModel.attributed(with: brandModelAttrs)
         
-        yearLabel.attributedText = element.year.attributed(with: yearAttrs)
+        yearLabel.attributedText = vehicle.year.attributed(with: yearAttrs)
+        
+        let state = localizedState(element.adapterState)
+        stateLabel.attributedText = state.attributed(with: yearAttrs)
     }
 }
 
@@ -66,6 +71,33 @@ private extension HomeVehicleCell {
         contentView.backgroundColor = UIColor.clear
         
         selectionStyle = .none
+    }
+    
+    func localizedState(_ state: OBDAdapterState) -> String {
+        switch state {
+        case .unknown:
+            return "Home.State.Unknown".localized
+        case .notFound:
+            return "Home.State.NotFound".localized
+        case .error:
+            return "Home.State.Error".localized
+        case .discovering:
+            return "Home.State.Discovering".localized
+        case .present:
+            return "Home.State.Present".localized
+        case .initializing:
+            return "Home.State.Initializing".localized
+        case .ready:
+            return "Home.State.Ready".localized
+        case .ignitionOff:
+            return "Home.State.IgnitionOff".localized
+        case .connected:
+            return "Home.State.Connected".localized
+        case .unsupportedProtocol:
+            return "Home.State.UnsupportedProtocol".localized
+        case .gone:
+            return "Home.State.Gone".localized
+        }
     }
 }
 

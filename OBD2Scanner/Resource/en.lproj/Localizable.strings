@@ -38,4 +38,22 @@
 "AddVehicle.Completed" = "All Done!";
 
 // MARK: Home
+"Home.DTC" = "Diagnostic trouble codes";
+"Home.State.Unknown" = "Unknown";
+"Home.State.NotFound" = "Not Found";
+"Home.State.Error" = "Error";
+"Home.State.Discovering" = "Discovering";
+"Home.State.Present" = "Present";
+"Home.State.Initializing" = "Initializing";
+"Home.State.Ready" = "Ready";
+"Home.State.IgnitionOff" = "Ignition Off";
+"Home.State.Connected" = "Connected";
+"Home.State.UnsupportedProtocol" = "Unsupported Protocol";
+"Home.State.Gone" = "Gone";
+"Home.Connect.Title" = "OBD2 scanner";
+"Home.Connect.SubTitle" = "Access data and control over\nyour car";
 "Home.Connect" = "Connect";
+"Home.Disconnect" = "Disconnect";
+
+// MARK: DTC
+"DTC.Title" = "Diagnostic trouble codes";

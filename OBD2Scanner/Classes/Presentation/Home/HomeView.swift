@@ -8,8 +8,14 @@
 import UIKit
 
 final class HomeView: UIView {
-    lazy var gradient1View = makeGradient1View()
-    lazy var gradient2View = makeGradient2View()
+    lazy var brandModelLabel = makeBrandModelLabel()
+    lazy var tableView = makeTableView()
+    
+    private lazy var attrs = TextAttributes()
+        .textColor(UIColor.white)
+        .font(Fonts.Inter.bold(size: 20.scale))
+        .lineHeight(28.scale)
+        .textAlignment(.left)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +26,13 @@ final class HomeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension HomeView {
+    func setup(brandModel: String) {
+        brandModelLabel.attributedText = brandModel.attributed(with: attrs)
     }
 }
 
@@ -34,44 +47,36 @@ private extension HomeView {
 private extension HomeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            gradient1View.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradient1View.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradient1View.topAnchor.constraint(equalTo: topAnchor),
-            gradient1View.heightAnchor.constraint(equalToConstant: 353.scale)
+            brandModelLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            brandModelLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            brandModelLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            gradient2View.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradient2View.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradient2View.topAnchor.constraint(equalTo: topAnchor),
-            gradient2View.heightAnchor.constraint(equalToConstant: 353.scale)
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: brandModelLabel.bottomAnchor, constant: 2.scale),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension HomeView {
-    func makeGradient1View() -> GradientView {
-        let view = GradientView()
-        view.gradientLayer.colors = [
-            UIColor(integralRed: 123, green: 200, blue: 173).cgColor,
-            UIColor(integralRed: 109, green: 179, blue: 176).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+    func makeBrandModelLabel() -> UILabel {
+        let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeGradient2View() -> GradientView {
-        let view = GradientView()
-        view.gradientLayer.colors = [
-            UIColor(integralRed: 18, green: 23, blue: 33, alpha: 0.22).cgColor,
-            UIColor(integralRed: 18, green: 23, blue: 33, alpha: 1).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+    func makeTableView() -> HomeTableView {
+        let view = HomeTableView()
+        view.backgroundColor = UIColor.clear
+        view.showsVerticalScrollIndicator = false
+        view.separatorStyle = .none
+        view.contentInset = UIEdgeInsets(top: 8.scale, left: 0, bottom: 16.scale, right: 0)
+        view.setContentOffset(CGPoint(x: 0, y: -8.scale), animated: false)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

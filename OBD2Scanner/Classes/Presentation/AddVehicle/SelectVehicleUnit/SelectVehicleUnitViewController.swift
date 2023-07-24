@@ -70,6 +70,10 @@ final class SelectVehicleUnitViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 // MARK: Public

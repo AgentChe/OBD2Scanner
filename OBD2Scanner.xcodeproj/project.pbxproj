@@ -101,6 +101,11 @@
 		DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B6D2A6D408300471667 /* HomeViewController.swift */; };
 		DE2F0B702A6D408900471667 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */; };
 		DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B712A6D408D00471667 /* HomeView.swift */; };
+		DE2F0B762A6E61AE00471667 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B752A6E61AE00471667 /* HomeTableView.swift */; };
+		DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B772A6E61B600471667 /* HomeTableElement.swift */; };
+		DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */; };
+		DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */; };
+		DE2F0B7F2A6E669100471667 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B7E2A6E669100471667 /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +206,11 @@
 		DE2F0B6D2A6D408300471667 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DE2F0B712A6D408D00471667 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DE2F0B752A6E61AE00471667 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		DE2F0B772A6E61B600471667 /* HomeTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableElement.swift; sourceTree = "<group>"; };
+		DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVehicleCell.swift; sourceTree = "<group>"; };
+		DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConnectCell.swift; sourceTree = "<group>"; };
+		DE2F0B7E2A6E669100471667 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -381,6 +391,7 @@
 				DE2F0A9A2A698E0B00471667 /* CircleView.swift */,
 				DE2F0A9B2A698E0B00471667 /* GradientView.swift */,
 				DE2F0A9C2A698E0B00471667 /* CircleProgressView.swift */,
+				DE2F0B7E2A6E669100471667 /* GradientButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -657,11 +668,39 @@
 		DE2F0B6C2A6D407900471667 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F0B732A6E619900471667 /* Views */,
 				DE2F0B6D2A6D408300471667 /* HomeViewController.swift */,
 				DE2F0B6F2A6D408900471667 /* HomeViewModel.swift */,
 				DE2F0B712A6D408D00471667 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DE2F0B732A6E619900471667 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B742A6E61A400471667 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE2F0B742A6E61A400471667 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B792A6E61B900471667 /* Cells */,
+				DE2F0B752A6E61AE00471667 /* HomeTableView.swift */,
+				DE2F0B772A6E61B600471667 /* HomeTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE2F0B792A6E61B900471667 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */,
+				DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -806,9 +845,11 @@
 				DE2F0B0F2A69957000471667 /* SplashActivity.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
 				DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */,
+				DE2F0B762A6E61AE00471667 /* HomeTableView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIViewRxExtension.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */,
+				DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */,
 				DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */,
 				DE2F0ABE2A698E0B00471667 /* SignError.swift in Sources */,
 				DE2F0AD62A698E0B00471667 /* BranchManager.swift in Sources */,
@@ -826,6 +867,8 @@
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */,
 				DE2F0AD22A698E0B00471667 /* PushNotificationsModel.swift in Sources */,
+				DE2F0B7F2A6E669100471667 /* GradientButton.swift in Sources */,
+				DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */,
 				DE2F0B692A6D2F3200471667 /* AddVehicleViewModel.swift in Sources */,
 				DE2F0AB02A698E0B00471667 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE2F0B582A6AD36000471667 /* SelectVehicleUnitView.swift in Sources */,
@@ -842,6 +885,7 @@
 				DE2F0B312A69984000471667 /* TryAgainView.swift in Sources */,
 				DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
+				DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */,
 				DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */,
 				DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */,
 				DE2F0AD52A698E0B00471667 /* AppsFlyerManager.swift in Sources */,

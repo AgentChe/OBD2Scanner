@@ -69,6 +69,10 @@ final class AddVehicleViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 // MARK: Public

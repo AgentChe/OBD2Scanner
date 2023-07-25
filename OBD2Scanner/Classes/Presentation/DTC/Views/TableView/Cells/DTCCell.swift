@@ -9,19 +9,18 @@ import UIKit
 
 final class DTCCell: UITableViewCell {
     lazy var container = makeContainer()
-    lazy var codePlaceholderLabel = makeCodePlaceholderLabel()
     lazy var codeLabel = makeLabel()
     lazy var explanationLabel = makeLabel()
     
     private lazy var codeAttrs = TextAttributes()
         .textColor(UIColor.white)
-        .font(Fonts.Inter.bold(size: 32.scale))
-        .lineHeight(44.8.scale)
-        .textAlignment(.right)
+        .font(Fonts.Inter.bold(size: 19.scale))
+        .lineHeight(28.5.scale)
+        .textAlignment(.left)
     private lazy var explanationAttrs = TextAttributes()
-        .textColor(UIColor.white)
+        .textColor(UIColor.white.withAlphaComponent(0.7))
         .font(Fonts.Inter.regular(size: 15.scale))
-        .lineHeight(21.scale)
+        .lineHeight(22.5.scale)
         .textAlignment(.left)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -65,54 +64,28 @@ private extension DTCCell {
         ])
         
         NSLayoutConstraint.activate([
-            codePlaceholderLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
-            codePlaceholderLabel.centerYAnchor.constraint(equalTo: codeLabel.centerYAnchor)
+            codeLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20.scale),
+            codeLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20.scale),
+            codeLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 20.scale)
         ])
         
         NSLayoutConstraint.activate([
-            codeLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 100.scale),
-            codeLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            codeLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 16.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            explanationLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
-            explanationLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
+            explanationLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20.scale),
+            explanationLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20.scale),
             explanationLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 12.scale),
-            explanationLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -16.scale)
+            explanationLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DTCCell {
-    func makeContainer() -> GradientView {
-        let view = GradientView()
-        view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
-        view.gradientLayer.colors = [
-            UIColor.white.withAlphaComponent(0.2).cgColor,
-            UIColor.white.withAlphaComponent(0.11).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(integralRed: 26, green: 31, blue: 42)
+        view.layer.cornerRadius = 10.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
-        return view
-    }
-    
-    func makeCodePlaceholderLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(UIColor.white)
-            .font(Fonts.Inter.medium(size: 17.scale))
-            .lineHeight(21.scale)
-            .textAlignment(.left)
-        
-        let view = UILabel()
-        view.attributedText = "DTC.Code".localized.attributed(with: attrs)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
         return view
     }
     

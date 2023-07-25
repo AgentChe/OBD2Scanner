@@ -8,8 +8,6 @@
 import UIKit
 
 final class DTCView: UIView {
-    lazy var gradient1View = makeGradient1View()
-    lazy var gradient2View = makeGradient2View()
     lazy var tableView = makeTableView()
     lazy var emptyView = makeEmptyView()
     
@@ -36,20 +34,6 @@ private extension DTCView {
 private extension DTCView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            gradient1View.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradient1View.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradient1View.topAnchor.constraint(equalTo: topAnchor),
-            gradient1View.heightAnchor.constraint(equalToConstant: 353.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            gradient2View.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradient2View.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradient2View.topAnchor.constraint(equalTo: topAnchor),
-            gradient2View.heightAnchor.constraint(equalToConstant: 353.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -66,32 +50,6 @@ private extension DTCView {
 
 // MARK: Lazy initialization
 private extension DTCView {
-    func makeGradient1View() -> GradientView {
-        let view = GradientView()
-        view.gradientLayer.colors = [
-            UIColor(integralRed: 123, green: 200, blue: 173).cgColor,
-            UIColor(integralRed: 109, green: 179, blue: 176).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeGradient2View() -> GradientView {
-        let view = GradientView()
-        view.gradientLayer.colors = [
-            UIColor(integralRed: 18, green: 23, blue: 33, alpha: 0.22).cgColor,
-            UIColor(integralRed: 18, green: 23, blue: 33, alpha: 1).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeTableView() -> DTCTableView {
         let view = DTCTableView()
         view.backgroundColor = UIColor.clear

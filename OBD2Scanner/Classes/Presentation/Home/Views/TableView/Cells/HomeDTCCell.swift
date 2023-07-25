@@ -69,17 +69,10 @@ private extension HomeDTCCell {
 
 // MARK: Lazy initialization
 private extension HomeDTCCell {
-    func makeContainer() -> GradientView {
-        let view = GradientView()
-        view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
-        view.gradientLayer.colors = [
-            UIColor.white.withAlphaComponent(0.2).cgColor,
-            UIColor.white.withAlphaComponent(0.11).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(integralRed: 26, green: 31, blue: 42)
+        view.layer.cornerRadius = 10.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

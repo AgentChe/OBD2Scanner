@@ -7,9 +7,10 @@
 
 import UIKit
 
-// TODO
 final class DTCEmptyView: UIView {
-    lazy var label = makeLabel()
+    lazy var imageView = makeImageView()
+    lazy var titleLabel = makeTitleLabel()
+    lazy var textLabel = makeTextLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,21 +27,58 @@ final class DTCEmptyView: UIView {
 private extension DTCEmptyView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 16.scale),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16.scale)
+            imageView.widthAnchor.constraint(equalToConstant: 130.scale),
+            imageView.heightAnchor.constraint(equalToConstant: 130.scale),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48.scale),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48.scale),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 146.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48.scale),
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48.scale),
+            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.scale),
+            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DTCEmptyView {
-    func makeLabel() -> UILabel {
+    func makeImageView() -> UIImageView {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.image = UIImage(named: "DTC.Empty")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(UIColor.white.withAlphaComponent(0.6))
-            .font(Fonts.Inter.regular(size: 14.scale))
-            .lineHeight(16.8.scale)
+            .textColor(UIColor.white)
+            .font(Fonts.Inter.bold(size: 24.scale))
+            .lineHeight(33.6.scale)
+            .textAlignment(.center)
+        
+        let view = UILabel()
+        view.attributedText = "DTC.Empty.Title".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeTextLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor.white)
+            .font(Fonts.Inter.regular(size: 16.scale))
+            .lineHeight(24.scale)
             .textAlignment(.center)
         
         let view = UILabel()

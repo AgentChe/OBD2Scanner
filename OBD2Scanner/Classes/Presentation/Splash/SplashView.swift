@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO
 final class SplashView: UIView {
     lazy var gradient1View = makeGradient1View()
     lazy var gradient2View = makeGradient2View()

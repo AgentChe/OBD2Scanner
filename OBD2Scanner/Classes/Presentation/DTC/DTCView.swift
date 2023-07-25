@@ -57,7 +57,8 @@ private extension DTCView {
         ])
         
         NSLayoutConstraint.activate([
-            emptyView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }

@@ -15,6 +15,8 @@ final class HomeViewModel {
     
     private lazy var garageManager = GarageManager()
     private lazy var obdAdapter = OBDAdapter.shared
+    
+    private lazy var sensorDataElement = HomeSensorDataElement(adapterState: .unknown)
 }
 
 // MARK: Public
@@ -54,7 +56,11 @@ private extension HomeViewModel {
     ) -> Driver<[HomeTableElement]> {
         Driver
             .combineLatest(vehicle, adapterState)
-            .map { vehicle, adapterState -> [HomeTableElement] in
+            .map { [weak self] vehicle, adapterState -> [HomeTableElement] in
+                guard let self = self else {
+                    return []
+                }
+                
                 var result: [HomeTableElement] = [.vehicle(HomeVehicleElement(
                     vehicle: vehicle,
                     adapterState: adapterState
@@ -62,8 +68,11 @@ private extension HomeViewModel {
                 
                 result.append(.connect(adapterState == .connected ? .disconnect : .connect))
                 
+                self.sensorDataElement.adapterState.accept(adapterState)
+                
                 // TODO
 //                if adapterState == .connected {
+                    result.append(.sensorData(self.sensorDataElement))
                     result.append(.dtc)
 //                }
                 

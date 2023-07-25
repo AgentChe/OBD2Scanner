@@ -139,6 +139,9 @@
 		DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */; };
 		DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */; };
 		DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */; };
+		DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194392A6FCA4100ED3084 /* SensorData.swift */; };
+		DE71943C2A6FD3E800ED3084 /* HomeSensorDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */; };
+		DE71943F2A6FEA0F00ED3084 /* SensorItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -299,6 +302,9 @@
 		DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCell.swift; sourceTree = "<group>"; };
 		DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapterState.swift; sourceTree = "<group>"; };
 		DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCEmptyView.swift; sourceTree = "<group>"; };
+		DE7194392A6FCA4100ED3084 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSensorDataCell.swift; sourceTree = "<group>"; };
+		DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorItemView.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -788,9 +794,11 @@
 		DE2F0B792A6E61B900471667 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE71943D2A6FE9F100ED3084 /* Atoms */,
 				DE2F0B7A2A6E61C200471667 /* HomeVehicleCell.swift */,
 				DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */,
 				DE2F0BCF2A6E856500471667 /* HomeDTCCell.swift */,
+				DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -859,6 +867,7 @@
 			children = (
 				DE2F0BC62A6E80F500471667 /* DTC.swift */,
 				DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */,
+				DE7194392A6FCA4100ED3084 /* SensorData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -900,6 +909,14 @@
 				DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE71943D2A6FE9F100ED3084 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */,
+			);
+			path = Atoms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1031,6 +1048,7 @@
 				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,
 				DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */,
 				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
+				DE71943F2A6FEA0F00ED3084 /* SensorItemView.swift in Sources */,
 				DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */,
 				DE2F0B672A6D2F2B00471667 /* AddVehicleViewController.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
@@ -1096,6 +1114,7 @@
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
 				DE2F0B502A6ACB3C00471667 /* GarageManager.swift in Sources */,
 				DE2F0AC52A698E0B00471667 /* Toast.swift in Sources */,
+				DE71943C2A6FD3E800ED3084 /* HomeSensorDataCell.swift in Sources */,
 				DE2F0AAC2A698E0B00471667 /* UIDevice+Extension.swift in Sources */,
 				DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */,
 				DE2F0B4B2A6AC8E900471667 /* GetVehicleImageRequest.swift in Sources */,
@@ -1107,6 +1126,7 @@
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE2F0BC12A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
 				DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */,
+				DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */,
 				DE2F0BD62A6E8A2D00471667 /* DTCTableElement.swift in Sources */,
 				DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */,
 				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,

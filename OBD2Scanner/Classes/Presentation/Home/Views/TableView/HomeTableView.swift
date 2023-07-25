@@ -61,6 +61,10 @@ extension HomeTableView: UITableViewDataSource {
             return cell
         case .dtc:
             return dequeueReusableCell(withIdentifier: String(describing: HomeDTCCell.self), for: indexPath)
+        case .sensorData(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: HomeSensorDataCell.self), for: indexPath) as! HomeSensorDataCell
+            cell.setup(element: element)
+            return cell
         }
     }
 }
@@ -89,6 +93,7 @@ private extension HomeTableView {
         register(HomeVehicleCell.self, forCellReuseIdentifier: String(describing: HomeVehicleCell.self))
         register(HomeConnectCell.self, forCellReuseIdentifier: String(describing: HomeConnectCell.self))
         register(HomeDTCCell.self, forCellReuseIdentifier: String(describing: HomeDTCCell.self))
+        register(HomeSensorDataCell.self, forCellReuseIdentifier: String(describing: HomeSensorDataCell.self))
         
         dataSource = self
         delegate = self

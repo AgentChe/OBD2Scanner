@@ -79,6 +79,26 @@ extension OBDAdapter {
         }
     }
     
+    func readSensorData(result: @escaping (SensorData?) -> Void) {
+        guard let obd2Adapter = obd2Adapter else {
+            result(nil)
+            return
+        }
+
+        let rpm = LTOBD2PID_ENGINE_RPM_0C.forMode1()
+        let speed = LTOBD2PID_VEHICLE_SPEED_0D.forMode1()
+        let temp = LTOBD2PID_COOLANT_TEMP_05.forMode1()
+
+        obd2Adapter.transmitMultipleCommands([rpm, speed, temp], completionHandler: { commands in
+            let sensorData = SensorData(
+                temp: temp.formattedResponse,
+                rpm: rpm.formattedResponse,
+                speed: speed.formattedResponse
+            )
+            result(sensorData)
+        })
+    }
+    
     var adapterState: Signal<OBDAdapterState> {
         adapterStateTrigger.asSignal(onErrorSignalWith: .never())
     }

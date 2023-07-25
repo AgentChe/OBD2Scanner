@@ -54,6 +54,10 @@
 "Home.Connect.SubTitle" = "Access data and control over\nyour car";
 "Home.Connect" = "Connect";
 "Home.Disconnect" = "Disconnect";
+"Home.SensorData.Title" = "Sensor Data";
+"Home.SensorData.Speed" = "Speed";
+"Home.SensorData.Temp" = "Temp";
+"Home.SensorData.RMP" = "RMP";
 
 // MARK: DTC
 "DTC.Title" = "Diagnostic trouble codes";

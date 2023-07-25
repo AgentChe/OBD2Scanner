@@ -39,7 +39,7 @@
 
 // MARK: Home
 "Home.DTC" = "Diagnostic trouble codes";
-"Home.State.Unknown" = "Unknown";
+"Home.State.Unknown" = "Not connected";
 "Home.State.NotFound" = "Not Found";
 "Home.State.Error" = "Error";
 "Home.State.Discovering" = "Discovering";
@@ -57,3 +57,5 @@
 
 // MARK: DTC
 "DTC.Title" = "Diagnostic trouble codes";
+"DTC.Code" = "Code";
+"DTC.Empty.Text" = "Your data will appear hear after connection woth OBD";

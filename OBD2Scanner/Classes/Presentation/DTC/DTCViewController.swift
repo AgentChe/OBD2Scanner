@@ -29,6 +29,13 @@ final class DTCViewController: UIViewController {
                 base.setup(elements: elements)
             })
             .disposed(by: disposeBag)
+        
+        output.isEmpty
+            .drive(Binder(mainView) { base, isEmpty in
+                base.emptyView.isHidden = !isEmpty
+                base.tableView.isHidden = isEmpty
+            })
+            .disposed(by: disposeBag)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

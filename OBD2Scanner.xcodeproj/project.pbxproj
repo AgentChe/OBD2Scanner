@@ -138,6 +138,7 @@
 		DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BD82A6E8A3B00471667 /* DTCVehicleCell.swift */; };
 		DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */; };
 		DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */; };
+		DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +298,7 @@
 		DE2F0BD82A6E8A3B00471667 /* DTCVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCVehicleCell.swift; sourceTree = "<group>"; };
 		DE2F0BDA2A6E8A4600471667 /* DTCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCell.swift; sourceTree = "<group>"; };
 		DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapterState.swift; sourceTree = "<group>"; };
+		DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCEmptyView.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -876,6 +878,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2F0BD22A6E8A1B00471667 /* TableView */,
+				DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 				DE2F0B692A6D2F3200471667 /* AddVehicleViewModel.swift in Sources */,
 				DE2F0AB02A698E0B00471667 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE2F0B582A6AD36000471667 /* SelectVehicleUnitView.swift in Sources */,
+				DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */,
 				DE2F0B542A6AD34E00471667 /* SelectVehicleUnitViewController.swift in Sources */,
 				DE2F0ACA2A698E0B00471667 /* PaddingTextField.swift in Sources */,
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,

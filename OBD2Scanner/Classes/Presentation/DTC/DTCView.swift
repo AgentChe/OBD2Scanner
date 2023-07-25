@@ -11,6 +11,7 @@ final class DTCView: UIView {
     lazy var gradient1View = makeGradient1View()
     lazy var gradient2View = makeGradient2View()
     lazy var tableView = makeTableView()
+    lazy var emptyView = makeEmptyView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +55,11 @@ private extension DTCView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 }
 
@@ -92,6 +98,14 @@ private extension DTCView {
         view.separatorStyle = .none
         view.contentInset = UIEdgeInsets(top: 8.scale, left: 0, bottom: 16.scale, right: 0)
         view.setContentOffset(CGPoint(x: 0, y: -8.scale), animated: false)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptyView() -> DTCEmptyView {
+        let view = DTCEmptyView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

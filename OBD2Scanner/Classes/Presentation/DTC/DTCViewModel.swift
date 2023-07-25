@@ -19,6 +19,7 @@ extension DTCViewModel {
     
     struct Output {
         let elements: Driver<[DTCTableElement]>
+        let isEmpty: Driver<Bool>
     }
     
     func configure(input: Input) -> Output {
@@ -29,7 +30,8 @@ extension DTCViewModel {
             elements: makeElements(
                 dtc: dtc,
                 vehicle: vehicle
-            )
+            ),
+            isEmpty: makeIsEmpty(dtc: dtc)
         )
     }
 }
@@ -55,5 +57,11 @@ private extension DTCViewModel {
             .obtainMyVehicle()
             .compactMap { $0 }
             .asDriver(onErrorDriveWith: .never())
+    }
+    
+    func makeIsEmpty(dtc: Driver<[DTC]>) -> Driver<Bool> {
+        dtc
+            .map { $0.isEmpty }
+            .startWith(false)
     }
 }

@@ -62,9 +62,10 @@ private extension HomeViewModel {
                 
                 result.append(.connect(adapterState == .connected ? .disconnect : .connect))
                 
-                if adapterState == .connected {
+                // TODO
+//                if adapterState == .connected {
                     result.append(.dtc)
-                }
+//                }
                 
                 return result
             }

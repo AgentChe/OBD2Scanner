@@ -61,7 +61,7 @@ extension OBDAdapter {
                 event(.success([]))
                 return Disposables.create()
             }
-            
+
             let dtcPid = LTOBD2PID_STORED_DTC_03()
             obd2Adapter.transmitCommand(dtcPid) { command in
                 let codes = dtcPid.troubleCodes.map { code -> DTC in
@@ -71,6 +71,7 @@ extension OBDAdapter {
                         explanation: code.explanation
                     )
                 }
+
                 event(.success(codes))
             }
             

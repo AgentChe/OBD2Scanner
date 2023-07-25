@@ -11,6 +11,7 @@ import RxCocoa
 final class HomeViewModel {
     enum Route {
         case dtc
+        case pids
     }
     
     private lazy var garageManager = GarageManager()
@@ -23,6 +24,7 @@ final class HomeViewModel {
 extension HomeViewModel {
     struct Input {
         let didTapDTC: Signal<Void>
+        let didTapPIDs: Signal<Void>
     }
     
     struct Output {
@@ -42,7 +44,10 @@ extension HomeViewModel {
                 vehicle: vehicle,
                 adapterState: adapterState
             ),
-            route: makeRoute(didTapDTC: input.didTapDTC),
+            route: makeRoute(
+                didTapDTC: input.didTapDTC,
+                didTapPIDs: input.didTapPIDs
+            ),
             adapterState: adapterState
         )
     }
@@ -70,11 +75,11 @@ private extension HomeViewModel {
                 
                 self.sensorDataElement.adapterState.accept(adapterState)
                 
-                // TODO
-//                if adapterState == .connected {
+                if adapterState == .connected {
                     result.append(.sensorData(self.sensorDataElement))
                     result.append(.dtc)
-//                }
+                    result.append(.pids)
+                }
                 
                 return result
             }
@@ -87,9 +92,15 @@ private extension HomeViewModel {
             .asDriver(onErrorDriveWith: .never())
     }
     
-    func makeRoute(didTapDTC: Signal<Void>) -> Driver<Route> {
-        didTapDTC
-            .map { .dtc }
+    func makeRoute(
+        didTapDTC: Signal<Void>,
+        didTapPIDs: Signal<Void>
+    ) -> Driver<Route> {
+        Signal
+            .merge(
+                didTapDTC.map { .dtc },
+                didTapPIDs.map { .pids }
+            )
             .asDriver(onErrorDriveWith: .never())
     }
     

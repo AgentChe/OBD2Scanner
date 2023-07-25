@@ -23,7 +23,8 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: HomeViewModel.Input(
-            didTapDTC: mainView.tableView.didTapDTC
+            didTapDTC: mainView.tableView.didTapDTC,
+            didTapPIDs: mainView.tableView.didTapPIDs
         ))
         
         output.brandModel
@@ -77,6 +78,9 @@ private extension HomeViewController {
         switch route {
         case .dtc:
             let vc = DTCViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
+        case .pids:
+            let vc = PIDsViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

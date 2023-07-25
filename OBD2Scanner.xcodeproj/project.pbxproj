@@ -142,6 +142,13 @@
 		DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194392A6FCA4100ED3084 /* SensorData.swift */; };
 		DE71943C2A6FD3E800ED3084 /* HomeSensorDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */; };
 		DE71943F2A6FEA0F00ED3084 /* SensorItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */; };
+		DE7194442A700A4000ED3084 /* PIDsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194432A700A4000ED3084 /* PIDsViewController.swift */; };
+		DE7194462A700A4500ED3084 /* PIDsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194452A700A4500ED3084 /* PIDsViewModel.swift */; };
+		DE7194482A700A9100ED3084 /* PIDsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194472A700A9100ED3084 /* PIDsView.swift */; };
+		DE71944C2A700D5000ED3084 /* PIDsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944B2A700D5000ED3084 /* PIDsTableView.swift */; };
+		DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */; };
+		DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */; };
+		DE7194522A700F7900ED3084 /* HomePIDsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194512A700F7900ED3084 /* HomePIDsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -305,6 +312,13 @@
 		DE7194392A6FCA4100ED3084 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
 		DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSensorDataCell.swift; sourceTree = "<group>"; };
 		DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorItemView.swift; sourceTree = "<group>"; };
+		DE7194432A700A4000ED3084 /* PIDsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsViewController.swift; sourceTree = "<group>"; };
+		DE7194452A700A4500ED3084 /* PIDsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsViewModel.swift; sourceTree = "<group>"; };
+		DE7194472A700A9100ED3084 /* PIDsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsView.swift; sourceTree = "<group>"; };
+		DE71944B2A700D5000ED3084 /* PIDsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsTableView.swift; sourceTree = "<group>"; };
+		DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsTableElement.swift; sourceTree = "<group>"; };
+		DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDTableCell.swift; sourceTree = "<group>"; };
+		DE7194512A700F7900ED3084 /* HomePIDsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePIDsCell.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -574,6 +588,7 @@
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE7194422A700A3100ED3084 /* PIDs */,
 				DE2F0BC82A6E834700471667 /* DTC */,
 				DE2F0B6C2A6D407900471667 /* Home */,
 				DE2F0B512A6AD31200471667 /* AddVehicle */,
@@ -799,6 +814,7 @@
 				DE2F0B7C2A6E61F400471667 /* HomeConnectCell.swift */,
 				DE2F0BCF2A6E856500471667 /* HomeDTCCell.swift */,
 				DE71943B2A6FD3E800ED3084 /* HomeSensorDataCell.swift */,
+				DE7194512A700F7900ED3084 /* HomePIDsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -917,6 +933,35 @@
 				DE71943E2A6FEA0F00ED3084 /* SensorItemView.swift */,
 			);
 			path = Atoms;
+			sourceTree = "<group>";
+		};
+		DE7194422A700A3100ED3084 /* PIDs */ = {
+			isa = PBXGroup;
+			children = (
+				DE7194492A700D3100ED3084 /* Views */,
+				DE7194432A700A4000ED3084 /* PIDsViewController.swift */,
+				DE7194452A700A4500ED3084 /* PIDsViewModel.swift */,
+				DE7194472A700A9100ED3084 /* PIDsView.swift */,
+			);
+			path = PIDs;
+			sourceTree = "<group>";
+		};
+		DE7194492A700D3100ED3084 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE71944A2A700D4600ED3084 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE71944A2A700D4600ED3084 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE71944B2A700D5000ED3084 /* PIDsTableView.swift */,
+				DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */,
+				DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1051,8 +1096,10 @@
 				DE71943F2A6FEA0F00ED3084 /* SensorItemView.swift in Sources */,
 				DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */,
 				DE2F0B672A6D2F2B00471667 /* AddVehicleViewController.swift in Sources */,
+				DE7194442A700A4000ED3084 /* PIDsViewController.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
+				DE7194462A700A4500ED3084 /* PIDsViewModel.swift in Sources */,
 				DE2F0B3E2A6AC75900471667 /* GetVehicleYearsResponse.swift in Sources */,
 				DE2F0BBD2A6E755900471667 /* LTOBD2O2Sensor.m in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
@@ -1072,6 +1119,7 @@
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
+				DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */,
 				DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */,
 				DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */,
 				DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */,
@@ -1107,6 +1155,7 @@
 				DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */,
 				DE2F0B692A6D2F3200471667 /* AddVehicleViewModel.swift in Sources */,
 				DE2F0AB02A698E0B00471667 /* ObservableAndSingle+Extension.swift in Sources */,
+				DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */,
 				DE2F0B582A6AD36000471667 /* SelectVehicleUnitView.swift in Sources */,
 				DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */,
 				DE2F0B542A6AD34E00471667 /* SelectVehicleUnitViewController.swift in Sources */,
@@ -1123,6 +1172,7 @@
 				DE2F0AC02A698E0B00471667 /* ContentError.swift in Sources */,
 				DE2F0B312A69984000471667 /* TryAgainView.swift in Sources */,
 				DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */,
+				DE7194482A700A9100ED3084 /* PIDsView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE2F0BC12A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
 				DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */,
@@ -1165,6 +1215,8 @@
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,
 				DE2F0ABD2A698E0B00471667 /* Fonts.swift in Sources */,
 				DE2F0B702A6D408900471667 /* HomeViewModel.swift in Sources */,
+				DE71944C2A700D5000ED3084 /* PIDsTableView.swift in Sources */,
+				DE7194522A700F7900ED3084 /* HomePIDsCell.swift in Sources */,
 				DE2F0AAF2A698E0B00471667 /* Collection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

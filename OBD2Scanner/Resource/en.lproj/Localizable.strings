@@ -39,6 +39,7 @@
 
 // MARK: Home
 "Home.DTC" = "Diagnostic trouble codes";
+"Home.PIDs" = "PIDs codes";
 "Home.State.Unknown" = "Not connected";
 "Home.State.NotFound" = "Not Found";
 "Home.State.Error" = "Error";
@@ -63,3 +64,6 @@
 "DTC.Title" = "Diagnostic trouble codes";
 "DTC.Empty.Title" = "No codes found";
 "DTC.Empty.Text" = "We have not found any trouble codes. Everything is fine with your car.";
+
+// MARK: PIDs
+"PIDs.Title" = "PIDs codes";

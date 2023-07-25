@@ -15,8 +15,8 @@ final class SensorItemView: UIView {
     
     private lazy var valueAttrs = TextAttributes()
         .textColor(UIColor.white)
-        .font(Fonts.Inter.bold(size: 24.scale))
-        .lineHeight(28.scale)
+        .font(Fonts.Inter.bold(size: 20.scale))
+        .lineHeight(24.scale)
         .textAlignment(.center)
     
     init(placeholder: String) {

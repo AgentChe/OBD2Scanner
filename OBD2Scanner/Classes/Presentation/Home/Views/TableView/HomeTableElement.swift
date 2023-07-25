@@ -12,6 +12,7 @@ enum HomeTableElement {
     case vehicle(HomeVehicleElement)
     case connect(HomeConnectElement)
     case dtc
+    case pids
     case sensorData(HomeSensorDataElement)
 }
 

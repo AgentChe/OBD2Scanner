@@ -14,6 +14,7 @@ final class HomeTableView: UITableView {
     
     private lazy var didTapConnectTrigger = PublishRelay<Void>()
     private lazy var didTapDTCTrigger = PublishRelay<Void>()
+    private lazy var didTapPIDsTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -41,6 +42,10 @@ extension HomeTableView {
     var didTapDTC: Signal<Void> {
         didTapDTCTrigger.asSignal()
     }
+    
+    var didTapPIDs: Signal<Void> {
+        didTapPIDsTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -61,6 +66,8 @@ extension HomeTableView: UITableViewDataSource {
             return cell
         case .dtc:
             return dequeueReusableCell(withIdentifier: String(describing: HomeDTCCell.self), for: indexPath)
+        case .pids:
+            return dequeueReusableCell(withIdentifier: String(describing: HomePIDsCell.self), for: indexPath)
         case .sensorData(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: HomeSensorDataCell.self), for: indexPath) as! HomeSensorDataCell
             cell.setup(element: element)
@@ -81,6 +88,8 @@ extension HomeTableView: UITableViewDelegate {
             didTapConnectTrigger.accept(Void())
         case .dtc:
             didTapDTCTrigger.accept(Void())
+        case .pids:
+            didTapPIDsTrigger.accept(Void())
         default:
             return
         }
@@ -93,6 +102,7 @@ private extension HomeTableView {
         register(HomeVehicleCell.self, forCellReuseIdentifier: String(describing: HomeVehicleCell.self))
         register(HomeConnectCell.self, forCellReuseIdentifier: String(describing: HomeConnectCell.self))
         register(HomeDTCCell.self, forCellReuseIdentifier: String(describing: HomeDTCCell.self))
+        register(HomePIDsCell.self, forCellReuseIdentifier: String(describing: HomePIDsCell.self))
         register(HomeSensorDataCell.self, forCellReuseIdentifier: String(describing: HomeSensorDataCell.self))
         
         dataSource = self

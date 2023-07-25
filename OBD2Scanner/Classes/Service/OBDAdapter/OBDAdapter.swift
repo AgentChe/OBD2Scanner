@@ -99,6 +99,17 @@ extension OBDAdapter {
         })
     }
     
+    func readPIDs(result: @escaping ([LTOBD2Command]) -> Void) {
+        guard let obd2Adapter = obd2Adapter else {
+            result([])
+            return
+        }
+        
+        obd2Adapter.transmitMultipleCommands(pids, completionHandler: { [weak self] commands in
+            result(self?.pids ?? [])
+        })
+    }
+    
     var adapterState: Signal<OBDAdapterState> {
         adapterStateTrigger.asSignal(onErrorSignalWith: .never())
     }

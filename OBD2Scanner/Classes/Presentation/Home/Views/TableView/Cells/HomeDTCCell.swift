@@ -41,7 +41,7 @@ private extension HomeDTCCell {
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
-            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16.scale),
+            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.scale),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.scale),
             container.heightAnchor.constraint(equalToConstant: 64.scale)
         ])

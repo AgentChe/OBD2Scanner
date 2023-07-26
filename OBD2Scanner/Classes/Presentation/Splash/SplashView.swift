@@ -7,10 +7,10 @@
 
 import UIKit
 
-// TODO
 final class SplashView: UIView {
     lazy var gradient1View = makeGradient1View()
     lazy var gradient2View = makeGradient2View()
+    lazy var imageView = makeImageView()
     lazy var preloader = makePreloader()
     lazy var preloaderLabel = makeLabel()
     
@@ -51,6 +51,13 @@ private extension SplashView {
         ])
         
         NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 202.scale),
+            imageView.heightAnchor.constraint(equalToConstant: 145.scale),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
             preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
             preloader.bottomAnchor.constraint(equalTo: preloaderLabel.topAnchor, constant: -10.scale)
         ])
@@ -86,6 +93,16 @@ private extension SplashView {
         ]
         view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeImageView() -> UIImageView {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "Splash.Image")
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

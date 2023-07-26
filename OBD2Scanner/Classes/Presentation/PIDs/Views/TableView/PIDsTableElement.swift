@@ -7,5 +7,5 @@
 
 enum PIDsTableElement {
     case vehicle(Vehicle)
-    case pid(LTOBD2Command)
+    case pid(PID)
 }

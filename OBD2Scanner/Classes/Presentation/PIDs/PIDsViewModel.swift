@@ -11,8 +11,6 @@ import RxCocoa
 final class PIDsViewModel {
     private lazy var obdAdapter = OBDAdapter.shared
     private lazy var garageManager = GarageManager()
-    
-    private var timer: Timer?
 }
 
 // MARK: Public
@@ -37,7 +35,7 @@ extension PIDsViewModel {
 }
 
 private extension PIDsViewModel {
-    func makeElements(pids: Driver<[LTOBD2Command]>, vehicle: Driver<Vehicle>) -> Driver<[PIDsTableElement]> {
+    func makeElements(pids: Driver<[PID]>, vehicle: Driver<Vehicle>) -> Driver<[PIDsTableElement]> {
         Driver
             .combineLatest(pids, vehicle)
             .map { pids, vehicle -> [PIDsTableElement] in
@@ -45,26 +43,27 @@ private extension PIDsViewModel {
             }
     }
     
-    func makePIDs() -> Driver<[LTOBD2Command]> {
-        Observable<[LTOBD2Command]>
+    func makePIDs() -> Driver<[PID]> {
+        Observable<[PID]>
             .create { [weak self] event in
                 guard let self = self else {
-                    return Disposables.create {
-                        self?.timer?.invalidate()
-                        self?.timer = nil
+                    return Disposables.create()
+                }
+                
+                var pids = self.obdAdapter.getPIDs()
+                event.onNext(pids)
+                
+                pids.forEach { pid in
+                    self.obdAdapter.read(pid: pid) { pid in
+                        if let pid = pid, let index = pids.firstIndex(where: { $0.id == pid.id }) {
+                            pids[index] = pid
+                            
+                            event.onNext(pids)
+                        }
                     }
                 }
                 
-                self.timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { t in
-                    self.obdAdapter.readPIDs { pids in
-                        event.onNext(pids)
-                    }
-                }
-                
-                return Disposables.create {
-                    self.timer?.invalidate()
-                    self.timer = nil
-                }
+                return Disposables.create()
             }
             .asDriver(onErrorJustReturn: [])
     }

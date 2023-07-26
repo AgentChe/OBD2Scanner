@@ -149,6 +149,7 @@
 		DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */; };
 		DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */; };
 		DE7194522A700F7900ED3084 /* HomePIDsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194512A700F7900ED3084 /* HomePIDsCell.swift */; };
+		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,6 +320,7 @@
 		DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsTableElement.swift; sourceTree = "<group>"; };
 		DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDTableCell.swift; sourceTree = "<group>"; };
 		DE7194512A700F7900ED3084 /* HomePIDsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePIDsCell.swift; sourceTree = "<group>"; };
+		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -884,6 +886,7 @@
 				DE2F0BC62A6E80F500471667 /* DTC.swift */,
 				DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */,
 				DE7194392A6FCA4100ED3084 /* SensorData.swift */,
+				DEDE2E912A702F0B008C03C8 /* PID.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1086,6 +1089,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */,
 				DE2F0B5E2A6D0A6000471667 /* SVUTableElement.swift in Sources */,
 				DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */,
 				DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */,

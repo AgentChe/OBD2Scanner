@@ -27,11 +27,8 @@ final class PIDsViewController: UIViewController {
         output.elements
             .drive(Binder(mainView) { base, elements in
                 base.tableView.setup(elements: elements)
-                base.preloader.stopAnimating()
             })
             .disposed(by: disposeBag)
-        
-        mainView.preloader.startAnimating()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

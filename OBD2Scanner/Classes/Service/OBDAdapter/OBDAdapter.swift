@@ -24,8 +24,9 @@ final class OBDAdapter: NSObject {
     private var transporter: LTBTLESerialTransporter?
     private var obd2Adapter: LTOBD2AdapterELM327?
     
-    private var serviceUUIDs = [CBUUID]()
-    private var pids = [LTOBD2Command]()
+    private lazy var serviceUUIDs = [CBUUID]()
+    private lazy var commands = [LTOBD2Command]()
+    private lazy var pids = commands.map { PID(id: UUID().uuidString, command: $0) }
 }
 
 // MARK: Public
@@ -99,15 +100,21 @@ extension OBDAdapter {
         })
     }
     
-    func readPIDs(result: @escaping ([LTOBD2Command]) -> Void) {
+    func getPIDs() -> [PID] {
+        pids
+    }
+    
+    func read(pid: PID, result: @escaping (PID?) -> Void) {
         guard let obd2Adapter = obd2Adapter else {
-            result([])
+            result(nil)
             return
         }
         
-        obd2Adapter.transmitMultipleCommands(pids, completionHandler: { [weak self] commands in
-            result(self?.pids ?? [])
-        })
+        obd2Adapter.transmitCommand(pid.command) { command in
+            DispatchQueue.main.async {
+                result(pid)
+            }
+        }
     }
     
     var adapterState: Signal<OBDAdapterState> {
@@ -125,7 +132,7 @@ private extension OBDAdapter {
             CBUUID(string: "E7810A71-73AE-499D-8C15-FAA9AEF0C3F2")
         ])
         
-        pids.append(contentsOf: [
+        commands.append(contentsOf: [
             LTOBD2CommandELM327_IGNITION_STATUS.command(),
             LTOBD2CommandELM327_READ_VOLTAGE.command(),
             LTOBD2CommandELM327_DESCRIBE_PROTOCOL.command(),
@@ -152,10 +159,10 @@ private extension OBDAdapter {
         ])
 
         for i in 0..<8 {
-            pids.append(LTOBD2PID_OXYGEN_SENSORS_INFO_1.pid(forSensor: UInt(i), mode: 1))
+            commands.append(LTOBD2PID_OXYGEN_SENSORS_INFO_1.pid(forSensor: UInt(i), mode: 1))
         }
         
-        pids.append(contentsOf: [
+        commands.append(contentsOf: [
             LTOBD2PID_OXYGEN_SENSORS_PRESENT_4_BANKS_1D.forMode1(),
             LTOBD2PID_AUX_INPUT_1E.forMode1(),
             LTOBD2PID_RUNTIME_1F.forMode1(),
@@ -165,10 +172,10 @@ private extension OBDAdapter {
         ])
 
         for i: UInt in 0..<8 {
-            pids.append(LTOBD2PID_OXYGEN_SENSORS_INFO_2.pid(forSensor: i, mode: 1))
+            commands.append(LTOBD2PID_OXYGEN_SENSORS_INFO_2.pid(forSensor: i, mode: 1))
         }
 
-        pids.append(contentsOf: [
+        commands.append(contentsOf: [
             LTOBD2PID_COMMANDED_EGR_2C.forMode1(),
             LTOBD2PID_EGR_ERROR_2D.forMode1(),
             LTOBD2PID_COMMANDED_EVAPORATIVE_PURGE_2E.forMode1(),
@@ -180,10 +187,10 @@ private extension OBDAdapter {
         ])
 
         for i: UInt in 0..<8 {
-            pids.append(LTOBD2PID_OXYGEN_SENSORS_INFO_3.pid(forSensor: i, mode: 1))
+            commands.append(LTOBD2PID_OXYGEN_SENSORS_INFO_3.pid(forSensor: i, mode: 1))
         }
         
-        pids.append(contentsOf: [
+        commands.append(contentsOf: [
             LTOBD2PID_CATALYST_TEMP_B1S1_3C.forMode1(),
             LTOBD2PID_CATALYST_TEMP_B2S1_3D.forMode1(),
             LTOBD2PID_CATALYST_TEMP_B1S2_3E.forMode1(),

@@ -37,9 +37,9 @@ final class PIDTableCell: UITableViewCell {
 
 // MARK: Public
 extension PIDTableCell {
-    func setup(element: LTOBD2Command) {
-        purposeLabel.attributedText = element.purpose.attributed(with: purposeAttrs)
-        responseLabel.attributedText = element.formattedResponse.attributed(with: responseAttrs)
+    func setup(element: PID) {
+        purposeLabel.attributedText = element.command.purpose.attributed(with: purposeAttrs)
+        responseLabel.attributedText = element.command.formattedResponse.attributed(with: responseAttrs)
     }
 }
 

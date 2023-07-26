@@ -56,6 +56,8 @@ final class AddVehicleViewController: UIViewController {
                 base.state(state)
             })
             .disposed(by: disposeBag)
+        
+        AmplitudeManager.shared.logEvent(name: "Loading Screen")
     }
     
     override func viewWillAppear(_ animated: Bool) {

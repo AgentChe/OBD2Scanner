@@ -22,6 +22,8 @@ final class DTCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared.logEvent(name: "Trouble Codes Screen")
+        
         let output = viewModel.configure(input: DTCViewModel.Input())
         
         output.elements

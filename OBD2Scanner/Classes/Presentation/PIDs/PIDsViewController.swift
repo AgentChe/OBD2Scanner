@@ -22,6 +22,8 @@ final class PIDsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared.logEvent(name: "PIDs Codes Screen")
+        
         let output = viewModel.configure(input: PIDsViewModel.Input())
         
         output.elements

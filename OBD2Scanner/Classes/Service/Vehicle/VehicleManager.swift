@@ -14,7 +14,6 @@ protocol VehicleManagerProtocol {
     func obtainImage(year: String, brand: String, model: String) -> Single<URL?>
 }
 
-// TODO: XOR
 final class VehicleManager {
     private lazy var restAPITransport = RestAPITransport()
 }

@@ -13,7 +13,7 @@ struct GetVehicleImageRequest: APIRequestBody {
     let model: String
 
     var url: String {
-        GlobalDefinitions.vehiclesDomain + "/api/v1/vehicle/\(year)/\(brand)/\(model)"
+        GlobalDefinitions.vehiclesDomain + "/api/v2/vehicle/\(year)/\(brand)/\(model)"
     }
     
     var method: HTTPMethod {

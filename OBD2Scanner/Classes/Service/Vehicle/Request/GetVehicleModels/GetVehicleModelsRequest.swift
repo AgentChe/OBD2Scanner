@@ -12,7 +12,7 @@ struct GetVehicleModelsRequest: APIRequestBody {
     let brand: String
 
     var url: String {
-        GlobalDefinitions.vehiclesDomain + "/api/v1/vehicle/\(year)/\(brand)"
+        GlobalDefinitions.vehiclesDomain + "/api/v2/vehicle/\(year)/\(brand)"
     }
     
     var method: HTTPMethod {

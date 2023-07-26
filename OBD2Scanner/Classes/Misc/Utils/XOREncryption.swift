@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class XOREncryption {
+enum XOREncryption {
     static func encryptDecrypt(_ input: String, key: String) -> String? {
         guard !input.isEmpty else {
             return nil

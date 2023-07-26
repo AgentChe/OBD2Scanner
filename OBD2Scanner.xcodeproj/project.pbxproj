@@ -19,7 +19,6 @@
 		DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A782A698E0B00471667 /* String+Extension.swift */; };
 		DE2F0AB22A698E0B00471667 /* UIViewRxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A792A698E0B00471667 /* UIViewRxExtension.swift */; };
 		DE2F0AB32A698E0B00471667 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A7A2A698E0B00471667 /* GlobalDefinitions.swift */; };
-		DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A7D2A698E0B00471667 /* DefaultRequestWrapper.swift */; };
 		DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A7E2A698E0B00471667 /* APIRequestBody.swift */; };
 		DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A7F2A698E0B00471667 /* RestAPITransport.swift */; };
 		DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A812A698E0B00471667 /* Scalable.swift */; };
@@ -168,7 +167,6 @@
 		DE2F0A782A698E0B00471667 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DE2F0A792A698E0B00471667 /* UIViewRxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRxExtension.swift; sourceTree = "<group>"; };
 		DE2F0A7A2A698E0B00471667 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
-		DE2F0A7D2A698E0B00471667 /* DefaultRequestWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRequestWrapper.swift; sourceTree = "<group>"; };
 		DE2F0A7E2A698E0B00471667 /* APIRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestBody.swift; sourceTree = "<group>"; };
 		DE2F0A7F2A698E0B00471667 /* RestAPITransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPITransport.swift; sourceTree = "<group>"; };
 		DE2F0A812A698E0B00471667 /* Scalable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scalable.swift; sourceTree = "<group>"; };
@@ -439,19 +437,10 @@
 		DE2F0A7B2A698E0B00471667 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F0A7C2A698E0B00471667 /* Wrapper */,
 				DE2F0A7E2A698E0B00471667 /* APIRequestBody.swift */,
 				DE2F0A7F2A698E0B00471667 /* RestAPITransport.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		DE2F0A7C2A698E0B00471667 /* Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0A7D2A698E0B00471667 /* DefaultRequestWrapper.swift */,
-			);
-			path = Wrapper;
 			sourceTree = "<group>";
 		};
 		DE2F0A802A698E0B00471667 /* Utils */ = {
@@ -1124,7 +1113,6 @@
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */,
-				DE2F0AB42A698E0B00471667 /* DefaultRequestWrapper.swift in Sources */,
 				DE2F0B7B2A6E61C200471667 /* HomeVehicleCell.swift in Sources */,
 				DE2F0B4D2A6AC8EF00471667 /* GetVehicleImageResponse.swift in Sources */,
 				DE2F0BAD2A6E755900471667 /* LTOBD2CaptureFile.m in Sources */,

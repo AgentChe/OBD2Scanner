@@ -13,13 +13,13 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
-    static let appleAppID = "" // TODO
+    static let appleAppID = "6453754536"
     
     static let applicationTag = "OBD2_SCANNER"
     static let amplitudeApiKey = "11f36fb9021dbfca4a1349a3b2284224"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
-    static let termsOfServiceUrl = "" // TODO
-    static let privacyPolicyUrl = "" // TODO
-    static let contactUsUrl = "" // TODO
+    static let termsOfServiceUrl = "https://kyotosaka.com/terms.html"
+    static let privacyPolicyUrl = "https://kyotosaka.com/policy.html"
+    static let contactUsUrl = "https://kyotosaka.com/contacts.html"
 }

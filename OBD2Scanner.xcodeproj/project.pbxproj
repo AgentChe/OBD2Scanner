@@ -62,7 +62,6 @@
 		DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE12A698E1100471667 /* IAPProduct.swift */; };
 		DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE32A698E1100471667 /* IAPError.swift */; };
 		DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */; };
-		DE2F0AF42A698E4A00471667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF32A698E4A00471667 /* GoogleService-Info.plist */; };
 		DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */; };
 		DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */; };
 		DE2F0AFE2A69911E00471667 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */; };
@@ -149,6 +148,7 @@
 		DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */; };
 		DE7194522A700F7900ED3084 /* HomePIDsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194512A700F7900ED3084 /* HomePIDsCell.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
+		DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,7 +210,6 @@
 		DE2F0AE12A698E1100471667 /* IAPProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		DE2F0AE32A698E1100471667 /* IAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
-		DE2F0AF32A698E4A00471667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -319,6 +318,7 @@
 		DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDTableCell.swift; sourceTree = "<group>"; };
 		DE7194512A700F7900ED3084 /* HomePIDsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePIDsCell.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
+		DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -385,7 +385,7 @@
 				DE2F0A632A698C0300471667 /* Assets.xcassets */,
 				DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */,
 				DE2F0A682A698C0300471667 /* Info.plist */,
-				DE2F0AF32A698E4A00471667 /* GoogleService-Info.plist */,
+				DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */,
 				DE2F0B052A69937200471667 /* Localizable.strings */,
 			);
 			path = Resource;
@@ -1019,13 +1019,13 @@
 			files = (
 				DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */,
 				DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */,
+				DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */,
 				DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */,
 				DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */,
 				DE2F0B032A69937200471667 /* Localizable.strings in Resources */,
 				DE2F0B002A69911E00471667 /* Inter-SemiBold.ttf in Resources */,
 				DE2F0AFE2A69911E00471667 /* Inter-Regular.ttf in Resources */,
 				DE2F0AFF2A69911E00471667 /* Inter-Italic.otf in Resources */,
-				DE2F0AF42A698E4A00471667 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

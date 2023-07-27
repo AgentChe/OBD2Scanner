@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5.apps.googleusercontent.com</string>
+	<string>289575012586-aji8a13q9i6t2lsv57i8730u9lppfegc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5</string>
+	<string>com.googleusercontent.apps.289575012586-aji8a13q9i6t2lsv57i8730u9lppfegc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA4oaGWRS2cQmQC2tB3HSJjSHaHdvlw11c</string>
+	<string>AIzaSyA_D-Azpbs2shpFpPJQr30zRDOoz0Sofxw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>383900223161</string>
+	<string>289575012586</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>mobile.guides</string>
+	<string>utility.app.obd2</string>
 	<key>PROJECT_ID</key>
-	<string>medical-guides</string>
+	<string>obd2-scanner</string>
 	<key>STORAGE_BUCKET</key>
-	<string>medical-guides.appspot.com</string>
+	<string>obd2-scanner.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:383900223161:ios:7d8886294007e496643d68</string>
+	<string>1:289575012586:ios:41aa61a79af46535f8ef93</string>
 </dict>
 </plist>

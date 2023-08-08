@@ -22,6 +22,26 @@
 "TryAgain.Button" = "Try again";
 "TryAgain.Contact" = "Contact the support";
 
+// MARK: Paygate
+"Paygate.Title" = "Keep track of your vehicle's\nvital information";
+"Paygate.Cell1" = "Monitor real-time Sensor Data";
+"Paygate.Cell2" = "Diagnose Trouble Codes (DTCs)";
+"Paygate.Cell3" = "Gain access to PID Codes Database";
+"Paygate.Secured" = "Secured by the App Store. Cancel anytime.";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.PrivacyPolicy" = "Privacy Policy";
+"Paygate.RestorePurchases" = "Restore Purchase";
+"Paygate.Failed" = "Failed to make purchase";
+"Paygate.Monthly.Name1" = "7 days for free";
+"Paygate.Monthly.Name2" = "Quick prep";
+"Paygate.Monthly.Bottom1" = "After 7-day trial";
+"Paygate.Monthly.Bottom2" = "Trial is over";
+"Paygate.Lifetime.Name" = "Lifetime";
+"Paygate.Lifetime.PriceDescription" = "\nIn terms of  1  year";
+"Paygate.Lifetime.BottomDescription" = "once";
+"Paygate.Discount" = "SAVE %i%%";
+"Paygate.Price.Period" = "month";
+
 // MARK: Splash
 "Splash.Preloader1" = "Checking your account...";
 "Splash.Preloader2" = "Syncing the soccer library";

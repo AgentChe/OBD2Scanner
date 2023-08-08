@@ -22,4 +22,9 @@ final class GlobalDefinitions {
     static let termsOfServiceUrl = "https://kyotosaka.com/terms.html"
     static let privacyPolicyUrl = "https://kyotosaka.com/policy.html"
     static let contactUsUrl = "https://kyotosaka.com/contacts.html"
+    
+    enum Paygate {
+        static let defaultLifetime = "utility.app.obd2.lt100"
+        static let defaultMonthly = "utility.app.obd2.sub25trial7"
+    }
 }

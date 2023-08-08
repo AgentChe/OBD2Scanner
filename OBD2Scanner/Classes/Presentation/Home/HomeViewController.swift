@@ -50,13 +50,22 @@ final class HomeViewController: UIViewController {
         let adapterState = output.adapterState
         mainView.tableView.didTapConnect
             .withLatestFrom(adapterState)
-            .emit(to: Binder(OBDAdapter.shared) { base, adapterState in
+            .emit(to: Binder(self) { base, adapterState in
+                guard SessionManager().hasActiveSubscriptions() else {
+                    let vc = PaygateViewController.make()
+                    base.present(vc, animated: true)
+                    
+                    return
+                }
+                
+                let adapter = OBDAdapter.shared
+                
                 if adapterState == .connected {
-                    base.disconnect()
+                    adapter.disconnect()
                     
                     AmplitudeManager.shared.logEvent(name: "Main Screen Tap", parameters: ["what": "disconnect"])
                 } else {
-                    base.connect()
+                    adapter.connect()
                     
                     AmplitudeManager.shared.logEvent(name: "Main Screen Tap", parameters: ["what": "connect"])
                 }

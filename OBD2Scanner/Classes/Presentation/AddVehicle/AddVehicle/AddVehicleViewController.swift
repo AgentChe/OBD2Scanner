@@ -87,6 +87,13 @@ extension AddVehicleViewController {
     }
 }
 
+// MARK: PaygateViewControllerDelegate
+extension AddVehicleViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        route(.main)
+    }
+}
+
 // MARK: Private
 private extension AddVehicleViewController {
     func open(error: Error) -> Observable<Void> {
@@ -110,13 +117,24 @@ private extension AddVehicleViewController {
         case .loading(let brandModel):
             let string = String(format: "AddVehicle.Preloader".localized, brandModel)
             mainView.setup(text: string)
-        case .completed:
+        case .completed(let route):
             mainView.setup(text: "AddVehicle.Completed".localized)
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                let nc = NavigationController(rootViewController: HomeViewController.make())
-                UIApplication.shared.keyWindow?.rootViewController = nc
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [weak self] in
+                self?.route(route)
             }
+        }
+    }
+    
+    func route(_ route: AddVehicleViewModel.Route) {
+        switch route {
+        case .paygate:
+            let vc = PaygateViewController.make()
+            vc.delegate = self
+            present(vc, animated: true)
+        case .main:
+            let nc = NavigationController(rootViewController: HomeViewController.make())
+            UIApplication.shared.keyWindow?.rootViewController = nc
         }
     }
 }

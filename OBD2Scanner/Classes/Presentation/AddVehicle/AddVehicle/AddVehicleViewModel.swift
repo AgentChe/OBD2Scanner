@@ -11,7 +11,11 @@ import RxCocoa
 final class AddVehicleViewModel {
     enum State {
         case loading(brandModel: String)
-        case completed
+        case completed(Route)
+    }
+    
+    enum Route {
+        case paygate, main
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -62,7 +66,10 @@ private extension AddVehicleViewModel {
                 return State.loading(brandModel: brandModel)
             }
         let completed = vehicle
-            .map { _ in State.completed }
+            .map { vehicle -> State in
+                let route = SessionManager().hasActiveSubscriptions() ? Route.main : Route.paygate
+                return .completed(route)
+            }
         
         return Driver
             .merge(initial, completed)

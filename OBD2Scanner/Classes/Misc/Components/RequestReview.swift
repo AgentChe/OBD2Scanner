@@ -7,9 +7,15 @@
 
 import StoreKit
 
-final class RequestReview {
-    static func request() {
-        guard let scene = UIApplication.shared.connectedScenes
+enum RequestReview {
+    enum Constants {
+        static let requested = "requets_review_requested"
+    }
+    
+    static func requestIfNeeded() {
+        guard
+            !UserDefaults.standard.bool(forKey: Constants.requested),
+            let scene = UIApplication.shared.connectedScenes
                 .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
         else {
             return
@@ -20,6 +26,8 @@ final class RequestReview {
 
         DispatchQueue.main.async {
             SKStoreReviewController.requestReview(in: scene)
+            
+            UserDefaults.standard.set(true, forKey: Constants.requested)
         }
     }
 }

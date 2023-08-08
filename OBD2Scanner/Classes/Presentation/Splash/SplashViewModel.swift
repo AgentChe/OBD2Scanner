@@ -11,12 +11,13 @@ import OtterScaleiOS
 
 final class SplashViewModel {
     enum Step {
-        case addVehicle, main
+        case addVehicle, paygate, main
     }
     
     lazy var validationComplete = PublishRelay<Void>()
     
     private lazy var garageManager = GarageManager()
+    private lazy var sessionManager = SessionManager()
 }
 
 // MARK: Public
@@ -28,9 +29,23 @@ extension SplashViewModel {
                     return .never()
                 }
                 
+                let otterScaleID = OtterScale.shared.getInternalID()
+                let session = Session(userToken: otterScaleID)
+                
+                self.sessionManager.store(session: session)
+                
                 return self.garageManager
                     .obtainMyVehicle()
-                    .map { $0 == nil ? .addVehicle : .main }
+                    .map { vehicle -> Step in
+                        if vehicle == nil {
+                            return .addVehicle
+                        } else if !self.sessionManager.hasActiveSubscriptions() {
+                            return .paygate
+                        } else {
+                            return .main
+                        }
+                        
+                    }
             }
             .asDriver(onErrorDriveWith: .empty())
     }

@@ -24,7 +24,7 @@ final class GlobalDefinitions {
     static let contactUsUrl = "https://kyotosaka.com/contacts.html"
     
     enum Paygate {
-        static let defaultLifetime = "utility.app.obd2.lt100"
-        static let defaultMonthly = "utility.app.obd2.sub25trial7"
+        static let defaultLifetime = "utility.app.obd2.lt20"
+        static let defaultMonthly = "utility.app.obd2.sub10"
     }
 }

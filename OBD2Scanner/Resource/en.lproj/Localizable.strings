@@ -32,10 +32,10 @@
 "Paygate.PrivacyPolicy" = "Privacy Policy";
 "Paygate.RestorePurchases" = "Restore Purchase";
 "Paygate.Failed" = "Failed to make purchase";
-"Paygate.Monthly.Name1" = "7 days for free";
+"Paygate.Monthly.Name1" = "Monthly";
 "Paygate.Monthly.Name2" = "Quick prep";
-"Paygate.Monthly.Bottom1" = "After 7-day trial";
-"Paygate.Monthly.Bottom2" = "Trial is over";
+"Paygate.Monthly.Bottom1" = "";
+"Paygate.Monthly.Bottom2" = "";
 "Paygate.Lifetime.Name" = "Lifetime";
 "Paygate.Lifetime.PriceDescription" = "\nIn terms of  1  year";
 "Paygate.Lifetime.BottomDescription" = "once";

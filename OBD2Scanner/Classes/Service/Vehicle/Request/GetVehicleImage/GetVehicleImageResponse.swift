@@ -23,6 +23,11 @@ enum GetVehicleImageResponse {
         }
         
         let path = GlobalDefinitions.vehiclesDomain + preview
-        return URL(string: path)
+        
+        guard let encoded = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return nil
+        }
+        
+        return URL(string: encoded)
     }
 }

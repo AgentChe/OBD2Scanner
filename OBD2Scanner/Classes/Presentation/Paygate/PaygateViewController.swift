@@ -29,8 +29,6 @@ final class PaygateViewController: UIViewController {
         FirebaseManager.shared
             .logEvent(name: "client_paygate_screen")
         
-        RequestReview.requestIfNeeded()
-        
         viewModel.products
             .drive(Binder(self) { base, products in
                 base.mainView.leftOptionButton.info = products.first

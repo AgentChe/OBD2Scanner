@@ -71,6 +71,7 @@ final class SelectVehicleUnitViewController: UIViewController {
             .disposed(by: disposeBag)
         
         analytics()
+        requestReviewIfNeeded()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -90,6 +91,14 @@ extension SelectVehicleUnitViewController {
 
 // MARK: Private
 private extension SelectVehicleUnitViewController {
+    func requestReviewIfNeeded() {
+        guard case .model = unit else {
+            return
+        }
+        
+        RequestReview.requestIfNeeded()
+    }
+    
     func open(error: Error) -> Observable<Void> {
         Observable<Void>
             .create { [weak self] observe in

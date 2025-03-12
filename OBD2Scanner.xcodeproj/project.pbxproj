@@ -50,8 +50,6 @@
 		DE2F0AD12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift */; };
 		DE2F0AD22A698E0B00471667 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA22A698E0B00471667 /* PushNotificationsModel.swift */; };
 		DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */; };
-		DE2F0AD52A698E0B00471667 /* AppsFlyerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA62A698E0B00471667 /* AppsFlyerManager.swift */; };
-		DE2F0AD62A698E0B00471667 /* BranchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA72A698E0B00471667 /* BranchManager.swift */; };
 		DE2F0AD72A698E0B00471667 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */; };
 		DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */; };
 		DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */; };
@@ -212,8 +210,6 @@
 		DE2F0AA12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsAuthorizationStatus.swift; sourceTree = "<group>"; };
 		DE2F0AA22A698E0B00471667 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
 		DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE2F0AA62A698E0B00471667 /* AppsFlyerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsFlyerManager.swift; sourceTree = "<group>"; };
-		DE2F0AA72A698E0B00471667 /* BranchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
@@ -554,8 +550,6 @@
 		DE2F0AA52A698E0B00471667 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F0AA62A698E0B00471667 /* AppsFlyerManager.swift */,
-				DE2F0AA72A698E0B00471667 /* BranchManager.swift */,
 				DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */,
 				DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */,
 				DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */,
@@ -1219,7 +1213,6 @@
 				DE2F0BAD2A6E755900471667 /* LTOBD2CaptureFile.m in Sources */,
 				DE2F0BCC2A6E835A00471667 /* DTCViewModel.swift in Sources */,
 				DE2F0ABE2A698E0B00471667 /* SignError.swift in Sources */,
-				DE2F0AD62A698E0B00471667 /* BranchManager.swift in Sources */,
 				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
 				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
@@ -1283,7 +1276,6 @@
 				DEC61E942A8123E6008F9C97 /* PaygateOptionLineComponent.swift in Sources */,
 				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
 				DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */,
-				DE2F0AD52A698E0B00471667 /* AppsFlyerManager.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
@@ -1470,7 +1462,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1485,7 +1477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1510,7 +1502,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1525,7 +1517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

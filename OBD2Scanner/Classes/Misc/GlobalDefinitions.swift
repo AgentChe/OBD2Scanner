@@ -13,15 +13,12 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
-    static let appleAppID = "6453754536"
-    
     static let applicationTag = "OBD2_SCANNER"
-    static let amplitudeApiKey = "0d810afcbd45c0b58a5ed6cd272acfa"
-    static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
+    static let amplitudeApiKey = "ad1acf62a1718340f0958c15b7b9dcfc"
     
-    static let termsOfServiceUrl = "https://kyotosaka.com/terms.html"
-    static let privacyPolicyUrl = "https://kyotosaka.com/policy.html"
-    static let contactUsUrl = "https://kyotosaka.com/contacts.html"
+    static let termsOfServiceUrl = "https://thinkaboutapps.com/terms"
+    static let privacyPolicyUrl = "https://thinkaboutapps.com/policy"
+    static let contactUsUrl = "https://thinkaboutapps.com/contact"
     
     enum Paygate {
         static let defaultLifetime = "utility.app.obd2.lt20"

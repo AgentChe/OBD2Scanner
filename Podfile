@@ -19,10 +19,8 @@ target 'OBD2Scanner' do
   
   pod 'FBSDKCoreKit'
   pod 'Amplitude-iOS'
-  pod 'Branch'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-  pod 'AppsFlyerFramework'
 end
 
 post_install do |installer|

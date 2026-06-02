@@ -6,9 +6,8 @@
 //
 
 final class GlobalDefinitions {
-    static let vehiclesDomain = "https://vehicles.mustname.com"
-    static let vehiclesAccessToken = "83NcxF8W5PGfNDxZayRpCEHJ"
-    static let xorKey = "NDxZayRp"
+    static let domain = "https://carconnect.bloomupapps.com"
+    static let accessToken = "1E0fCaZs7zvSEZoXPP"
     
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"

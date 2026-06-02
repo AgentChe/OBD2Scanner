@@ -9,16 +9,12 @@ enum GetVehicleYearsResponse {
     static func map(from response: Any) -> [String] {
         guard
             let json = response as? [String: Any],
-            let output = json["output"] as? String,
-            let decodedData = Data(base64Encoded: output),
-            let decodedString = String(data: decodedData, encoding: .utf8),
-            let json = XOREncryption.toJSON(decodedString, key: GlobalDefinitions.xorKey),
-            let body = json["body"] as? [String: Any],
-            let years = body["years"] as? [String]
+            let body = json["body"] as? [String: Any]
         else {
             return []
         }
         
-        return years
+        let years = (body["years"] as? [Int]) ?? []
+        return years.map { String($0) }
     }
 }

@@ -13,7 +13,7 @@ struct GetVehicleImageRequest: APIRequestBody {
     let model: String
 
     var url: String {
-        GlobalDefinitions.vehiclesDomain + "/api/v2/vehicle/\(year)/\(brand)/\(model)"
+        GlobalDefinitions.domain + "/api/v1/vehicle/support/preview"
     }
     
     var method: HTTPMethod {
@@ -22,7 +22,19 @@ struct GetVehicleImageRequest: APIRequestBody {
     
     var headers: HTTPHeaders? {
         [
-            "Access-Token": GlobalDefinitions.vehiclesAccessToken
+            "Access-Token": GlobalDefinitions.accessToken
         ]
+    }
+    
+    var parameters: Parameters? {
+        [
+            "year": year,
+            "make": brand,
+            "model": model
+        ]
+    }
+    
+    var encoding: ParameterEncoding {
+        URLEncoding.queryString
     }
 }

@@ -11,7 +11,7 @@ struct GetVehicleBrandsRequest: APIRequestBody {
     let year: String
 
     var url: String {
-        GlobalDefinitions.vehiclesDomain + "/api/v2/vehicle/\(year)"
+        GlobalDefinitions.domain + "/api/v1/vehicle/support/brands"
     }
     
     var method: HTTPMethod {
@@ -20,7 +20,17 @@ struct GetVehicleBrandsRequest: APIRequestBody {
     
     var headers: HTTPHeaders? {
         [
-            "Access-Token": GlobalDefinitions.vehiclesAccessToken
+            "Access-Token": GlobalDefinitions.accessToken
         ]
+    }
+    
+    var parameters: Parameters? {
+        [
+            "year": year
+        ]
+    }
+    
+    var encoding: ParameterEncoding {
+        URLEncoding.queryString
     }
 }

@@ -9,7 +9,7 @@ import Alamofire
 
 struct GetVehicleYearsRequest: APIRequestBody {
     var url: String {
-        GlobalDefinitions.vehiclesDomain + "/api/v2/vehicle"
+        GlobalDefinitions.domain + "/api/v1/vehicle/support/years"
     }
     
     var method: HTTPMethod {
@@ -18,7 +18,7 @@ struct GetVehicleYearsRequest: APIRequestBody {
     
     var headers: HTTPHeaders? {
         [
-            "Access-Token": GlobalDefinitions.vehiclesAccessToken
+            "Access-Token": GlobalDefinitions.accessToken
         ]
     }
 }

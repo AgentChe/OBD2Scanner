@@ -101,11 +101,6 @@ private extension AddVehicleViewController {
                     return Disposables.create()
                 }
                 
-                let vc = TryAgainViewController.make(error: error) {
-                    observe.onNext(())
-                }
-                self.present(vc, animated: true)
-                
                 return Disposables.create()
             }
     }

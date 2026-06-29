@@ -67,7 +67,6 @@ private extension PaygateOptionInfo {
                     }
                     
                     return priceResultLocalized
-                        .removingWhitespaces()
                         .attributed(with: attrs)
                 case .promo(let promo):
                     return promo.attributed(with: promoAttrs)

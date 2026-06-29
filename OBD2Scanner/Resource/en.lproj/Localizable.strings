@@ -33,18 +33,7 @@ and smart monitoring";
 "Onboarding.Slider.Garage.Title" = "Unlimited garage";
 "Onboarding.Slider.Garage.SubTitle" = "Add any cars";
 
-// TODO: legacy 
-
-// MARK: ImagePicker
-"ImagePicker.TakePhoto" = "Take a photo";
-"ImagePicker.CameraRoll" = "Camera roll";
-"ImagePicker.PhotoLibrary" = "Photo library";
-
-// MARK: TryAgain
-"TryAgain.Title" = "The app failed to perform a request";
-"TryAgain.SubTitle" = "If there’s a connection issue on your side try one more time. If the connection is fine and the error keeps on repeating please get in touch with the support";
-"TryAgain.Button" = "Try again";
-"TryAgain.Contact" = "Contact the support";
+// TODO: legacy
 
 // MARK: Paygate
 "Paygate.Title" = "Keep track of your vehicle's\nvital information";

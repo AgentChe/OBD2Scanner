@@ -284,8 +284,8 @@ private extension PaygateView {
         return view
     }
     
-    func makePreloader() -> Spinner {
-        let view = Spinner(size: CGSize(width: 45.scale, height: 45.scale))
+    func makePreloader() -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

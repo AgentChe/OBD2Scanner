@@ -62,7 +62,6 @@ final class PaygateViewController: UIViewController {
             .buyed
             .emit(onNext: { [weak self] success in
                 if !success {
-                    Toast.notify(with: "Paygate.Failed".localized, style: .danger)
                     return
                 }
                 
@@ -74,7 +73,6 @@ final class PaygateViewController: UIViewController {
             .restored
             .emit(onNext: { [weak self] result in
                 if !result {
-                    Toast.notify(with: "Paygate.Failed".localized, style: .danger)
                     return
                 }
                 

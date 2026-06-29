@@ -91,11 +91,7 @@ extension SelectVehicleUnitViewController {
 // MARK: Private
 private extension SelectVehicleUnitViewController {
     func requestReviewIfNeeded() {
-        guard case .model = unit else {
-            return
-        }
-        
-        RequestReview.requestIfNeeded()
+       
     }
     
     func open(error: Error) -> Observable<Void> {
@@ -104,11 +100,6 @@ private extension SelectVehicleUnitViewController {
                 guard let self = self else {
                     return Disposables.create()
                 }
-                
-                let vc = TryAgainViewController.make(error: error) {
-                    observe.onNext(())
-                }
-                self.present(vc, animated: true)
                 
                 return Disposables.create()
             }

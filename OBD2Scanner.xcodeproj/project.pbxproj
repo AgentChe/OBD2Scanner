@@ -50,7 +50,6 @@
 		DE2F0AD12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift */; };
 		DE2F0AD22A698E0B00471667 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA22A698E0B00471667 /* PushNotificationsModel.swift */; };
 		DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */; };
-		DE2F0AD72A698E0B00471667 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */; };
 		DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */; };
 		DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */; };
 		DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0ADC2A698E1100471667 /* IAPManager.swift */; };
@@ -210,7 +209,6 @@
 		DE2F0AA12A698E0B00471667 /* PushNotificationsAuthorizationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsAuthorizationStatus.swift; sourceTree = "<group>"; };
 		DE2F0AA22A698E0B00471667 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
 		DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		DE2F0ADC2A698E1100471667 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
@@ -550,7 +548,6 @@
 		DE2F0AA52A698E0B00471667 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F0AA82A698E0B00471667 /* AmplitudeManager.swift */,
 				DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */,
 				DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */,
 			);
@@ -1154,13 +1151,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1178,7 +1171,6 @@
 				DE2F0B5E2A6D0A6000471667 /* SVUTableElement.swift in Sources */,
 				DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */,
 				DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */,
-				DE2F0AD72A698E0B00471667 /* AmplitudeManager.swift in Sources */,
 				DEC61EA92A812F77008F9C97 /* DefaultPaygate.swift in Sources */,
 				DEC61E902A8123CD008F9C97 /* Paygate.swift in Sources */,
 				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,

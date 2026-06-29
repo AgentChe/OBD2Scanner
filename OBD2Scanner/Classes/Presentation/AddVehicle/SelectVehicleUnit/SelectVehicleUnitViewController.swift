@@ -70,7 +70,6 @@ final class SelectVehicleUnitViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        analytics()
         requestReviewIfNeeded()
     }
     
@@ -118,31 +117,14 @@ private extension SelectVehicleUnitViewController {
     func route(_ route: SelectVehicleUnitViewModel.Route) {
         switch route {
         case .brand(let year):
-            AmplitudeManager.shared.logEvent(name: "Year Manufacture Tap", parameters: ["what": year])
-            
             let vc = SelectVehicleUnitViewController.make(unit: .brand(year: year))
             navigationController?.pushViewController(vc, animated: true)
         case .model(let year, let brand):
-            AmplitudeManager.shared.logEvent(name: "Car Brand Tap", parameters: ["what": brand])
-            
             let vc = SelectVehicleUnitViewController.make(unit: .model(year: year, brand: brand))
             navigationController?.pushViewController(vc, animated: true)
         case .addVehicle(let values):
-            AmplitudeManager.shared.logEvent(name: "Car Model Tap", parameters: ["what": values.model ?? ""])
-            
             let vc = AddVehicleViewController.make(values: values)
             navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    func analytics() {
-        switch unit {
-        case .year:
-            AmplitudeManager.shared.logEvent(name: "Year Manufacture Screen")
-        case .brand:
-            AmplitudeManager.shared.logEvent(name: "Car Brand Screen")
-        case .model:
-            AmplitudeManager.shared.logEvent(name: "Car Model Screen")
         }
     }
 }

@@ -22,8 +22,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AmplitudeManager.shared.logEvent(name: "Main Screen")
-        
         let output = viewModel.configure(input: HomeViewModel.Input(
             didTapDTC: mainView.tableView.didTapDTC,
             didTapPIDs: mainView.tableView.didTapPIDs
@@ -62,25 +60,8 @@ final class HomeViewController: UIViewController {
                 
                 if adapterState == .connected {
                     adapter.disconnect()
-                    
-                    AmplitudeManager.shared.logEvent(name: "Main Screen Tap", parameters: ["what": "disconnect"])
                 } else {
                     adapter.connect()
-                    
-                    AmplitudeManager.shared.logEvent(name: "Main Screen Tap", parameters: ["what": "connect"])
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        adapterState
-            .drive(Binder(self) { base, state in
-                switch state {
-                case .connected:
-                    AmplitudeManager.shared.logEvent(name: "Scanner Connected")
-                case .gone:
-                    AmplitudeManager.shared.logEvent(name: "Scanner Disconnected")
-                default:
-                    return
                 }
             })
             .disposed(by: disposeBag)

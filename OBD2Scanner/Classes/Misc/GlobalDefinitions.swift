@@ -12,9 +12,6 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
-    static let applicationTag = "OBD2_SCANNER"
-    static let amplitudeApiKey = "ad1acf62a1718340f0958c15b7b9dcfc"
-    
     static let termsOfServiceUrl = "https://thinkaboutapps.com/terms"
     static let privacyPolicyUrl = "https://thinkaboutapps.com/policy"
     static let contactUsUrl = "https://thinkaboutapps.com/contact"

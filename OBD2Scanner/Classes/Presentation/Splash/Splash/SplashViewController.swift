@@ -63,11 +63,11 @@ private extension SplashViewController {
         
         switch action {
         case .openOnboarding:
-            break // TODO:
+            window.rootViewController = OnboardingViewController.make()
         case .openPaygateAndAfterMain:
             break // TODO:
         case .openMain:
-            break // TODO: 
+            break // TODO:
         }
     }
 }

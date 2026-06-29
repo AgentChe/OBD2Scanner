@@ -39,7 +39,9 @@ private extension SplashViewModel {
     func makeAction(didSDKConfigured: Signal<Void>) -> Driver<Action> {
         didSDKConfigured
             .map { _ -> Action in
-                // TODO: check onboarding
+                guard OnboardingViewController.wasViewed() else {
+                    return .openOnboarding
+                }
                 
                 return SessionManager().hasActiveSubscriptions() ? .openMain : .openPaygateAndAfterMain
             }

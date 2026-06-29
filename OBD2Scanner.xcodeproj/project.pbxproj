@@ -143,6 +143,9 @@
 		DE4B7E612FF2A09B00973BA9 /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E602FF2A09B00973BA9 /* PlusJakartaSans-SemiBold.ttf */; };
 		DE4B7E632FF2A19400973BA9 /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E622FF2A19400973BA9 /* PlusJakartaSans-Light.ttf */; };
 		DE4B7E652FF2A19800973BA9 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E642FF2A19800973BA9 /* PlusJakartaSans-ExtraBold.ttf */; };
+		DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */; };
+		DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */; };
+		DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */; };
 		DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */; };
 		DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */; };
 		DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194392A6FCA4100ED3084 /* SensorData.swift */; };
@@ -171,6 +174,7 @@
 		DEC61EB02A812F77008F9C97 /* PaygateInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA72A812F77008F9C97 /* PaygateInfoCell.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */; };
+		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -335,6 +339,9 @@
 		DE4B7E602FF2A09B00973BA9 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE4B7E622FF2A19400973BA9 /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; };
 		DE4B7E642FF2A19800973BA9 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderItemView.swift; sourceTree = "<group>"; };
 		DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapterState.swift; sourceTree = "<group>"; };
 		DE7194352A6FBEFD00ED3084 /* DTCEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCEmptyView.swift; sourceTree = "<group>"; };
 		DE7194392A6FCA4100ED3084 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
@@ -363,6 +370,7 @@
 		DEC61EA72A812F77008F9C97 /* PaygateInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateInfoCell.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -670,6 +678,7 @@
 		DE2F0B062A69943300471667 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DE4B7E672FF2AA0300973BA9 /* Onboarding */,
 				DE2F0B2E2A69984000471667 /* TryAgain */,
 				DE4B7E662FF2A5E800973BA9 /* Splash */,
 			);
@@ -998,6 +1007,33 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		DE4B7E672FF2AA0300973BA9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B7E6D2FF2B36B00973BA9 /* View */,
+				DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */,
+				DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DE4B7E6D2FF2B36B00973BA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B7E6E2FF2B39E00973BA9 /* Slider */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE4B7E6E2FF2B39E00973BA9 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */,
+				DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		DE71943D2A6FE9F100ED3084 /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1308,7 @@
 				DE2F0B762A6E61AE00471667 /* HomeTableView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIViewRxExtension.swift in Sources */,
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
+				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */,
@@ -1282,6 +1319,7 @@
 				DE2F0ABE2A698E0B00471667 /* SignError.swift in Sources */,
 				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
 				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
+				DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
 				DE2F0AAE2A698E0B00471667 /* Date+Extension.swift in Sources */,
 				DE2F0AC12A698E0B00471667 /* Weak.swift in Sources */,
@@ -1295,7 +1333,9 @@
 				DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */,
 				DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */,
 				DE2F0B482A6AC86A00471667 /* GetVehicleModelsResponse.swift in Sources */,
+				DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */,
 				DE2F0B322A69984000471667 /* TryAgainViewController.swift in Sources */,
+				DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */,
 				DE2F0BBF2A6E755900471667 /* LTOBD2AdapterCaptureFile.m in Sources */,
 				DE2F0BB42A6E755900471667 /* LTOBD2MonitorResult.m in Sources */,
 				DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */,

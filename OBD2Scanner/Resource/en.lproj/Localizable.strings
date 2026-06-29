@@ -16,6 +16,23 @@
 "Splash.Title.2" = " SCANNER";
 "Splash.SubTitle" = "SMART DIAGNOSTICS";
 
+// MARK: Onboarding
+"Onboarding.Title.1" = "OBD2";
+"Onboarding.Title.2" = " SCANNER";
+"Onboarding.SubTitle" = "SMART DIAGNOSTICS";
+"Onboarding.AddCarButton" = "Add My Car";
+"Onboarding.Info.Title" = "MEET YOUR CAR DIGITAL SIDE";
+"Onboarding.Info.SubTitle" = "Set up your vehicle to unlock diagnostics, live data
+and smart monitoring";
+"Onboarding.Slider.Diagnostic.Title" = "Diagnostics";
+"Onboarding.Slider.Diagnostic.SubTitle" = "Check your car health";
+"Onboarding.Slider.HUD.Title" = "HUD";
+"Onboarding.Slider.HUD.SubTitle" = "Head-up display";
+"Onboarding.Slider.RecallHistory.Title" = "Recall History";
+"Onboarding.Slider.RecallHistory.SubTitle" = "Check your car health";
+"Onboarding.Slider.Garage.Title" = "Unlimited garage";
+"Onboarding.Slider.Garage.SubTitle" = "Add any cars";
+
 // TODO: legacy 
 
 // MARK: ImagePicker

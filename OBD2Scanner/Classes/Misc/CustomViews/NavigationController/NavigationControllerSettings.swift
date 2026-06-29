@@ -18,14 +18,16 @@ struct NavigationControllerSettings {
 // MARK: Make
 extension NavigationControllerSettings {
     static func `default`() -> NavigationControllerSettings {
-        NavigationControllerSettings(backgroundImage: UIImage(),
-                                     shadowImage: UIImage(),
-                                     isTranslucent: true,
-                                     tintColor: UIColor.white,
-                                     titleTextAttrributes: TextAttributes()
-                                        .textColor(UIColor.white)
-                                        .font(Fonts.Inter.semiBold(size: 18.scale))
-                                        .textAlignment(.center)
-                                        .dictionary)
+        NavigationControllerSettings(
+            backgroundImage: UIImage(),
+            shadowImage: UIImage(),
+            isTranslucent: true,
+            tintColor: UIColor.white,
+            titleTextAttrributes: TextAttributes()
+                .textColor(UIColor.white)
+                .font(Fonts.Inter.semiBold(size: 18.scale))
+                .textAlignment(.center)
+                .dictionary
+        )
     }
 }

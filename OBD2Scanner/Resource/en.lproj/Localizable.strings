@@ -11,6 +11,13 @@
 "Continue" = "Continue";
 "Next" = "Next";
 
+// MARK: Splash
+"Splash.Title.1" = "OBD2";
+"Splash.Title.2" = " SCANNER";
+"Splash.SubTitle" = "SMART DIAGNOSTICS";
+
+// TODO: legacy 
+
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Take a photo";
 "ImagePicker.CameraRoll" = "Camera roll";
@@ -41,11 +48,6 @@
 "Paygate.Lifetime.BottomDescription" = "once";
 "Paygate.Discount" = "SAVE %i%%";
 "Paygate.Price.Period" = "month";
-
-// MARK: Splash
-"Splash.Preloader1" = "Checking your account...";
-"Splash.Preloader2" = "Syncing the soccer library";
-"Splash.Preloader3" = "Setting up your account...";
 
 // MARK: SelectVehicleUnit
 "SelectVehicleUnit.Title.Year" = "Year";

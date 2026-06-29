@@ -30,4 +30,54 @@ struct Fonts {
             UIFont(name: "Inter-BoldItalic", size: size)!
         }
     }
+    
+    // MARK: NotoSans
+    struct NotoSans {
+        static func bold(size: CGFloat) -> UIFont {
+            UIFont(name: "NotoSans-Bold", size: size)!
+        }
+        
+        static func medium(size: CGFloat) -> UIFont {
+            UIFont(name: "NotoSans-Medium", size: size)!
+        }
+        
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "NotoSans-SemiBold", size: size)!
+        }
+        
+        static func regular(size: CGFloat) -> UIFont {
+            UIFont(name: "NotoSans-Regular", size: size)!
+        }
+        
+        static func extraBold(size: CGFloat) -> UIFont {
+            UIFont(name: "NotoSans-ExtraBold", size: size)!
+        }
+    }
+    
+    // MARK: PlusJakartaSans
+    struct PlusJakartaSans {
+        static func bold(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-Bold", size: size)!
+        }
+        
+        static func medium(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-Medium", size: size)!
+        }
+        
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-SemiBold", size: size)!
+        }
+        
+        static func regular(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-Regular", size: size)!
+        }
+        
+        static func light(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-Light", size: size)!
+        }
+        
+        static func extraBold(size: CGFloat) -> UIFont {
+            UIFont(name: "PlusJakartaSans-ExtraBold", size: size)!
+        }
+    }
 }

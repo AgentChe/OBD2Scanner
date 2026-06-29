@@ -9,6 +9,7 @@ import RxSwift
 import RxCocoa
 import OtterScaleiOS
 
+// TODO: обновить
 final class PaygateInteractor {
     enum Action {
         case buy(String)
@@ -72,16 +73,7 @@ extension PaygateInteractor {
 // MARK: OtterScaleReceiptValidationDelegate
 extension PaygateInteractor: OtterScaleReceiptValidationDelegate {
     func otterScaleDidValidatedReceipt(with result: AppStoreValidateResult?) {
-        OtterScale.shared.removeReceiptValidation(delegate: self)
         
-        let otterScaleID = OtterScale.shared.getInternalID()
-        
-        let session = Session(userToken: otterScaleID)
-        sessionManager.store(session: session)
-        
-        let hasActiveSubscriptions = sessionManager.hasActiveSubscriptions()
-        let callbackResult = PurchaseActionResult.completed(hasActiveSubscriptions)
-        callback.accept(callbackResult)
     }
 }
 

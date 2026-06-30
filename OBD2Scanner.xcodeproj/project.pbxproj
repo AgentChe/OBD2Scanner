@@ -14,6 +14,13 @@
 		DE0A5C752FF29BEC003D95B0 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C742FF29BEC003D95B0 /* NotoSans-Regular.ttf */; };
 		DE0A5C772FF29BEF003D95B0 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C762FF29BEF003D95B0 /* NotoSans-SemiBold.ttf */; };
 		DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A5C782FF29E20003D95B0 /* Appearance.swift */; };
+		DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FDC2FF3D9260023E94C /* UnlimitedPlanViewController.swift */; };
+		DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FDE2FF3D92C0023E94C /* UnlimitedPlanView.swift */; };
+		DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FE12FF3DC610023E94C /* UnlimitedPlanHeaderView.swift */; };
+		DE223FE42FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FE32FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift */; };
+		DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FE62FF3E1610023E94C /* UnlimitedPlanItemView.swift */; };
+		DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FE82FF3E7BB0023E94C /* UnlimitedPlanCellView.swift */; };
+		DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FEA2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -41,13 +48,6 @@
 		DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */; };
 		DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */; };
 		DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */; };
-		DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0ADC2A698E1100471667 /* IAPManager.swift */; };
-		DE2F0AEA2A698E1100471667 /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0ADD2A698E1100471667 /* PurchaseValidationObserver.swift */; };
-		DE2F0AEB2A698E1100471667 /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0ADF2A698E1100471667 /* ProductPrice.swift */; };
-		DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE02A698E1100471667 /* IAPActionResult.swift */; };
-		DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE12A698E1100471667 /* IAPProduct.swift */; };
-		DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE32A698E1100471667 /* IAPError.swift */; };
-		DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */; };
 		DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */; };
 		DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */; };
 		DE2F0AFE2A69911E00471667 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */; };
@@ -138,23 +138,17 @@
 		DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */; };
 		DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */; };
 		DE7194522A700F7900ED3084 /* HomePIDsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194512A700F7900ED3084 /* HomePIDsCell.swift */; };
-		DEC61E902A8123CD008F9C97 /* Paygate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E8F2A8123CC008F9C97 /* Paygate.swift */; };
-		DEC61E922A8123D4008F9C97 /* PaygateOptionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E912A8123D4008F9C97 /* PaygateOptionConfig.swift */; };
-		DEC61E942A8123E6008F9C97 /* PaygateOptionLineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E932A8123E6008F9C97 /* PaygateOptionLineComponent.swift */; };
 		DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E962A81265D008F9C97 /* SessionManager.swift */; };
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
-		DEC61EA82A812F77008F9C97 /* PaygateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E9D2A812F77008F9C97 /* PaygateViewModel.swift */; };
-		DEC61EA92A812F77008F9C97 /* DefaultPaygate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E9F2A812F77008F9C97 /* DefaultPaygate.swift */; };
-		DEC61EAA2A812F77008F9C97 /* PaygateOptionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA02A812F77008F9C97 /* PaygateOptionInfo.swift */; };
-		DEC61EAB2A812F77008F9C97 /* PaygateViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA12A812F77008F9C97 /* PaygateViewControllerDelegate.swift */; };
-		DEC61EAC2A812F77008F9C97 /* PaygateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA22A812F77008F9C97 /* PaygateInteractor.swift */; };
-		DEC61EAD2A812F77008F9C97 /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA32A812F77008F9C97 /* PaygateView.swift */; };
-		DEC61EAE2A812F77008F9C97 /* PaygateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA42A812F77008F9C97 /* PaygateViewController.swift */; };
-		DEC61EAF2A812F77008F9C97 /* PaygateProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA62A812F77008F9C97 /* PaygateProductButton.swift */; };
-		DEC61EB02A812F77008F9C97 /* PaygateInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61EA72A812F77008F9C97 /* PaygateInfoCell.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
+		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
+		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
+		DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */; };
+		DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFE2FF2C8D70001160D /* IAPError.swift */; };
+		DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */; };
+		DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E022FF2C8D70001160D /* IAPProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +160,13 @@
 		DE0A5C742FF29BEC003D95B0 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		DE0A5C762FF29BEF003D95B0 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE0A5C782FF29E20003D95B0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		DE223FDC2FF3D9260023E94C /* UnlimitedPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanViewController.swift; sourceTree = "<group>"; };
+		DE223FDE2FF3D92C0023E94C /* UnlimitedPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanView.swift; sourceTree = "<group>"; };
+		DE223FE12FF3DC610023E94C /* UnlimitedPlanHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanHeaderView.swift; sourceTree = "<group>"; };
+		DE223FE32FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanCellWithTitlesView.swift; sourceTree = "<group>"; };
+		DE223FE62FF3E1610023E94C /* UnlimitedPlanItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanItemView.swift; sourceTree = "<group>"; };
+		DE223FE82FF3E7BB0023E94C /* UnlimitedPlanCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanCellView.swift; sourceTree = "<group>"; };
+		DE223FEA2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanUnlimitedView.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,13 +196,6 @@
 		DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
-		DE2F0ADC2A698E1100471667 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		DE2F0ADD2A698E1100471667 /* PurchaseValidationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseValidationObserver.swift; sourceTree = "<group>"; };
-		DE2F0ADF2A698E1100471667 /* ProductPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
-		DE2F0AE02A698E1100471667 /* IAPActionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPActionResult.swift; sourceTree = "<group>"; };
-		DE2F0AE12A698E1100471667 /* IAPProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
-		DE2F0AE32A698E1100471667 /* IAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
-		DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
 		DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -314,23 +308,17 @@
 		DE71944D2A700D5600ED3084 /* PIDsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDsTableElement.swift; sourceTree = "<group>"; };
 		DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDTableCell.swift; sourceTree = "<group>"; };
 		DE7194512A700F7900ED3084 /* HomePIDsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePIDsCell.swift; sourceTree = "<group>"; };
-		DEC61E8F2A8123CC008F9C97 /* Paygate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paygate.swift; sourceTree = "<group>"; };
-		DEC61E912A8123D4008F9C97 /* PaygateOptionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateOptionConfig.swift; sourceTree = "<group>"; };
-		DEC61E932A8123E6008F9C97 /* PaygateOptionLineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateOptionLineComponent.swift; sourceTree = "<group>"; };
 		DEC61E962A81265D008F9C97 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DEC61E992A812667008F9C97 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		DEC61E9D2A812F77008F9C97 /* PaygateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewModel.swift; sourceTree = "<group>"; };
-		DEC61E9F2A812F77008F9C97 /* DefaultPaygate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPaygate.swift; sourceTree = "<group>"; };
-		DEC61EA02A812F77008F9C97 /* PaygateOptionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateOptionInfo.swift; sourceTree = "<group>"; };
-		DEC61EA12A812F77008F9C97 /* PaygateViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewControllerDelegate.swift; sourceTree = "<group>"; };
-		DEC61EA22A812F77008F9C97 /* PaygateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateInteractor.swift; sourceTree = "<group>"; };
-		DEC61EA32A812F77008F9C97 /* PaygateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateView.swift; sourceTree = "<group>"; };
-		DEC61EA42A812F77008F9C97 /* PaygateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewController.swift; sourceTree = "<group>"; };
-		DEC61EA62A812F77008F9C97 /* PaygateProductButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateProductButton.swift; sourceTree = "<group>"; };
-		DEC61EA72A812F77008F9C97 /* PaygateInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateInfoCell.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
+		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
+		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
+		DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPActionResult.swift; sourceTree = "<group>"; };
+		DEDF4E022FF2C8D70001160D /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
+		DEDF4E042FF2C8D70001160D /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseValidationObserver.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -373,6 +361,36 @@
 				DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */,
 			);
 			path = NotoSans;
+			sourceTree = "<group>";
+		};
+		DE223FDB2FF3D9070023E94C /* UnlimitedPlan */ = {
+			isa = PBXGroup;
+			children = (
+				DE223FE02FF3DB490023E94C /* View */,
+				DE223FDC2FF3D9260023E94C /* UnlimitedPlanViewController.swift */,
+				DE223FDE2FF3D92C0023E94C /* UnlimitedPlanView.swift */,
+			);
+			path = UnlimitedPlan;
+			sourceTree = "<group>";
+		};
+		DE223FE02FF3DB490023E94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE223FE52FF3E0700023E94C /* Cell */,
+				DE223FE12FF3DC610023E94C /* UnlimitedPlanHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE223FE52FF3E0700023E94C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE223FE32FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift */,
+				DE223FE62FF3E1610023E94C /* UnlimitedPlanItemView.swift */,
+				DE223FE82FF3E7BB0023E94C /* UnlimitedPlanCellView.swift */,
+				DE223FEA2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -510,50 +528,18 @@
 		DE2F0ADA2A698E1100471667 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF4E062FF2C8D70001160D /* Purchase */,
 				DEC61E952A812651008F9C97 /* Session */,
-				DEC61E8D2A8123C0008F9C97 /* Paygate */,
 				DE2F0BC22A6E78B600471667 /* OBDAdapter */,
 				DE2F0B4E2A6ACB2F00471667 /* Garage */,
 				DE2F0B332A6AC5B500471667 /* Vehicle */,
-				DE2F0ADB2A698E1100471667 /* Purchase */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		DE2F0ADB2A698E1100471667 /* Purchase */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0ADE2A698E1100471667 /* Model */,
-				DE2F0AE22A698E1100471667 /* Error */,
-				DE2F0ADC2A698E1100471667 /* IAPManager.swift */,
-				DE2F0ADD2A698E1100471667 /* PurchaseValidationObserver.swift */,
-			);
-			path = Purchase;
-			sourceTree = "<group>";
-		};
-		DE2F0ADE2A698E1100471667 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0ADF2A698E1100471667 /* ProductPrice.swift */,
-				DE2F0AE02A698E1100471667 /* IAPActionResult.swift */,
-				DE2F0AE12A698E1100471667 /* IAPProduct.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DE2F0AE22A698E1100471667 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0AE32A698E1100471667 /* IAPError.swift */,
-				DE2F0AE42A698E1100471667 /* IAPErrorHelper.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DEC61E9C2A812F77008F9C97 /* Paygate */,
 				DE7194422A700A3100ED3084 /* PIDs */,
 				DE2F0BC82A6E834700471667 /* DTC */,
 				DE2F0B6C2A6D407900471667 /* Home */,
@@ -588,6 +574,7 @@
 		DE2F0B062A69943300471667 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DEC61E9C2A812F77008F9C97 /* Paygate */,
 				DE4B7E672FF2AA0300973BA9 /* Onboarding */,
 				DE4B7E662FF2A5E800973BA9 /* Splash */,
 			);
@@ -971,24 +958,6 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		DEC61E8D2A8123C0008F9C97 /* Paygate */ = {
-			isa = PBXGroup;
-			children = (
-				DEC61E8E2A8123C5008F9C97 /* Model */,
-			);
-			path = Paygate;
-			sourceTree = "<group>";
-		};
-		DEC61E8E2A8123C5008F9C97 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DEC61E8F2A8123CC008F9C97 /* Paygate.swift */,
-				DEC61E912A8123D4008F9C97 /* PaygateOptionConfig.swift */,
-				DEC61E932A8123E6008F9C97 /* PaygateOptionLineComponent.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DEC61E952A812651008F9C97 /* Session */ = {
 			isa = PBXGroup;
 			children = (
@@ -1009,33 +978,38 @@
 		DEC61E9C2A812F77008F9C97 /* Paygate */ = {
 			isa = PBXGroup;
 			children = (
-				DEC61EA52A812F77008F9C97 /* Views */,
-				DEC61E9E2A812F77008F9C97 /* Models */,
-				DEC61EA12A812F77008F9C97 /* PaygateViewControllerDelegate.swift */,
-				DEC61EA22A812F77008F9C97 /* PaygateInteractor.swift */,
-				DEC61EA42A812F77008F9C97 /* PaygateViewController.swift */,
-				DEC61E9D2A812F77008F9C97 /* PaygateViewModel.swift */,
-				DEC61EA32A812F77008F9C97 /* PaygateView.swift */,
+				DE223FDB2FF3D9070023E94C /* UnlimitedPlan */,
 			);
 			path = Paygate;
 			sourceTree = "<group>";
 		};
-		DEC61E9E2A812F77008F9C97 /* Models */ = {
+		DEDF4E002FF2C8D70001160D /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				DEC61E9F2A812F77008F9C97 /* DefaultPaygate.swift */,
-				DEC61EA02A812F77008F9C97 /* PaygateOptionInfo.swift */,
+				DEDF4DFE2FF2C8D70001160D /* IAPError.swift */,
+				DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */,
 			);
-			path = Models;
+			path = Error;
 			sourceTree = "<group>";
 		};
-		DEC61EA52A812F77008F9C97 /* Views */ = {
+		DEDF4E032FF2C8D70001160D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DEC61EA62A812F77008F9C97 /* PaygateProductButton.swift */,
-				DEC61EA72A812F77008F9C97 /* PaygateInfoCell.swift */,
+				DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */,
+				DEDF4E022FF2C8D70001160D /* IAPProduct.swift */,
 			);
-			path = Views;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEDF4E062FF2C8D70001160D /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF4E002FF2C8D70001160D /* Error */,
+				DEDF4E032FF2C8D70001160D /* Model */,
+				DEDF4E042FF2C8D70001160D /* IAPManager.swift */,
+				DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */,
+			);
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1155,9 +1129,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1173,13 +1151,7 @@
 			files = (
 				DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */,
 				DE2F0B5E2A6D0A6000471667 /* SVUTableElement.swift in Sources */,
-				DE2F0AE92A698E1100471667 /* IAPManager.swift in Sources */,
-				DE2F0AEC2A698E1100471667 /* IAPActionResult.swift in Sources */,
-				DEC61EA92A812F77008F9C97 /* DefaultPaygate.swift in Sources */,
-				DEC61E902A8123CD008F9C97 /* Paygate.swift in Sources */,
 				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,
-				DE2F0AEF2A698E1100471667 /* IAPErrorHelper.swift in Sources */,
-				DEC61EB02A812F77008F9C97 /* PaygateInfoCell.swift in Sources */,
 				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
 				DE71943F2A6FEA0F00ED3084 /* SensorItemView.swift in Sources */,
 				DE2F0B632A6D218D00471667 /* SVUVehicleCell.swift in Sources */,
@@ -1195,12 +1167,14 @@
 				DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */,
 				DE2F0B432A6AC7E700471667 /* GetVehicleBrandsResponse.swift in Sources */,
 				DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */,
+				DE223FE42FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift in Sources */,
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
-				DE2F0AED2A698E1100471667 /* IAPProduct.swift in Sources */,
 				DE2F0B762A6E61AE00471667 /* HomeTableView.swift in Sources */,
+				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
+				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
@@ -1212,14 +1186,18 @@
 				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
 				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
 				DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */,
+				DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */,
+				DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */,
+				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
+				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
+				DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */,
+				DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
-				DEC61EAB2A812F77008F9C97 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */,
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
+				DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */,
 				DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */,
-				DEC61EA82A812F77008F9C97 /* PaygateViewModel.swift in Sources */,
 				DE2F0ABA2A698E0B00471667 /* ScreenSize.swift in Sources */,
-				DEC61EAC2A812F77008F9C97 /* PaygateInteractor.swift in Sources */,
 				DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */,
 				DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */,
 				DE2F0B482A6AC86A00471667 /* GetVehicleModelsResponse.swift in Sources */,
@@ -1231,7 +1209,6 @@
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
 				DE2F0BC02A6E755900471667 /* LTOBD2ProtocolISO15765_4.m in Sources */,
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
-				DEC61EAD2A812F77008F9C97 /* PaygateView.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */,
@@ -1247,36 +1224,32 @@
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
 				DE2F0B502A6ACB3C00471667 /* GarageManager.swift in Sources */,
 				DE71943C2A6FD3E800ED3084 /* HomeSensorDataCell.swift in Sources */,
-				DEC61EAA2A812F77008F9C97 /* PaygateOptionInfo.swift in Sources */,
 				DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */,
 				DE2F0B4B2A6AC8E900471667 /* GetVehicleImageRequest.swift in Sources */,
-				DEC61EAF2A812F77008F9C97 /* PaygateProductButton.swift in Sources */,
 				DE2F0B612A6D0A7600471667 /* SVUTableCell.swift in Sources */,
 				DE7194482A700A9100ED3084 /* PIDsView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
+				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,
-				DEC61E922A8123D4008F9C97 /* PaygateOptionConfig.swift in Sources */,
 				DE2F0BC12A6E755900471667 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
 				DE2F0B782A6E61B600471667 /* HomeTableElement.swift in Sources */,
 				DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */,
 				DE2F0BD62A6E8A2D00471667 /* DTCTableElement.swift in Sources */,
 				DE2F0B722A6D408D00471667 /* HomeView.swift in Sources */,
-				DEC61E942A8123E6008F9C97 /* PaygateOptionLineComponent.swift in Sources */,
 				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
+				DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */,
 				DE2F0B5C2A6D0A5300471667 /* SVUTableView.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
 				DE2F0AB92A698E0B00471667 /* TextAttributes.swift in Sources */,
 				DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */,
-				DEC61EAE2A812F77008F9C97 /* PaygateViewController.swift in Sources */,
 				DEC61E9A2A812667008F9C97 /* Session.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
-				DE2F0AEA2A698E1100471667 /* PurchaseValidationObserver.swift in Sources */,
 				DE2F0BCE2A6E835E00471667 /* DTCView.swift in Sources */,
 				DE2F0B562A6AD35500471667 /* SelectVehicleUnitViewModel.swift in Sources */,
-				DE2F0AEE2A698E1100471667 /* IAPError.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
+				DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */,
 				DE2F0BB82A6E755900471667 /* LTVIN.m in Sources */,
 				DE2F0B6B2A6D2F3E00471667 /* AddVehicleView.swift in Sources */,
 				DE2F0BAF2A6E755900471667 /* LTOBD2Protocol.m in Sources */,
@@ -1287,7 +1260,6 @@
 				DE2F0BB52A6E755900471667 /* LTBTLESerialTransporter.m in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0BBC2A6E755900471667 /* LTBTLEReadCharacteristicStream.m in Sources */,
-				DE2F0AEB2A698E1100471667 /* ProductPrice.swift in Sources */,
 				DE2F0BD02A6E856500471667 /* HomeDTCCell.swift in Sources */,
 				DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */,
 				DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */,
@@ -1441,9 +1413,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_1;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -1482,9 +1454,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_1;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

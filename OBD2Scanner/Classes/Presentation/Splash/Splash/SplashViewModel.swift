@@ -15,8 +15,6 @@ final class SplashViewModel {
         case openPaygateAndAfterMain
         case openMain
     }
-    
-    private lazy var observableRetrySingle = ObservableRetrySingle()
 }
 
 // MARK: Public

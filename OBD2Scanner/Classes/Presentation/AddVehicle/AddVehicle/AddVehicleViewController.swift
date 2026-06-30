@@ -85,13 +85,6 @@ extension AddVehicleViewController {
     }
 }
 
-// MARK: PaygateViewControllerDelegate
-extension AddVehicleViewController: PaygateViewControllerDelegate {
-    func paygateDidClosed(with result: PaygateViewControllerResult) {
-        route(.main)
-    }
-}
-
 // MARK: Private
 private extension AddVehicleViewController {
     func open(error: Error) -> Observable<Void> {
@@ -122,9 +115,7 @@ private extension AddVehicleViewController {
     func route(_ route: AddVehicleViewModel.Route) {
         switch route {
         case .paygate:
-            let vc = PaygateViewController.make()
-            vc.delegate = self
-            present(vc, animated: true)
+            break
         case .main:
             let nc = NavigationController(rootViewController: HomeViewController.make())
             UIApplication.shared.keyWindow?.rootViewController = nc

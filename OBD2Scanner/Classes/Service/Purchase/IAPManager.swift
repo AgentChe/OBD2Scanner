@@ -1,6 +1,6 @@
 //
 //  IAPManager.swift
-//  Soccer
+//  NCLEX
 //
 //  Created by Андрей Чернышев on 03.02.2022.
 //
@@ -34,20 +34,6 @@ extension IAPManager {
                 let products = result.retrievedProducts.map { IAPProduct(original: $0) }
                 
                 event(.success(products))
-            }
-            
-            return Disposables.create()
-        }
-    }
-    
-    func obtainPrices(for ids: [String]) -> Single<[ProductPrice]> {
-        Single<[ProductPrice]>.create { event in
-            SwiftyStoreKit.retrieveProductsInfo(Set(ids)) { results in
-                let prices = results.retrievedProducts.map { product -> ProductPrice in
-                    ProductPrice(product: product)
-                }
-                
-                event(.success(prices))
             }
             
             return Disposables.create()

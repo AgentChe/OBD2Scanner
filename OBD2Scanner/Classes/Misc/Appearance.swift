@@ -14,4 +14,7 @@ enum Appearance {
     static let color_1A2231 = UIColor(integralRed: 26, green: 34, blue: 49)
     static let color_121721 = UIColor(integralRed: 18, green: 23, blue: 33)
     static let color_191F2B = UIColor(integralRed: 25, green: 31, blue: 43)
+    static let color_DCDDDC = UIColor(integralRed: 220, green: 221, blue: 220)
+    static let color_00E393 = UIColor(integralRed: 0, green: 227, blue: 147)
+    static let color_22D8D0 = UIColor(integralRed: 34, green: 216, blue: 208)
 }

@@ -102,7 +102,7 @@ private extension OnboardingView {
             addCarButton.leadingAnchor.constraint(equalTo: infoContainer.leadingAnchor, constant: 16.scale),
             addCarButton.trailingAnchor.constraint(equalTo: infoContainer.trailingAnchor, constant: -16.scale),
             addCarButton.heightAnchor.constraint(equalToConstant: 52.scale),
-            addCarButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale)
+            addCarButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24.scale)
         ])
     }
 }

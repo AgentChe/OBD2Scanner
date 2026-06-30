@@ -49,12 +49,6 @@ final class HomeViewController: UIViewController {
         mainView.tableView.didTapConnect
             .withLatestFrom(adapterState)
             .emit(to: Binder(self) { base, adapterState in
-                guard SessionManager().hasActiveSubscriptions() else {
-                    let vc = PaygateViewController.make()
-                    base.present(vc, animated: true)
-                    
-                    return
-                }
                 
                 let adapter = OBDAdapter.shared
                 

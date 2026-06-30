@@ -33,27 +33,27 @@ and smart monitoring";
 "Onboarding.Slider.Garage.Title" = "Unlimited garage";
 "Onboarding.Slider.Garage.SubTitle" = "Add any cars";
 
-// TODO: legacy
+// MARK: UnlimitedPlan
+"UnlimitedPlan.Title" = "Special offer";
+"UnlimitedPlan.Header.Text" = "Unlimited";
+"UnlimitedPlan.SubTitle" = "Save 67% with the Yearly plan";
+"UnlimitedPlan.GetPlan" = "Get unlimited plan";
+"UnlimitedPlan.Item.Diagnostics.Name" = "Diagnostics";
+"UnlimitedPlan.Item.Diagnostics.Text" = "Check your car health";
+"UnlimitedPlan.Item.FreezeFrame.Name" = "Freeze frame";
+"UnlimitedPlan.Item.FreezeFrame.Text" = "DTC snapshot";
+"UnlimitedPlan.Item.HUD.Name" = "HUD";
+"UnlimitedPlan.Item.HUD.Text" = "Head-up display";
+"UnlimitedPlan.Item.RecallHistory.Name" = "Recall History";
+"UnlimitedPlan.Item.RecallHistory.Text" = "Check your car health";
+"UnlimitedPlan.Item.UnlimitedGarage.Name" = "Unlimited garage";
+"UnlimitedPlan.Item.UnlimitedGarage.Text" = "Add any cars";
+"UnlimitedPlan.ItemTitle" = "Choose the right plan for you";
+"UnlimitedPlan.ItemFree" = "Free";
+"UnlimitedPlan.ItemUnlimited" = "Unlimited";
+"UnlimitedPlan.Unlimited" = "UNLIMITED";
 
-// MARK: Paygate
-"Paygate.Title" = "Keep track of your vehicle's\nvital information";
-"Paygate.Cell1" = "Monitor real-time Sensor Data";
-"Paygate.Cell2" = "Diagnose Trouble Codes (DTCs)";
-"Paygate.Cell3" = "Gain access to PID Codes Database";
-"Paygate.Secured" = "Secured by the App Store. Cancel anytime.";
-"Paygate.TermsOfUse" = "Terms of use";
-"Paygate.PrivacyPolicy" = "Privacy Policy";
-"Paygate.RestorePurchases" = "Restore Purchase";
-"Paygate.Failed" = "Failed to make purchase";
-"Paygate.Monthly.Name1" = "Monthly";
-"Paygate.Monthly.Name2" = "Quick prep";
-"Paygate.Monthly.Bottom1" = "";
-"Paygate.Monthly.Bottom2" = "";
-"Paygate.Lifetime.Name" = "Lifetime";
-"Paygate.Lifetime.PriceDescription" = "\nIn terms of  1  year";
-"Paygate.Lifetime.BottomDescription" = "once";
-"Paygate.Discount" = "SAVE %i%%";
-"Paygate.Price.Period" = "month";
+// TODO: legacy
 
 // MARK: SelectVehicleUnit
 "SelectVehicleUnit.Title.Year" = "Year";

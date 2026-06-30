@@ -14,6 +14,7 @@ final class UnlimitedPlanCellWithTitlesView: UIView {
     lazy var itemView = makeItemView()
     lazy var freeIconView = makeIconView()
     lazy var unlimitedIconView = makeIconView()
+    lazy var separator = makeSeparator()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,7 +58,7 @@ private extension UnlimitedPlanCellWithTitlesView {
         NSLayoutConstraint.activate([
             itemView.leadingAnchor.constraint(equalTo: leadingAnchor),
             itemView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -160.scale),
-            itemView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8.scale),
             itemView.heightAnchor.constraint(equalToConstant: 40.scale)
         ])
         
@@ -65,14 +66,21 @@ private extension UnlimitedPlanCellWithTitlesView {
             freeIconView.widthAnchor.constraint(equalToConstant: 32.scale),
             freeIconView.heightAnchor.constraint(equalToConstant: 32.scale),
             freeIconView.trailingAnchor.constraint(equalTo: unlimitedIconView.leadingAnchor, constant: -48.scale),
-            freeIconView.centerYAnchor.constraint(equalTo: unlimitedIconView.centerYAnchor)
+            freeIconView.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
             unlimitedIconView.widthAnchor.constraint(equalToConstant: 32.scale),
             unlimitedIconView.heightAnchor.constraint(equalToConstant: 32.scale),
             unlimitedIconView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -28.scale),
-            unlimitedIconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4.scale)
+            unlimitedIconView.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            separator.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: trailingAnchor),
+            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
+            separator.heightAnchor.constraint(equalToConstant: 1.scale)
         ])
     }
 }
@@ -123,6 +131,14 @@ private extension UnlimitedPlanCellWithTitlesView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "UnlimitedPlan.ItemUnlimited")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeSeparator() -> UIView {
+        let view = UIView()
+        view.backgroundColor = Appearance.color_FFFFFF.withAlphaComponent(0.03)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

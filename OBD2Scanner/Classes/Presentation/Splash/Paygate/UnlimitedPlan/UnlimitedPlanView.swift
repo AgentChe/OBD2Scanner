@@ -105,35 +105,35 @@ private extension UnlimitedPlanView {
             diagnosticsCell.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             diagnosticsCell.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
             diagnosticsCell.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 20.scale),
-            diagnosticsCell.heightAnchor.constraint(equalToConstant: 80.scale)
+            diagnosticsCell.heightAnchor.constraint(equalToConstant: 88.scale)
         ])
         
         NSLayoutConstraint.activate([
             freezeFrameCell.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             freezeFrameCell.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            freezeFrameCell.topAnchor.constraint(equalTo: diagnosticsCell.bottomAnchor, constant: 16.scale),
-            freezeFrameCell.heightAnchor.constraint(equalToConstant: 40.scale)
+            freezeFrameCell.topAnchor.constraint(equalTo: diagnosticsCell.bottomAnchor, constant: 8.scale),
+            freezeFrameCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
         
         NSLayoutConstraint.activate([
             hudCell.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             hudCell.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            hudCell.topAnchor.constraint(equalTo: freezeFrameCell.bottomAnchor, constant: 16.scale),
-            hudCell.heightAnchor.constraint(equalToConstant: 40.scale)
+            hudCell.topAnchor.constraint(equalTo: freezeFrameCell.bottomAnchor, constant: 8.scale),
+            hudCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
         
         NSLayoutConstraint.activate([
             recallHistoryCell.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             recallHistoryCell.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            recallHistoryCell.topAnchor.constraint(equalTo: hudCell.bottomAnchor, constant: 16.scale),
-            recallHistoryCell.heightAnchor.constraint(equalToConstant: 40.scale)
+            recallHistoryCell.topAnchor.constraint(equalTo: hudCell.bottomAnchor, constant: 8.scale),
+            recallHistoryCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
         
         NSLayoutConstraint.activate([
             unlimitedGarageCell.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             unlimitedGarageCell.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            unlimitedGarageCell.topAnchor.constraint(equalTo: recallHistoryCell.bottomAnchor, constant: 16.scale),
-            unlimitedGarageCell.heightAnchor.constraint(equalToConstant: 40.scale)
+            unlimitedGarageCell.topAnchor.constraint(equalTo: recallHistoryCell.bottomAnchor, constant: 8.scale),
+            unlimitedGarageCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
         
         NSLayoutConstraint.activate([

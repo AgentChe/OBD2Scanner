@@ -26,12 +26,24 @@ final class OnboardingViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
 
 // MARK: Public
 extension OnboardingViewController {
-    static func make() -> OnboardingViewController {
-        OnboardingViewController()
+    static func make() -> UIViewController {
+        NavigationController(rootViewController: OnboardingViewController())
     }
     
     static func wasViewed() -> Bool {
@@ -48,8 +60,9 @@ private extension OnboardingViewController {
     func addCar() {
         // TODO:
         
-        let vc = UnlimitedPlanViewController.make {
-            
+        let vc = UnlimitedPlanViewController.make { [weak self] in
+            let vc = PaygateViewController.make()
+            self?.present(vc, animated: true)
         }
         present(vc, animated: false)
         

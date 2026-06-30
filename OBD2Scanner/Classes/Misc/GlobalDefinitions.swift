@@ -12,12 +12,12 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
-    static let termsOfServiceUrl = "https://thinkaboutapps.com/terms"
-    static let privacyPolicyUrl = "https://thinkaboutapps.com/policy"
-    static let contactUsUrl = "https://thinkaboutapps.com/contact"
+    static let termsOfServiceUrl = URL(string: "https://thinkaboutapps.com/terms")!
+    static let privacyPolicyUrl = URL(string: "https://thinkaboutapps.com/policy")!
+    static let contactUsUrl = URL(string: "https://thinkaboutapps.com/contact")!
     
     enum Paygate {
-        static let defaultLifetime = "utility.app.obd2.lt20"
-        static let defaultMonthly = "utility.app.obd2.sub10"
+        static let lifetime = "utility.app.obd2.lt20"
+        static let monthly = "utility.app.obd2.sub10"
     }
 }

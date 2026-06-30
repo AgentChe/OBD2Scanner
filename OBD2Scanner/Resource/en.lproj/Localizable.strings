@@ -53,6 +53,42 @@ and smart monitoring";
 "UnlimitedPlan.ItemUnlimited" = "Unlimited";
 "UnlimitedPlan.Unlimited" = "UNLIMITED";
 
+// MARK: Paygate
+"Paygate.Error.Title" = "Error";
+"Paygate.Error.Text" = "An error occurred during execution. Try later.";
+"Paygate.Error.Button" = "OK";
+"Paygate.Lifetime.Title" = "Lifetime";
+"Paygate.Lifetime.Period" = "week";
+"Paygate.Lifetime.InTerms" = "In terms of  1  year";
+"Paygate.Lifetime.Discount" = "SAVE %i%%";
+"Paygate.Lifetime.Once" = "once";
+"Paygate.Subscription.Name1" = "3 days for free";
+"Paygate.Subscription.Name2" = "Quick prep";
+"Paygate.Subscription.Bottom1" = "After 3 day trial";
+"Paygate.Subscription.Bottom2" = "Trial is over";
+"Paygate.Subscription.Period" = "month";
+"Paygate.CancelAnytime" = "Secured by the App Store. Cancel anytime.";
+"Paygate.TermsOfUse" = "Terms of Use";
+"Paygate.PrivacyPolicy" = "Privacy Policy";
+"Paygate.RestorePurchases" = "Restore Purchase";
+"Paygate.Title" = "Special offer";
+"Paygate.Header.Text" = "Unlimited";
+"Paygate.SubTitle" = "Save 67% with the Yearly plan";
+"Paygate.Cell.Diagnostics.Name" = "Diagnostics";
+"Paygate.Cell.Diagnostics.Text" = "Check your car health";
+"Paygate.Cell.FreezeFrame.Name" = "Freeze frame";
+"Paygate.Cell.FreezeFrame.Text" = "DTC snapshot";
+"Paygate.Cell.HUD.Name" = "HUD";
+"Paygate.Cell.HUD.Text" = "Head-up display";
+"Paygate.Cell.RecallHistory.Name" = "Recall History";
+"Paygate.Cell.RecallHistory.Text" = "Check your car health";
+"Paygate.Cell.UnlimitedGarage.Name" = "Unlimited garage";
+"Paygate.Cell.UnlimitedGarage.Text" = "Add any cars";
+"Paygate.ItemTitle" = "Choose the right plan for you";
+"Paygate.ItemFree" = "Free";
+"Paygate.ItemUnlimited" = "Unlimited";
+"Paygate.Unlimited" = "UNLIMITED";
+
 // TODO: legacy
 
 // MARK: SelectVehicleUnit

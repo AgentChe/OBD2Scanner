@@ -60,8 +60,6 @@
 		DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A9B2A698E0B00471667 /* GradientView.swift */; };
 		DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A9D2A698E0B00471667 /* AppDelegate.swift */; };
 		DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */; };
-		DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */; };
-		DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */; };
 		DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */; };
 		DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */; };
 		DE2F0AFE2A69911E00471667 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */; };
@@ -155,7 +153,6 @@
 		DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E962A81265D008F9C97 /* SessionManager.swift */; };
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
-		DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
 		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
@@ -222,8 +219,6 @@
 		DE2F0A9B2A698E0B00471667 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DE2F0A9D2A698E0B00471667 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE2F0AA32A698E0B00471667 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		DE2F0AF72A69911E00471667 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DE2F0AF82A69911E00471667 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		DE2F0AF92A69911E00471667 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -339,7 +334,6 @@
 		DEC61E962A81265D008F9C97 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DEC61E992A812667008F9C97 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
-		DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
@@ -508,7 +502,6 @@
 				DE2F0A632A698C0300471667 /* Assets.xcassets */,
 				DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */,
 				DE2F0A682A698C0300471667 /* Info.plist */,
-				DEDE2E952A727B27008C03C8 /* GoogleService-Info.plist */,
 				DE2F0B052A69937200471667 /* Localizable.strings */,
 			);
 			path = Resource;
@@ -528,7 +521,6 @@
 		DE2F0A702A698E0B00471667 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F0AA52A698E0B00471667 /* Analytics */,
 				DE2F0A712A698E0B00471667 /* Extension */,
 				DE2F0A7B2A698E0B00471667 /* Network */,
 				DE2F0A802A698E0B00471667 /* Utils */,
@@ -595,15 +587,6 @@
 				DE2F0A952A698E0B00471667 /* NavigationController.swift */,
 			);
 			path = NavigationController;
-			sourceTree = "<group>";
-		};
-		DE2F0AA52A698E0B00471667 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0AA92A698E0B00471667 /* FirebaseManager.swift */,
-				DE2F0AAA2A698E0B00471667 /* FacebookManager.swift */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		DE2F0ADA2A698E1100471667 /* Service */ = {
@@ -1162,7 +1145,6 @@
 				DE0A5C752FF29BEC003D95B0 /* NotoSans-Regular.ttf in Resources */,
 				DE0A5C732FF29BE9003D95B0 /* NotoSans-Medium.ttf in Resources */,
 				DE4B7E652FF2A19800973BA9 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
-				DEDE2E962A727B27008C03C8 /* GoogleService-Info.plist in Resources */,
 				DE4B7E5B2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf in Resources */,
 				DE0A5C712FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf in Resources */,
 				DE4B7E632FF2A19400973BA9 /* PlusJakartaSans-Light.ttf in Resources */,
@@ -1294,7 +1276,6 @@
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
-				DE2F0AD82A698E0B00471667 /* FirebaseManager.swift in Sources */,
 				DE2F0BBA2A6E755900471667 /* LTSupportAutomotive.m in Sources */,
 				DE2F0BB12A6E755900471667 /* LTOBD2PerformanceTrackingResult.m in Sources */,
 				DE2F0B7D2A6E61F400471667 /* HomeConnectCell.swift in Sources */,
@@ -1357,7 +1338,6 @@
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0BBC2A6E755900471667 /* LTBTLEReadCharacteristicStream.m in Sources */,
 				DE2F0BD02A6E856500471667 /* HomeDTCCell.swift in Sources */,
-				DE2F0AD92A698E0B00471667 /* FacebookManager.swift in Sources */,
 				DE2F0B6E2A6D408300471667 /* HomeViewController.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,

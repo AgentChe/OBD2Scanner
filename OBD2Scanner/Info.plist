@@ -21,12 +21,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>FacebookAppID</key>
-	<string>1031358788239845</string>
-	<key>FacebookClientToken</key>
-	<string>76e5da9894582f4756129bf83e63940e</string>
-	<key>FacebookDisplayName</key>
-	<string>OBD-2 Scanner</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Medium.ttf</string>

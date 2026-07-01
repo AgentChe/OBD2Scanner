@@ -59,6 +59,11 @@
 		DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22404C2FF564100023E94C /* SelectBrandTableView.swift */; };
 		DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */; };
 		DE2240532FF56CA30023E94C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240522FF56CA30023E94C /* SearchField.swift */; };
+		DE2240562FF56FFE0023E94C /* SelectModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240552FF56FFE0023E94C /* SelectModelViewController.swift */; };
+		DE2240582FF570040023E94C /* SelectModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240572FF570040023E94C /* SelectModelViewModel.swift */; };
+		DE22405A2FF570090023E94C /* SelectModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240592FF570090023E94C /* SelectModelView.swift */; };
+		DE22405E2FF570190023E94C /* SelectModelTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22405D2FF570180023E94C /* SelectModelTableView.swift */; };
+		DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22405F2FF570200023E94C /* SelectModelTableCell.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -213,6 +218,11 @@
 		DE22404C2FF564100023E94C /* SelectBrandTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandTableView.swift; sourceTree = "<group>"; };
 		DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandTableCell.swift; sourceTree = "<group>"; };
 		DE2240522FF56CA30023E94C /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		DE2240552FF56FFE0023E94C /* SelectModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelViewController.swift; sourceTree = "<group>"; };
+		DE2240572FF570040023E94C /* SelectModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelViewModel.swift; sourceTree = "<group>"; };
+		DE2240592FF570090023E94C /* SelectModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelView.swift; sourceTree = "<group>"; };
+		DE22405D2FF570180023E94C /* SelectModelTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableView.swift; sourceTree = "<group>"; };
+		DE22405F2FF570200023E94C /* SelectModelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableCell.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -476,6 +486,7 @@
 		DE22401A2FF423170023E94C /* AddVehicle */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240542FF56FF40023E94C /* SelectModel */,
 				DE2240432FF563D50023E94C /* SelectBrand */,
 				DE2240232FF509940023E94C /* SelectYear */,
 				DE22401B2FF423200023E94C /* ChooseMethod */,
@@ -565,6 +576,34 @@
 			children = (
 				DE22404C2FF564100023E94C /* SelectBrandTableView.swift */,
 				DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE2240542FF56FF40023E94C /* SelectModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE22405B2FF5700C0023E94C /* View */,
+				DE2240552FF56FFE0023E94C /* SelectModelViewController.swift */,
+				DE2240572FF570040023E94C /* SelectModelViewModel.swift */,
+				DE2240592FF570090023E94C /* SelectModelView.swift */,
+			);
+			path = SelectModel;
+			sourceTree = "<group>";
+		};
+		DE22405B2FF5700C0023E94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE22405C2FF570100023E94C /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE22405C2FF570100023E94C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE22405D2FF570180023E94C /* SelectModelTableView.swift */,
+				DE22405F2FF570200023E94C /* SelectModelTableCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1177,10 +1216,12 @@
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
 				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
+				DE22405E2FF570190023E94C /* SelectModelTableView.swift in Sources */,
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
 				DE2240192FF420510023E94C /* VehicleMediator.swift in Sources */,
+				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
@@ -1191,6 +1232,7 @@
 				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
 				DE2240252FF50AA60023E94C /* SelectYearViewController.swift in Sources */,
 				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
+				DE2240562FF56FFE0023E94C /* SelectModelViewController.swift in Sources */,
 				DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */,
 				DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */,
 				DE2240132FF4165E0023E94C /* Brand.swift in Sources */,
@@ -1229,6 +1271,7 @@
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE2F0BBA2A6E755900471667 /* LTSupportAutomotive.m in Sources */,
+				DE22405A2FF570090023E94C /* SelectModelView.swift in Sources */,
 				DE2F0BB12A6E755900471667 /* LTOBD2PerformanceTrackingResult.m in Sources */,
 				DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */,
 				DE7194362A6FBEFD00ED3084 /* DTCEmptyView.swift in Sources */,
@@ -1237,6 +1280,7 @@
 				DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */,
 				DE7194482A700A9100ED3084 /* PIDsView.swift in Sources */,
 				DE2240392FF554F90023E94C /* SelectYearCollectionElement.swift in Sources */,
+				DE2240582FF570040023E94C /* SelectModelViewModel.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,

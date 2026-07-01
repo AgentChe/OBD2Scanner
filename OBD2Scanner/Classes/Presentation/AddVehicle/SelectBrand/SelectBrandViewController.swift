@@ -83,8 +83,9 @@ private extension SelectBrandViewController {
             navigationController?.dismiss(animated: true) { [weak self] in
                 self?.complete?(.cancel)
             }
-        case .selectModel:
-            break // TODO:
+        case .selectModel(let vehicleYear, let brand):
+            let vc = SelectModelViewController.make(vehicleYear: vehicleYear, brand: brand, complete: complete)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

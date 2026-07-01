@@ -105,3 +105,9 @@ and smart monitoring";
 "SelectBrand.Title" = "Select a brand";
 "SelectBrand.SubTitle" = "Enter the name of the car brand or select from the list";
 "SelectBrand.TextFieldPlaceholder" = "Enter brand";
+
+// MARK: SelectModel
+"SelectModel.Title" = "Select a model";
+"SelectModel.Brand" = "Brand:";
+"SelectModel.AllModels" = "All Models";
+"SelectModel.TextFieldPlaceholder" = "Enter model";

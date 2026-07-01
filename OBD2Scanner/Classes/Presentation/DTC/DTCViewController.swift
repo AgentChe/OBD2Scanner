@@ -8,10 +8,11 @@
 import UIKit
 import RxSwift
 
+// TODO: remove
 final class DTCViewController: UIViewController {
     lazy var mainView = DTCView()
     
-    private lazy var viewModel = DTCViewModel()
+//    private lazy var viewModel = DTCViewModel()
     
     private lazy var disposeBag = DisposeBag()
     
@@ -22,20 +23,20 @@ final class DTCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let output = viewModel.configure(input: DTCViewModel.Input())
-        
-        output.elements
-            .drive(Binder(mainView.tableView) { base, elements in
-                base.setup(elements: elements)
-            })
-            .disposed(by: disposeBag)
-        
-        output.isEmpty
-            .drive(Binder(mainView) { base, isEmpty in
-                base.emptyView.isHidden = !isEmpty
-                base.tableView.isHidden = isEmpty
-            })
-            .disposed(by: disposeBag)
+//        let output = viewModel.configure(input: DTCViewModel.Input())
+//        
+//        output.elements
+//            .drive(Binder(mainView.tableView) { base, elements in
+//                base.setup(elements: elements)
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        output.isEmpty
+//            .drive(Binder(mainView) { base, isEmpty in
+//                base.emptyView.isHidden = !isEmpty
+//                base.tableView.isHidden = isEmpty
+//            })
+//            .disposed(by: disposeBag)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

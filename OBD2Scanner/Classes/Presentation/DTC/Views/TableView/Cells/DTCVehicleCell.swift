@@ -31,8 +31,8 @@ final class DTCVehicleCell: UITableViewCell {
 // MARK: Public
 extension DTCVehicleCell {
     func setup(element: Vehicle) {
-        let string = String(format: "%@ %@", element.brand, element.model)
-        label.attributedText = string.attributed(with: attrs)
+//        let string = String(format: "%@ %@", element.brand, element.model)
+//        label.attributedText = string.attributed(with: attrs)
     }
 }
 

@@ -10,6 +10,7 @@
 "Cancel" = "Cancel";
 "Continue" = "Continue";
 "Next" = "Next";
+"Skip" = "Skip";
 
 // MARK: Splash
 "Splash.Title.1" = "OBD2";
@@ -89,45 +90,13 @@ and smart monitoring";
 "Paygate.ItemUnlimited" = "Unlimited";
 "Paygate.Unlimited" = "UNLIMITED";
 
-// TODO: legacy
+// MARK: ChooseMethodAddCar
+"ChooseMethodAddCar.Title" = "Add your car";
+"ChooseMethodAddCar.DecodeVIN.Title" = "Select manually";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Choose your car brand, model and year manually";
+"ChooseMethodAddCar.Manually.Title" = "Enter VIN number";
+"ChooseMethodAddCar.Manually.SubTitle" = "Enter your vehicle VIN to automatically decode details";
 
-// MARK: SelectVehicleUnit
-"SelectVehicleUnit.Title.Year" = "Year";
-"SelectVehicleUnit.Title.Brand" = "Car brand";
-"SelectVehicleUnit.Title.Model" = "Model";
-"SelectVehicleUnit.BrandAndModel" = "Brand and model";
-
-// MARK: AddVehicle
-"AddVehicle.Preloader" = "Setting dashboard for your %@...";
-"AddVehicle.Completed" = "All Done!";
-
-// MARK: Home
-"Home.DTC" = "Diagnostic trouble codes";
-"Home.PIDs" = "PIDs codes";
-"Home.State.Unknown" = "Not connected";
-"Home.State.NotFound" = "Not Found";
-"Home.State.Error" = "Error";
-"Home.State.Discovering" = "Discovering";
-"Home.State.Present" = "Present";
-"Home.State.Initializing" = "Initializing";
-"Home.State.Ready" = "Ready";
-"Home.State.IgnitionOff" = "Ignition Off";
-"Home.State.Connected" = "Connected";
-"Home.State.UnsupportedProtocol" = "Unsupported Protocol";
-"Home.State.Gone" = "Gone";
-"Home.Connect.Title" = "OBD2 scanner";
-"Home.Connect.SubTitle" = "Access data and control over\nyour car";
-"Home.Connect" = "Connect";
-"Home.Disconnect" = "Disconnect";
-"Home.SensorData.Title" = "Sensor Data";
-"Home.SensorData.Speed" = "Speed";
-"Home.SensorData.Temp" = "Temp";
-"Home.SensorData.RMP" = "RMP";
-
-// MARK: DTC
-"DTC.Title" = "Diagnostic trouble codes";
-"DTC.Empty.Title" = "No codes found";
-"DTC.Empty.Text" = "We have not found any trouble codes. Everything is fine with your car.";
-
-// MARK: PIDs
-"PIDs.Title" = "PIDs codes";
+// MARK: SelectYear
+"SelectYear.Title" = "Select year of manufacture";
+"SelectYear.Description" = "Select the exact year for the most accurate diagnosis";

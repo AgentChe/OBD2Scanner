@@ -12,6 +12,9 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
     
+    static let cdnScheme = "https"
+    static let cdnHost = "kcs.nyc3.cdn.digitaloceanspaces.com"
+    
     static let termsOfServiceUrl = URL(string: "https://thinkaboutapps.com/terms")!
     static let privacyPolicyUrl = URL(string: "https://thinkaboutapps.com/policy")!
     static let contactUsUrl = URL(string: "https://thinkaboutapps.com/contact")!

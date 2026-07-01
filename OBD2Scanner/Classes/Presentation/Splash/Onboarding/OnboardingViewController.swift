@@ -57,15 +57,11 @@ private extension OnboardingViewController {
         static let wasViewedKey = "onboarding_was_viewed"
     }
     
+    // TODO:
     func addCar() {
-        // TODO:
-        
-        let vc = UnlimitedPlanViewController.make { [weak self] in
-            let vc = PaygateViewController.make()
-            self?.present(vc, animated: true)
+        let vc = ChooseMethodAddCarViewController.make { result in
+            print("___ result: \(result)")
         }
-        present(vc, animated: false)
-        
-//        UserDefaults.standard.set(true, forKey: Constants.wasViewedKey)
+        present(vc, animated: true)
     }
 }

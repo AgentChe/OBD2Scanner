@@ -36,7 +36,7 @@ private extension AddCarStepView {
     func makeSteps() {
         (0..<3).forEach { index in
             let view = UIView()
-            view.backgroundColor = (index + 1) >= step ? Appearance.color_28D799 : Appearance.color_191F2B
+            view.backgroundColor = (index + 1) <= step ? Appearance.color_28D799 : Appearance.color_191F2B
             view.layer.cornerRadius = 1.scale
             view.translatesAutoresizingMaskIntoConstraints = false
             

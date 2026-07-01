@@ -100,3 +100,8 @@ and smart monitoring";
 // MARK: SelectYear
 "SelectYear.Title" = "Select year of manufacture";
 "SelectYear.Description" = "Select the exact year for the most accurate diagnosis";
+
+// MARK: SelectBrand
+"SelectBrand.Title" = "Select a brand";
+"SelectBrand.SubTitle" = "Enter the name of the car brand or select from the list";
+"SelectBrand.TextFieldPlaceholder" = "Enter brand";

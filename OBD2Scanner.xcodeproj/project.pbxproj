@@ -53,6 +53,12 @@
 		DE22403E2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22403D2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift */; };
 		DE2240402FF55AE10023E94C /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22403F2FF55AE10023E94C /* UIEdgeInsets+Extension.swift */; };
 		DE2240422FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240412FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		DE2240452FF563DF0023E94C /* SelectBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240442FF563DF0023E94C /* SelectBrandViewController.swift */; };
+		DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240462FF563E90023E94C /* SelectBrandViewModel.swift */; };
+		DE2240492FF563EE0023E94C /* SelectBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240482FF563EE0023E94C /* SelectBrandView.swift */; };
+		DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22404C2FF564100023E94C /* SelectBrandTableView.swift */; };
+		DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */; };
+		DE2240532FF56CA30023E94C /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240522FF56CA30023E94C /* SearchField.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -201,6 +207,12 @@
 		DE22403D2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearCollectionDescriptionCell.swift; sourceTree = "<group>"; };
 		DE22403F2FF55AE10023E94C /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		DE2240412FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		DE2240442FF563DF0023E94C /* SelectBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewController.swift; sourceTree = "<group>"; };
+		DE2240462FF563E90023E94C /* SelectBrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewModel.swift; sourceTree = "<group>"; };
+		DE2240482FF563EE0023E94C /* SelectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandView.swift; sourceTree = "<group>"; };
+		DE22404C2FF564100023E94C /* SelectBrandTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandTableView.swift; sourceTree = "<group>"; };
+		DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandTableCell.swift; sourceTree = "<group>"; };
+		DE2240522FF56CA30023E94C /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -464,6 +476,7 @@
 		DE22401A2FF423170023E94C /* AddVehicle */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240432FF563D50023E94C /* SelectBrand */,
 				DE2240232FF509940023E94C /* SelectYear */,
 				DE22401B2FF423200023E94C /* ChooseMethod */,
 				DE2240332FF552AE0023E94C /* AddVehicleFlowResult.swift */,
@@ -526,6 +539,34 @@
 				DE22403D2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DE2240432FF563D50023E94C /* SelectBrand */ = {
+			isa = PBXGroup;
+			children = (
+				DE22404A2FF563F30023E94C /* View */,
+				DE2240442FF563DF0023E94C /* SelectBrandViewController.swift */,
+				DE2240462FF563E90023E94C /* SelectBrandViewModel.swift */,
+				DE2240482FF563EE0023E94C /* SelectBrandView.swift */,
+			);
+			path = SelectBrand;
+			sourceTree = "<group>";
+		};
+		DE22404A2FF563F30023E94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE22404B2FF564050023E94C /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE22404B2FF564050023E94C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE22404C2FF564100023E94C /* SelectBrandTableView.swift */,
+				DE22404E2FF564310023E94C /* SelectBrandTableCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -638,6 +679,7 @@
 				DE2F0A982A698E0B00471667 /* PaddingTextField.swift */,
 				DE2F0A9B2A698E0B00471667 /* GradientView.swift */,
 				DE2240412FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift */,
+				DE2240522FF56CA30023E94C /* SearchField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1114,8 +1156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
 				DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */,
+				DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */,
 				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,
 				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
@@ -1132,6 +1176,7 @@
 				DE223FE42FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift in Sources */,
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
+				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
@@ -1176,7 +1221,9 @@
 				DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */,
 				DE2240342FF552AE0023E94C /* AddVehicleFlowResult.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
+				DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */,
 				DE2240292FF50AB60023E94C /* SelectYearView.swift in Sources */,
+				DE2240492FF563EE0023E94C /* SelectBrandView.swift in Sources */,
 				DE2F0BC02A6E755900471667 /* LTOBD2ProtocolISO15765_4.m in Sources */,
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
@@ -1197,6 +1244,7 @@
 				DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */,
 				DE2F0BD62A6E8A2D00471667 /* DTCTableElement.swift in Sources */,
 				DE22400C2FF405440023E94C /* PaygateCell.swift in Sources */,
+				DE2240452FF563DF0023E94C /* SelectBrandViewController.swift in Sources */,
 				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
 				DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */,
 				DE2240402FF55AE10023E94C /* UIEdgeInsets+Extension.swift in Sources */,

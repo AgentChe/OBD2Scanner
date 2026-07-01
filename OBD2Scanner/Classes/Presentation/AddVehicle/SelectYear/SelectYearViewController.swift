@@ -67,7 +67,9 @@ final class SelectYearViewController: UIViewController {
 // MARK: Public
 extension SelectYearViewController {
     static func make(complete: ((AddVehicleFlowResult) -> Void)? = nil) -> SelectYearViewController {
-        SelectYearViewController(complete: complete)
+        let vc = SelectYearViewController(complete: complete)
+        vc.navigationItem.backButtonTitle = " "
+        return vc 
     }
 }
 
@@ -80,7 +82,8 @@ private extension SelectYearViewController {
                 self?.complete?(.cancel)
             }
         case .selectBrand(let year):
-            break // TODO:
+            let vc = SelectBrandViewController.make(vehicleYear: year, complete: complete)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

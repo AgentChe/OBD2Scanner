@@ -7,14 +7,16 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
-// TODO: enter vin
 final class AddVehicleResultViewController: UIViewController {
     private lazy var mainView = AddVehicleResultView()
     
     private let viewModel: AddVehicleResultViewModel
     
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var didDecodeVINTrigger = PublishRelay<Vehicle>()
     
     private let complete: ((AddVehicleFlowResult) -> Void)?
     
@@ -51,7 +53,9 @@ final class AddVehicleResultViewController: UIViewController {
         
         let output = viewModel.configure(input: AddVehicleResultViewModel.Input(
             didTapComplete: mainView.completeButton.rx.tap.asSignal(),
-            didTapAddAnotherCar: mainView.addAnotherCarButton.rx.tap.asSignal()
+            didTapAddAnotherCar: mainView.addAnotherCarButton.rx.tap.asSignal(),
+            didTapAddVIN: mainView.vinView.addVINButton.rx.tap.asSignal(),
+            didDecodeVIN: didDecodeVINTrigger.asSignal()
         ))
         
         output.action
@@ -124,6 +128,11 @@ private extension AddVehicleResultViewController {
             
             let vc = SelectYearViewController.make(complete: complete)
             navigationController?.setViewControllers([vc], animated: true)
+        case .addVIN(let id):
+            let vc = AddVINViewController.make(vehicleId: id) { [weak self] vehicle in
+                self?.didDecodeVINTrigger.accept(vehicle)
+            }
+            present(vc, animated: false)
         }
     }
     

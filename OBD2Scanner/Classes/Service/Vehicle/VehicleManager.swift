@@ -13,13 +13,13 @@ protocol VehicleManagerProtocol {
     func obtainModels(year: String, brand: String) -> Single<[Model]>
     
     func add(
-        vin: String?,
         year: VehicleYear,
         brand: Brand,
         model: Model
     ) -> Single<Vehicle?>
+    func add(vin: String, vehicleId: String) -> Single<Vehicle?>
+    func decode(vin: String) -> Single<Vehicle?>
     func remove(id: String) -> Single<Void>
-    func update(vehicle: Vehicle) -> Single<Void>
     func obtainMyGarage() -> Single<[Vehicle]>
     func obtainCurrentVehicle() -> Single<Vehicle?>
     func setupCurrent(vehicle: Vehicle) -> Single<Void>
@@ -55,7 +55,6 @@ extension VehicleManager: VehicleManagerProtocol {
     }
     
     func add(
-        vin: String?,
         year: VehicleYear,
         brand: Brand,
         model: Model
@@ -72,12 +71,76 @@ extension VehicleManager: VehicleManagerProtocol {
             
             let vehicle = Vehicle(
                 id: UUID().uuidString,
-                vin: vin,
+                vin: nil,
                 brand: brand,
                 model: model,
                 year: year
             )
             
+            vehicles.append(vehicle)
+            
+            if let data = try? JSONEncoder().encode(vehicles) {
+                userDefaults.set(data, forKey: Constants.garageKey)
+            }
+            
+            single(.success(vehicle))
+            
+            VehicleMediator.shared.add(vehicle: vehicle)
+            
+            return Disposables.create()
+        }
+    }
+    
+    func add(vin: String, vehicleId: String) -> Single<Vehicle?> {
+        Single<Vehicle?>.create { single in
+            let userDefaults = UserDefaults.standard
+            
+            var vehicles: [Vehicle] = {
+                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
+                
+                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
+                return vehicles ?? []
+            }()
+            
+            let vehicle = Vehicle(
+                id: UUID().uuidString,
+                vin: vin,
+                brand: Brand(name: "Toyota"),
+                model: "Camry",
+                year: "2019"
+            )
+            vehicles.append(vehicle)
+            
+            if let data = try? JSONEncoder().encode(vehicles) {
+                userDefaults.set(data, forKey: Constants.garageKey)
+            }
+            
+            single(.success(vehicle))
+            
+            VehicleMediator.shared.replace(vehicle: vehicle)
+            
+            return Disposables.create()
+        }
+    }
+    
+    func decode(vin: String) -> Single<Vehicle?> {
+        Single<Vehicle?>.create { single in
+            let userDefaults = UserDefaults.standard
+            
+            var vehicles: [Vehicle] = {
+                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
+                
+                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
+                return vehicles ?? []
+            }()
+            
+            let vehicle = Vehicle(
+                id: UUID().uuidString,
+                vin: vin,
+                brand: Brand(name: "Toyota"),
+                model: "Camry",
+                year: "2019"
+            )
             vehicles.append(vehicle)
             
             if let data = try? JSONEncoder().encode(vehicles) {
@@ -112,33 +175,6 @@ extension VehicleManager: VehicleManagerProtocol {
             single(.success(Void()))
             
             VehicleMediator.shared.remove(id: id)
-            
-            return Disposables.create()
-        }
-    }
-    
-    func update(vehicle: Vehicle) -> Single<Void> {
-        Single<Void>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            var vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            if let index = vehicles.firstIndex(where: { $0.id == vehicle.id }) {
-                vehicles[index] = vehicle
-            }
-            
-            if let data = try? JSONEncoder().encode(vehicles) {
-                userDefaults.set(data, forKey: Constants.garageKey)
-            }
-            
-            single(.success(Void()))
-            
-            VehicleMediator.shared.update(vehicle: vehicle)
             
             return Disposables.create()
         }

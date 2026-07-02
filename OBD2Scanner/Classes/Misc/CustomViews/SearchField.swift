@@ -32,10 +32,6 @@ final class SearchField: UITextField {
         super.editingRect(forBounds: bounds).inset(by: textPadding)
     }
 
-    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        super.placeholderRect(forBounds: bounds).inset(by: textPadding)
-    }
-
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         let size = 24.scale
         return CGRect(

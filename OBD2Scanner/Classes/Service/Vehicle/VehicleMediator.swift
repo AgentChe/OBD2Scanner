@@ -12,8 +12,8 @@ final class VehicleMediator {
     static let shared = VehicleMediator()
     
     private lazy var didAddVehicleTrigger = PublishRelay<Vehicle>()
+    private lazy var didReplaceVehicleTrigger = PublishRelay<Vehicle>()
     private lazy var didRemoveVehicleTrigger = PublishRelay<String>()
-    private lazy var didUpdateVehicleTrigger = PublishRelay<Vehicle>()
     private lazy var didChangeCurrentVehicleTrigger = PublishRelay<Vehicle>()
     
     private init() {}
@@ -25,12 +25,12 @@ extension VehicleMediator {
         didAddVehicleTrigger.accept(vehicle)
     }
     
-    func remove(id: String) {
-        didRemoveVehicleTrigger.accept(id)
+    func replace(vehicle: Vehicle) {
+        didReplaceVehicleTrigger.accept(vehicle)
     }
     
-    func update(vehicle: Vehicle) {
-        didUpdateVehicleTrigger.accept(vehicle)
+    func remove(id: String) {
+        didRemoveVehicleTrigger.accept(id)
     }
     
     func changeCurrent(vehicle: Vehicle) {
@@ -41,12 +41,12 @@ extension VehicleMediator {
         didAddVehicleTrigger.asSignal()
     }
     
-    var didRemoveVehicle: Signal<String> {
-        didRemoveVehicleTrigger.asSignal()
+    var didReplaceVehicle: Signal<Vehicle> {
+        didReplaceVehicleTrigger.asSignal()
     }
     
-    var didUpdateVehicle: Signal<Vehicle> {
-        didUpdateVehicleTrigger.asSignal()
+    var didRemoveVehicle: Signal<String> {
+        didRemoveVehicleTrigger.asSignal()
     }
     
     var didChangeCurrentVehicle: Signal<Vehicle> {

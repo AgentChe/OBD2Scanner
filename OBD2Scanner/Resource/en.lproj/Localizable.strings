@@ -123,3 +123,11 @@ and smart monitoring";
 "AddVehicleResult.Item.Year" = "Year:";
 "AddVehicleResult.AddAnotherCar" = "Add another car";
 "AddVehicleResult.CompleteButton" = "Go to dashboard";
+
+// MARK: AddVIN
+"AddVIN.Title" = "ENTER YOUR VIN";
+"AddVIN.SubTitle" = "You can find it on your dashboard,\ndriver side door or documents";
+"AddVIN.EnterPlaceholder" = "Enter VIN";
+"AddVIN.EnterNotFound" = "We couldn’t find your VIN";
+"AddVIN.Example" = "Example VIN: 1HGCM82633A004352";
+"AddVIN.DecodeVIN" = "Decode VIN";

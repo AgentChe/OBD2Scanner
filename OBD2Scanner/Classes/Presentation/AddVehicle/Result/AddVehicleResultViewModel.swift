@@ -13,6 +13,7 @@ final class AddVehicleResultViewModel {
         case complete(Vehicle)
         case openPaygate
         case addAnotherCar(Vehicle)
+        case addVIN(String)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -39,6 +40,8 @@ extension AddVehicleResultViewModel {
     struct Input {
         let didTapComplete: Signal<Void>
         let didTapAddAnotherCar: Signal<Void>
+        let didTapAddVIN: Signal<Void>
+        let didDecodeVIN: Signal<Vehicle>
     }
     
     struct Output {
@@ -48,13 +51,14 @@ extension AddVehicleResultViewModel {
     }
     
     func configure(input: Input) -> Output {
-        let vehicle = makeVehicle()
+        let vehicle = makeVehicle(didDecodeVIN: input.didDecodeVIN)
         
         return Output(
             action: makeAction(
                 vehicle: vehicle,
                 didTapComplete: input.didTapComplete,
-                didTapAddAnotherCar: input.didTapAddAnotherCar
+                didTapAddAnotherCar: input.didTapAddAnotherCar,
+                didTapAddVIN: input.didTapAddVIN
             ),
             vehicle: vehicle,
             activity: activity.asDriver()
@@ -67,7 +71,8 @@ private extension AddVehicleResultViewModel {
     func makeAction(
         vehicle: Driver<Vehicle>,
         didTapComplete: Signal<Void>,
-        didTapAddAnotherCar: Signal<Void>
+        didTapAddAnotherCar: Signal<Void>,
+        didTapAddVIN: Signal<Void>
     ) -> Driver<Action> {
         let complete = didTapComplete
             .withLatestFrom(vehicle)
@@ -81,38 +86,50 @@ private extension AddVehicleResultViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let addVIN = didTapAddVIN
+            .withLatestFrom(vehicle)
+            .map { Action.addVIN($0.id) }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(complete, addAnotherCarOrPaygate)
+            .merge(complete, addAnotherCarOrPaygate, addVIN)
     }
     
-    func makeVehicle() -> Driver<Vehicle> {
-        func source() -> Single<Vehicle> {
-            vehicleManager
-                .add(
-                    vin: nil,
-                    year: vehicleYear,
-                    brand: brand,
-                    model: model
-                )
-                .map { vehicle -> Vehicle in
-                    guard let vehicle else {
-                        throw NSError(domain: "Not data", code: 404)
+    func makeVehicle(didDecodeVIN: Signal<Vehicle>) -> Driver<Vehicle> {
+        let add: Driver<Vehicle> = {
+            func source() -> Single<Vehicle> {
+                vehicleManager
+                    .add(
+                        year: vehicleYear,
+                        brand: brand,
+                        model: model
+                    )
+                    .map { vehicle -> Vehicle in
+                        guard let vehicle else {
+                            throw NSError(domain: "Not data", code: 404)
+                        }
+                        
+                        return vehicle
                     }
-                    
-                    return vehicle
-                }
-        }
+            }
+            
+            func trigger(error: Error) -> Observable<Void> {
+                tryAgain?(error) ?? .empty()
+            }
+            
+            return observableRetrySingle
+                .retry(
+                    source: { source() },
+                    trigger: { trigger(error: $0) }
+                )
+                .trackActivity(activity)
+                .asDriver(onErrorDriveWith: .empty())
+        }()
         
-        func trigger(error: Error) -> Observable<Void> {
-            tryAgain?(error) ?? .empty()
-        }
+        let decodeVIN = didDecodeVIN
+            .asDriver(onErrorDriveWith: .never())
         
-        return observableRetrySingle
-            .retry(
-                source: { source() },
-                trigger: { trigger(error: $0) }
-            )
-            .trackActivity(activity)
-            .asDriver(onErrorDriveWith: .empty())
+        return Driver
+            .merge(add, decodeVIN)
     }
 }

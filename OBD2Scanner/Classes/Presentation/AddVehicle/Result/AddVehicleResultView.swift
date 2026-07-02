@@ -38,10 +38,10 @@ final class AddVehicleResultView: UIView {
 // MARK: Public
 extension AddVehicleResultView {
     func setup(vehicle: Vehicle) {
-        if let preview = vehicle.preview {
-            // TODO: placeholder when error
-            previewView.kf.setImage(with: preview)
-        }
+        let previewPlaceholder = UIImage(named: "Vehicle.EmptyPreview")
+        previewView.kf.setImage(with: vehicle.preview,
+                                placeholder: previewPlaceholder,
+                                options: [.onFailureImage(previewPlaceholder)])
         
         vinView.setup(vin: vehicle.vin)
         brandView.setup(value: vehicle.brand.name)

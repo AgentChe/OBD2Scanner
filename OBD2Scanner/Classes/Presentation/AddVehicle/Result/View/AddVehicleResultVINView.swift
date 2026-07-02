@@ -126,11 +126,14 @@ private extension AddVehicleResultVINView {
         return view
     }
     
-    // TODO: shadow
     func makeAddedVINView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "AddVehicleResult.VIN")
+        view.layer.shadowColor = Appearance.color_28D799.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 0, height: 4.scale)
+        view.layer.shadowRadius = 8.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

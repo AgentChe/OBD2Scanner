@@ -7,21 +7,29 @@
 
 import UIKit
 
-// TODO: пунктирная обводка
 final class AddVehicleResultAddAnotherButton: UIButton {
     lazy var container = makeContainer()
     lazy var iconView = makeIconView()
     lazy var label = makeLabel()
-    
+
+    private lazy var borderLayer = makeBorderLayer()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         makeConstraints()
         initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        borderLayer.frame = bounds
+        borderLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 12.scale).cgPath
     }
 }
 
@@ -82,11 +90,21 @@ private extension AddVehicleResultAddAnotherButton {
             .textColor(Appearance.color_526387)
             .font(Fonts.NotoSans.regular(size: 14.scale))
             .textAlignment(.left)
-        
+
         let view = UILabel()
         view.attributedText = "AddVehicleResult.AddAnotherCar".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
+    }
+
+    func makeBorderLayer() -> CAShapeLayer {
+        let borderLayer = CAShapeLayer()
+        borderLayer.strokeColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.lineWidth = 1.scale
+        borderLayer.lineDashPattern = [NSNumber(value: 6.scale), NSNumber(value: 4.scale)]
+        layer.addSublayer(borderLayer)
+        return borderLayer
     }
 }

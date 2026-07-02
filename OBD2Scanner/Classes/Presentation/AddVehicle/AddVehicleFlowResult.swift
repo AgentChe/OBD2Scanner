@@ -8,4 +8,5 @@
 enum AddVehicleFlowResult {
     case cancel
     case added(Vehicle)
+    case addedAndStartAddNew(Vehicle)
 }

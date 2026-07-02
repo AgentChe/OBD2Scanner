@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 
+// TODO: enter vin
 final class AddVehicleResultViewController: UIViewController {
     private lazy var mainView = AddVehicleResultView()
     
@@ -49,7 +50,8 @@ final class AddVehicleResultViewController: UIViewController {
         }
         
         let output = viewModel.configure(input: AddVehicleResultViewModel.Input(
-            didTapComplete: mainView.completeButton.rx.tap.asSignal()
+            didTapComplete: mainView.completeButton.rx.tap.asSignal(),
+            didTapAddAnotherCar: mainView.addAnotherCarButton.rx.tap.asSignal()
         ))
         
         output.action
@@ -111,6 +113,17 @@ private extension AddVehicleResultViewController {
             navigationController?.dismiss(animated: true) { [weak self] in
                 self?.complete?(.added(vehicle))
             }
+        case .openPaygate:
+            let vc = UnlimitedPlanViewController.make { [weak self] in
+                let vc = PaygateViewController.make()
+                self?.present(vc, animated: true)
+            }
+            present(vc, animated: false)
+        case .addAnotherCar(let vehicle):
+            complete?(.addedAndStartAddNew(vehicle))
+            
+            let vc = SelectYearViewController.make(complete: complete)
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
     

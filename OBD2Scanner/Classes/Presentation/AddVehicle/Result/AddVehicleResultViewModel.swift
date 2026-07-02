@@ -11,6 +11,8 @@ import RxCocoa
 final class AddVehicleResultViewModel {
     enum Action {
         case complete(Vehicle)
+        case openPaygate
+        case addAnotherCar(Vehicle)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -36,6 +38,7 @@ final class AddVehicleResultViewModel {
 extension AddVehicleResultViewModel {
     struct Input {
         let didTapComplete: Signal<Void>
+        let didTapAddAnotherCar: Signal<Void>
     }
     
     struct Output {
@@ -50,7 +53,8 @@ extension AddVehicleResultViewModel {
         return Output(
             action: makeAction(
                 vehicle: vehicle,
-                didTapComplete: input.didTapComplete
+                didTapComplete: input.didTapComplete,
+                didTapAddAnotherCar: input.didTapAddAnotherCar
             ),
             vehicle: vehicle,
             activity: activity.asDriver()
@@ -62,15 +66,23 @@ extension AddVehicleResultViewModel {
 private extension AddVehicleResultViewModel {
     func makeAction(
         vehicle: Driver<Vehicle>,
-        didTapComplete: Signal<Void>
+        didTapComplete: Signal<Void>,
+        didTapAddAnotherCar: Signal<Void>
     ) -> Driver<Action> {
         let complete = didTapComplete
             .withLatestFrom(vehicle)
             .map { Action.complete($0) }
             .asDriver(onErrorDriveWith: .never())
         
+        let addAnotherCarOrPaygate = didTapAddAnotherCar
+            .withLatestFrom(vehicle)
+            .map { vehicle -> Action in
+                SessionManager().hasActiveSubscriptions() ? Action.addAnotherCar(vehicle) : Action.openPaygate
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(complete)
+            .merge(complete, addAnotherCarOrPaygate)
     }
     
     func makeVehicle() -> Driver<Vehicle> {

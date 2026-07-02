@@ -12,7 +12,12 @@ protocol VehicleManagerProtocol {
     func obtainBrands(year: String) -> Single<[Brand]>
     func obtainModels(year: String, brand: String) -> Single<[Model]>
     
-    func add(vehicle: Vehicle) -> Single<Void>
+    func add(
+        vin: String?,
+        year: VehicleYear,
+        brand: Brand,
+        model: Model
+    ) -> Single<Vehicle?>
     func remove(id: String) -> Single<Void>
     func update(vehicle: Vehicle) -> Single<Void>
     func obtainMyGarage() -> Single<[Vehicle]>
@@ -49,8 +54,13 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { Model.makeModels(from: $0) }
     }
     
-    func add(vehicle: Vehicle) -> Single<Void> {
-        Single<Void>.create { single in
+    func add(
+        vin: String?,
+        year: VehicleYear,
+        brand: Brand,
+        model: Model
+    ) -> Single<Vehicle?> {
+        Single<Vehicle?>.create { single in
             let userDefaults = UserDefaults.standard
             
             var vehicles: [Vehicle] = {
@@ -60,13 +70,21 @@ extension VehicleManager: VehicleManagerProtocol {
                 return vehicles ?? []
             }()
             
+            let vehicle = Vehicle(
+                id: UUID().uuidString,
+                vin: vin,
+                brand: brand,
+                model: model,
+                year: year
+            )
+            
             vehicles.append(vehicle)
             
             if let data = try? JSONEncoder().encode(vehicles) {
                 userDefaults.set(data, forKey: Constants.garageKey)
             }
             
-            single(.success(Void()))
+            single(.success(vehicle))
             
             VehicleMediator.shared.add(vehicle: vehicle)
             

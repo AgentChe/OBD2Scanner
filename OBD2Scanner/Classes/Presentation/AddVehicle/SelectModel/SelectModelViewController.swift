@@ -21,7 +21,11 @@ final class SelectModelViewController: UIViewController {
     private let brand: Brand
     private let complete: ((AddVehicleFlowResult) -> Void)?
 
-    private init(vehicleYear: VehicleYear, brand: Brand, complete: ((AddVehicleFlowResult) -> Void)?) {
+    private init(
+        vehicleYear: VehicleYear,
+        brand: Brand,
+        complete: ((AddVehicleFlowResult) -> Void)?
+    ) {
         self.viewModel = SelectModelViewModel(vehicleYear: vehicleYear, brand: brand)
         self.brand = brand
         self.complete = complete
@@ -70,7 +74,11 @@ final class SelectModelViewController: UIViewController {
 
 // MARK: Public
 extension SelectModelViewController {
-    static func make(vehicleYear: VehicleYear, brand: Brand, complete: ((AddVehicleFlowResult) -> Void)? = nil) -> SelectModelViewController {
+    static func make(
+        vehicleYear: VehicleYear,
+        brand: Brand,
+        complete: ((AddVehicleFlowResult) -> Void)? = nil
+    ) -> SelectModelViewController {
         let vc = SelectModelViewController(vehicleYear: vehicleYear, brand: brand, complete: complete)
         vc.navigationItem.backButtonTitle = " "
         return vc
@@ -85,8 +93,14 @@ private extension SelectModelViewController {
             navigationController?.dismiss(animated: true) { [weak self] in
                 self?.complete?(.cancel)
             }
-        case .didSelect:
-            break // TODO:
+        case let .didSelect(vehicleYear, brand, model):
+            let vc = AddVehicleResultViewController.make(
+                vehicleYear: vehicleYear,
+                brand: brand,
+                model: model,
+                complete: complete
+            )
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
 

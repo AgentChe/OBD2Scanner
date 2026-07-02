@@ -13,13 +13,12 @@ struct Vehicle: Codable, Hashable {
     let brand: Brand
     let model: Model
     let year: VehicleYear
-    let created: TimeInterval
     
     var preview: URL? {
         var components = URLComponents()
         components.scheme = GlobalDefinitions.cdnScheme
         components.host = GlobalDefinitions.cdnHost
-        components.path = "/car_connect/vehicles/\(brand.name)_\(year)_\(model).png"
+        components.path = "/car_connect/vehicles/\(brand.name.lowercased())_\(year)_\(model.lowercased()).png"
         return components.url
     }
 }

@@ -111,3 +111,15 @@ and smart monitoring";
 "SelectModel.Brand" = "Brand:";
 "SelectModel.AllModels" = "All Models";
 "SelectModel.TextFieldPlaceholder" = "Enter model";
+
+// MARK: AddVehicleResult
+"AddVehicleResult.Title" = "YOR CAR ADDED";
+"AddVehicleResult.SubTitle" = "Сar has driven into the garage";
+"AddVehicleResult.VIN.Title" = "VIN";
+"AddVehicleResult.VIN.Add" = "Add VIN";
+"AddVehicleResult.VIN.NotAvailable" = "Not available";
+"AddVehicleResult.Item.Brand" = "Brand:";
+"AddVehicleResult.Item.Model" = "Model:";
+"AddVehicleResult.Item.Year" = "Year:";
+"AddVehicleResult.AddAnotherCar" = "Add another car";
+"AddVehicleResult.CompleteButton" = "Go to dashboard";

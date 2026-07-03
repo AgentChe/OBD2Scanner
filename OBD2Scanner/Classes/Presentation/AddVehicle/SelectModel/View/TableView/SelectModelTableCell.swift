@@ -32,7 +32,7 @@ final class SelectModelTableCell: UITableViewCell {
 // MARK: Public
 extension SelectModelTableCell {
     func setup(model: Model) {
-        nameLabel.attributedText = model.attributed(with: nameAttrs)
+        nameLabel.attributedText = model.name.attributed(with: nameAttrs)
     }
 }
 

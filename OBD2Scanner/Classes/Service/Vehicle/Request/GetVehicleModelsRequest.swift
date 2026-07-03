@@ -8,7 +8,7 @@
 import Alamofire
 
 struct GetVehicleModelsRequest: APIRequestBody {
-    let year: String
+    let year: Int
     let brand: String
 
     var url: String {

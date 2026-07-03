@@ -94,7 +94,7 @@ private extension SelectModelViewModel {
                     return models
                 }
 
-                return models.filter { $0.lowercased().contains(query) }
+                return models.filter { $0.name.lowercased().contains(query) }
             }
     }
 }

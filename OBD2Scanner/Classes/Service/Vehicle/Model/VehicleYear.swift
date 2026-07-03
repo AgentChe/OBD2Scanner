@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias VehicleYear = String
+typealias VehicleYear = Int
 
 // MARK: Public
 extension VehicleYear {
@@ -17,7 +17,6 @@ extension VehicleYear {
             let body = json["body"] as? [String: Any]
         else { return [] }
         
-        let years = (body["years"] as? [Int]) ?? []
-        return years.map { VehicleYear($0) }
+        return (body["years"] as? [VehicleYear]) ?? []
     }
 }

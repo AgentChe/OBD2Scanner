@@ -9,17 +9,19 @@ import RxSwift
 
 protocol VehicleManagerProtocol {
     func obtainYears() -> Single<[VehicleYear]>
-    func obtainBrands(year: String) -> Single<[Brand]>
-    func obtainModels(year: String, brand: String) -> Single<[Model]>
+    func obtainBrands(year: Int) -> Single<[Brand]>
+    func obtainModels(year: Int, brand: String) -> Single<[Model]>
+    func obtainRefID(year: Int, brand: String, model: String) -> Single<VehicleRefID?>
     
     func add(
-        year: VehicleYear,
-        brand: Brand,
-        model: Model
+        year: Int,
+        brand: String,
+        model: String,
+        refId: String
     ) -> Single<Vehicle?>
     func add(vin: String, vehicleId: String) -> Single<Vehicle?>
     func decode(vin: String) -> Single<Vehicle?>
-    func remove(id: String) -> Single<Void>
+    func remove(id: String) -> Single<RequestResult>
     func obtainMyGarage() -> Single<[Vehicle]>
     func obtainCurrentVehicle() -> Single<Vehicle?>
     func setupCurrent(vehicle: Vehicle) -> Single<Void>
@@ -27,9 +29,10 @@ protocol VehicleManagerProtocol {
 
 final class VehicleManager {
     enum Constants {
-        static let garageKey = "vehicle_manager_garage"
         static let currentVehicleKey = "vehicle_manager_current_vehicle"
     }
+    
+    private lazy var sessionManager = SessionManager()
     
     private lazy var restAPITransport = RestAPITransport()
 }
@@ -42,159 +45,116 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { VehicleYear.makeVehicleYears(from: $0) }
     }
     
-    func obtainBrands(year: String) -> Single<[Brand]> {
+    func obtainBrands(year: Int) -> Single<[Brand]> {
         restAPITransport
             .callServerApi(requestBody: GetVehicleBrandsRequest(year: year))
             .map { Brand.map(from: $0) }
     }
     
-    func obtainModels(year: String, brand: String) -> Single<[Model]> {
+    func obtainModels(year: Int, brand: String) -> Single<[Model]> {
         restAPITransport
             .callServerApi(requestBody: GetVehicleModelsRequest(year: year, brand: brand))
             .map { Model.makeModels(from: $0) }
     }
     
+    func obtainRefID(year: Int, brand: String, model: String) -> Single<VehicleRefID?> {
+        let request = GetVehicleRefIDRequest(
+            year: year,
+            brand: brand,
+            model: model
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { VehicleRefID.vehicleRedID(response: $0) }
+    }
+    
     func add(
-        year: VehicleYear,
-        brand: Brand,
-        model: Model
+        year: Int,
+        brand: String,
+        model: String,
+        refId: String
     ) -> Single<Vehicle?> {
-        Single<Vehicle?>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            var vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            let vehicle = Vehicle(
-                id: UUID().uuidString,
-                vin: nil,
-                brand: brand,
-                model: model,
-                year: year
-            )
-            
-            vehicles.append(vehicle)
-            
-            if let data = try? JSONEncoder().encode(vehicles) {
-                userDefaults.set(data, forKey: Constants.garageKey)
-            }
-            
-            single(.success(vehicle))
-            
-            VehicleMediator.shared.add(vehicle: vehicle)
-            
-            return Disposables.create()
-        }
+        let request = AddVehicleRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            year: year,
+            brand: brand,
+            model: model,
+            refId: refId
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { Vehicle(response: $0) }
+            .do(onSuccess: { vehicle in
+                if let vehicle {
+                    VehicleMediator.shared.add(vehicle: vehicle)
+                }
+            })
     }
     
     func add(vin: String, vehicleId: String) -> Single<Vehicle?> {
-        Single<Vehicle?>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            var vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            let vehicle = Vehicle(
-                id: UUID().uuidString,
-                vin: vin,
-                brand: Brand(name: "Toyota"),
-                model: "Camry",
-                year: "2019"
-            )
-            vehicles.append(vehicle)
-            
-            if let data = try? JSONEncoder().encode(vehicles) {
-                userDefaults.set(data, forKey: Constants.garageKey)
-            }
-            
-            single(.success(vehicle))
-            
-            VehicleMediator.shared.replace(vehicle: vehicle)
-            
-            return Disposables.create()
-        }
+        let request = AddVINToVehicleRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vehicleId: vehicleId,
+            vin: vin
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { Vehicle(response: $0) }
+            .do(onSuccess: { vehicle in
+                if let vehicle {
+                    VehicleMediator.shared.replace(vehicle: vehicle)
+                }
+            })
     }
     
     func decode(vin: String) -> Single<Vehicle?> {
-        Single<Vehicle?>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            var vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            let vehicle = Vehicle(
-                id: UUID().uuidString,
-                vin: vin,
-                brand: Brand(name: "Toyota"),
-                model: "Camry",
-                year: "2019"
-            )
-            vehicles.append(vehicle)
-            
-            if let data = try? JSONEncoder().encode(vehicles) {
-                userDefaults.set(data, forKey: Constants.garageKey)
-            }
-            
-            single(.success(vehicle))
-            
-            VehicleMediator.shared.add(vehicle: vehicle)
-            
-            return Disposables.create()
-        }
+        let request = DecodeVINRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vin: vin
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { Vehicle(response: $0) }
+            .do(onSuccess: { vehicle in
+                if let vehicle {
+                    VehicleMediator.shared.add(vehicle: vehicle)
+                }
+            })
     }
     
-    func remove(id: String) -> Single<Void> {
-        Single<Void>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            var vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            vehicles.removeAll(where: { $0.id == id })
-            
-            if let data = try? JSONEncoder().encode(vehicles) {
-                userDefaults.set(data, forKey: Constants.garageKey)
-            }
-            
-            single(.success(Void()))
-            
-            VehicleMediator.shared.remove(id: id)
-            
-            return Disposables.create()
-        }
+    func remove(id: String) -> Single<RequestResult> {
+        let request = RemoveVehicleRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vehicleId: id
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                if result.success {
+                    VehicleMediator.shared.remove(id: id)
+                }
+            })
     }
     
     func obtainMyGarage() -> Single<[Vehicle]> {
-        Single<[Vehicle]>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            let vehicles: [Vehicle] = {
-                guard let data = userDefaults.data(forKey: Constants.garageKey) else { return [] }
-                
-                let vehicles = try? JSONDecoder().decode([Vehicle].self, from: data)
-                return vehicles ?? []
-            }()
-            
-            single(.success(vehicles))
-            
-            return Disposables.create()
-        }
+        let request = ObtainGarageRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { Vehicle.garage(response: $0) }
     }
     
     func obtainCurrentVehicle() -> Single<Vehicle?> {

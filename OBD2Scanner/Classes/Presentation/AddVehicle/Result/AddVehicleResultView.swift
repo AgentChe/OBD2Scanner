@@ -44,9 +44,12 @@ extension AddVehicleResultView {
                                 options: [.onFailureImage(previewPlaceholder)])
         
         vinView.setup(vin: vehicle.vin)
-        brandView.setup(value: vehicle.brand.name)
-        modelView.setup(value: vehicle.model)
-        yearView.setup(value: vehicle.year)
+        brandView.setup(value: vehicle.brand ?? "")
+        modelView.setup(value: vehicle.model ?? "")
+        yearView.setup(value: {
+            guard let year = vehicle.year else { return "" }
+            return String(year)
+        }())
     }
 }
 

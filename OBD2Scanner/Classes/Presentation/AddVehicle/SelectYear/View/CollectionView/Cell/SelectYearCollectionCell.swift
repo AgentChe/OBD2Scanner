@@ -31,7 +31,7 @@ final class SelectYearCollectionCell: UICollectionViewCell {
 // MARK: Public
 extension SelectYearCollectionCell {
     func setup(year: VehicleYear) {
-        label.attributedText = year.attributed(with: attrs)
+        label.attributedText = String(year).attributed(with: attrs)
     }
 }
 

@@ -7,17 +7,30 @@
 
 import Foundation
 
-typealias Model = String
+struct Model {
+    let name: String
+    let preview: URL?
+    
+    init?(json: [String: Any]) {
+        guard let name = json["name"] as? String else { return nil }
+        
+        self.name = name
+        self.preview = {
+            guard let string = json["preview"] as? String else { return nil }
+            return URL(string: string)
+        }()
+    }
+}
 
 // MARK: Public
 extension Model {
     static func makeModels(from response: Any) -> [Model] {
         guard
             let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any]
+            let body = json["body"] as? [String: Any],
+            let models = body["models"] as? [[String: Any]]
         else { return [] }
         
-        let models = (body["models"] as? [String]) ?? []
-        return models.map { Model($0) }
+        return models.compactMap { Model(json: $0) }
     }
 }

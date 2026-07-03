@@ -8,7 +8,7 @@
 import Alamofire
 
 struct GetVehicleBrandsRequest: APIRequestBody {
-    let year: String
+    let year: Int
 
     var url: String {
         GlobalDefinitions.domain + "/api/v1/vehicle/support/brands"

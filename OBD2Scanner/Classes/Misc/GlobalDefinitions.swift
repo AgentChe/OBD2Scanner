@@ -6,14 +6,11 @@
 //
 
 final class GlobalDefinitions {
-    static let domain = "https://carconnect.bloomupapps.com"
-    static let accessToken = "1E0fCaZs7zvSEZoXPP"
+    static let domain = "https://obd2.thinkaboutapps.com"
+    static let accessToken = "TU9drYgOd0vBWJhqnfga4UnD"
     
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "zbRimnpY41TJhMpd"
-    
-    static let cdnScheme = "https"
-    static let cdnHost = "kcs.nyc3.cdn.digitaloceanspaces.com"
     
     static let termsOfServiceUrl = URL(string: "https://thinkaboutapps.com/terms")!
     static let privacyPolicyUrl = URL(string: "https://thinkaboutapps.com/policy")!

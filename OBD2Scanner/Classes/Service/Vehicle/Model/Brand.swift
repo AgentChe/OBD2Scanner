@@ -7,15 +7,18 @@
 
 import Foundation
 
-struct Brand: Codable, Hashable {
+struct Brand {
     let name: String
+    let logo: URL?
     
-    var logo: URL? {
-        var components = URLComponents()
-        components.scheme = GlobalDefinitions.cdnScheme
-        components.host = GlobalDefinitions.cdnHost
-        components.path = "/car_connect/logo/\(name).png"
-        return components.url
+    init?(json: [String: Any]) {
+        guard let name = json["name"] as? String else { return nil }
+        
+        self.name = name
+        self.logo = {
+            guard let string = json["logo"] as? String else { return nil }
+            return URL(string: string)
+        }()
     }
 }
 
@@ -24,10 +27,10 @@ extension Brand {
     static func map(from response: Any) -> [Brand] {
         guard
             let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any]
+            let body = json["body"] as? [String: Any],
+            let brands = body["brands"] as? [[String: Any]]
         else { return [] }
         
-        let names = (body["brands"] as? [String]) ?? []
-        return names.map { Brand(name: $0) }
+        return brands.compactMap { Brand(json: $0) }
     }
 }

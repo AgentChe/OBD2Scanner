@@ -27,6 +27,10 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            self?.open(error: error) ?? .never()
+        }
+        
         let output = viewModel.configure(input: SplashViewModel.Input(
             didSDKConfigured: didSDKConfiguredTrigger.asSignal()
         ))
@@ -72,5 +76,19 @@ private extension SplashViewController {
         case .openMain:
             break // TODO:
         }
+    }
+    
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self else { return Disposables.create() }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                present(vc, animated: true)
+                
+                return Disposables.create()
+            }
     }
 }

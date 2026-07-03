@@ -59,7 +59,7 @@ private extension OnboardingViewController {
     
     // TODO:
     func addCar() {
-        let vc = ChooseMethodAddCarViewController.make { result in
+        let vc = ChooseMethodAddCarViewController.makeIntoNavigation { result in
             print("___ result: \(result)")
         }
         present(vc, animated: true)

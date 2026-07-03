@@ -21,18 +21,12 @@ final class AddVehicleResultViewController: UIViewController {
     private let complete: ((AddVehicleFlowResult) -> Void)?
     
     private init(
-        vehicleYear: VehicleYear,
-        brand: Brand,
-        model: Model,
+        payload: AddVehicleResultViewModel.Payload,
         complete: ((AddVehicleFlowResult) -> Void)?
     ) {
-        self.viewModel = AddVehicleResultViewModel(
-            vehicleYear: vehicleYear,
-            brand: brand,
-            model: model
-        )
+        self.viewModel = AddVehicleResultViewModel(payload: payload)
         self.complete = complete
-        
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -99,9 +93,19 @@ extension AddVehicleResultViewController {
         complete: ((AddVehicleFlowResult) -> Void)?
     ) -> AddVehicleResultViewController {
         let vc = AddVehicleResultViewController(
-            vehicleYear: vehicleYear,
-            brand: brand,
-            model: model,
+            payload: .reference(vehicleYear: vehicleYear, brand: brand, model: model),
+            complete: complete
+        )
+        vc.navigationItem.backButtonTitle = " "
+        return vc
+    }
+
+    static func make(
+        vehicle: Vehicle,
+        complete: ((AddVehicleFlowResult) -> Void)?
+    ) -> AddVehicleResultViewController {
+        let vc = AddVehicleResultViewController(
+            payload: .vehicle(vehicle),
             complete: complete
         )
         vc.navigationItem.backButtonTitle = " "
@@ -126,7 +130,7 @@ private extension AddVehicleResultViewController {
         case .addAnotherCar(let vehicle):
             complete?(.addedAndStartAddNew(vehicle))
             
-            let vc = SelectYearViewController.make(complete: complete)
+            let vc = ChooseMethodAddCarViewController.make(complete: complete)
             navigationController?.setViewControllers([vc], animated: true)
         case .addVIN(let id):
             let vc = AddVINViewController.make(vehicleId: id) { [weak self] vehicle in

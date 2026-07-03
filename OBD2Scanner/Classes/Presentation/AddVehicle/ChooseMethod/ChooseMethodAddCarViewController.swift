@@ -47,13 +47,19 @@ final class ChooseMethodAddCarViewController: UIViewController {
 
 // MARK: Public
 extension ChooseMethodAddCarViewController {
-    static func make(complete: ((AddVehicleFlowResult) -> Void)? = nil) -> UIViewController {
+    static func makeIntoNavigation(complete: ((AddVehicleFlowResult) -> Void)? = nil) -> UIViewController {
         let vc = ChooseMethodAddCarViewController(complete: complete)
         vc.navigationItem.title = "ChooseMethodAddCar.Title".localized
         
         let nc = NavigationController(rootViewController: vc)
         nc.modalPresentationStyle = .fullScreen
         return nc
+    }
+    
+    static func make(complete: ((AddVehicleFlowResult) -> Void)? = nil) -> ChooseMethodAddCarViewController {
+        let vc = ChooseMethodAddCarViewController(complete: complete)
+        vc.navigationItem.title = "ChooseMethodAddCar.Title".localized
+        return vc 
     }
 }
 

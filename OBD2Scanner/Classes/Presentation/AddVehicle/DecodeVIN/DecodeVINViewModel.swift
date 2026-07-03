@@ -60,8 +60,7 @@ private extension DecodeVINViewModel {
                 guard let self else { return .empty() }
 
                 func source() -> Single<Action> {
-//                    vehicleManager.decode(vin: vin) TODO
-                    return (Bool.random() ? vehicleManager.decode(vin: vin) : .just(nil))
+                    vehicleManager.decode(vin: vin)
                         .map { vehicle -> Action in
                             if let vehicle {
                                 return .result(vehicle)

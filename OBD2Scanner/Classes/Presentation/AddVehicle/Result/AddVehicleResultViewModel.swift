@@ -15,23 +15,24 @@ final class AddVehicleResultViewModel {
         case addAnotherCar(Vehicle)
         case addVIN(String)
     }
-    
+
+    enum Payload {
+        case reference(vehicleYear: VehicleYear, brand: Brand, model: Model)
+        case vehicle(Vehicle)
+    }
+
     var tryAgain: ((Error) -> (Observable<Void>))?
-    
+
     private lazy var activity = RxActivityIndicator()
-    
+
     private lazy var vehicleManager = VehicleManager()
-    
+
     private lazy var observableRetrySingle = ObservableRetrySingle()
-    
-    private let vehicleYear: VehicleYear
-    private let brand: Brand
-    private let model: Model
-    
-    init(vehicleYear: VehicleYear, brand: Brand, model: Model) {
-        self.vehicleYear = vehicleYear
-        self.brand = brand
-        self.model = model
+
+    private let payload: Payload
+
+    init(payload: Payload) {
+        self.payload = payload
     }
 }
 
@@ -96,50 +97,59 @@ private extension AddVehicleResultViewModel {
     }
     
     func makeVehicle(didDecodeVIN: Signal<Vehicle>) -> Driver<Vehicle> {
-        let add: Driver<Vehicle> = {
-            func source() -> Single<Vehicle> {
-                vehicleManager
-                    .obtainReference(year: vehicleYear, brand: brand.name, model: model.name)
-                    .flatMap { [weak self] reference -> Single<Vehicle> in
-                        guard let self else {
-                            throw NSError(domain: "Not data", code: 404)
-                        }
-                        
-                        return vehicleManager
-                            .add(
-                                vehicleId: reference.vehicleId ?? UUID().uuidString,
-                                year: vehicleYear,
-                                brand: brand.name,
-                                model: model.name,
-                                refId: reference.refId
-                            )
-                            .map { vehicle -> Vehicle in
-                                guard let vehicle else {
-                                    throw NSError(domain: "Not data", code: 404)
-                                }
-                                
-                                return vehicle
-                            }
-                    }
-            }
-            
-            func trigger(error: Error) -> Observable<Void> {
-                tryAgain?(error) ?? .empty()
-            }
-            
-            return observableRetrySingle
-                .retry(
-                    source: { source() },
-                    trigger: { trigger(error: $0) }
-                )
-                .trackActivity(activity)
-                .asDriver(onErrorDriveWith: .empty())
-        }()
-        
+        let initial: Driver<Vehicle>
+
+        switch payload {
+        case let .reference(vehicleYear, brand, model):
+            initial = addVehicle(vehicleYear: vehicleYear, brand: brand, model: model)
+        case .vehicle(let vehicle):
+            initial = .just(vehicle)
+        }
+
         let decodeVIN = didDecodeVIN
             .asDriver(onErrorDriveWith: .never())
-        
+
         return Driver
-            .merge(add, decodeVIN)
+            .merge(initial, decodeVIN)
+    }
+
+    func addVehicle(vehicleYear: VehicleYear, brand: Brand, model: Model) -> Driver<Vehicle> {
+        func source() -> Single<Vehicle> {
+            vehicleManager
+                .obtainReference(year: vehicleYear, brand: brand.name, model: model.name)
+                .flatMap { [weak self] reference -> Single<Vehicle> in
+                    guard let self else {
+                        throw NSError(domain: "Not data", code: 404)
+                    }
+
+                    return vehicleManager
+                        .add(
+                            vehicleId: reference.vehicleId ?? UUID().uuidString,
+                            year: vehicleYear,
+                            brand: brand.name,
+                            model: model.name,
+                            refId: reference.refId
+                        )
+                        .map { vehicle -> Vehicle in
+                            guard let vehicle else {
+                                throw NSError(domain: "Not data", code: 404)
+                            }
+
+                            return vehicle
+                        }
+                }
+        }
+
+        func trigger(error: Error) -> Observable<Void> {
+            tryAgain?(error) ?? .empty()
+        }
+
+        return observableRetrySingle
+            .retry(
+                source: { source() },
+                trigger: { trigger(error: $0) }
+            )
+            .trackActivity(activity)
+            .asDriver(onErrorDriveWith: .empty())
     }
 }

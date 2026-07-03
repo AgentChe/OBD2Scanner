@@ -101,7 +101,8 @@ private extension DecodeVINViewController {
         case .result(let vehicle):
             mainView.endEditing(true)
             
-            break // TODO: open result
+            let vc = AddVehicleResultViewController.make(vehicle: vehicle, complete: complete)
+            navigationController?.setViewControllers([vc], animated: true)
         case .notFound:
             mainView.enterVINField.setup(isError: true)
         }

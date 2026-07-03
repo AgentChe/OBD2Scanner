@@ -9,6 +9,10 @@ import RxSwift
 import RxCocoa
 
 final class GarageViewModel {
+    enum Action {
+        case addCar
+    }
+    
     var tryAgain: ((Error) -> (Observable<Void>))?
 
     private lazy var activity = RxActivityIndicator()
@@ -21,18 +25,21 @@ final class GarageViewModel {
 // MARK: Public
 extension GarageViewModel {
     struct Input {
+        let didTapAddCar: Signal<Void>
         let didSelectVehicle: Signal<Vehicle>
     }
 
     struct Output {
         let elements: Driver<[GarageTableElement]>
         let activity: Driver<Bool>
+        let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
         Output(
             elements: makeElements(didSelectVehicle: input.didSelectVehicle),
-            activity: activity.asDriver()
+            activity: activity.asDriver(),
+            action: makeAction(didTapAddCar: input.didTapAddCar)
         )
     }
 }
@@ -138,5 +145,16 @@ private extension GarageViewModel {
             )
             .trackActivity(activity)
             .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func makeAction(
+        didTapAddCar: Signal<Void>
+    ) -> Driver<Action> {
+        let addCar = didTapAddCar
+            .map { Action.addCar }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(addCar)
     }
 }

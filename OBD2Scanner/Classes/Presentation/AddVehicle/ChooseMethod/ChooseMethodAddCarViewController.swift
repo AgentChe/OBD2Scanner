@@ -32,7 +32,7 @@ final class ChooseMethodAddCarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         Signal
             .merge(
                 mainView.manuallyButton.didTap,
@@ -42,6 +42,8 @@ final class ChooseMethodAddCarViewController: UIViewController {
                 base.didChoose(method: method)
             })
             .disposed(by: disposeBag)
+
+        addCloseButton()
     }
 }
 
@@ -65,6 +67,22 @@ extension ChooseMethodAddCarViewController {
 
 // MARK: Private
 private extension ChooseMethodAddCarViewController {
+    func addCloseButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapClose)
+        )
+    }
+
+    @objc
+    func didTapClose() {
+        navigationController?.dismiss(animated: true) { [weak self] in
+            self?.complete?(.cancel)
+        }
+    }
+
     func didChoose(method: ChooseMethodAddCarButton.Method) {
         switch method {
         case .manually:

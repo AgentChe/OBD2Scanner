@@ -28,6 +28,7 @@ final class GarageViewController: UIViewController {
         }
 
         let output = viewModel.configure(input: GarageViewModel.Input(
+            didTapAddCar: mainView.addCarButton.rx.tap.asSignal(),
             didSelectVehicle: mainView.tableView.didSelectVehicle
         ))
 
@@ -42,11 +43,10 @@ final class GarageViewController: UIViewController {
                 activity ? base.startAnimating() : base.stopAnimating()
             })
             .disposed(by: disposeBag)
-
-        mainView.addCarButton.rx.tap
-            .asSignal()
-            .emit(to: Binder(self) { base, _ in
-                base.openAddCarFlow()
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
             })
             .disposed(by: disposeBag)
     }
@@ -73,11 +73,14 @@ extension GarageViewController {
 
 // MARK: Private
 private extension GarageViewController {
-    func openAddCarFlow() {
-        let vc = ChooseMethodAddCarViewController.makeIntoNavigation()
-        present(vc, animated: true)
+    func action(_ action: GarageViewModel.Action) {
+        switch action {
+        case .addCar:
+            let vc = ChooseMethodAddCarViewController.makeIntoNavigation()
+            present(vc, animated: true)
+        }
     }
-
+    
     func open(error: Error) -> Observable<Void> {
         Observable<Void>
             .create { [weak self] observe in

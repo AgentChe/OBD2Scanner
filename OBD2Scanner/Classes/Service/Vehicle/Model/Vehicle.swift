@@ -15,22 +15,27 @@ struct Vehicle: Codable {
     let year: Int?
     let preview: URL?
     
+    init?(json: [String: Any]) {
+        guard let id = json["vehicle_id"] as? String else { return nil }
+        
+        self.id = id
+        self.vin = json["vin"] as? String
+        self.brand = json["make"] as? String
+        self.model = json["model"] as? String
+        self.year = json["year"] as? Int
+        self.preview = {
+            guard let string = json["preview"] as? String else { return nil }
+            return URL(string: string)
+        }()
+    }
+    
     init?(response: Any) {
         guard
             let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any],
-            let id = body["vehicle_id"] as? String
+            let body = json["body"] as? [String: Any]
         else { return nil }
         
-        self.id = id
-        self.vin = body["vin"] as? String
-        self.brand = body["make"] as? String
-        self.model = body["model"] as? String
-        self.year = body["year"] as? Int
-        self.preview = {
-            guard let string = body["preview"] as? String else { return nil }
-            return URL(string: string)
-        }()
+        self.init(json: body)
     }
 }
 
@@ -43,6 +48,6 @@ extension Vehicle {
             let vehicles = body["vehicles"] as? [[String: Any]]
         else { return [] }
         
-        return vehicles.compactMap { Vehicle(response: $0)}
+        return vehicles.compactMap { Vehicle(json: $0)}
     }
 }

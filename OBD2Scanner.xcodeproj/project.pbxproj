@@ -92,6 +92,12 @@
 		DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */; };
 		DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */; };
 		DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240B32FF7C3550023E94C /* MainViewController.swift */; };
+		DE2240B92FF7CDBA0023E94C /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240B82FF7CDBA0023E94C /* GarageViewController.swift */; };
+		DE2240BB2FF7CDC50023E94C /* GarageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240BA2FF7CDC50023E94C /* GarageViewModel.swift */; };
+		DE2240BD2FF7CDCC0023E94C /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240BC2FF7CDCC0023E94C /* GarageView.swift */; };
+		DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240C02FF7D1DF0023E94C /* GarageTableView.swift */; };
+		DE2240C32FF7D1E60023E94C /* GarageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240C22FF7D1E60023E94C /* GarageTableCell.swift */; };
+		DE2240C72FF8375C0023E94C /* GarageTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240C62FF8375C0023E94C /* GarageTableElement.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -279,6 +285,12 @@
 		DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINViewModel.swift; sourceTree = "<group>"; };
 		DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINView.swift; sourceTree = "<group>"; };
 		DE2240B32FF7C3550023E94C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DE2240B82FF7CDBA0023E94C /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
+		DE2240BA2FF7CDC50023E94C /* GarageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewModel.swift; sourceTree = "<group>"; };
+		DE2240BC2FF7CDCC0023E94C /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
+		DE2240C02FF7D1DF0023E94C /* GarageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageTableView.swift; sourceTree = "<group>"; };
+		DE2240C22FF7D1E60023E94C /* GarageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageTableCell.swift; sourceTree = "<group>"; };
+		DE2240C62FF8375C0023E94C /* GarageTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageTableElement.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -757,9 +769,39 @@
 		DE2240B22FF7C34D0023E94C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240B72FF7CDB10023E94C /* Garage */,
 				DE2240B32FF7C3550023E94C /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DE2240B72FF7CDB10023E94C /* Garage */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240BE2FF7D1D10023E94C /* View */,
+				DE2240B82FF7CDBA0023E94C /* GarageViewController.swift */,
+				DE2240BA2FF7CDC50023E94C /* GarageViewModel.swift */,
+				DE2240BC2FF7CDCC0023E94C /* GarageView.swift */,
+			);
+			path = Garage;
+			sourceTree = "<group>";
+		};
+		DE2240BE2FF7D1D10023E94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240BF2FF7D1D60023E94C /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE2240BF2FF7D1D60023E94C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240C02FF7D1DF0023E94C /* GarageTableView.swift */,
+				DE2240C22FF7D1E60023E94C /* GarageTableCell.swift */,
+				DE2240C62FF8375C0023E94C /* GarageTableElement.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -1367,6 +1409,7 @@
 				DE2F0BB72A6E755900471667 /* LTOBD2DTC.m in Sources */,
 				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
+				DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */,
 				DE7194442A700A4000ED3084 /* PIDsViewController.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
@@ -1374,6 +1417,7 @@
 				DE7194462A700A4500ED3084 /* PIDsViewModel.swift in Sources */,
 				DE2F0BBD2A6E755900471667 /* LTOBD2O2Sensor.m in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
+				DE2240BB2FF7CDC50023E94C /* GarageViewModel.swift in Sources */,
 				DE2F0B112A69957D00471667 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */,
 				DE2F0BDB2A6E8A4600471667 /* DTCCell.swift in Sources */,
@@ -1393,6 +1437,8 @@
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
+				DE2240BD2FF7CDCC0023E94C /* GarageView.swift in Sources */,
+				DE2240C72FF8375C0023E94C /* GarageTableElement.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE22408D2FF6B8A00023E94C /* RadialGradientView.swift in Sources */,
 				DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */,
@@ -1406,6 +1452,7 @@
 				DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */,
 				DE2240132FF4165E0023E94C /* Brand.swift in Sources */,
 				DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */,
+				DE2240B92FF7CDBA0023E94C /* GarageViewController.swift in Sources */,
 				DE2240422FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
@@ -1474,6 +1521,7 @@
 				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
 				DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */,
 				DE2240712FF653380023E94C /* TryAgainViewController.swift in Sources */,
+				DE2240C32FF7D1E60023E94C /* GarageTableCell.swift in Sources */,
 				DE2240402FF55AE10023E94C /* UIEdgeInsets+Extension.swift in Sources */,
 				DE22407A2FF688330023E94C /* AddVehicleResultAddAnotherButton.swift in Sources */,
 				DE2240732FF6534C0023E94C /* TryAgainView.swift in Sources */,

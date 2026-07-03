@@ -145,3 +145,11 @@ and smart monitoring";
 "Main.Tab.Dashboard" = "Dashboard";
 "Main.Tab.Garage" = "My garage";
 "Main.Tab.Settings" = "Settings";
+
+// MARK: Garage
+"Garage.Title" = "My garage";
+"Garage.AddCar" = "+ Add car";
+"Garage.VehiclesCount" = "%i vehicles";
+"Garage.Active" = "Active";
+"Garage.LastSyncNone" = "Last sync: none";
+"Garage.VIN.NotAvailable" = "VIN: Not available";

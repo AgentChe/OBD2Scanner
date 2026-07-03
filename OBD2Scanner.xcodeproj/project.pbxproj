@@ -86,8 +86,11 @@
 		DE22409E2FF6CCB10023E94C /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240992FF6CCB10023E94C /* ProfileManager.swift */; };
 		DE2240A02FF6CDE70023E94C /* RemoveVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22409F2FF6CDE70023E94C /* RemoveVehicleRequest.swift */; };
 		DE2240A22FF6CEC30023E94C /* ObtainGarageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A12FF6CEC30023E94C /* ObtainGarageRequest.swift */; };
-		DE2240A42FF79D030023E94C /* VehicleRefID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A32FF79D030023E94C /* VehicleRefID.swift */; };
+		DE2240A42FF79D030023E94C /* VehicleReferefence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A32FF79D030023E94C /* VehicleReferefence.swift */; };
 		DE2240A62FF79D6C0023E94C /* GetVehicleRefIDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A52FF79D6C0023E94C /* GetVehicleRefIDRequest.swift */; };
+		DE2240A92FF7AAC70023E94C /* DecodeVINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A82FF7AAC70023E94C /* DecodeVINViewController.swift */; };
+		DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */; };
+		DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -269,8 +272,11 @@
 		DE2240992FF6CCB10023E94C /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		DE22409F2FF6CDE70023E94C /* RemoveVehicleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveVehicleRequest.swift; sourceTree = "<group>"; };
 		DE2240A12FF6CEC30023E94C /* ObtainGarageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainGarageRequest.swift; sourceTree = "<group>"; };
-		DE2240A32FF79D030023E94C /* VehicleRefID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRefID.swift; sourceTree = "<group>"; };
+		DE2240A32FF79D030023E94C /* VehicleReferefence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleReferefence.swift; sourceTree = "<group>"; };
 		DE2240A52FF79D6C0023E94C /* GetVehicleRefIDRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleRefIDRequest.swift; sourceTree = "<group>"; };
+		DE2240A82FF7AAC70023E94C /* DecodeVINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINViewController.swift; sourceTree = "<group>"; };
+		DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINViewModel.swift; sourceTree = "<group>"; };
+		DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINView.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -527,7 +533,7 @@
 				DE2240122FF4165E0023E94C /* Brand.swift */,
 				DE2240142FF416720023E94C /* Model.swift */,
 				DE2240162FF416990023E94C /* VehicleYear.swift */,
-				DE2240A32FF79D030023E94C /* VehicleRefID.swift */,
+				DE2240A32FF79D030023E94C /* VehicleReferefence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 		DE22401A2FF423170023E94C /* AddVehicle */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240A72FF7AABD0023E94C /* DecodeVIN */,
 				DE2240822FF6A4FA0023E94C /* AddVIN */,
 				DE2240612FF64D200023E94C /* Result */,
 				DE2240542FF56FF40023E94C /* SelectModel */,
@@ -733,6 +740,16 @@
 				DE2240992FF6CCB10023E94C /* ProfileManager.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		DE2240A72FF7AABD0023E94C /* DecodeVIN */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240A82FF7AAC70023E94C /* DecodeVINViewController.swift */,
+				DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */,
+				DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */,
+			);
+			path = DecodeVIN;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -1361,6 +1378,7 @@
 				DE2240192FF420510023E94C /* VehicleMediator.swift in Sources */,
 				DE2240652FF64D420023E94C /* AddVehicleResultViewModel.swift in Sources */,
 				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
+				DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */,
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2F0BD42A6E8A2600471667 /* DTCTableView.swift in Sources */,
@@ -1381,6 +1399,7 @@
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
+				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
 				DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */,
 				DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */,
@@ -1392,7 +1411,7 @@
 				DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */,
 				DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */,
 				DE2F0ABA2A698E0B00471667 /* ScreenSize.swift in Sources */,
-				DE2240A42FF79D030023E94C /* VehicleRefID.swift in Sources */,
+				DE2240A42FF79D030023E94C /* VehicleReferefence.swift in Sources */,
 				DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */,
 				DE2240172FF416990023E94C /* VehicleYear.swift in Sources */,
 				DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */,
@@ -1403,6 +1422,7 @@
 				DE2F0BBF2A6E755900471667 /* LTOBD2AdapterCaptureFile.m in Sources */,
 				DE2F0BB42A6E755900471667 /* LTOBD2MonitorResult.m in Sources */,
 				DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */,
+				DE2240A92FF7AAC70023E94C /* DecodeVINViewController.swift in Sources */,
 				DE2240342FF552AE0023E94C /* AddVehicleFlowResult.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
 				DE2240782FF684380023E94C /* AddVehicleResultItemView.swift in Sources */,

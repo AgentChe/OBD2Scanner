@@ -99,18 +99,19 @@ private extension AddVehicleResultViewModel {
         let add: Driver<Vehicle> = {
             func source() -> Single<Vehicle> {
                 vehicleManager
-                    .obtainRefID(year: vehicleYear, brand: brand.name, model: model.name)
-                    .flatMap { [weak self] refId -> Single<Vehicle> in
-                        guard let self, let refId else {
+                    .obtainReference(year: vehicleYear, brand: brand.name, model: model.name)
+                    .flatMap { [weak self] reference -> Single<Vehicle> in
+                        guard let self else {
                             throw NSError(domain: "Not data", code: 404)
                         }
                         
                         return vehicleManager
                             .add(
+                                vehicleId: reference.vehicleId ?? UUID().uuidString,
                                 year: vehicleYear,
                                 brand: brand.name,
                                 model: model.name,
-                                refId: refId
+                                refId: reference.refId
                             )
                             .map { vehicle -> Vehicle in
                                 guard let vehicle else {

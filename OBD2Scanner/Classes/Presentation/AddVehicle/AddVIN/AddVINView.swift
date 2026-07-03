@@ -25,6 +25,13 @@ final class AddVINView: UIView {
     lazy var preloader = makePreloader()
 
     private lazy var containerYConstraint = NSLayoutConstraint()
+    
+    private lazy var decodeEnableAttrs = TextAttributes()
+        .textColor(Appearance.color_FFFFFF)
+        .font(Fonts.NotoSans.semiBold(size: 16.scale))
+    private lazy var decodeDisableAttrs = TextAttributes()
+        .textColor(Appearance.color_526387)
+        .font(Fonts.NotoSans.semiBold(size: 16.scale))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,6 +85,15 @@ extension AddVINView {
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             self?.layoutIfNeeded()
         })
+    }
+    
+    func decode(enable: Bool) {
+        decodeButton.isUserInteractionEnabled = enable
+        
+        decodeButton.backgroundColor = enable ? Appearance.color_28D799 : Appearance.color_1D2637
+        
+        let attrs = enable ? decodeEnableAttrs : decodeDisableAttrs
+        decodeButton.setAttributedTitle("DecodeVIN.DecodeVIN".localized.attributed(with: attrs), for: .normal)
     }
 }
 
@@ -152,8 +168,8 @@ private extension AddVINView {
         ])
 
         NSLayoutConstraint.activate([
-            preloader.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            preloader.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            preloader.centerXAnchor.constraint(equalTo: decodeButton.centerXAnchor),
+            preloader.centerYAnchor.constraint(equalTo: decodeButton.centerYAnchor)
         ])
     }
 }
@@ -253,13 +269,7 @@ private extension AddVINView {
     }
 
     func makeDecodeButton() -> UIButton {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF)
-            .font(Fonts.NotoSans.semiBold(size: 16.scale))
-
         let view = UIButton()
-        view.setAttributedTitle("AddVIN.DecodeVIN".localized.attributed(with: attrs), for: .normal)
-        view.backgroundColor = Appearance.color_28D799
         view.layer.cornerRadius = 12.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)

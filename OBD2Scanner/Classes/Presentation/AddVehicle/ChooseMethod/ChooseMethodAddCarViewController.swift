@@ -65,7 +65,8 @@ private extension ChooseMethodAddCarViewController {
             let vc = SelectYearViewController.make(complete: complete)
             navigationController?.pushViewController(vc, animated: true)
         case .decodeVIN:
-            break // TODO:
+            let vc = DecodeVINViewController.make(complete: complete)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

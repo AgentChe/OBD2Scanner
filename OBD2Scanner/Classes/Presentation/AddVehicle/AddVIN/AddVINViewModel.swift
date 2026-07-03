@@ -61,8 +61,7 @@ private extension AddVINViewModel {
                 guard let self else { return .empty() }
 
                 func source() -> Single<Vehicle?> {
-                    self.vehicleManager
-                        .add(vin: vin, vehicleId: self.vehicleId)
+                    vehicleManager.add(vin: vin, vehicleId: self.vehicleId)
                 }
 
                 func trigger(error: Error) -> Observable<Void> {

@@ -39,11 +39,14 @@ final class AddVINViewController: UIViewController {
         viewModel.tryAgain = { [weak self] error -> Observable<Void> in
             self?.open(error: error) ?? .never()
         }
-
+        
+        let vin = mainView.enterVINField.textField.rx.text.orEmpty
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .asDriver(onErrorJustReturn: "")
+        
+        
         let output = viewModel.configure(input: AddVINViewModel.Input(
-            vin: mainView.enterVINField.textField.rx.text.orEmpty
-                .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-                .asDriver(onErrorJustReturn: ""),
+            vin: vin,
             didTapDecode: mainView.decodeButton.rx.tap.asSignal()
         ))
 
@@ -54,8 +57,10 @@ final class AddVINViewController: UIViewController {
             .disposed(by: disposeBag)
 
         output.activity
-            .drive(Binder(mainView.preloader) { base, activity in
-                activity ? base.startAnimating() : base.stopAnimating()
+            .drive(Binder(mainView) { base, activity in
+                base.decodeButton.isHidden = activity
+                
+                activity ? base.preloader.startAnimating() : base.preloader.stopAnimating()
             })
             .disposed(by: disposeBag)
 
@@ -76,6 +81,13 @@ final class AddVINViewController: UIViewController {
         mainView.rx.keyboardHeight
             .bind(to: Binder(mainView) { base, keyboardHeight in
                 base.moveContainer(keyboardHeight: keyboardHeight)
+            })
+            .disposed(by: disposeBag)
+        
+        vin
+            .map { !$0.isEmpty }
+            .drive(Binder(mainView) { base, enable in
+                base.decode(enable: enable)
             })
             .disposed(by: disposeBag)
     }

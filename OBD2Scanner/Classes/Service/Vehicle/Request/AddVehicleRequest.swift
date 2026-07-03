@@ -10,10 +10,11 @@ import Alamofire
 struct AddVehicleRequest: APIRequestBody {
     let anonymousId: String
     let internalId: String
+    let vehicleId: String
     let year: Int
     let brand: String
     let model: String
-    let refId: String
+    let refId: String?
 
     var url: String {
         GlobalDefinitions.domain + "/api/v1/vehicle/add"
@@ -36,7 +37,8 @@ struct AddVehicleRequest: APIRequestBody {
             "year": year,
             "make": brand,
             "model": model,
-            "id": refId // TODO: id -> ref_id
+            "id": vehicleId,
+            "ref_id": refId
         ]
     }
 }

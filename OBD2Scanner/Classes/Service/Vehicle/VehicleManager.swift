@@ -11,13 +11,14 @@ protocol VehicleManagerProtocol {
     func obtainYears() -> Single<[VehicleYear]>
     func obtainBrands(year: Int) -> Single<[Brand]>
     func obtainModels(year: Int, brand: String) -> Single<[Model]>
-    func obtainRefID(year: Int, brand: String, model: String) -> Single<VehicleRefID?>
+    func obtainReference(year: Int, brand: String, model: String) -> Single<VehicleReferefence>
     
     func add(
+        vehicleId: String,
         year: Int,
         brand: String,
         model: String,
-        refId: String
+        refId: String?
     ) -> Single<Vehicle?>
     func add(vin: String, vehicleId: String) -> Single<Vehicle?>
     func decode(vin: String) -> Single<Vehicle?>
@@ -57,7 +58,7 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { Model.makeModels(from: $0) }
     }
     
-    func obtainRefID(year: Int, brand: String, model: String) -> Single<VehicleRefID?> {
+    func obtainReference(year: Int, brand: String, model: String) -> Single<VehicleReferefence> {
         let request = GetVehicleRefIDRequest(
             year: year,
             brand: brand,
@@ -66,18 +67,20 @@ extension VehicleManager: VehicleManagerProtocol {
         
         return restAPITransport
             .callServerApi(requestBody: request)
-            .map { VehicleRefID.vehicleRedID(response: $0) }
+            .map { VehicleReferefence(response: $0) }
     }
     
     func add(
+        vehicleId: String,
         year: Int,
         brand: String,
         model: String,
-        refId: String
+        refId: String?
     ) -> Single<Vehicle?> {
         let request = AddVehicleRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId,
+            vehicleId: vehicleId,
             year: year,
             brand: brand,
             model: model,

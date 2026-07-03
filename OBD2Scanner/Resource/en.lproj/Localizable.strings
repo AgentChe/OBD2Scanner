@@ -131,3 +131,12 @@ and smart monitoring";
 "AddVIN.EnterNotFound" = "We couldn’t find your VIN";
 "AddVIN.Example" = "Example VIN: 1HGCM82633A004352";
 "AddVIN.DecodeVIN" = "Decode VIN";
+
+// MARK: DecodeVIN
+"DecodeVIN.Title" = "Enter VIN";
+"DecodeVIN.Header" = "ENTER YOUR VIN";
+"DecodeVIN.SubTitle" = "You can find it on your dashboard,\ndriver side door or documents";
+"DecodeVIN.EnterPlaceholder" = "Enter VIN";
+"DecodeVIN.EnterNotFound" = "We couldn’t find your VIN";
+"DecodeVIN.Example" = "Example VIN: 1HGCM82633A004352";
+"DecodeVIN.DecodeVIN" = "Decode VIN";

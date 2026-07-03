@@ -91,6 +91,7 @@
 		DE2240A92FF7AAC70023E94C /* DecodeVINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240A82FF7AAC70023E94C /* DecodeVINViewController.swift */; };
 		DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */; };
 		DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */; };
+		DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240B32FF7C3550023E94C /* MainViewController.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -277,6 +278,7 @@
 		DE2240A82FF7AAC70023E94C /* DecodeVINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINViewController.swift; sourceTree = "<group>"; };
 		DE2240AA2FF7AACE0023E94C /* DecodeVINViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINViewModel.swift; sourceTree = "<group>"; };
 		DE2240AC2FF7AAD40023E94C /* DecodeVINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeVINView.swift; sourceTree = "<group>"; };
+		DE2240B32FF7C3550023E94C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -752,6 +754,14 @@
 			path = DecodeVIN;
 			sourceTree = "<group>";
 		};
+		DE2240B22FF7C34D0023E94C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240B32FF7C3550023E94C /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		DE2F0A4E2A698C0100471667 = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +902,7 @@
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240B22FF7C34D0023E94C /* Main */,
 				DE22401A2FF423170023E94C /* AddVehicle */,
 				DE7194422A700A3100ED3084 /* PIDs */,
 				DE2F0BC82A6E834700471667 /* DTC */,
@@ -1399,6 +1410,7 @@
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
+				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
 				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
 				DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */,
@@ -1668,7 +1680,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1709,7 +1721,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

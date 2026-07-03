@@ -57,10 +57,16 @@ private extension OnboardingViewController {
         static let wasViewedKey = "onboarding_was_viewed"
     }
     
-    // TODO:
     func addCar() {
         let vc = ChooseMethodAddCarViewController.makeIntoNavigation { result in
-            print("___ result: \(result)")
+            UserDefaults.standard.set(true, forKey: Constants.wasViewedKey)
+            
+            switch result {
+            case .cancel, .added:
+                UIApplication.shared.window?.rootViewController = MainViewController.make()
+            case .addedAndStartAddNew:
+                return
+            }
         }
         present(vc, animated: true)
     }

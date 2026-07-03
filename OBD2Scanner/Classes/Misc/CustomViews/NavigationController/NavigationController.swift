@@ -13,10 +13,6 @@ class NavigationController: UINavigationController {
         
         apply(settings: .default())
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
-    }
 }
 
 // MARK: API

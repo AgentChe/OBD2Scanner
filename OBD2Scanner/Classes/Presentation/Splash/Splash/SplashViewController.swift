@@ -70,11 +70,11 @@ private extension SplashViewController {
             window.rootViewController = OnboardingViewController.make()
         case .openPaygateAndAfterMain:
             let vc = PaygateViewController.make { [weak window] in
-                // TODO: 
+                window?.rootViewController = MainViewController.make()
             }
             present(vc, animated: true)
         case .openMain:
-            break // TODO:
+            window.rootViewController = MainViewController.make()
         }
     }
     

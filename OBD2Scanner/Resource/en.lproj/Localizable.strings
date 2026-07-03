@@ -140,3 +140,8 @@ and smart monitoring";
 "DecodeVIN.EnterNotFound" = "We couldn’t find your VIN";
 "DecodeVIN.Example" = "Example VIN: 1HGCM82633A004352";
 "DecodeVIN.DecodeVIN" = "Decode VIN";
+
+// MARK: Main
+"Main.Tab.Dashboard" = "Dashboard";
+"Main.Tab.Garage" = "My garage";
+"Main.Tab.Settings" = "Settings";

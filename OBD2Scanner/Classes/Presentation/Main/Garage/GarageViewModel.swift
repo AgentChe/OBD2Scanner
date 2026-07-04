@@ -11,8 +11,10 @@ import RxCocoa
 final class GarageViewModel {
     enum Action {
         case addCar
+        case vehicleDetails(Vehicle)
+        case confirmRemoveVehicle(Vehicle)
     }
-    
+
     var tryAgain: ((Error) -> (Observable<Void>))?
 
     private lazy var activity = RxActivityIndicator()
@@ -27,6 +29,8 @@ extension GarageViewModel {
     struct Input {
         let didTapAddCar: Signal<Void>
         let didSelectVehicle: Signal<Vehicle>
+        let didTapRemoveVehicle: Signal<Vehicle>
+        let didConfirmRemoveVehicle: Signal<Vehicle>
     }
 
     struct Output {
@@ -36,28 +40,32 @@ extension GarageViewModel {
     }
 
     func configure(input: Input) -> Output {
-        Output(
-            elements: makeElements(didSelectVehicle: input.didSelectVehicle),
+        let currentVehicle = makeCurrentVehicle()
+        let vehicles = makeVehicles(didConfirmRemoveVehicle: input.didConfirmRemoveVehicle)
+        
+        return Output(
+            elements: makeElements(
+                currentVehicle: currentVehicle,
+                vehicles: vehicles
+            ),
             activity: activity.asDriver(),
-            action: makeAction(didTapAddCar: input.didTapAddCar)
+            action: makeAction(
+                didTapAddCar: input.didTapAddCar,
+                didSelectVehicle: input.didSelectVehicle,
+                didTapRemoveVehicle: input.didTapRemoveVehicle
+            )
         )
     }
 }
 
 // MARK: Private
 private extension GarageViewModel {
-    enum Mutation {
-        case add(Vehicle)
-        case replace(Vehicle)
-        case remove(String)
-    }
-
-    func makeElements(didSelectVehicle: Signal<Vehicle>) -> Driver<[GarageTableElement]> {
+    func makeElements(
+        currentVehicle: Driver<Vehicle?>,
+        vehicles: Driver<[Vehicle]>
+    ) -> Driver<[GarageTableElement]> {
         Driver
-            .combineLatest(
-                makeVehicles(),
-                makeCurrentVehicle(didSelectVehicle: didSelectVehicle)
-            ) { vehicles, currentVehicle -> [GarageTableElement] in
+            .combineLatest(vehicles, currentVehicle) { vehicles, currentVehicle -> [GarageTableElement] in
                 vehicles.map { vehicle in
                     GarageTableElement(
                         vehicle: vehicle,
@@ -67,10 +75,16 @@ private extension GarageViewModel {
             }
     }
 
-    func makeVehicles() -> Driver<[Vehicle]> {
+    func makeVehicles(didConfirmRemoveVehicle: Signal<Vehicle>) -> Driver<[Vehicle]> {
+        enum Mutation {
+            case add(Vehicle)
+            case replace(Vehicle)
+            case remove(String)
+        }
+        
         let mediator = VehicleMediator.shared
 
-        let mutation = Signal
+        let mediatorMutation = Signal
             .merge(
                 mediator.didAddVehicle.map { Mutation.add($0) },
                 mediator.didReplaceVehicle.map { Mutation.replace($0) },
@@ -78,7 +92,42 @@ private extension GarageViewModel {
             )
             .asDriver(onErrorDriveWith: .never())
 
-        return obtainGarage()
+        let removeMutation = didConfirmRemoveVehicle
+            .asDriver(onErrorDriveWith: .never())
+            .flatMap { [weak self] vehicle -> Driver<Mutation> in
+                guard let self else { return .never() }
+
+                return vehicleManager
+                    .remove(id: vehicle.id)
+                    .asDriver(onErrorDriveWith: .empty())
+                    .compactMap { result -> Mutation? in
+                        result.success ? Mutation.remove(vehicle.id) : nil
+                    }
+            }
+
+        let mutation = Driver
+            .merge(mediatorMutation, removeMutation)
+        
+        let garage: Driver<[Vehicle]> = {
+            func source() -> Single<[Vehicle]> {
+                vehicleManager
+                    .obtainMyGarage()
+            }
+
+            func trigger(error: Error) -> Observable<Void> {
+                tryAgain?(error) ?? .empty()
+            }
+
+            return observableRetrySingle
+                .retry(
+                    source: { source() },
+                    trigger: { trigger(error: $0) }
+                )
+                .trackActivity(activity)
+                .asDriver(onErrorDriveWith: .empty())
+        }()
+
+        return garage
             .flatMapLatest { initial -> Driver<[Vehicle]> in
                 mutation
                     .scan(initial) { vehicles, mutation -> [Vehicle] in
@@ -101,23 +150,10 @@ private extension GarageViewModel {
             }
     }
 
-    func makeCurrentVehicle(didSelectVehicle: Signal<Vehicle>) -> Driver<Vehicle?> {
+    func makeCurrentVehicle() -> Driver<Vehicle?> {
         let initial = vehicleManager
             .obtainCurrentVehicle()
             .asDriver(onErrorJustReturn: nil)
-
-        let selected = didSelectVehicle
-            .asDriver(onErrorDriveWith: .never())
-            .flatMapLatest { [weak self] vehicle -> Driver<Vehicle?> in
-                guard let self else {
-                    return .never()
-                }
-
-                return vehicleManager
-                    .setupCurrent(vehicle: vehicle)
-                    .map { _ -> Vehicle? in vehicle }
-                    .asDriver(onErrorDriveWith: .never())
-            }
 
         let changed = VehicleMediator.shared
             .didChangeCurrentVehicle
@@ -125,36 +161,27 @@ private extension GarageViewModel {
             .asDriver(onErrorDriveWith: .never())
 
         return Driver
-            .merge(initial, selected, changed)
-    }
-
-    func obtainGarage() -> Driver<[Vehicle]> {
-        func source() -> Single<[Vehicle]> {
-            vehicleManager
-                .obtainMyGarage()
-        }
-
-        func trigger(error: Error) -> Observable<Void> {
-            tryAgain?(error) ?? .empty()
-        }
-
-        return observableRetrySingle
-            .retry(
-                source: { source() },
-                trigger: { trigger(error: $0) }
-            )
-            .trackActivity(activity)
-            .asDriver(onErrorDriveWith: .empty())
+            .merge(initial, changed)
     }
     
     func makeAction(
-        didTapAddCar: Signal<Void>
+        didTapAddCar: Signal<Void>,
+        didSelectVehicle: Signal<Vehicle>,
+        didTapRemoveVehicle: Signal<Vehicle>
     ) -> Driver<Action> {
         let addCar = didTapAddCar
             .map { Action.addCar }
             .asDriver(onErrorDriveWith: .never())
-        
+
+        let vehicleDetails = didSelectVehicle
+            .map { Action.vehicleDetails($0) }
+            .asDriver(onErrorDriveWith: .never())
+
+        let confirmRemoveVehicle = didTapRemoveVehicle
+            .map { Action.confirmRemoveVehicle($0) }
+            .asDriver(onErrorDriveWith: .never())
+
         return Driver
-            .merge(addCar)
+            .merge(addCar, vehicleDetails, confirmRemoveVehicle)
     }
 }

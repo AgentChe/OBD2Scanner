@@ -13,6 +13,7 @@ final class GarageTableView: UITableView {
     private lazy var elements = [GarageTableElement]()
 
     private lazy var didSelectVehicleTrigger = PublishRelay<Vehicle>()
+    private lazy var didTapRemoveVehicleTrigger = PublishRelay<Vehicle>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -35,6 +36,10 @@ extension GarageTableView {
 
     var didSelectVehicle: Signal<Vehicle> {
         didSelectVehicleTrigger.asSignal()
+    }
+
+    var didTapRemoveVehicle: Signal<Vehicle> {
+        didTapRemoveVehicleTrigger.asSignal()
     }
 }
 
@@ -59,6 +64,23 @@ extension GarageTableView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectVehicleTrigger.accept(elements[indexPath.row].vehicle)
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let vehicle = elements[safe: indexPath.row]?.vehicle else {
+            return nil
+        }
+
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completionHandler in
+            self?.didTapRemoveVehicleTrigger.accept(vehicle)
+            completionHandler(false)
+        }
+        action.image = UIImage(systemName: "trash.fill")
+        action.backgroundColor = Appearance.color_F5403A
+
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }
 

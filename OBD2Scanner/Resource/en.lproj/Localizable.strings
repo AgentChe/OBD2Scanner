@@ -153,3 +153,5 @@ and smart monitoring";
 "Garage.Active" = "Active";
 "Garage.LastSyncNone" = "Last sync: none";
 "Garage.VIN.NotAvailable" = "VIN: Not available";
+"Garage.RemoveAlert.Message" = "Vehicle will be removed from your garage";
+"Garage.RemoveAlert.Remove" = "Remove";

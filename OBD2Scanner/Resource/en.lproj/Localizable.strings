@@ -155,3 +155,16 @@ and smart monitoring";
 "Garage.VIN.NotAvailable" = "VIN: Not available";
 "Garage.RemoveAlert.Message" = "Vehicle will be removed from your garage";
 "Garage.RemoveAlert.Remove" = "Remove";
+
+// MARK: VehicleDetails
+"VehicleDetails.Active" = "Active";
+"VehicleDetails.VIN.Title" = "VIN";
+"VehicleDetails.VIN.Add" = "Add VIN";
+"VehicleDetails.VIN.NotAvailable" = "Not available";
+"VehicleDetails.Item.Brand" = "Brand:";
+"VehicleDetails.Item.Model" = "Model:";
+"VehicleDetails.Item.Year" = "Year:";
+"VehicleDetails.RecallHistory.Title" = "Recall history";
+"VehicleDetails.RecallHistory.SubTitle" = "Vehicle safety recalls";
+"VehicleDetails.RecallHistory.VINRequired" = "VIN required";
+"VehicleDetails.MakeActive" = "Make active";

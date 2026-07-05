@@ -71,7 +71,9 @@ final class GarageViewController: UIViewController {
 // MARK: Public
 extension GarageViewController {
     static func make() -> GarageViewController {
-        GarageViewController()
+        let vc = GarageViewController()
+        vc.navigationItem.backButtonTitle = " "
+        return vc
     }
 }
 
@@ -82,8 +84,9 @@ private extension GarageViewController {
         case .addCar:
             let vc = ChooseMethodAddCarViewController.makeIntoNavigation()
             present(vc, animated: true)
-        case .vehicleDetails:
-            break // TODO: открыть экран деталки автомобиля
+        case .vehicleDetails(let vehicle):
+            let vc = VehicleDetailsViewController.make(vehicle: vehicle)
+            navigationController?.pushViewController(vc, animated: true)
         case .confirmRemoveVehicle(let vehicle):
             confirmRemove(vehicle: vehicle)
         }

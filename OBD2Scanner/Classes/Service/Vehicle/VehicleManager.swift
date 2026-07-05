@@ -160,6 +160,7 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { Vehicle.garage(response: $0) }
     }
     
+    // TODO: хранмть id 
     func obtainCurrentVehicle() -> Single<Vehicle?> {
         Single<Vehicle?>.create { single in
             let userDefaults = UserDefaults.standard

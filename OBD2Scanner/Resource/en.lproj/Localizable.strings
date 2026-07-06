@@ -168,3 +168,17 @@ and smart monitoring";
 "VehicleDetails.RecallHistory.SubTitle" = "Vehicle safety recalls";
 "VehicleDetails.RecallHistory.VINRequired" = "VIN required";
 "VehicleDetails.MakeActive" = "Make active";
+
+// MARK: RecallHistory
+"RecallHistory.Title" = "Recall history";
+"RecallHistory.VIN" = "VIN: %@";
+"RecallHistory.RecallsCount" = "%i recalls found in the database";
+"RecallHistory.ID" = "NHTSA #%@";
+"RecallHistory.Level.Critical" = "Critical";
+"RecallHistory.Level.Moderate" = "Moderate";
+"RecallHistory.Level.Low" = "Low";
+"RecallHistory.ViewOnNHTSA" = "View on NHTSA";
+"RecallHistory.Remedy" = "REMEDY";
+"RecallHistory.Notes" = "NOTES";
+"RecallHistory.MarkAsCompleted" = "Mark as completed";
+"RecallHistory.Completed" = "Completed";

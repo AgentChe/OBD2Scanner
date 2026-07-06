@@ -98,7 +98,8 @@ private extension VehicleDetailsViewController {
         case .copyVIN(let vin):
             UIPasteboard.general.string = vin
         case .openRecallHistory(let vehicle):
-            break // TODO:
+            let vc = RecallHistoryViewController.make(vehicle: vehicle)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

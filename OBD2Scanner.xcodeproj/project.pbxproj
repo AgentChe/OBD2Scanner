@@ -104,6 +104,11 @@
 		DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240D12FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift */; };
 		DE2240D42FF92D410023E94C /* VehicleDetailsVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240D32FF92D410023E94C /* VehicleDetailsVINView.swift */; };
 		DE2240D62FF92D940023E94C /* VehicleDetailsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240D52FF92D940023E94C /* VehicleDetailsItemView.swift */; };
+		DE2240D92FFAC4B50023E94C /* RecallHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240D82FFAC4B50023E94C /* RecallHistoryViewController.swift */; };
+		DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240DA2FFAC4BD0023E94C /* RecallHistoryViewModel.swift */; };
+		DE2240DD2FFAC4C30023E94C /* RecallHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240DC2FFAC4C30023E94C /* RecallHistoryView.swift */; };
+		DE2240E12FFAC4DE0023E94C /* RecallHistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240E02FFAC4DE0023E94C /* RecallHistoryTableView.swift */; };
+		DE2240E42FFAC5100023E94C /* RecallHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240E32FFAC5100023E94C /* RecallHistoryTableCell.swift */; };
 		DE2F0A642A698C0300471667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A632A698C0300471667 /* Assets.xcassets */; };
 		DE2F0A672A698C0300471667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */; };
 		DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0A722A698E0B00471667 /* UIApplication+Extension.swift */; };
@@ -194,6 +199,8 @@
 		DE7194502A700D5F00ED3084 /* PIDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */; };
 		DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E962A81265D008F9C97 /* SessionManager.swift */; };
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
+		DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C082FFAC7300044284D /* RecallHistory.swift */; };
+		DED81C0B2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
@@ -303,6 +310,11 @@
 		DE2240D12FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsRecallHistoryButton.swift; sourceTree = "<group>"; };
 		DE2240D32FF92D410023E94C /* VehicleDetailsVINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsVINView.swift; sourceTree = "<group>"; };
 		DE2240D52FF92D940023E94C /* VehicleDetailsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsItemView.swift; sourceTree = "<group>"; };
+		DE2240D82FFAC4B50023E94C /* RecallHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistoryViewController.swift; sourceTree = "<group>"; };
+		DE2240DA2FFAC4BD0023E94C /* RecallHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistoryViewModel.swift; sourceTree = "<group>"; };
+		DE2240DC2FFAC4C30023E94C /* RecallHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistoryView.swift; sourceTree = "<group>"; };
+		DE2240E02FFAC4DE0023E94C /* RecallHistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistoryTableView.swift; sourceTree = "<group>"; };
+		DE2240E32FFAC5100023E94C /* RecallHistoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistoryTableCell.swift; sourceTree = "<group>"; };
 		DE2F0A572A698C0100471667 /* OBD2Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OBD2Scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F0A632A698C0300471667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F0A662A698C0300471667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -417,6 +429,8 @@
 		DE71944F2A700D5F00ED3084 /* PIDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDTableCell.swift; sourceTree = "<group>"; };
 		DEC61E962A81265D008F9C97 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DEC61E992A812667008F9C97 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		DED81C082FFAC7300044284D /* RecallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistory.swift; sourceTree = "<group>"; };
+		DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainRecallHistoryRequest.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
@@ -560,6 +574,7 @@
 				DE2240142FF416720023E94C /* Model.swift */,
 				DE2240162FF416990023E94C /* VehicleYear.swift */,
 				DE2240A32FF79D030023E94C /* VehicleReferefence.swift */,
+				DED81C082FFAC7300044284D /* RecallHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -789,6 +804,7 @@
 		DE2240B72FF7CDB10023E94C /* Garage */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240D72FFAC4A90023E94C /* RecallHistory */,
 				DE22401A2FF423170023E94C /* AddVehicle */,
 				DE2240C92FF92CB70023E94C /* Vehicle */,
 				DE2240C82FF92CA90023E94C /* Garage */,
@@ -844,6 +860,34 @@
 				DE2240D52FF92D940023E94C /* VehicleDetailsItemView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DE2240D72FFAC4A90023E94C /* RecallHistory */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240DE2FFAC4CC0023E94C /* View */,
+				DE2240D82FFAC4B50023E94C /* RecallHistoryViewController.swift */,
+				DE2240DA2FFAC4BD0023E94C /* RecallHistoryViewModel.swift */,
+				DE2240DC2FFAC4C30023E94C /* RecallHistoryView.swift */,
+			);
+			path = RecallHistory;
+			sourceTree = "<group>";
+		};
+		DE2240DE2FFAC4CC0023E94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240DF2FFAC4D20023E94C /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE2240DF2FFAC4D20023E94C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2240E02FFAC4DE0023E94C /* RecallHistoryTableView.swift */,
+				DE2240E32FFAC5100023E94C /* RecallHistoryTableCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -1059,6 +1103,7 @@
 				DE22409F2FF6CDE70023E94C /* RemoveVehicleRequest.swift */,
 				DE2240A12FF6CEC30023E94C /* ObtainGarageRequest.swift */,
 				DE2240A52FF79D6C0023E94C /* GetVehicleRefIDRequest.swift */,
+				DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1443,6 +1488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED81C0B2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift in Sources */,
 				DE2240A02FF6CDE70023E94C /* RemoveVehicleRequest.swift in Sources */,
 				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
@@ -1471,10 +1517,13 @@
 				DE2240862FF6A5190023E94C /* AddVINViewModel.swift in Sources */,
 				DE22405E2FF570190023E94C /* SelectModelTableView.swift in Sources */,
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
+				DE2240E42FFAC5100023E94C /* RecallHistoryTableCell.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
 				DE2F0BCA2A6E835500471667 /* DTCViewController.swift in Sources */,
 				DE2240192FF420510023E94C /* VehicleMediator.swift in Sources */,
 				DE2240652FF64D420023E94C /* AddVehicleResultViewModel.swift in Sources */,
+				DE2240E12FFAC4DE0023E94C /* RecallHistoryTableView.swift in Sources */,
+				DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */,
 				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
 				DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */,
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
@@ -1546,6 +1595,7 @@
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
 				DE2F0BBB2A6E755900471667 /* LTOBD2ProtocolISO9141_2.m in Sources */,
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
+				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
 				DE22409C2FF6CCB10023E94C /* ProfileCreateRequest.swift in Sources */,
 				DE22409D2FF6CCB10023E94C /* RequestResult.swift in Sources */,
 				DE2240CF2FF92CD70023E94C /* VehicleDetailsView.swift in Sources */,
@@ -1556,6 +1606,7 @@
 				DE22408B2FF6A9A60023E94C /* EnterVINTextField.swift in Sources */,
 				DE2240582FF570040023E94C /* SelectModelViewModel.swift in Sources */,
 				DE2240912FF6C9BC0023E94C /* DecodeVINRequest.swift in Sources */,
+				DE2240DD2FFAC4C30023E94C /* RecallHistoryView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,
@@ -1587,6 +1638,7 @@
 				DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */,
 				DEC61E9A2A812667008F9C97 /* Session.swift in Sources */,
 				DE22400A2FF4043C0023E94C /* PaygateCellItemView.swift in Sources */,
+				DE2240D92FFAC4B50023E94C /* RecallHistoryViewController.swift in Sources */,
 				DE2240672FF64D480023E94C /* AddVehicleResultView.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
 				DE2F0BCE2A6E835E00471667 /* DTCView.swift in Sources */,

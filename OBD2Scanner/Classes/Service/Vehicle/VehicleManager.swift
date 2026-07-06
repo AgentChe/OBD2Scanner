@@ -26,6 +26,7 @@ protocol VehicleManagerProtocol {
     func obtainMyGarage() -> Single<[Vehicle]>
     func obtainCurrentVehicle() -> Single<Vehicle?>
     func setupCurrent(vehicle: Vehicle) -> Single<Void>
+    func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]>
 }
 
 final class VehicleManager {
@@ -191,5 +192,17 @@ extension VehicleManager: VehicleManagerProtocol {
             
             return Disposables.create()
         }
+    }
+    
+    func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]> {
+        let requestBody = ObtainRecallHistoryRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vehicleId: vehicleId
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: requestBody)
+            .map { RecallHistory.make(response: $0) }
     }
 }

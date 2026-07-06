@@ -207,7 +207,14 @@
 		DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C162FFBF4C70044284D /* SettingsTableView.swift */; };
 		DED81C192FFBF4CE0044284D /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */; };
 		DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C1B2FFBF5010044284D /* SettingsTableCell.swift */; };
+		DED81C1F2FFC055A0044284D /* UnitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C1E2FFC055A0044284D /* UnitsViewController.swift */; };
 		DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C1F2FFBF5030044284D /* SettingsLinksView.swift */; };
+		DED81C212FFC05610044284D /* UnitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C202FFC05610044284D /* UnitsViewModel.swift */; };
+		DED81C232FFC05660044284D /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C222FFC05660044284D /* UnitsView.swift */; };
+		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
+		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
+		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
+		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
@@ -444,7 +451,14 @@
 		DED81C162FFBF4C70044284D /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
 		DED81C1B2FFBF5010044284D /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
+		DED81C1E2FFC055A0044284D /* UnitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsViewController.swift; sourceTree = "<group>"; };
 		DED81C1F2FFBF5030044284D /* SettingsLinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinksView.swift; sourceTree = "<group>"; };
+		DED81C202FFC05610044284D /* UnitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsViewModel.swift; sourceTree = "<group>"; };
+		DED81C222FFC05660044284D /* UnitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
+		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
+		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
+		DEA1000000000000000000D1 /* UnitsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsSectionView.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
@@ -774,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2240942FF6CCB10023E94C /* RequestResult.swift */,
+				DEA1000000000000000000A1 /* Units.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1341,6 +1356,7 @@
 		DED81C0C2FFBF4710044284D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DED81C1D2FFC05510044284D /* Units */,
 				DED81C0D2FFBF4780044284D /* Settings */,
 			);
 			path = Settings;
@@ -1374,6 +1390,27 @@
 				DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DED81C1D2FFC05510044284D /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				DED81C242FFC05750044284D /* View */,
+				DED81C1E2FFC055A0044284D /* UnitsViewController.swift */,
+				DED81C202FFC05610044284D /* UnitsViewModel.swift */,
+				DED81C222FFC05660044284D /* UnitsView.swift */,
+			);
+			path = Units;
+			sourceTree = "<group>";
+		};
+		DED81C242FFC05750044284D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEA1000000000000000000B1 /* UnitsElement.swift */,
+				DEA1000000000000000000C1 /* UnitsOptionButton.swift */,
+				DEA1000000000000000000D1 /* UnitsSectionView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DEDF4E002FF2C8D70001160D /* Error */ = {
@@ -1598,6 +1635,11 @@
 				DE2240252FF50AA60023E94C /* SelectYearViewController.swift in Sources */,
 				DE2F0BB92A6E755900471667 /* LTOBD2Command.m in Sources */,
 				DE2240562FF56FFE0023E94C /* SelectModelViewController.swift in Sources */,
+				DED81C212FFC05610044284D /* UnitsViewModel.swift in Sources */,
+				DEA1000000000000000000A2 /* Units.swift in Sources */,
+				DEA1000000000000000000B2 /* UnitsElement.swift in Sources */,
+				DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */,
+				DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */,
 				DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */,
 				DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */,
 				DE2240132FF4165E0023E94C /* Brand.swift in Sources */,
@@ -1629,6 +1671,7 @@
 				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift in Sources */,
 				DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */,
 				DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */,
+				DED81C1F2FFC055A0044284D /* UnitsViewController.swift in Sources */,
 				DE2F0BBF2A6E755900471667 /* LTOBD2AdapterCaptureFile.m in Sources */,
 				DE2F0BB42A6E755900471667 /* LTOBD2MonitorResult.m in Sources */,
 				DE2F0BB32A6E755900471667 /* LTBTLEWriteCharacteristicStream.m in Sources */,
@@ -1691,6 +1734,7 @@
 				DE2240022FF3F22C0023E94C /* PaygateViewController.swift in Sources */,
 				DE2240032FF3F22C0023E94C /* PaygateViewModel.swift in Sources */,
 				DE2240042FF3F22C0023E94C /* PaygateInteractor.swift in Sources */,
+				DED81C232FFC05660044284D /* UnitsView.swift in Sources */,
 				DE2240052FF3F22C0023E94C /* Currency.swift in Sources */,
 				DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,

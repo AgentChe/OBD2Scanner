@@ -60,7 +60,8 @@ private extension SettingsViewController {
         case .openConnection:
             break // TODO: открыть экран подключения OBD2 сканера
         case .openUnits:
-            break // TODO: открыть экран единиц измерения
+            let vc = UnitsViewController.make()
+            present(vc, animated: true)
         case .openSubscription:
             let vc = PaygateViewController.make()
             present(vc, animated: true)

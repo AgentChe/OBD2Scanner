@@ -195,6 +195,27 @@ and smart monitoring";
 "Settings.PrivacyPolicy" = "Privacy policy";
 "Settings.TermsOfUse" = "Terms of use";
 
+// MARK: Units
+"Units.Title" = "UNITS";
+"Units.Torque" = "Torque";
+"Units.Torque.NewtonMeter" = "N·m";
+"Units.Torque.PoundFoot" = "lbf·ft";
+"Units.SpeedDistance" = "Speed & distance";
+"Units.SpeedDistance.Metric" = "km/h + km";
+"Units.SpeedDistance.Imperial" = "mph + miles";
+"Units.FuelConsumption" = "Fuel consumption";
+"Units.FuelConsumption.LitersPer100km" = "L/100km";
+"Units.FuelConsumption.LitersPerHour" = "L/h";
+"Units.FuelConsumption.MPG" = "mpg";
+"Units.FuelConsumption.GPM" = "GPM";
+"Units.Pressure" = "Pressure";
+"Units.Pressure.KPA" = "kPa";
+"Units.Pressure.PSI" = "psi";
+"Units.Pressure.Bar" = "bar";
+"Units.Temperature" = "Temperature";
+"Units.Temperature.Celsius" = "°C";
+"Units.Temperature.Fahrenheit" = "°F";
+
 // MARK: TryAgain
 "TryAgain.Title" = "FAILED TO COMPLETE YOUR REQUEST";
 "TryAgain.SubTitle" = "Something went wrong while loading the data. Try again—that usually helps. If the error persists, please let us know.";

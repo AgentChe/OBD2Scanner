@@ -89,6 +89,12 @@ private extension GarageViewController {
             navigationController?.pushViewController(vc, animated: true)
         case .confirmRemoveVehicle(let vehicle):
             confirmRemove(vehicle: vehicle)
+        case .openPaygate:
+            let vc = UnlimitedPlanViewController.make { [weak self] in
+                let vc = PaygateViewController.make()
+                self?.present(vc, animated: true)
+            }
+            present(vc, animated: false)
         }
     }
 

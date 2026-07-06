@@ -13,6 +13,7 @@ final class GarageViewModel {
         case addCar
         case vehicleDetails(Vehicle)
         case confirmRemoveVehicle(Vehicle)
+        case openPaygate
     }
 
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -40,16 +41,17 @@ extension GarageViewModel {
     }
 
     func configure(input: Input) -> Output {
-        let currentVehicle = makeCurrentVehicle()
+        let currentVehicleID = makeCurrentVehicleID()
         let vehicles = makeVehicles(didConfirmRemoveVehicle: input.didConfirmRemoveVehicle)
         
         return Output(
             elements: makeElements(
-                currentVehicle: currentVehicle,
+                currentVehicleID: currentVehicleID,
                 vehicles: vehicles
             ),
             activity: activity.asDriver(),
             action: makeAction(
+                vehicles: vehicles,
                 didTapAddCar: input.didTapAddCar,
                 didSelectVehicle: input.didSelectVehicle,
                 didTapRemoveVehicle: input.didTapRemoveVehicle
@@ -61,15 +63,15 @@ extension GarageViewModel {
 // MARK: Private
 private extension GarageViewModel {
     func makeElements(
-        currentVehicle: Driver<Vehicle?>,
+        currentVehicleID: Driver<String?>,
         vehicles: Driver<[Vehicle]>
     ) -> Driver<[GarageTableElement]> {
         Driver
-            .combineLatest(vehicles, currentVehicle) { vehicles, currentVehicle -> [GarageTableElement] in
+            .combineLatest(vehicles, currentVehicleID) { vehicles, currentVehicleID -> [GarageTableElement] in
                 vehicles.map { vehicle in
                     GarageTableElement(
                         vehicle: vehicle,
-                        isActive: vehicle.id == currentVehicle?.id
+                        isActive: vehicle.id == currentVehicleID
                     )
                 }
             }
@@ -150,14 +152,14 @@ private extension GarageViewModel {
             }
     }
 
-    func makeCurrentVehicle() -> Driver<Vehicle?> {
+    func makeCurrentVehicleID() -> Driver<String?> {
         let initial = vehicleManager
-            .obtainCurrentVehicle()
+            .obtainCurrentVehicleID()
             .asDriver(onErrorJustReturn: nil)
 
         let changed = VehicleMediator.shared
-            .didChangeCurrentVehicle
-            .map { $0 as Vehicle? }
+            .didChangeCurrentVehicleID
+            .map { $0 as String? }
             .asDriver(onErrorDriveWith: .never())
 
         return Driver
@@ -165,12 +167,20 @@ private extension GarageViewModel {
     }
     
     func makeAction(
+        vehicles: Driver<[Vehicle]>,
         didTapAddCar: Signal<Void>,
         didSelectVehicle: Signal<Vehicle>,
         didTapRemoveVehicle: Signal<Vehicle>
     ) -> Driver<Action> {
-        let addCar = didTapAddCar
-            .map { Action.addCar }
+        let addCarOrPaygate = didTapAddCar
+            .withLatestFrom(vehicles)
+            .map { vehicles -> Action in
+                if SessionManager().hasActiveSubscriptions() {
+                    return .addCar
+                }
+                
+                return vehicles.isEmpty ? .addCar : .openPaygate
+            }
             .asDriver(onErrorDriveWith: .never())
 
         let vehicleDetails = didSelectVehicle
@@ -182,6 +192,6 @@ private extension GarageViewModel {
             .asDriver(onErrorDriveWith: .never())
 
         return Driver
-            .merge(addCar, vehicleDetails, confirmRemoveVehicle)
+            .merge(addCarOrPaygate, vehicleDetails, confirmRemoveVehicle)
     }
 }

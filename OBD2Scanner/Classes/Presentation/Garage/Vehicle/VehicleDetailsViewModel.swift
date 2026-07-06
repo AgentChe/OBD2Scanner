@@ -13,6 +13,7 @@ final class VehicleDetailsViewModel {
         case addVIN(String)
         case openRecallHistory(Vehicle)
         case copyVIN(String)
+        case openPaygate
     }
 
     private lazy var vehicleManager = VehicleManager()
@@ -72,23 +73,23 @@ private extension VehicleDetailsViewModel {
         didTapMakeActive: Signal<Void>
     ) -> Driver<Bool> {
         let initial = vehicleManager
-            .obtainCurrentVehicle()
+            .obtainCurrentVehicleID()
             .asDriver(onErrorJustReturn: nil)
 
         let changed = VehicleMediator.shared
-            .didChangeCurrentVehicle
-            .map { $0 as Vehicle? }
+            .didChangeCurrentVehicleID
+            .map { $0 as String? }
             .asDriver(onErrorDriveWith: .never())
 
         let setup = didTapMakeActive
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(vehicle)
-            .flatMapLatest { [weak self] vehicle -> Driver<Vehicle?> in
+            .flatMapLatest { [weak self] vehicle -> Driver<String?> in
                 guard let self else { return .never() }
 
                 return vehicleManager
-                    .setupCurrent(vehicle: vehicle)
-                    .map { vehicle as Vehicle? }
+                    .setupCurrent(vehicleID: vehicle.id)
+                    .map { vehicle.id as String? }
                     .asDriver(onErrorDriveWith: .empty())
             }
 
@@ -97,7 +98,7 @@ private extension VehicleDetailsViewModel {
 
         return Driver
             .combineLatest(vehicle, current) { vehicle, current in
-                vehicle.id == current?.id
+                vehicle.id == current
             }
     }
 
@@ -117,12 +118,14 @@ private extension VehicleDetailsViewModel {
             .map { Action.copyVIN($0.vin ?? "") }
             .asDriver(onErrorDriveWith: .never())
         
-        let openRecallHistory = didTapRecallHistory
+        let openRecallHistoryOrPaygate = didTapRecallHistory
             .withLatestFrom(vehicle)
-            .map { Action.openRecallHistory($0) }
+            .map { vehicle -> Action in
+                SessionManager().hasActiveSubscriptions() ? .openRecallHistory(vehicle) : .openPaygate
+            }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(addVin, copyVIN, openRecallHistory)
+            .merge(addVin, copyVIN, openRecallHistoryOrPaygate)
     }
 }

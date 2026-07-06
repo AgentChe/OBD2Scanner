@@ -14,7 +14,7 @@ final class VehicleMediator {
     private lazy var didAddVehicleTrigger = PublishRelay<Vehicle>()
     private lazy var didReplaceVehicleTrigger = PublishRelay<Vehicle>()
     private lazy var didRemoveVehicleTrigger = PublishRelay<String>()
-    private lazy var didChangeCurrentVehicleTrigger = PublishRelay<Vehicle>()
+    private lazy var didChangeCurrentVehicleIDTrigger = PublishRelay<String>()
     
     private init() {}
 }
@@ -33,8 +33,8 @@ extension VehicleMediator {
         didRemoveVehicleTrigger.accept(id)
     }
     
-    func changeCurrent(vehicle: Vehicle) {
-        didChangeCurrentVehicleTrigger.accept(vehicle)
+    func changeCurrent(vehicleID: String) {
+        didChangeCurrentVehicleIDTrigger.accept(vehicleID)
     }
     
     var didAddVehicle: Signal<Vehicle> {
@@ -49,7 +49,7 @@ extension VehicleMediator {
         didRemoveVehicleTrigger.asSignal()
     }
     
-    var didChangeCurrentVehicle: Signal<Vehicle> {
-        didChangeCurrentVehicleTrigger.asSignal()
+    var didChangeCurrentVehicleID: Signal<String> {
+        didChangeCurrentVehicleIDTrigger.asSignal()
     }
 }

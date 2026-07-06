@@ -24,8 +24,8 @@ protocol VehicleManagerProtocol {
     func decode(vin: String) -> Single<Vehicle?>
     func remove(id: String) -> Single<RequestResult>
     func obtainMyGarage() -> Single<[Vehicle]>
-    func obtainCurrentVehicle() -> Single<Vehicle?>
-    func setupCurrent(vehicle: Vehicle) -> Single<Void>
+    func obtainCurrentVehicleID() -> Single<String?>
+    func setupCurrent(vehicleID: String) -> Single<Void>
     func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]>
 }
 
@@ -161,34 +161,23 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { Vehicle.garage(response: $0) }
     }
     
-    // TODO: хранмть id 
-    func obtainCurrentVehicle() -> Single<Vehicle?> {
-        Single<Vehicle?>.create { single in
-            let userDefaults = UserDefaults.standard
+    func obtainCurrentVehicleID() -> Single<String?> {
+        Single<String?>.create { single in
+            let vehicleID = UserDefaults.standard.string(forKey: Constants.currentVehicleKey)
             
-            let vehicle: Vehicle? = {
-                guard let data = userDefaults.data(forKey: Constants.currentVehicleKey) else { return nil }
-                
-                return try? JSONDecoder().decode(Vehicle.self, from: data)
-            }()
-            
-            single(.success(vehicle))
+            single(.success(vehicleID))
             
             return Disposables.create()
         }
     }
     
-    func setupCurrent(vehicle: Vehicle) -> Single<Void> {
+    func setupCurrent(vehicleID: String) -> Single<Void> {
         Single<Void>.create { single in
-            let userDefaults = UserDefaults.standard
-            
-            if let data = try? JSONEncoder().encode(vehicle) {
-                userDefaults.set(data, forKey: Constants.currentVehicleKey)
-            }
+            UserDefaults.standard.set(vehicleID, forKey: Constants.currentVehicleKey)
             
             single(.success(Void()))
             
-            VehicleMediator.shared.changeCurrent(vehicle: vehicle)
+            VehicleMediator.shared.changeCurrent(vehicleID: vehicleID)
             
             return Disposables.create()
         }

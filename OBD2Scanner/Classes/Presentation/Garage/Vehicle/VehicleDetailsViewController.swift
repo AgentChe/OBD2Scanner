@@ -100,6 +100,12 @@ private extension VehicleDetailsViewController {
         case .openRecallHistory(let vehicle):
             let vc = RecallHistoryViewController.make(vehicle: vehicle)
             navigationController?.pushViewController(vc, animated: true)
+        case .openPaygate:
+            let vc = UnlimitedPlanViewController.make { [weak self] in
+                let vc = PaygateViewController.make()
+                self?.present(vc, animated: true)
+            }
+            present(vc, animated: false)
         }
     }
 

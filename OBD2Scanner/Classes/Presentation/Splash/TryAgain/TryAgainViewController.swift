@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// TODO: реализовать в соответствии с дизайном
 final class TryAgainViewController: UIViewController {
     private lazy var mainView = TryAgainView(error: error)
     
@@ -46,8 +45,7 @@ final class TryAgainViewController: UIViewController {
         
         mainView.contactButton.rx.tap
             .bind(to: Binder(self) { base, void in
-                // TODO:
-//                UIApplication.shared.open(GlobalDefinitions.contactUsUrl, options: [:], completionHandler: nil)
+                UIApplication.shared.open(GlobalDefinitions.contactUsUrl, options: [:], completionHandler: nil)
             })
             .disposed(by: disposeBag)
         

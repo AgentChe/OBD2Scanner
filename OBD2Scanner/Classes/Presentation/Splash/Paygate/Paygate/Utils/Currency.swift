@@ -21,9 +21,9 @@ struct Currency {
     }
     
     func formatted() -> String? {
-        let currency = iapProduct.original.priceLocale.currency?.identifier ?? ""
-        let priceLocale = iapProduct.original.priceLocale
-        let priceValue = NSDecimalNumber(decimal: iapProduct.original.price.decimalValue)
+        let currency = iapProduct.priceLocale.currency?.identifier ?? ""
+        let priceLocale = iapProduct.priceLocale
+        let priceValue = NSDecimalNumber(decimal: iapProduct.price.decimalValue)
         
         let priceDiv = priceValue.dividing(by: NSDecimalNumber(value: div))
         

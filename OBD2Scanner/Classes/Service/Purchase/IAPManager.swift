@@ -31,7 +31,7 @@ extension IAPManager {
     func obtainProducts(ids: [String]) -> Single<[IAPProduct]> {
         Single<[IAPProduct]>.create { event in
             SwiftyStoreKit.retrieveProductsInfo(Set(ids)) { result in
-                let products = result.retrievedProducts.map { IAPProduct(original: $0) }
+                let products = result.retrievedProducts.compactMap { IAPProduct.make(product: $0) }
                 
                 event(.success(products))
             }

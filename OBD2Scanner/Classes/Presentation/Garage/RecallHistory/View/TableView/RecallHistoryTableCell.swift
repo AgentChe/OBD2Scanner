@@ -289,11 +289,14 @@ private extension RecallHistoryTableCell {
             .font(Fonts.NotoSans.regular(size: 14.scale))
             .textAlignment(.right)
 
-        let view = TapAreaButton()
-        view.setAttributedTitle("RecallHistory.ViewOnNHTSA".localized.attributed(with: attrs), for: .normal)
-        view.setImage(UIImage(named: "RecallHistory.Link"), for: .normal)
-        view.semanticContentAttribute = .forceRightToLeft
-        view.imageEdgeInsets = UIEdgeInsets(l: 6.scale)
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("RecallHistory.ViewOnNHTSA".localized.attributed(with: attrs))
+        configuration.image = UIImage(named: "RecallHistory.Link")
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 6.scale
+        configuration.contentInsets = .zero
+
+        let view = TapAreaButton(configuration: configuration)
         view.addTarget(self, action: #selector(linkTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(view)
@@ -346,14 +349,16 @@ private extension RecallHistoryTableCell {
             .textColor(Appearance.color_28D799)
             .font(Fonts.NotoSans.regular(size: 12.scale))
 
-        let view = UIButton()
-        view.setAttributedTitle("RecallHistory.MarkAsCompleted".localized.attributed(with: attrs), for: .normal)
-        view.setImage(UIImage(named: "RecallHistory.Complete"), for: .normal)
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("RecallHistory.MarkAsCompleted".localized.attributed(with: attrs))
+        configuration.image = UIImage(named: "RecallHistory.Complete")
+        configuration.imagePadding = 6.scale
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12.scale, bottom: 0, trailing: 12.scale)
+
+        let view = UIButton(configuration: configuration)
         view.layer.cornerRadius = 16.scale
         view.layer.borderWidth = 1.scale
         view.layer.borderColor = Appearance.color_28D799.cgColor
-        view.contentEdgeInsets = UIEdgeInsets(l: 12.scale, r: 18.scale)
-        view.titleEdgeInsets = UIEdgeInsets(l: 6.scale, r: -6.scale)
         view.translatesAutoresizingMaskIntoConstraints = false
         bottomView.addSubview(view)
         return view

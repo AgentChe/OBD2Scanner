@@ -68,11 +68,13 @@ private extension SettingsLinksView {
             .textColor(Appearance.color_526387)
             .font(Fonts.NotoSans.regular(size: 16.scale))
             .textAlignment(.left)
-        
-        let view = UIButton()
-        view.setAttributedTitle("Settings.PrivacyPolicy".localized.attributed(with: attrs), for: .normal)
+
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("Settings.PrivacyPolicy".localized.attributed(with: attrs))
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16.scale, bottom: 0, trailing: 16.scale)
+
+        let view = UIButton(configuration: configuration)
         view.contentHorizontalAlignment = .left
-        view.contentEdgeInsets = UIEdgeInsets(horizontal: 16.scale)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -91,11 +93,13 @@ private extension SettingsLinksView {
             .textColor(Appearance.color_526387)
             .font(Fonts.NotoSans.regular(size: 16.scale))
             .textAlignment(.left)
-        
-        let view = UIButton()
-        view.setAttributedTitle("Settings.TermsOfUse".localized.attributed(with: attrs), for: .normal)
+
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("Settings.TermsOfUse".localized.attributed(with: attrs))
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16.scale, bottom: 0, trailing: 16.scale)
+
+        let view = UIButton(configuration: configuration)
         view.contentHorizontalAlignment = .left
-        view.contentEdgeInsets = UIEdgeInsets(horizontal: 16.scale)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

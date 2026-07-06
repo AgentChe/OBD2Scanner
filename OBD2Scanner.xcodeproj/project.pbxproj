@@ -201,6 +201,13 @@
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
 		DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C082FFAC7300044284D /* RecallHistory.swift */; };
 		DED81C0B2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */; };
+		DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C0E2FFBF4820044284D /* SettingsViewController.swift */; };
+		DED81C112FFBF4890044284D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C102FFBF4890044284D /* SettingsViewModel.swift */; };
+		DED81C132FFBF48D0044284D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C122FFBF48D0044284D /* SettingsView.swift */; };
+		DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C162FFBF4C70044284D /* SettingsTableView.swift */; };
+		DED81C192FFBF4CE0044284D /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */; };
+		DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C1B2FFBF5010044284D /* SettingsTableCell.swift */; };
+		DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C1F2FFBF5030044284D /* SettingsLinksView.swift */; };
 		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
@@ -431,6 +438,13 @@
 		DEC61E992A812667008F9C97 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DED81C082FFAC7300044284D /* RecallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistory.swift; sourceTree = "<group>"; };
 		DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainRecallHistoryRequest.swift; sourceTree = "<group>"; };
+		DED81C0E2FFBF4820044284D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DED81C102FFBF4890044284D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DED81C122FFBF48D0044284D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DED81C162FFBF4C70044284D /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
+		DED81C1B2FFBF5010044284D /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
+		DED81C1F2FFBF5030044284D /* SettingsLinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinksView.swift; sourceTree = "<group>"; };
 		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
@@ -1030,8 +1044,8 @@
 		DE2F0AF22A698E1C00471667 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DED81C0C2FFBF4710044284D /* Settings */,
 				DE2240B72FF7CDB10023E94C /* Garage */,
-				DE2240B22FF7C34D0023E94C /* Main */,
 				DE7194422A700A3100ED3084 /* PIDs */,
 				DE2F0BC82A6E834700471667 /* DTC */,
 				DE2F0B062A69943300471667 /* Splash */,
@@ -1064,6 +1078,7 @@
 		DE2F0B062A69943300471667 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DE2240B22FF7C34D0023E94C /* Main */,
 				DE22406F2FF653300023E94C /* TryAgain */,
 				DEC61E9C2A812F77008F9C97 /* Paygate */,
 				DE4B7E672FF2AA0300973BA9 /* Onboarding */,
@@ -1323,6 +1338,44 @@
 			path = Paygate;
 			sourceTree = "<group>";
 		};
+		DED81C0C2FFBF4710044284D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DED81C0D2FFBF4780044284D /* Settings */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DED81C0D2FFBF4780044284D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DED81C142FFBF4910044284D /* View */,
+				DED81C0E2FFBF4820044284D /* SettingsViewController.swift */,
+				DED81C102FFBF4890044284D /* SettingsViewModel.swift */,
+				DED81C122FFBF48D0044284D /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DED81C142FFBF4910044284D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DED81C152FFBF4B60044284D /* TableView */,
+				DED81C1F2FFBF5030044284D /* SettingsLinksView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DED81C152FFBF4B60044284D /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DED81C162FFBF4C70044284D /* SettingsTableView.swift */,
+				DED81C1B2FFBF5010044284D /* SettingsTableCell.swift */,
+				DED81C182FFBF4CE0044284D /* SettingsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		DEDF4E002FF2C8D70001160D /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -1490,6 +1543,9 @@
 			files = (
 				DED81C0B2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift in Sources */,
 				DE2240A02FF6CDE70023E94C /* RemoveVehicleRequest.swift in Sources */,
+				DED81C192FFBF4CE0044284D /* SettingsTableElement.swift in Sources */,
+				DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */,
+				DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */,
 				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
 				DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */,
@@ -1535,6 +1591,7 @@
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE22408D2FF6B8A00023E94C /* RadialGradientView.swift in Sources */,
 				DE71944E2A700D5600ED3084 /* PIDsTableElement.swift in Sources */,
+				DED81C112FFBF4890044284D /* SettingsViewModel.swift in Sources */,
 				DE2F0BAD2A6E755900471667 /* LTOBD2CaptureFile.m in Sources */,
 				DE2F0BCC2A6E835A00471667 /* DTCViewModel.swift in Sources */,
 				DE2F0BB62A6E755900471667 /* LTOBD2Mode6TestResult.m in Sources */,
@@ -1567,6 +1624,7 @@
 				DE2F0BAE2A6E755900471667 /* LTOBD2ProtocolISO14230_4.m in Sources */,
 				DE2240172FF416990023E94C /* VehicleYear.swift in Sources */,
 				DE2F0BB02A6E755900471667 /* LTOBD2AdapterELM327.m in Sources */,
+				DED81C132FFBF48D0044284D /* SettingsView.swift in Sources */,
 				DE22403B2FF555010023E94C /* SelectYearCollectionCell.swift in Sources */,
 				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift in Sources */,
 				DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */,
@@ -1577,6 +1635,7 @@
 				DE2240A92FF7AAC70023E94C /* DecodeVINViewController.swift in Sources */,
 				DE2240342FF552AE0023E94C /* AddVehicleFlowResult.swift in Sources */,
 				DE2240CB2FF92CCA0023E94C /* VehicleDetailsViewController.swift in Sources */,
+				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
 				DE2240782FF684380023E94C /* AddVehicleResultItemView.swift in Sources */,
 				DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */,
@@ -1633,6 +1692,7 @@
 				DE2240032FF3F22C0023E94C /* PaygateViewModel.swift in Sources */,
 				DE2240042FF3F22C0023E94C /* PaygateInteractor.swift in Sources */,
 				DE2240052FF3F22C0023E94C /* Currency.swift in Sources */,
+				DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
 				DE2F0AB92A698E0B00471667 /* TextAttributes.swift in Sources */,
 				DE2F0BD92A6E8A3B00471667 /* DTCVehicleCell.swift in Sources */,

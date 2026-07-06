@@ -183,6 +183,18 @@ and smart monitoring";
 "RecallHistory.MarkAsCompleted" = "Mark as completed";
 "RecallHistory.Completed" = "Completed";
 
+// MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.Connection.Title" = "Connection";
+"Settings.Connection.SubTitle" = "OBD2 scanner connection";
+"Settings.Units.Title" = "Units";
+"Settings.Units.SubTitle" = "Unit of measure";
+"Settings.Subscription.Title" = "Subscription";
+"Settings.Subscription.SubTitle" = "Billing details...";
+"Settings.Language.Title" = "Interface language";
+"Settings.PrivacyPolicy" = "Privacy policy";
+"Settings.TermsOfUse" = "Terms of use";
+
 // MARK: TryAgain
 "TryAgain.Title" = "FAILED TO COMPLETE YOUR REQUEST";
 "TryAgain.SubTitle" = "Something went wrong while loading the data. Try again—that usually helps. If the error persists, please let us know.";

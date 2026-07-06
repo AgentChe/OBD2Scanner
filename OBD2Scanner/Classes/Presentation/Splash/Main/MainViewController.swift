@@ -36,7 +36,7 @@ private extension MainViewController {
         viewControllers = [
             makeTab(root: UIViewController(), title: "Main.Tab.Dashboard".localized, icon: "square.grid.2x2.fill"),
             makeTab(root: GarageViewController.make(), title: "Main.Tab.Garage".localized, icon: "car.fill"),
-            makeTab(root: UIViewController(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill")
+            makeTab(root: SettingsViewController.make(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill")
         ]
         selectedIndex = 1
     }

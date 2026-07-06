@@ -6,7 +6,6 @@
 //
 
 enum SettingsTableElement {
-    case connection
     case units
     case subscription
 }

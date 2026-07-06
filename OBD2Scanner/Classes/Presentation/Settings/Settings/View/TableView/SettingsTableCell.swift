@@ -43,10 +43,6 @@ extension SettingsTableCell {
         let subTitle: String
 
         switch element {
-        case .connection:
-            icon = "Settings.Connection"
-            title = "Settings.Connection.Title".localized
-            subTitle = "Settings.Connection.SubTitle".localized
         case .units:
             icon = "Settings.Units"
             title = "Settings.Units.Title".localized

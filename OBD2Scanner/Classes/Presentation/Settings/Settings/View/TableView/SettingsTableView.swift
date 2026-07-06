@@ -59,7 +59,7 @@ extension SettingsTableView: UITableViewDataSource {
         let isLast = indexPath.row == elements.count - 1
 
         switch element {
-        case .connection, .units, .subscription:
+        case .units, .subscription:
             let cell = dequeueReusableCell(withIdentifier: String(describing: SettingsTableCell.self), for: indexPath) as! SettingsTableCell
             cell.setup(element: element, isLast: isLast)
             return cell

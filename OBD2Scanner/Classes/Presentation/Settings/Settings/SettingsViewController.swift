@@ -57,8 +57,6 @@ extension SettingsViewController {
 private extension SettingsViewController {
     func action(_ action: SettingsViewModel.Action) {
         switch action {
-        case .openConnection:
-            break // TODO: открыть экран подключения OBD2 сканера
         case .openUnits:
             let vc = UnitsViewController.make()
             present(vc, animated: true)

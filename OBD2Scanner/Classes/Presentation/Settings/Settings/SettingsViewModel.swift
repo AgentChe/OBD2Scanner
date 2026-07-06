@@ -10,7 +10,6 @@ import RxCocoa
 
 final class SettingsViewModel {
     enum Action {
-        case openConnection
         case openUnits
         case openSubscription
         case openLink(URL)
@@ -49,10 +48,7 @@ private extension SettingsViewModel {
     func makeElements(activeSubscription: Driver<Bool>) -> Driver<[SettingsTableElement]> {
         activeSubscription
             .map { activeSubscription -> [SettingsTableElement] in
-                var result: [SettingsTableElement] = [
-                    .connection,
-                    .units
-                ]
+                var result: [SettingsTableElement] = [.units]
                 
                 if !activeSubscription {
                     result.append(.subscription)
@@ -70,8 +66,6 @@ private extension SettingsViewModel {
         let selectElement = didSelectElement
             .map { element -> Action in
                 switch element {
-                case .connection:
-                    return .openConnection
                 case .units:
                     return .openUnits
                 case .subscription:

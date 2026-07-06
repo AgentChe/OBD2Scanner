@@ -185,13 +185,10 @@ and smart monitoring";
 
 // MARK: Settings
 "Settings.Title" = "Settings";
-"Settings.Connection.Title" = "Connection";
-"Settings.Connection.SubTitle" = "OBD2 scanner connection";
 "Settings.Units.Title" = "Units";
 "Settings.Units.SubTitle" = "Unit of measure";
 "Settings.Subscription.Title" = "Subscription";
 "Settings.Subscription.SubTitle" = "Billing details...";
-"Settings.Language.Title" = "Interface language";
 "Settings.PrivacyPolicy" = "Privacy policy";
 "Settings.TermsOfUse" = "Terms of use";
 

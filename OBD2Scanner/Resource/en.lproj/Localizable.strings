@@ -192,6 +192,28 @@ and smart monitoring";
 "Settings.PrivacyPolicy" = "Privacy policy";
 "Settings.TermsOfUse" = "Terms of use";
 
+// MARK: Dashboard
+"Dashboard.DemoMode" = "Demo mode";
+"Dashboard.Demo.Title" = "Demo mode enabled";
+"Dashboard.Demo.SubTitle" = "Using simulated vehicle data";
+"Dashboard.Unlimited.SpecialOffer" = "Special offer";
+"Dashboard.Unlimited.Title" = "Unlimited";
+"Dashboard.Unlimited.UpgradePlan" = "Upgrade plan";
+"Dashboard.Vehicle.ChangeCar" = "Change car";
+"Dashboard.Connect.Connected" = "Connected";
+"Dashboard.Connect.NotConnected" = "Not connected";
+"Dashboard.Connect.SubTitle" = "OBD2 scanner";
+"Dashboard.Connect.Connect" = "Connect";
+"Dashboard.Connect.Disconnect" = "Disconnect";
+"Dashboard.Menu.Diagnostics.Title" = "Diagnostics";
+"Dashboard.Menu.Diagnostics.SubTitle" = "Check your car health";
+"Dashboard.Menu.FreezeFrame.Title" = "Freeze frame";
+"Dashboard.Menu.FreezeFrame.SubTitle" = "DTC snapshot";
+"Dashboard.Menu.HUD.Title" = "HUD";
+"Dashboard.Menu.HUD.SubTitle" = "Head-up display";
+"Dashboard.Menu.RecallHistory.Title" = "Recall history";
+"Dashboard.Menu.RecallHistory.SubTitle" = "Vehicle safety recalls";
+
 // MARK: Units
 "Units.Title" = "UNITS";
 "Units.Torque" = "Torque";

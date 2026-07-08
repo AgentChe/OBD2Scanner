@@ -18,7 +18,11 @@ final class TestView: UIView {
     lazy var vinButton = makeButton("VIN")
     lazy var voltageButton = makeButton("Volt")
     lazy var clearButton = makeButton("Clear")
+    lazy var elmLogButton = makeButton("ELM лог ▶")
+    lazy var commandField = makeCommandField()
+    lazy var sendCommandButton = makeButton("→")
     lazy var transportControl = makeTransportControl()
+    lazy var vehicleControl = makeVehicleControl()
     lazy var statusLabel = makeStatusLabel()
     lazy var liveLabel = makeLiveLabel()
     lazy var logTextView = makeLogTextView()
@@ -40,6 +44,13 @@ private extension TestView {
     func makeConstraints() {
         let row1 = makeRow([connectButton, disconnectButton, liveButton, dtcButton])
         let row2 = makeRow([freezeFrameButton, vinButton, voltageButton, clearButton])
+        let row3 = makeRow([elmLogButton])
+
+        let commandRow = UIStackView(arrangedSubviews: [commandField, sendCommandButton])
+        commandRow.axis = .horizontal
+        commandRow.spacing = 6
+        commandRow.translatesAutoresizingMaskIntoConstraints = false
+        sendCommandButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
         
         let scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor.clear
@@ -48,7 +59,10 @@ private extension TestView {
         
         scrollView.addSubview(row1)
         scrollView.addSubview(row2)
+        scrollView.addSubview(row3)
+        scrollView.addSubview(commandRow)
         scrollView.addSubview(transportControl)
+        scrollView.addSubview(vehicleControl)
         scrollView.addSubview(statusLabel)
         scrollView.addSubview(liveLabel)
         addSubview(logTextView)
@@ -75,15 +89,33 @@ private extension TestView {
         ])
         
         NSLayoutConstraint.activate([
+            row3.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            row3.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            row3.topAnchor.constraint(equalTo: row2.bottomAnchor, constant: 8.scale)
+        ])
+
+        NSLayoutConstraint.activate([
+            commandRow.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            commandRow.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            commandRow.topAnchor.constraint(equalTo: row3.bottomAnchor, constant: 8.scale)
+        ])
+
+        NSLayoutConstraint.activate([
             transportControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             transportControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            transportControl.topAnchor.constraint(equalTo: row2.bottomAnchor, constant: 8.scale)
+            transportControl.topAnchor.constraint(equalTo: commandRow.bottomAnchor, constant: 8.scale)
+        ])
+
+        NSLayoutConstraint.activate([
+            vehicleControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            vehicleControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            vehicleControl.topAnchor.constraint(equalTo: transportControl.bottomAnchor, constant: 8.scale)
         ])
 
         NSLayoutConstraint.activate([
             statusLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             statusLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            statusLabel.topAnchor.constraint(equalTo: transportControl.bottomAnchor, constant: 8.scale)
+            statusLabel.topAnchor.constraint(equalTo: vehicleControl.bottomAnchor, constant: 8.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -121,8 +153,27 @@ private extension TestView {
         return button
     }
 
+    func makeCommandField() -> UITextField {
+        let field = UITextField()
+        field.borderStyle = .roundedRect
+        field.placeholder = "команда, напр. 2101 или ATSH7E1"
+        field.font = .monospacedSystemFont(ofSize: 13, weight: .regular)
+        field.autocapitalizationType = .allCharacters
+        field.autocorrectionType = .no
+        field.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }
+
     func makeTransportControl() -> UISegmentedControl {
         let control = UISegmentedControl(items: ["BLE", "Wi-Fi"])
+        control.selectedSegmentIndex = 0
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }
+
+    func makeVehicleControl() -> UISegmentedControl {
+        let control = UISegmentedControl(items: ["Camry '19", "407 '07", "без авто"])
         control.selectedSegmentIndex = 0
         control.translatesAutoresizingMaskIntoConstraints = false
         return control

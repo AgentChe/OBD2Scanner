@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
+		BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E599C4FFC96757C382E2F8 /* gm.json */; };
+		245B1550870FDD935A921E72 /* vag-mqb.json in Resources */ = {isa = PBXBuildFile; fileRef = AB67790B6A8F5495B31AEC9F /* vag-mqb.json */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */; };
 		1960E062F5F6BBD650921F9A /* Pods_OBD2Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */; };
@@ -262,6 +265,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0FAE6AB80FEBF5FA3C331EE /* ford.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ford.json; sourceTree = "<group>"; };
+		F8E599C4FFC96757C382E2F8 /* gm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gm.json; sourceTree = "<group>"; };
+		AB67790B6A8F5495B31AEC9F /* vag-mqb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vag-mqb.json; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
@@ -618,6 +624,9 @@
 		9C6F76ADB2ECD4C76C6408CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0FAE6AB80FEBF5FA3C331EE /* ford.json */,
+				F8E599C4FFC96757C382E2F8 /* gm.json */,
+				AB67790B6A8F5495B31AEC9F /* vag-mqb.json */,
 				EB65549DC99D42ADF3C03946 /* obd2-standard.json */,
 				CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */,
 			);
@@ -1747,6 +1756,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C2E76177CC79652F649B86 /* ford.json in Resources */,
+				BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */,
+				245B1550870FDD935A921E72 /* vag-mqb.json in Resources */,
 				21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */,
 				CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */,
 				DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */,

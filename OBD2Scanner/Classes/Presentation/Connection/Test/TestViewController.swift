@@ -20,6 +20,7 @@ final class TestViewController: UIViewController {
     private let service = OBDService.shared
 
     private var liveDisposable: Disposable?
+    private var trafficDisposable: Disposable?
     private var lastCodes = [DiagnosticTroubleCode]()
     private var liveValues = [String: String]()
 
@@ -44,6 +45,7 @@ final class TestViewController: UIViewController {
 
     deinit {
         liveDisposable?.dispose()
+        trafficDisposable?.dispose()
     }
 }
 
@@ -123,22 +125,75 @@ private extension TestViewController {
                 self?.mainView.liveLabel.text = ""
             })
             .disposed(by: disposeBag)
+
+        mainView.elmLogButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.toggleTraffic()
+            })
+            .disposed(by: disposeBag)
+
+        mainView.sendCommandButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.sendManualCommand()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func sendManualCommand() {
+        guard let text = mainView.commandField.text?
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .uppercased(),
+              !text.isEmpty else {
+            return
+        }
+        mainView.commandField.resignFirstResponder()
+
+        log("→ (ручная) \(text)")
+        service.sendRawCommand(text)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] lines in
+                self?.log("← \(lines.isEmpty ? "<пусто>" : lines.joined(separator: " | "))")
+            }, onFailure: { [weak self] error in
+                self?.log("← ошибка: \(error)")
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func toggleTraffic() {
+        if let disposable = trafficDisposable {
+            disposable.dispose()
+            trafficDisposable = nil
+            mainView.elmLogButton.setTitle("ELM лог ▶", for: .normal)
+            log("ELM-лог: выкл")
+            return
+        }
+
+        mainView.elmLogButton.setTitle("ELM лог ■", for: .normal)
+        log("ELM-лог: вкл — каждая команда (→) и ответ адаптера (←)")
+        trafficDisposable = service.traffic
+            .emit(onNext: { [weak self] line in
+                self?.log(line)
+            })
     }
 
     func connect() {
-        // Тестовая заглушка авто для подбора ECU-профиля.
-        // Подставь свои марку/модель/год, если тестируешь не на Camry.
-        let vehicle = Vehicle(json: [
-            "vehicle_id": "test",
-            "make": "Toyota",
-            "model": "Camry",
-            "year": 2019
-        ])
+        // Тестовые заглушки авто для подбора ECU-профиля.
+        let vehicle: Vehicle?
+        switch mainView.vehicleControl.selectedSegmentIndex {
+        case 0:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Camry", "year": 2019])
+        case 1:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Peugeot", "model": "407", "year": 2007])
+        default:
+            vehicle = nil
+        }
+        let vehicleName = vehicle.map { "\($0.brand ?? "?") \($0.model ?? "?") \($0.year.map(String.init) ?? "")" } ?? "без авто"
+
         let method: OBDConnectionMethod = mainView.transportControl.selectedSegmentIndex == 1 ? .wifi : .bluetooth
         if method == .wifi {
             log("Wi-Fi: телефон должен быть в сети адаптера (адрес 192.168.0.10:35000)")
         }
-        log("connect… (\(method == .wifi ? "Wi-Fi" : "BLE"), vehicle: Toyota Camry 2019)")
+        log("connect… (\(method == .wifi ? "Wi-Fi" : "BLE"), vehicle: \(vehicleName))")
         service.connect(vehicle: vehicle, method: method)
     }
 

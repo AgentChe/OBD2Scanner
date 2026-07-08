@@ -17,6 +17,9 @@ final class DiagnosticEngine {
     /// Колбэки (`onStateChange`, хендлеры чтения) доставляются на эту очередь.
     var callbackQueue: DispatchQueue = .main
     var onStateChange: ((DiagnosticsState) -> Void)?
+    /// Отладочный поток сырого ELM-трафика (`→ команда` / `← ответ`).
+    /// Доставляется на `callbackQueue`.
+    var onTraffic: ((String) -> Void)?
 
     private(set) var state: DiagnosticsState = .idle
 
@@ -60,6 +63,10 @@ final class DiagnosticEngine {
             if case .initializing = sessionState {
                 self?.setState(.initializingAdapter)
             }
+        }
+        session.onTraffic = { [weak self] line in
+            guard let self, let handler = self.onTraffic else { return }
+            self.callbackQueue.async { handler(line) }
         }
         session.open { [weak self] result in
             guard let self else { return }
@@ -198,6 +205,23 @@ final class DiagnosticEngine {
                     }
                     self.callbackQueue.async { completion(mapped) }
                 }
+            }
+        }
+    }
+
+    /// Сырая команда адаптеру (AT или hex) — для отладочной консоли.
+    /// Ручная команда может сменить адресацию ELM, поэтому кэш активного
+    /// канала сбрасывается: следующая операция заново применит `ATSH`/`ATCRA`.
+    func sendRawCommand(_ command: String, completion: @escaping (Result<[String], DiagnosticsError>) -> Void) {
+        guard let session else {
+            callbackQueue.async { completion(.failure(.notConnected)) }
+            return
+        }
+        session.queue.async {
+            self.activeChannel = nil
+            session.execute(command, timeout: 3.0) { result in
+                let mapped = result.mapError { ECUChannel.map($0) }
+                self.callbackQueue.async { completion(mapped) }
             }
         }
     }

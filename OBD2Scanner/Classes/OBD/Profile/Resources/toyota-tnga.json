@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "toyota-tnga",
-  "name": "Toyota / Lexus TNGA (Denso)",
+  "name": "Toyota / Lexus TNGA (Denso, сервис 21)",
   "priority": 100,
   "match": {
     "brands": ["toyota", "lexus"],
@@ -11,48 +11,37 @@
   "ecus": [
     {
       "id": "engine",
-      "name": "Двигатель",
+      "name": "Двигатель (Denso)",
       "addressing": { "request": "7E0", "response": "7E8" },
       "session": { "kind": "none" },
       "supportedParametersProbe": "udsProbe",
-      "dtc": {
-        "read":        { "request": "1902AF", "format": "uds" },
-        "freezeFrame": { "request": "1904{dtc}FF", "format": "udsSnapshot" }
-      },
       "parameters": [
         {
-          "id": "toyota.vin", "name": "VIN (из ECU)",
-          "request": "22F190", "responsePrefix": "62F190",
-          "extract": { "start": 0, "length": 17 },
-          "decode": { "kind": "ascii" },
-          "group": "once", "categories": ["info"]
-        }
-      ]
-    },
-    {
-      "id": "transmission",
-      "name": "АКПП",
-      "addressing": { "request": "7E1", "response": "7E9" },
-      "session": { "kind": "none" },
-      "supportedParametersProbe": "udsProbe",
-      "parameters": [
-        {
-          "id": "toyota.atf_pan", "name": "Температура АКПП (поддон)",
-          "request": "2182", "responsePrefix": "6182",
-          "extract": { "start": 0, "length": 2 },
-          "dataLength": 4,
-          "decode": { "kind": "linear", "scale": 0.007, "offset": -40 },
-          "unit": "°C", "range": { "min": -40, "max": 215 },
-          "group": "live-slow", "categories": ["transmission", "hud"]
+          "id": "toyota.rpm_2101",
+          "name": "Обороты (блок 2101, калибровка)",
+          "request": "2101", "responsePrefix": "6101",
+          "extract": { "start": 9, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.25, "offset": 0 },
+          "unit": "rpm", "range": { "min": 0, "max": 8000 },
+          "group": "live-fast", "categories": ["engine"]
         },
         {
-          "id": "toyota.atf_converter", "name": "Температура АКПП (гидротрансформатор)",
-          "request": "2182", "responsePrefix": "6182",
-          "extract": { "start": 2, "length": 2 },
-          "dataLength": 4,
-          "decode": { "kind": "linear", "scale": 0.007, "offset": -40 },
+          "id": "toyota.coolant_2101",
+          "name": "Температура ОЖ (блок 2101, калибровка)",
+          "request": "2101", "responsePrefix": "6101",
+          "extract": { "start": 8, "length": 1 },
+          "decode": { "kind": "linear", "scale": 1, "offset": -40 },
           "unit": "°C", "range": { "min": -40, "max": 215 },
-          "group": "live-slow", "categories": ["transmission"]
+          "group": "live-slow", "categories": ["engine"]
+        },
+        {
+          "id": "toyota.temp82",
+          "name": "Температура (блок 82, масло — уточняется)",
+          "request": "2182", "responsePrefix": "6182",
+          "extract": { "start": 0, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.00390625, "offset": -40 },
+          "unit": "°C", "range": { "min": -40, "max": 215 },
+          "group": "live-slow", "categories": ["transmission", "engine"]
         }
       ]
     }

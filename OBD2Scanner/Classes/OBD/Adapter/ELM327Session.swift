@@ -41,6 +41,10 @@ final class ELM327Session {
     }
     var onStateChange: ((ELM327SessionState) -> Void)?
 
+    /// Отладочный хук: сырой трафик — каждая отправленная команда (`→ …`)
+    /// и каждый ответ адаптера (`← …`). Вызывается на `queue`.
+    var onTraffic: ((String) -> Void)?
+
     private let transport: OBDTransport
 
     private struct Pending {
@@ -104,6 +108,7 @@ private extension ELM327Session {
         receiveBuffer.removeAll()
 
         transport.send(Data((next.text + "\r").utf8))
+        onTraffic?("→ \(next.text)")
 
         let work = DispatchWorkItem { [weak self] in self?.handleTimeout() }
         timeoutWork = work
@@ -114,6 +119,7 @@ private extension ELM327Session {
         guard let command = current else { return }
         current = nil
         receiveBuffer.removeAll()
+        onTraffic?("← ⏱ таймаут (\(command.text))")
         command.completion(.failure(.timeout(command: command.text)))
         pump()
     }
@@ -148,6 +154,7 @@ private extension ELM327Session {
             lines.removeFirst()
         }
 
+        onTraffic?("← " + (lines.isEmpty ? "<пусто>" : lines.joined(separator: " | ")))
         command.completion(.success(lines))
         pump()
     }

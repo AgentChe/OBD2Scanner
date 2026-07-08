@@ -26,6 +26,10 @@ final class ECUChannel {
 
     private let session: ELM327Session
     private let assembler: CANResponseAssembler?
+    /// Подряд идущие `NO DATA` по запросу; после лимита запрос исключается,
+    /// чтобы не терять по таймауту на каждом цикле опроса.
+    private var noDataStrikes = [String: Int]()
+    private static let noDataStrikeLimit = 3
 
     init(profileID: String,
          definition: ECUDefinition,
@@ -48,14 +52,28 @@ final class ECUChannel {
                 completion(.failure(Self.map(error)))
                 return
             }
-            // Фильтр приёма: конкретный ответный адрес либо сброс (broadcast).
-            let command = self.definition.addressing.response.map { "ATCRA" + $0 } ?? "ATCRA"
-            self.session.execute(command, timeout: 2.0) { craResult in
-                switch craResult {
-                case .success:
-                    completion(.success(()))
-                case let .failure(error):
-                    completion(.failure(Self.map(error)))
+            if let response = self.definition.addressing.response {
+                // Физический канал: принимаем только ответ конкретного ECU.
+                self.session.execute("ATCRA" + response, timeout: 2.0) { craResult in
+                    switch craResult {
+                    case .success:
+                        completion(.success(()))
+                    case let .failure(error):
+                        completion(.failure(Self.map(error)))
+                    }
+                }
+            } else {
+                // Broadcast: сброс точного фильтра + маска «только 7E8–7EF».
+                // Без неё широковещательные кадры шины (напр. 4E0 у Toyota)
+                // засоряют ответ и растягивают адаптивный таймаут ELM
+                // до ~1 с на запрос. Клоны без ATCM/ATCF просто ответят «?» —
+                // не критично, поэтому результаты не проверяем.
+                self.session.execute("ATCRA", timeout: 2.0) { _ in
+                    self.session.execute("ATCM7F8", timeout: 2.0) { _ in
+                        self.session.execute("ATCF7E8", timeout: 2.0) { _ in
+                            completion(.success(()))
+                        }
+                    }
                 }
             }
         }
@@ -149,17 +167,26 @@ private extension ECUChannel {
             if joined.contains("ERROR") || joined.contains("STOPPED") || joined.contains("BUFFER") {
                 return .failure(.busError(joined))
             }
+            // ECU молчит: после нескольких промахов подряд исключаем запрос,
+            // иначе каждый цикл опроса теряет на нём полный таймаут.
+            let strikes = (noDataStrikes[request] ?? 0) + 1
+            noDataStrikes[request] = strikes
+            if strikes >= Self.noDataStrikeLimit {
+                markUnsupported(request)
+            }
             return .failure(.noData)
         }
+        noDataStrikes[request] = 0
 
-        // Отрицательные ответы UDS отделяем от позитивных;
-        // NRC 0x31 (requestOutOfRange) помечает запрос неподдержанным.
+        // Отрицательные ответы UDS отделяем от позитивных. Запрос исключается
+        // при NRC 0x11 (сервис не поддерживается), 0x12 (подфункция
+        // не поддерживается) и 0x31 (нет такого идентификатора).
         var positives = [String: [UInt8]]()
         var firstNegative: ResponseParser.NegativeResponse?
         for (ecu, payload) in responses {
             if let negative = ResponseParser.negativeResponse(in: payload) {
                 if firstNegative == nil { firstNegative = negative }
-                if negative.code == 0x31 { markUnsupported(request) }
+                if [0x11, 0x12, 0x31].contains(negative.code) { markUnsupported(request) }
             } else {
                 positives[ecu] = payload
             }

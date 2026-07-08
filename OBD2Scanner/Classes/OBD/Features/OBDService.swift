@@ -15,10 +15,14 @@ final class OBDService {
 
     private let engine = DiagnosticEngine()
     private lazy var stateRelay = BehaviorRelay<DiagnosticsState>(value: .idle)
+    private lazy var trafficRelay = PublishRelay<String>()
 
     private init() {
         engine.onStateChange = { [weak self] state in
             self?.stateRelay.accept(state)
+        }
+        engine.onTraffic = { [weak self] line in
+            self?.trafficRelay.accept(line)
         }
     }
 
@@ -55,6 +59,11 @@ final class OBDService {
 
     var currentState: DiagnosticsState {
         stateRelay.value
+    }
+
+    /// Сырой ELM-трафик (`→ команда` / `← ответ`) — для отладочных экранов.
+    var traffic: Signal<String> {
+        trafficRelay.asSignal()
     }
 
     // MARK: - Данные
@@ -113,6 +122,22 @@ final class OBDService {
                 switch result {
                 case let .success(vin):
                     event(.success(vin))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    /// Сырая команда адаптеру (AT или hex) — для отладочной консоли
+    /// на тестовом экране. Возвращает строки ответа как есть.
+    func sendRawCommand(_ command: String) -> Single<[String]> {
+        Single.create { [engine] event in
+            engine.sendRawCommand(command) { result in
+                switch result {
+                case let .success(lines):
+                    event(.success(lines))
                 case let .failure(error):
                     event(.failure(error))
                 }

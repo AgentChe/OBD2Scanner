@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "ford",
+  "name": "Ford (Forscan-эра, кандидат)",
+  "priority": 100,
+  "match": {
+    "brands": ["ford"],
+    "years": { "from": 2011 }
+  },
+  "bus": { "elmProtocol": "6" },
+  "ecus": [
+    {
+      "id": "transmission",
+      "name": "АКПП",
+      "addressing": { "request": "7E1", "response": "7E9" },
+      "session": { "kind": "none" },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "ford.trans_temp",
+          "name": "Температура АКПП",
+          "request": "221E1C",
+          "responsePrefix": "621E1C",
+          "extract": { "start": 0, "length": 2, "signed": true },
+          "decode": { "kind": "linear", "scale": 0.0625, "offset": 0 },
+          "unit": "°C",
+          "range": { "min": -40, "max": 215 },
+          "group": "live-slow",
+          "categories": ["transmission", "hud"]
+        }
+      ]
+    }
+  ]
+}

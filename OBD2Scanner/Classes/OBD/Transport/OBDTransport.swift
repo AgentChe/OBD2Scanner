@@ -34,3 +34,13 @@ enum OBDTransportError: Error, Equatable {
     /// За отведённое время не нашли устройство с подходящими характеристиками.
     case adapterNotFound
 }
+
+/// Способ подключения к адаптеру — выбирает пользователь (тип адаптера
+/// приложение определить заранее не может).
+enum OBDConnectionMethod {
+    /// BLE-адаптеры: OBDLink CX, Vgate vLinker BLE, типовые клоны.
+    case bluetooth
+    /// Wi-Fi адаптеры (ELM327 WiFi): телефон должен быть подключён
+    /// к Wi-Fi сети самого адаптера.
+    case wifi
+}

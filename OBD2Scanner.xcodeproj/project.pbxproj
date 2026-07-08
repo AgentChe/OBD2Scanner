@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */; };
 		1960E062F5F6BBD650921F9A /* Pods_OBD2Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */; };
 		21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */ = {isa = PBXBuildFile; fileRef = EB65549DC99D42ADF3C03946 /* obd2-standard.json */; };
@@ -261,6 +262,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
 		1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.release.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.release.xcconfig"; sourceTree = "<group>"; };
@@ -1677,6 +1679,7 @@
 		E7F1480A901C9908309A1E78 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */,
 				0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */,
 				A06B781E75DE91D333084F2F /* BLETransport.swift */,
 			);
@@ -1821,6 +1824,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */,
 				958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */,
 				945AC3A5CE23EA034BAAC9D5 /* TestViewController.swift in Sources */,
 				FC432CF1EBDC2B84FA49130D /* OBDTransport.swift in Sources */,

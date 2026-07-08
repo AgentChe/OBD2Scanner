@@ -134,8 +134,12 @@ private extension TestViewController {
             "model": "Camry",
             "year": 2019
         ])
-        log("connect… (vehicle: Toyota Camry 2019)")
-        service.connect(vehicle: vehicle)
+        let method: OBDConnectionMethod = mainView.transportControl.selectedSegmentIndex == 1 ? .wifi : .bluetooth
+        if method == .wifi {
+            log("Wi-Fi: телефон должен быть в сети адаптера (адрес 192.168.0.10:35000)")
+        }
+        log("connect… (\(method == .wifi ? "Wi-Fi" : "BLE"), vehicle: Toyota Camry 2019)")
+        service.connect(vehicle: vehicle, method: method)
     }
 
     func toggleLive() {
@@ -162,7 +166,15 @@ private extension TestViewController {
 
                 self.liveValues["\(reading.profileID)/\(reading.parameter.name)"] = reading.formatted
                 self.mainView.liveLabel.text = self.liveValues
-                    .sorted { $0.key < $1.key }
+                    .sorted { lhs, rhs in
+                        // Производительский профиль — сверху, чтобы был сразу виден.
+                        let lhsStandard = lhs.key.hasPrefix("obd2-standard")
+                        let rhsStandard = rhs.key.hasPrefix("obd2-standard")
+                        if lhsStandard != rhsStandard {
+                            return !lhsStandard
+                        }
+                        return lhs.key < rhs.key
+                    }
                     .map { "\($0.key): \($0.value)" }
                     .joined(separator: "\n")
             })
@@ -176,7 +188,12 @@ private extension TestViewController {
         liveDisposable?.dispose()
         liveDisposable = nil
         mainView.liveButton.setTitle("Live ▶", for: .normal)
-        log("live: стоп")
+
+        let counts = Dictionary(grouping: liveValues.keys) { $0.components(separatedBy: "/").first ?? "?" }
+            .map { "\($0.key): \($0.value.count)" }
+            .sorted()
+            .joined(separator: ", ")
+        log("live: стоп (\(counts.isEmpty ? "нет значений" : counts))")
     }
 
     func readDTC() {

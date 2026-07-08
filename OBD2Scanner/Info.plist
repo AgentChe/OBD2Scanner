@@ -23,6 +23,8 @@
 	</array>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Bluetooth is used to connect to your OBD2 adapter.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Local network access is used to connect to Wi-Fi OBD2 adapters.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Medium.ttf</string>

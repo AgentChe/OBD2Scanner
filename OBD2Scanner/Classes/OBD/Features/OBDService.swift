@@ -10,8 +10,6 @@ import RxCocoa
 
 /// Фасад диагностики для UI-слоя — единственная точка входа ViewModel'ов
 /// в OBD-ядро. Оборачивает `DiagnosticEngine` в Rx в стиле проекта.
-///
-/// Заменит легаси `OBDAdapter` (LTBLT), который будет удалён.
 final class OBDService {
     static let shared = OBDService()
 
@@ -26,15 +24,25 @@ final class OBDService {
 
     // MARK: - Подключение
 
-    /// Ищет BLE-адаптер, инициализирует его и устанавливает связь с машиной.
+    /// Ищет адаптер, инициализирует его и устанавливает связь с машиной.
     /// Прогресс и результат — через `state`.
-    /// - Parameter vehicle: авто из гаража — по нему подбирается ECU-профиль;
-    ///   `nil` — только стандартный OBD-II.
-    func connect(vehicle: Vehicle?) {
+    /// - Parameters:
+    ///   - vehicle: авто из гаража — по нему подбирается ECU-профиль;
+    ///     `nil` — только стандартный OBD-II.
+    ///   - method: способ подключения; для `.wifi` телефон должен быть
+    ///     подключён к сети адаптера (стандартно 192.168.0.10:35000).
+    func connect(vehicle: Vehicle?, method: OBDConnectionMethod = .bluetooth) {
         let descriptor = vehicle.map {
             VehicleDescriptor(brand: $0.brand, model: $0.model, vin: $0.vin, year: $0.year, fuelType: nil)
         }
-        engine.connect(vehicle: descriptor, transport: BLETransport())
+        let transport: OBDTransport
+        switch method {
+        case .bluetooth:
+            transport = BLETransport()
+        case .wifi:
+            transport = WiFiTransport()
+        }
+        engine.connect(vehicle: descriptor, transport: transport)
     }
 
     func disconnect() {

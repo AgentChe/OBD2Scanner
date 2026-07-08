@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "toyota-tnga",
+  "name": "Toyota / Lexus TNGA (Denso, UDS)",
+  "priority": 100,
+  "match": {
+    "brands": ["toyota", "lexus"],
+    "years": { "from": 2017 }
+  },
+  "bus": { "elmProtocol": "6" },
+  "ecus": [
+    {
+      "id": "engine",
+      "name": "Двигатель",
+      "addressing": { "request": "7E0", "response": "7E8" },
+      "session": {
+        "kind": "uds",
+        "open": ["1003"],
+        "testerPresent": { "request": "3E80", "intervalSec": 2.0 }
+      },
+      "supportedParametersProbe": "udsProbe",
+      "dtc": {
+        "read":        { "request": "1902AF", "format": "uds" },
+        "clear":       { "request": "14FFFFFF" },
+        "freezeFrame": { "request": "1904{dtc}FF", "format": "udsSnapshot" }
+      },
+      "parameters": [
+        {
+          "id": "toyota.vin", "name": "VIN",
+          "request": "22F190", "responsePrefix": "62F190",
+          "extract": { "start": 0, "length": 17 },
+          "decode": { "kind": "ascii" },
+          "group": "once", "categories": ["info"]
+        },
+        {
+          "id": "toyota.rpm", "name": "Обороты двигателя",
+          "request": "22F40C", "responsePrefix": "62F40C",
+          "extract": { "start": 0, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.25, "offset": 0 },
+          "unit": "rpm", "range": { "min": 0, "max": 8000 },
+          "group": "live-fast", "categories": ["engine", "hud"]
+        },
+        {
+          "id": "toyota.coolant_temp", "name": "Температура ОЖ",
+          "request": "22F405", "responsePrefix": "62F405",
+          "extract": { "start": 0, "length": 1 },
+          "decode": { "kind": "linear", "scale": 1, "offset": -40 },
+          "unit": "°C", "range": { "min": -40, "max": 215 },
+          "group": "live-slow", "categories": ["engine", "hud"]
+        },
+        {
+          "id": "toyota.speed", "name": "Скорость автомобиля",
+          "request": "22F40D", "responsePrefix": "62F40D",
+          "extract": { "start": 0, "length": 1 },
+          "decode": { "kind": "linear", "scale": 1, "offset": 0 },
+          "unit": "km/h", "range": { "min": 0, "max": 255 },
+          "group": "live-fast", "categories": ["hud"]
+        },
+        {
+          "id": "toyota.intake_temp", "name": "Температура впуска",
+          "request": "22F40F", "responsePrefix": "62F40F",
+          "extract": { "start": 0, "length": 1 },
+          "decode": { "kind": "linear", "scale": 1, "offset": -40 },
+          "unit": "°C", "range": { "min": -40, "max": 215 },
+          "group": "live-slow", "categories": ["engine"]
+        },
+        {
+          "id": "toyota.engine_load", "name": "Нагрузка двигателя",
+          "request": "22F404", "responsePrefix": "62F404",
+          "extract": { "start": 0, "length": 1 },
+          "decode": { "kind": "linear", "scale": 0.3921568627, "offset": 0 },
+          "unit": "%", "range": { "min": 0, "max": 100 },
+          "group": "live-fast", "categories": ["engine", "hud"]
+        },
+        {
+          "id": "toyota.throttle", "name": "Положение дросселя",
+          "request": "22F411", "responsePrefix": "62F411",
+          "extract": { "start": 0, "length": 1 },
+          "decode": { "kind": "linear", "scale": 0.3921568627, "offset": 0 },
+          "unit": "%", "range": { "min": 0, "max": 100 },
+          "group": "live-fast", "categories": ["engine", "hud"]
+        }
+      ]
+    }
+  ]
+}

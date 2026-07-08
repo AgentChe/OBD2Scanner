@@ -1,0 +1,130 @@
+//
+//  OBDService.swift
+//  OBD2Scanner
+//
+//  Created by Андрей Чернышев on 08.07.2026.
+//
+
+import RxSwift
+import RxCocoa
+
+/// Фасад диагностики для UI-слоя — единственная точка входа ViewModel'ов
+/// в OBD-ядро. Оборачивает `DiagnosticEngine` в Rx в стиле проекта.
+///
+/// Заменит легаси `OBDAdapter` (LTBLT), который будет удалён.
+final class OBDService {
+    static let shared = OBDService()
+
+    private let engine = DiagnosticEngine()
+    private lazy var stateRelay = BehaviorRelay<DiagnosticsState>(value: .idle)
+
+    private init() {
+        engine.onStateChange = { [weak self] state in
+            self?.stateRelay.accept(state)
+        }
+    }
+
+    // MARK: - Подключение
+
+    /// Ищет BLE-адаптер, инициализирует его и устанавливает связь с машиной.
+    /// Прогресс и результат — через `state`.
+    /// - Parameter vehicle: авто из гаража — по нему подбирается ECU-профиль;
+    ///   `nil` — только стандартный OBD-II.
+    func connect(vehicle: Vehicle?) {
+        let descriptor = vehicle.map {
+            VehicleDescriptor(brand: $0.brand, model: $0.model, vin: $0.vin, year: $0.year, fuelType: nil)
+        }
+        engine.connect(vehicle: descriptor, transport: BLETransport())
+    }
+
+    func disconnect() {
+        engine.disconnect()
+    }
+
+    var state: Signal<DiagnosticsState> {
+        stateRelay.asSignal(onErrorSignalWith: .never())
+    }
+
+    var currentState: DiagnosticsState {
+        stateRelay.value
+    }
+
+    // MARK: - Данные
+
+    /// Поток живых значений (HUD/приборная панель). Опрос идёт, пока есть
+    /// подписка; на dispose останавливается. Один активный поток на сессию.
+    /// - Parameter categories: фильтр по тегам параметров (напр. `["hud"]`);
+    ///   `nil` — все параметры активных профилей.
+    func liveData(categories: [String]? = nil) -> Observable<ParameterReading> {
+        Observable.create { [engine] observer in
+            engine.startLiveData(categories: categories) { reading in
+                observer.onNext(reading)
+            }
+            return Disposables.create {
+                engine.stopLiveData()
+            }
+        }
+    }
+
+    /// Диагностические коды со всех каналов: стандартные mode 03/07/0A
+    /// плюс производительские UDS 19 02 — с ECU-адресом и происхождением.
+    func readTroubleCodes() -> Single<[DiagnosticTroubleCode]> {
+        Single.create { [engine] event in
+            engine.readTroubleCodes { result in
+                switch result {
+                case let .success(codes):
+                    event(.success(codes))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    /// Freeze frame по коду: J1979 mode 02 или UDS snapshot (19 04) —
+    /// движок выбирает сам по типу кода.
+    func readFreezeFrame(for dtc: DiagnosticTroubleCode) -> Single<[ParameterReading]> {
+        Single.create { [engine] event in
+            engine.readFreezeFrame(for: dtc) { result in
+                switch result {
+                case let .success(readings):
+                    event(.success(readings))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    /// VIN с шины (mode 09) — для сверки с гаражом и уточнения профиля.
+    func readVIN() -> Single<String> {
+        Single.create { [engine] event in
+            engine.readVIN { result in
+                switch result {
+                case let .success(vin):
+                    event(.success(vin))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    /// Напряжение АКБ (`ATRV`) — доступно сразу после инициализации адаптера.
+    func readVoltage() -> Single<String> {
+        Single.create { [engine] event in
+            engine.readVoltage { result in
+                switch result {
+                case let .success(voltage):
+                    event(.success(voltage))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+}

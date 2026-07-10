@@ -184,6 +184,8 @@ private extension TestViewController {
             vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Camry", "year": 2019])
         case 1:
             vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Peugeot", "model": "407", "year": 2007])
+        case 2:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Prius", "year": 2012])
         default:
             vehicle = nil
         }

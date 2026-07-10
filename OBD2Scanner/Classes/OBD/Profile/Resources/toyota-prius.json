@@ -1,0 +1,1099 @@
+{
+  "schemaVersion": 1,
+  "id": "toyota-prius",
+  "name": "Toyota Prius Gen3/v (гибрид, сервис 21)",
+  "priority": 110,
+  "match": {
+    "brands": [
+      "toyota"
+    ],
+    "models": [
+      "prius",
+      "prius+",
+      "prius v",
+      "prius plus"
+    ],
+    "years": {
+      "from": 2009,
+      "to": 2016
+    }
+  },
+  "bus": {
+    "elmProtocol": "6"
+  },
+  "ecus": [
+    {
+      "id": "module700",
+      "name": "Модуль 0x700",
+      "addressing": {
+        "request": "700",
+        "response": "708"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius.ambient",
+          "name": "Ambient Temperature",
+          "request": "2101",
+          "responsePrefix": "6101",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40.0,
+            "max": 60.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "vehicle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brake",
+      "name": "Тормоза / рекуперация",
+      "addressing": {
+        "request": "7B0",
+        "response": "7B8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius.wc_pres",
+          "name": "Wheel Cylinder Pressure Sensor",
+          "request": "2107",
+          "responsePrefix": "6107",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0196078431,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 0.0,
+            "max": 5.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "vehicle"
+          ]
+        },
+        {
+          "id": "prius.regencoop",
+          "name": "Regen Cooperation",
+          "request": "2158",
+          "responsePrefix": "6158",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Regen Cooperation"
+              }
+            ]
+          },
+          "range": {
+            "min": 0.0,
+            "max": 1.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "vehicle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engine",
+      "name": "Двигатель",
+      "addressing": {
+        "request": "7E0",
+        "response": "7E8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius.actengtorq",
+          "name": "Actual Engine Torque",
+          "request": "2149",
+          "responsePrefix": "6149",
+          "extract": {
+            "start": 3,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -32768
+          },
+          "unit": "Nm",
+          "range": {
+            "min": 0.0,
+            "max": 150.0
+          },
+          "group": "live-fast",
+          "categories": [
+            "vehicle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hybrid",
+      "name": "Гибридная система (HV ECU)",
+      "addressing": {
+        "request": "7E2",
+        "response": "7EA"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius.soc",
+          "name": "State of Charge",
+          "request": "015B",
+          "responsePrefix": "415B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0.0
+          },
+          "unit": "%",
+          "range": {
+            "min": 30.0,
+            "max": 90.0
+          },
+          "group": "live-fast",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.coolant",
+          "name": "Engine Coolant temperature",
+          "request": "2101",
+          "responsePrefix": "6101",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40.0,
+            "max": 120.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.ap1",
+          "name": "Accel Pedal Pos #1",
+          "request": "2101",
+          "responsePrefix": "6101",
+          "extract": {
+            "start": 12,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0.0
+          },
+          "unit": "%",
+          "range": {
+            "min": 0.0,
+            "max": 100.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.bty_curr",
+          "name": "Batt Pack Current Val",
+          "request": "2198",
+          "responsePrefix": "6198",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "unit": "A",
+          "range": {
+            "min": -200.0,
+            "max": 200.0
+          },
+          "group": "live-fast",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.mg1_rpm",
+          "name": "MG1 revolution",
+          "request": "2161",
+          "responsePrefix": "6161",
+          "extract": {
+            "start": 3,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -32768
+          },
+          "unit": "rpm",
+          "range": {
+            "min": -15000.0,
+            "max": 15000.0
+          },
+          "group": "live-fast",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.mg2_rpm",
+          "name": "MG2 revolution",
+          "request": "2162",
+          "responsePrefix": "6162",
+          "extract": {
+            "start": 3,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -32768
+          },
+          "unit": "rpm",
+          "range": {
+            "min": -500.0,
+            "max": 15000.0
+          },
+          "group": "live-fast",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v01",
+          "name": "Battery Block Voltage -V01",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v02",
+          "name": "Battery Block Voltage -V02",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v03",
+          "name": "Battery Block Voltage -V03",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v04",
+          "name": "Battery Block Voltage -V04",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v05",
+          "name": "Battery Block Voltage -V05",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v06",
+          "name": "Battery Block Voltage -V06",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 10,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v07",
+          "name": "Battery Block Voltage -V07",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 12,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v08",
+          "name": "Battery Block Voltage -V08",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 14,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v09",
+          "name": "Battery Block Voltage -V09",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 16,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v10",
+          "name": "Battery Block Voltage -V10",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 18,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v11",
+          "name": "Battery Block Voltage -V11",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 20,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v12",
+          "name": "Battery Block Voltage -V12",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 22,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v13",
+          "name": "Battery Block Voltage -V13",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 24,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.v14",
+          "name": "Battery Block Voltage -V14",
+          "request": "2181",
+          "responsePrefix": "6181",
+          "extract": {
+            "start": 26,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0012205692,
+            "offset": 0.0
+          },
+          "unit": "V",
+          "range": {
+            "min": 12.0,
+            "max": 20.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r01",
+          "name": "Internal Resistance R01",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r02",
+          "name": "Internal Resistance R02",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r03",
+          "name": "Internal Resistance R03",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r04",
+          "name": "Internal Resistance R04",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r05",
+          "name": "Internal Resistance R05",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r06",
+          "name": "Internal Resistance R06",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r07",
+          "name": "Internal Resistance R07",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 6,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r08",
+          "name": "Internal Resistance R08",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r09",
+          "name": "Internal Resistance R09",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 8,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r10",
+          "name": "Internal Resistance R10",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 9,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r11",
+          "name": "Internal Resistance R11",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 10,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r12",
+          "name": "Internal Resistance R12",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 11,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r13",
+          "name": "Internal Resistance R13",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 12,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.r14",
+          "name": "Internal Resistance R14",
+          "request": "2195",
+          "responsePrefix": "6195",
+          "extract": {
+            "start": 13,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0.0
+          },
+          "unit": "Ω",
+          "range": {
+            "min": 0.0,
+            "max": 0.255
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.tb_1",
+          "name": "Temp of Batt TB1",
+          "request": "2187",
+          "responsePrefix": "6187",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0039047837,
+            "offset": -50.0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50.0,
+            "max": 60.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.tb_2",
+          "name": "Temp of Batt TB2",
+          "request": "2187",
+          "responsePrefix": "6187",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0039047837,
+            "offset": -50.0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50.0,
+            "max": 60.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.tb_3",
+          "name": "Temp of Batt TB3",
+          "request": "2187",
+          "responsePrefix": "6187",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0039047837,
+            "offset": -50.0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50.0,
+            "max": 60.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        },
+        {
+          "id": "prius.inv_coolant",
+          "name": "Inverter Coolant Temp",
+          "request": "2175",
+          "responsePrefix": "6175",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": 15.0,
+            "max": 150.0
+          },
+          "group": "live-slow",
+          "categories": [
+            "hybrid"
+          ]
+        }
+      ],
+      "dtc": {
+        "read": {
+          "request": "03",
+          "format": "j1979"
+        }
+      }
+    }
+  ]
+}

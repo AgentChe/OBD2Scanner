@@ -173,7 +173,7 @@ private extension TestView {
     }
 
     func makeVehicleControl() -> UISegmentedControl {
-        let control = UISegmentedControl(items: ["Camry '19", "407 '07", "без авто"])
+        let control = UISegmentedControl(items: ["Camry '19", "407 '07", "Prius '12", "без авто"])
         control.selectedSegmentIndex = 0
         control.translatesAutoresizingMaskIntoConstraints = false
         return control

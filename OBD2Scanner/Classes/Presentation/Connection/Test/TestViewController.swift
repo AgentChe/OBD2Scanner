@@ -20,9 +20,14 @@ final class TestViewController: UIViewController {
     private let service = OBDService.shared
 
     private var liveDisposable: Disposable?
-    private var trafficDisposable: Disposable?
     private var lastCodes = [DiagnosticTroubleCode]()
     private var liveValues = [String: String]()
+
+    // Контекст текущей сессии — уезжает в конверт отчёта при шаринге.
+    private var lastReport: LiveSessionReport?
+    private var lastVehicle: Vehicle?
+    private var lastVIN: String?
+    private var lastProtocol: Int?
 
     private static let timeFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -39,13 +44,14 @@ final class TestViewController: UIViewController {
 
         title = "OBD Test"
 
+        mainView.reportButton.isEnabled = false
+
         bindState()
         bindButtons()
     }
 
     deinit {
         liveDisposable?.dispose()
-        trafficDisposable?.dispose()
     }
 }
 
@@ -70,6 +76,18 @@ private extension TestViewController {
                 let text = self.describe(state)
                 self.mainView.statusLabel.text = "Состояние: " + text
                 self.log("state → " + text)
+
+                if case let .ready(vehicleProtocol, _) = state {
+                    self.lastProtocol = vehicleProtocol
+                }
+            })
+            .disposed(by: disposeBag)
+
+        service.liveReport
+            .emit(onNext: { [weak self] report in
+                self?.lastReport = report
+                self?.mainView.reportButton.isEnabled = true
+                self?.logReport(report)
             })
             .disposed(by: disposeBag)
     }
@@ -126,54 +144,11 @@ private extension TestViewController {
             })
             .disposed(by: disposeBag)
 
-        mainView.elmLogButton.rx.tap
+        mainView.reportButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.toggleTraffic()
+                self?.shareReport()
             })
             .disposed(by: disposeBag)
-
-        mainView.sendCommandButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.sendManualCommand()
-            })
-            .disposed(by: disposeBag)
-    }
-
-    func sendManualCommand() {
-        guard let text = mainView.commandField.text?
-                .trimmingCharacters(in: .whitespacesAndNewlines)
-                .uppercased(),
-              !text.isEmpty else {
-            return
-        }
-        mainView.commandField.resignFirstResponder()
-
-        log("→ (ручная) \(text)")
-        service.sendRawCommand(text)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] lines in
-                self?.log("← \(lines.isEmpty ? "<пусто>" : lines.joined(separator: " | "))")
-            }, onFailure: { [weak self] error in
-                self?.log("← ошибка: \(error)")
-            })
-            .disposed(by: disposeBag)
-    }
-
-    func toggleTraffic() {
-        if let disposable = trafficDisposable {
-            disposable.dispose()
-            trafficDisposable = nil
-            mainView.elmLogButton.setTitle("ELM лог ▶", for: .normal)
-            log("ELM-лог: выкл")
-            return
-        }
-
-        mainView.elmLogButton.setTitle("ELM лог ■", for: .normal)
-        log("ELM-лог: вкл — каждая команда (→) и ответ адаптера (←)")
-        trafficDisposable = service.traffic
-            .emit(onNext: { [weak self] line in
-                self?.log(line)
-            })
     }
 
     func connect() {
@@ -190,6 +165,13 @@ private extension TestViewController {
             vehicle = nil
         }
         let vehicleName = vehicle.map { "\($0.brand ?? "?") \($0.model ?? "?") \($0.year.map(String.init) ?? "")" } ?? "без авто"
+
+        // Новая сессия — контекст прошлой (VIN, отчёт) больше не годится:
+        // отчёт нельзя приписать другой машине.
+        lastVehicle = vehicle
+        lastVIN = nil
+        lastReport = nil
+        mainView.reportButton.isEnabled = false
 
         let method: OBDConnectionMethod = mainView.transportControl.selectedSegmentIndex == 1 ? .wifi : .bluetooth
         if method == .wifi {
@@ -301,6 +283,7 @@ private extension TestViewController {
         service.readVIN()
             .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] vin in
+                self?.lastVIN = vin
                 self?.log("VIN: \(vin)")
             }, onFailure: { [weak self] error in
                 self?.log("VIN error: \(error)")
@@ -317,6 +300,87 @@ private extension TestViewController {
                 self?.log("Voltage error: \(error)")
             })
             .disposed(by: disposeBag)
+    }
+
+    /// Сводка самопроверки после Live ■: сколько ответило, что недостоверно
+    /// (вне диапазона / расходится с опорой) и какие блоки молчат.
+    func logReport(_ report: LiveSessionReport) {
+        let answered = report.parameters.count - report.silent.count
+        log("аудит: ответили \(answered) из \(report.parameters.count), подозрительных \(report.suspicious.count), молчали \(report.silent.count)")
+
+        for audit in report.suspicious.prefix(12) {
+            var reasons = [String]()
+            if audit.outOfRange > 0 {
+                reasons.append("вне диапазона \(audit.outOfRange) из \(audit.readings)")
+            }
+            if audit.mismatches > 0 {
+                reasons.append("расходится с \(audit.referenceID ?? "опорой") \(audit.mismatches) из \(audit.comparisons)")
+            }
+            log("  ⚠️ \(audit.name) = \(audit.lastValue ?? "—"): \(reasons.joined(separator: "; "))")
+        }
+        if report.suspicious.count > 12 {
+            log("  … ещё \(report.suspicious.count - 12) подозрительных")
+        }
+
+        if !report.silent.isEmpty {
+            let byECU = Dictionary(grouping: report.silent) { "\($0.profileID)/\($0.ecuID)" }
+                .map { "\($0.key): \($0.value.count)" }
+                .sorted()
+                .joined(separator: ", ")
+            log("  молчали: \(byECU)")
+        }
+    }
+
+    /// Конверт: отчёт + контекст сессии. VIN и авто берутся на момент
+    /// шаринга — VIN могли прочитать уже после остановки live.
+    func makeEnvelope(report: LiveSessionReport) -> LiveSessionReportEnvelope {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
+        return LiveSessionReportEnvelope(
+            schemaVersion: LiveSessionReportEnvelope.currentSchemaVersion,
+            createdAt: Date(),
+            appVersion: "\(version) (\(build))",
+            vehicle: lastVehicle.map {
+                .init(brand: $0.brand, model: $0.model, year: $0.year, vin: lastVIN)
+            },
+            vehicleProtocol: lastProtocol,
+            report: report
+        )
+    }
+
+    func shareReport() {
+        guard let report = lastReport else {
+            log("отчёт: сначала прогони Live (▶ … ■)")
+            return
+        }
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        encoder.dateEncodingStrategy = .iso8601
+
+        let vehicleSlug = [lastVehicle?.brand, lastVehicle?.model]
+            .compactMap { $0?.lowercased() }
+            .joined(separator: "-")
+            .replacingOccurrences(of: "[^a-z0-9-]+", with: "-", options: .regularExpression)
+        let stampFormatter = DateFormatter()
+        stampFormatter.dateFormat = "yyyy-MM-dd-HHmm"
+        let suffix = "\(vehicleSlug.isEmpty ? "no-vehicle" : vehicleSlug)-\(stampFormatter.string(from: Date()))"
+
+        do {
+            let directory = FileManager.default.temporaryDirectory
+            let reportURL = directory.appendingPathComponent("obd-report-\(suffix).json")
+            let logURL = directory.appendingPathComponent("obd-log-\(suffix).txt")
+            try encoder.encode(makeEnvelope(report: report)).write(to: reportURL)
+            try Data((mainView.logTextView.text ?? "").utf8).write(to: logURL)
+
+            let activity = UIActivityViewController(activityItems: [reportURL, logURL],
+                                                    applicationActivities: nil)
+            // iPad показывает share sheet как popover — нужен якорь.
+            activity.popoverPresentationController?.sourceView = mainView.reportButton
+            present(activity, animated: true)
+        } catch {
+            log("отчёт: не удалось подготовить файлы — \(error.localizedDescription)")
+        }
     }
 
     func describe(_ state: DiagnosticsState) -> String {

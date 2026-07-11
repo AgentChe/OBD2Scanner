@@ -31,6 +31,10 @@ struct OBDParameter: Codable, Equatable {
     let unit: String?
     /// Ожидаемый диапазон значения (для валидации/шкал UI).
     let range: ValueRange?
+    /// Самопроверка: опорный параметр (обычно из `obd2-standard`), с которым
+    /// это значение должно сходиться на живой машине. Расхождение — признак
+    /// кривой раскладки байт в профиле-кандидате.
+    let crossCheck: CrossCheck?
     /// Группа опроса: как часто движок крутит этот параметр.
     let group: PollGroup
     /// Теги для UI: какие параметры показывать на приборной панели и т.п.
@@ -56,6 +60,21 @@ struct OBDParameter: Codable, Equatable {
     struct ValueRange: Codable, Equatable {
         let min: Double?
         let max: Double?
+    }
+
+    /// Правило сверки с опорным параметром. Значение достоверно, если
+    /// `|значение − опора| ≤ max(absolute, relative × |опора|)`.
+    struct CrossCheck: Codable, Equatable {
+        /// id опорного параметра, напр. `"std.rpm"`.
+        let reference: String
+        /// Допустимая относительная разница (доля от опоры).
+        let relative: Double?
+        /// Допустимая абсолютная разница (в единицах значения) — не даёт
+        /// относительному допуску схлопнуться в ноль у малых опор.
+        let absolute: Double?
+
+        static let defaultRelative = 0.2
+        static let defaultAbsolute = 5.0
     }
 }
 

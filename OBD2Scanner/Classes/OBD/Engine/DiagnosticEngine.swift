@@ -20,6 +20,9 @@ final class DiagnosticEngine {
     /// Отладочный поток сырого ELM-трафика (`→ команда` / `← ответ`).
     /// Доставляется на `callbackQueue`.
     var onTraffic: ((String) -> Void)?
+    /// Отчёт самопроверки live-сессии — приходит после `stopLiveData()`.
+    /// Доставляется на `callbackQueue`.
+    var onLiveReport: ((LiveSessionReport) -> Void)?
 
     private(set) var state: DiagnosticsState = .idle
 
@@ -41,6 +44,7 @@ final class DiagnosticEngine {
     private var pollHandler: ((ParameterReading) -> Void)?
     private var pollCategories: [String]?
     private var pollCycle = 0
+    private var auditor: LiveSessionAuditor?
 
     private var keepAliveTimer: DispatchSourceTimer?
 
@@ -85,6 +89,7 @@ final class DiagnosticEngine {
         session.queue.async {
             self.isPolling = false
             self.pollHandler = nil
+            self.auditor = nil
             self.keepAliveTimer?.cancel()
             self.keepAliveTimer = nil
             self.channels = []
@@ -109,6 +114,21 @@ final class DiagnosticEngine {
             self.pollCategories = categories
             self.pollCycle = 0
             self.isPolling = true
+
+            // Самопроверка: объявляем аудитору всё, что собираемся опрашивать, —
+            // не ответившее ни разу попадёт в отчёт как молчащее.
+            var profileIDs = [String]()
+            for channel in self.channels where !profileIDs.contains(channel.profileID) {
+                profileIDs.append(channel.profileID)
+            }
+            let auditor = LiveSessionAuditor(profileIDs: profileIDs)
+            for channel in self.channels {
+                for parameter in self.eligibleParameters(of: channel, categories: categories) {
+                    auditor.expect(parameter, profileID: channel.profileID, ecuID: channel.definition.id)
+                }
+            }
+            self.auditor = auditor
+
             self.runPollCycle()
         }
     }
@@ -117,6 +137,11 @@ final class DiagnosticEngine {
         session?.queue.async {
             self.isPolling = false
             self.pollHandler = nil
+            if let auditor = self.auditor, let handler = self.onLiveReport {
+                let report = auditor.makeReport()
+                self.callbackQueue.async { handler(report) }
+            }
+            self.auditor = nil
         }
     }
 
@@ -531,11 +556,13 @@ private extension DiagnosticEngine {
                               let value = ParameterDecoder.decode(payload: data, parameter: parameter) else {
                             continue
                         }
-                        self.emit(ParameterReading(profileID: channel.profileID,
-                                                   ecuID: channel.definition.id,
-                                                   parameter: parameter,
-                                                   value: value,
-                                                   capturedAt: Date()))
+                        let reading = ParameterReading(profileID: channel.profileID,
+                                                       ecuID: channel.definition.id,
+                                                       parameter: parameter,
+                                                       value: value,
+                                                       capturedAt: Date())
+                        self.auditor?.record(reading)
+                        self.emit(reading)
                     }
                 }
                 // NRC 0x31 канал уже пометил сам — запрос выпадет из цикла.

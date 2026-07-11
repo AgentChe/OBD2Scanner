@@ -19,7 +19,9 @@
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
+		AB10CD20EF30AB40CD50EF61 /* MockOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */; };
 		6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */; };
+		56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */; };
 		72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA93F529B9078CBBA1327E /* OBDProfile.swift */; };
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
@@ -28,6 +30,7 @@
 		958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0007256C63720BCCE6561 /* TestView.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
+		17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
 		BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E599C4FFC96757C382E2F8 /* gm.json */; };
 		C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */; };
@@ -283,12 +286,14 @@
 		90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.debug.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.debug.xcconfig"; sourceTree = "<group>"; };
 		A06B781E75DE91D333084F2F /* BLETransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETransport.swift; sourceTree = "<group>"; };
 		A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsModels.swift; sourceTree = "<group>"; };
+		A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSessionAuditor.swift; sourceTree = "<group>"; };
 		A0FAE6AB80FEBF5FA3C331EE /* ford.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ford.json; sourceTree = "<group>"; };
 		A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEngine.swift; sourceTree = "<group>"; };
 		AB67790B6A8F5495B31AEC9F /* vag-mqb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vag-mqb.json"; sourceTree = "<group>"; };
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
 		B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
+		AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOBDService.swift; sourceTree = "<group>"; };
 		BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUChannel.swift; sourceTree = "<group>"; };
 		C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius.json"; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
@@ -550,6 +555,7 @@
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E599C4FFC96757C382E2F8 /* gm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gm.json; sourceTree = "<group>"; };
 		FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
+		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +607,7 @@
 				749CD11EDD2616D50EC7C1FF /* OBDValue.swift */,
 				8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */,
 				FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */,
+				35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */,
 				284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */,
 				EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */,
 			);
@@ -611,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */,
+				A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */,
 				BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */,
 				A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */,
 			);
@@ -621,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */,
+				AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1851,15 +1860,18 @@
 				D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */,
 				F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */,
 				A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */,
+				17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */,
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
 				604A073C9366247228F4CAC6 /* OBDService.swift in Sources */,
+				AB10CD20EF30AB40CD50EF61 /* MockOBDService.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,
 				C7A1FD4E96AB9A30F2D36D69 /* OBDValue.swift in Sources */,
 				3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */,
 				6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */,
+				56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */,
 				B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */,
 				9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */,
 				72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */,

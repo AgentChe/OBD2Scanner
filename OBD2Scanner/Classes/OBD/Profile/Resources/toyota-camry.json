@@ -49,6 +49,10 @@
             "min": 0,
             "max": 8000
           },
+          "crossCheck": {
+            "reference": "std.rpm",
+            "absolute": 100
+          },
           "group": "live-fast",
           "categories": [
             "engine"
@@ -73,6 +77,9 @@
             "min": -40,
             "max": 215
           },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
           "group": "live-slow",
           "categories": [
             "engine"
@@ -83,7 +90,6 @@
           "name": "Automatic transmission fluid temperature",
           "request": "01B4",
           "responsePrefix": "41B4",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -98,469 +104,7 @@
             "min": -40,
             "max": 215
           },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_calculated_load_7e0",
-          "name": "Calculated load_7e0",
-          "request": "2101",
-          "responsePrefix": "6101",
           "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_vehicle_load",
-          "name": "Vehicle load",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0015259021896696422,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_maf",
-          "name": "Mass air flow",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "g/s",
-          "range": {
-            "max": 655.35
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_map",
-          "name": "Manifold absolute pressure",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 5,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_intake_air",
-          "name": "Intake air",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 6,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_aat",
-          "name": "Ambient temperature",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 7,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_atmosphere_pressure",
-          "name": "Atmosphere pressure",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 8,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_coolant_temp",
-          "name": "Coolant temp",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 9,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_engine_speed",
-          "name": "Engine speed",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 10,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "rpm",
-          "range": {
-            "max": 16383
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_vehicle_speed",
-          "name": "Vehicle speed",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 12,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "km/h",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_engine_run_time",
-          "name": "Engine run time",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 13,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "s",
-          "range": {
-            "max": 65535
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_throttle_sensor_position",
-          "name": "Throttle sensor position",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 15,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_throttle_sensor_volt",
-          "name": "Throttle sensor volt %, 1",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 16,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_throttl_sensor_2_volt",
-          "name": "Throttle sensor volt %, 2",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 17,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_accel_sens_no_1_volt",
-          "name": "Accelerator sensor volt %, 1",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 18,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_accel_sens_no_2_volt",
-          "name": "Accelerator sensor volt %, 2",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 19,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_throttle_motor_duty",
-          "name": "Throttle motor DUTY",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 20,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 100
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_warmup_cycle_cleared_dtc",
-          "name": "Warm-up cycle cleared DTC",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 22,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_time_after_dtc_cleared",
-          "name": "Time after DTC cleared",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 24,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "min",
-          "range": {
-            "max": 65535
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_battery_voltage",
-          "name": "Battery voltage",
-          "request": "2101",
-          "responsePrefix": "6101",
-          "group": "live-slow",
-          "extract": {
-            "start": 26,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "V",
-          "range": {
-            "max": 65.535
-          },
           "categories": [
             "engine"
           ]
@@ -570,7 +114,6 @@
           "name": "Short FT B1S1",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -585,6 +128,11 @@
             "min": -100,
             "max": 99.218
           },
+          "crossCheck": {
+            "reference": "std.stft_1",
+            "absolute": 5
+          },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -594,7 +142,6 @@
           "name": "Long FT B1S1",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -609,6 +156,11 @@
             "min": -100,
             "max": 99.218
           },
+          "crossCheck": {
+            "reference": "std.ltft_1",
+            "absolute": 5
+          },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -618,7 +170,6 @@
           "name": "Ignition advance",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -632,6 +183,7 @@
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -641,7 +193,6 @@
           "name": "EVAP purge duty",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-slow",
           "extract": {
             "start": 5,
             "length": 1
@@ -655,6 +206,7 @@
           "range": {
             "max": 100
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -664,7 +216,6 @@
           "name": "Target air-fuel ratio",
           "request": "2104",
           "responsePrefix": "6104",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -674,10 +225,10 @@
             "scale": 3.036545357442588e-05,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 1.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -687,7 +238,6 @@
           "name": "AF lambda, bank 1 sensor 1",
           "request": "2104",
           "responsePrefix": "6104",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 2
@@ -697,10 +247,10 @@
             "scale": 3.036545357442588e-05,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 1.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -710,7 +260,6 @@
           "name": "Air fuel sensor voltage, bank 1 sensor 1",
           "request": "2104",
           "responsePrefix": "6104",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 2
@@ -724,6 +273,7 @@
           "range": {
             "max": 7.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -733,7 +283,6 @@
           "name": "Air fuel sensor current, bank 1 sensor 1",
           "request": "2104",
           "responsePrefix": "6104",
-          "group": "live-slow",
           "extract": {
             "start": 8,
             "length": 2
@@ -743,11 +292,12 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "min": -128,
             "max": 127.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -757,7 +307,6 @@
           "name": "O2S, bank 1 sensor 2",
           "request": "2104",
           "responsePrefix": "6104",
-          "group": "live-slow",
           "extract": {
             "start": 10,
             "length": 1
@@ -771,6 +320,7 @@
           "range": {
             "max": 1.275
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -780,7 +330,6 @@
           "name": "Catalyst temperature B1S1",
           "request": "2105",
           "responsePrefix": "6105",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 2
@@ -795,6 +344,7 @@
             "min": -40,
             "max": 6513.5
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -804,7 +354,6 @@
           "name": "Catalyst temperature B1S2",
           "request": "2105",
           "responsePrefix": "6105",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 2
@@ -819,6 +368,7 @@
             "min": -40,
             "max": 6513.5
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -828,7 +378,6 @@
           "name": "MIL",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -842,6 +391,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -851,7 +401,6 @@
           "name": "Complete parts monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -865,6 +414,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -874,7 +424,6 @@
           "name": "Fuel system monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -888,6 +437,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -897,7 +447,6 @@
           "name": "Misfire monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -911,6 +460,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -920,7 +470,6 @@
           "name": "EGR/VVT monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -934,6 +483,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -943,7 +493,6 @@
           "name": "O2S heater monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -957,6 +506,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -966,7 +516,6 @@
           "name": "O2S monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -980,6 +529,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -989,7 +539,6 @@
           "name": "A/C monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1003,6 +552,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1012,7 +562,6 @@
           "name": "2nd air monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1026,6 +575,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1035,7 +585,6 @@
           "name": "EVAP monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1049,6 +598,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1058,7 +608,6 @@
           "name": "Heated catalyst monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1072,6 +621,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1081,7 +631,6 @@
           "name": "Catalyst monitor_avail",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1095,6 +644,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1104,7 +654,6 @@
           "name": "EGR/VVT monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1118,6 +667,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1127,7 +677,6 @@
           "name": "O2S heater monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1141,6 +690,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1150,7 +700,6 @@
           "name": "O2S monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1164,6 +713,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1173,7 +723,6 @@
           "name": "A/C monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1187,6 +736,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1196,7 +746,6 @@
           "name": "2nd air monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1210,6 +759,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1219,7 +769,6 @@
           "name": "EVAP monitor_icmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1233,6 +782,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1242,7 +792,6 @@
           "name": "Heated catalyst monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1256,6 +805,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1265,7 +815,6 @@
           "name": "Catalyst monitor_incmpl",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1279,6 +828,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1288,7 +838,6 @@
           "name": "MIL ON run distance",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 6,
             "length": 2
@@ -1302,6 +851,7 @@
           "range": {
             "max": 65535
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1311,7 +861,6 @@
           "name": "Running time from MIL ON",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 8,
             "length": 2
@@ -1325,6 +874,7 @@
           "range": {
             "max": 65535
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1334,7 +884,6 @@
           "name": "Cruise control speed",
           "request": "2121",
           "responsePrefix": "6121",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -1348,6 +897,7 @@
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1357,7 +907,6 @@
           "name": "Communication with HV",
           "request": "2124",
           "responsePrefix": "6124",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1371,6 +920,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1380,7 +930,6 @@
           "name": "Communication with brake",
           "request": "2124",
           "responsePrefix": "6124",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1394,6 +943,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1403,7 +953,6 @@
           "name": "Communication with air conditioner",
           "request": "2124",
           "responsePrefix": "6124",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1417,6 +966,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1426,7 +976,6 @@
           "name": "Communication with valvematic",
           "request": "2124",
           "responsePrefix": "6124",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1440,6 +989,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1449,7 +999,6 @@
           "name": "Power steering",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1463,6 +1012,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1472,7 +1022,6 @@
           "name": "Stop light",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1486,6 +1035,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1495,7 +1045,6 @@
           "name": "Cruise control live brake cancel",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -1509,6 +1058,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1518,7 +1068,6 @@
           "name": "Starter signal",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -1532,6 +1081,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1541,7 +1091,6 @@
           "name": "Starter control",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -1555,6 +1104,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1564,7 +1114,6 @@
           "name": "Electrical load signal 1",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1578,6 +1127,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1587,7 +1137,6 @@
           "name": "Electrical load signal 2",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1601,6 +1150,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1610,7 +1160,6 @@
           "name": "Shift SW status, parking",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1624,6 +1173,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1633,7 +1183,6 @@
           "name": "Shift SW status, reverse",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1647,6 +1196,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1656,7 +1206,6 @@
           "name": "Shift SW status, neutral",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1670,6 +1219,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1679,7 +1229,6 @@
           "name": "Shift SW status, drive",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1693,6 +1242,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1702,7 +1252,6 @@
           "name": "Sports mode selection",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -1716,6 +1265,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1725,7 +1275,6 @@
           "name": "Sports shift up",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -1739,6 +1288,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1748,7 +1298,6 @@
           "name": "Sports shift down",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -1762,6 +1311,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1771,7 +1321,6 @@
           "name": "Pattern switch",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 5,
             "length": 1
@@ -1785,6 +1334,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1794,7 +1344,6 @@
           "name": "Neutral position",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 6,
             "length": 1
@@ -1808,6 +1357,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1817,7 +1367,6 @@
           "name": "TC",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 7,
             "length": 1
@@ -1831,6 +1380,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1840,7 +1390,6 @@
           "name": "A/C compressor",
           "request": "2125",
           "responsePrefix": "6125",
-          "group": "live-slow",
           "extract": {
             "start": 8,
             "length": 1
@@ -1854,6 +1403,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1863,7 +1413,6 @@
           "name": "Odometer",
           "request": "2128",
           "responsePrefix": "6128",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 3
@@ -1877,6 +1426,7 @@
           "range": {
             "max": 16777215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1886,7 +1436,6 @@
           "name": "Misfire RPM",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -1900,6 +1449,7 @@
           "range": {
             "max": 6375
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1909,7 +1459,6 @@
           "name": "Misfire load",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -1919,10 +1468,10 @@
             "scale": 0.015625,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 3.98
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1932,7 +1481,6 @@
           "name": "Cylinder #1 misfire count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -1942,10 +1490,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1955,7 +1503,6 @@
           "name": "Cylinder #2 misfire count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -1965,10 +1512,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -1978,7 +1525,6 @@
           "name": "Cylinder #3 misfire count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 5,
             "length": 1
@@ -1988,10 +1534,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2001,7 +1547,6 @@
           "name": "Cylinder #4 misfire count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 6,
             "length": 1
@@ -2011,10 +1556,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2024,7 +1569,6 @@
           "name": "All cylinders misfire count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 7,
             "length": 1
@@ -2034,10 +1578,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2047,7 +1591,6 @@
           "name": "Ignition trigger count",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 8,
             "length": 2
@@ -2057,10 +1600,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 65535
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2070,7 +1613,6 @@
           "name": "Misfire margin",
           "request": "2145",
           "responsePrefix": "6145",
-          "group": "live-slow",
           "extract": {
             "start": 10,
             "length": 1
@@ -2085,6 +1627,7 @@
             "min": -128,
             "max": 127
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2094,7 +1637,6 @@
           "name": "Engine starting time",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -2104,10 +1646,11 @@
             "scale": 10.0,
             "offset": 0
           },
-          "unit": "milliseconds",
+          "unit": "ms",
           "range": {
             "max": 655350
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2117,7 +1660,6 @@
           "name": "Engine speed, starter off",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 2
@@ -2131,6 +1673,7 @@
           "range": {
             "max": 51199
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2140,7 +1683,6 @@
           "name": "Immobilizer fuel cut",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -2154,6 +1696,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2163,7 +1706,6 @@
           "name": "Previous trip distance",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 5,
             "length": 2
@@ -2177,6 +1719,7 @@
           "range": {
             "max": 655.35
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2186,7 +1729,6 @@
           "name": "Variable valve timing oil temperature",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 7,
             "length": 1
@@ -2201,6 +1743,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2210,7 +1753,6 @@
           "name": "Intake air temperature, previous trip",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 8,
             "length": 1
@@ -2225,6 +1767,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2234,7 +1777,6 @@
           "name": "Engine oil temperature",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 9,
             "length": 1
@@ -2249,6 +1791,11 @@
             "min": -40,
             "max": 215
           },
+          "crossCheck": {
+            "reference": "std.oil_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2258,7 +1805,6 @@
           "name": "Engine oil temperature, previous trip",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 10,
             "length": 1
@@ -2273,6 +1819,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2282,7 +1829,6 @@
           "name": "Ambient temperature for A/C",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 11,
             "length": 1
@@ -2297,6 +1843,11 @@
             "min": -40,
             "max": 215
           },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2306,7 +1857,6 @@
           "name": "Ambient temperature, previous trip",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 12,
             "length": 1
@@ -2321,6 +1871,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2330,7 +1881,6 @@
           "name": "Throttle position",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 13,
             "length": 2
@@ -2344,6 +1894,7 @@
           "range": {
             "max": 499.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2353,7 +1904,6 @@
           "name": "Idle speed control flow",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 15,
             "length": 2
@@ -2363,10 +1913,10 @@
             "scale": 0.001220703125,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 79.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2376,7 +1926,6 @@
           "name": "Idle speed control position",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 17,
             "length": 2
@@ -2390,6 +1939,7 @@
           "range": {
             "max": 499.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2399,7 +1949,6 @@
           "name": "Idle speed control feedback",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 21,
             "length": 2
@@ -2409,11 +1958,11 @@
             "scale": 0.001220703125,
             "offset": -40
           },
-          "unit": "scalar",
           "range": {
             "min": -40,
             "max": 39.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2423,7 +1972,6 @@
           "name": "Idle speed control learning value",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 23,
             "length": 2
@@ -2433,11 +1981,11 @@
             "scale": 0.001220703125,
             "offset": -40
           },
-          "unit": "scalar",
           "range": {
             "min": -40,
             "max": 39.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2447,7 +1995,6 @@
           "name": "Electric load feedback",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 25,
             "length": 2
@@ -2457,11 +2004,11 @@
             "scale": 0.001220703125,
             "offset": -40
           },
-          "unit": "scalar",
           "range": {
             "min": -40,
             "max": 39.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2471,7 +2018,6 @@
           "name": "Air conditioner feedback",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 27,
             "length": 2
@@ -2481,11 +2027,11 @@
             "scale": 0.001220703125,
             "offset": -40
           },
-          "unit": "scalar",
           "range": {
             "min": -40,
             "max": 39.99
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2495,7 +2041,6 @@
           "name": "Neutral range status",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2509,6 +2054,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2518,7 +2064,6 @@
           "name": "Neutral control",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2532,6 +2077,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2541,7 +2087,6 @@
           "name": "Low revolution control",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2555,6 +2100,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2564,7 +2110,6 @@
           "name": "Variable valve timing advance fail",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2578,6 +2123,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2587,7 +2133,6 @@
           "name": "Low revolution for engine start",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2601,6 +2146,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2610,7 +2156,6 @@
           "name": "Engine start hesitation",
           "request": "2151",
           "responsePrefix": "6151",
-          "group": "live-slow",
           "extract": {
             "start": 29,
             "length": 1
@@ -2624,6 +2169,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2633,7 +2179,6 @@
           "name": "Transmission temperature, pan",
           "request": "2182",
           "responsePrefix": "6182",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -2648,6 +2193,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2657,7 +2203,6 @@
           "name": "Transmission temperature, torque converter",
           "request": "2182",
           "responsePrefix": "6182",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 2
@@ -2672,6 +2217,7 @@
             "min": -40,
             "max": 215
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2681,7 +2227,6 @@
           "name": "Gear, variant",
           "request": "2185",
           "responsePrefix": "6185",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -2691,10 +2236,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2704,7 +2249,6 @@
           "name": "Torque converter lockup",
           "request": "2185",
           "responsePrefix": "6185",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -2718,6 +2262,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "engine"
           ]
@@ -2727,7 +2272,6 @@
           "name": "Current gear",
           "request": "21DA",
           "responsePrefix": "61DA",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -2737,1717 +2281,12 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
-          "categories": [
-            "engine"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "engine2",
-      "name": "Двигатель, доп. канал (сервис 22)",
-      "addressing": {
-        "request": "700",
-        "response": "708"
-      },
-      "session": {
-        "kind": "none"
-      },
-      "supportedParametersProbe": "udsProbe",
-      "parameters": [
-        {
-          "id": "camry_12v_v",
-          "name": "Battery voltage",
-          "request": "221002",
-          "responsePrefix": "621002",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0012207000000000001,
-            "offset": 0
-          },
-          "unit": "V",
-          "range": {
-            "max": 79
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_inj_vol",
-          "name": "Injection volume",
-          "request": "221017",
-          "responsePrefix": "621017",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0003125,
-            "offset": 0
-          },
-          "unit": "L",
-          "range": {
-            "max": 20
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_injector_port",
-          "name": "Injector port",
-          "request": "221018",
-          "responsePrefix": "621018",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.001,
-            "offset": 0
-          },
-          "unit": "milliseconds",
-          "range": {
-            "max": 65.535
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_injection",
-          "name": "Injection",
-          "request": "221019",
-          "responsePrefix": "621019",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "enum",
-            "map": {
-              "1": "Direct",
-              "2": "Both"
-            }
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_a_f_ratio_learned_idle_bank_1",
-          "name": "A/F ratio learned idle, bank 1",
-          "request": "22102A",
-          "responsePrefix": "62102A",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_a_f_ratio_learned_low_bank_1",
-          "name": "A/F ratio learned low, bank 1",
-          "request": "22102A",
-          "responsePrefix": "62102A",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_a_f_ratio_learned_mid_1_bank_1",
-          "name": "A/F ratio learned mid 1, bank 1",
-          "request": "22102A",
-          "responsePrefix": "62102A",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_a_f_ratio_learned_mid_2_bank_1",
-          "name": "A/F ratio learned mid 2, bank 1",
-          "request": "22102A",
-          "responsePrefix": "62102A",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_a_f_ratio_learned_high_bank_1",
-          "name": "A/F ratio learned high, bank 1",
-          "request": "22102A",
-          "responsePrefix": "62102A",
-          "group": "live-slow",
-          "extract": {
-            "start": 4,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ect_ign",
-          "name": "Engine coolant temperature, at ignition",
-          "request": "221041",
-          "responsePrefix": "621041",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.625,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 119.375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ect_init",
-          "name": "Engine coolant temperature, initial",
-          "request": "221041",
-          "responsePrefix": "621041",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.625,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 119.375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ewp_target_vss",
-          "name": "Electric water pump target speed",
-          "request": "221043",
-          "responsePrefix": "621043",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 25.0,
-            "offset": 0
-          },
-          "unit": "rpm",
-          "range": {
-            "max": 6375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ewp_rpm",
-          "name": "Electric water pump RPM",
-          "request": "221043",
-          "responsePrefix": "621043",
-          "group": "live-fast",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 25.0,
-            "offset": 0
-          },
-          "unit": "rpm",
-          "range": {
-            "max": 6375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_cooling_fan_duty_ratio",
-          "name": "Cooling fan duty ratio",
-          "request": "221046",
-          "responsePrefix": "621046",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.5,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 127.5
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_knock_correct_learned_value",
-          "name": "Knock correction, learned value",
-          "request": "22105C",
-          "responsePrefix": "62105C",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.03125,
-            "offset": -1024
-          },
-          "unit": "scalar",
-          "range": {
-            "min": -1024,
-            "max": 1023
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_knock_feedback_value",
-          "name": "Knock feedback value",
-          "request": "22105C",
-          "responsePrefix": "62105C",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.03125,
-            "offset": -1024
-          },
-          "unit": "scalar",
-          "range": {
-            "min": -1024,
-            "max": 1023
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ecu_internal_t",
-          "name": "Internal temperature",
-          "request": "22105E",
-          "responsePrefix": "62105E",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_exhaust_vvt_ocv_control_duty",
-          "name": "Exhaust VVT oil control valve control duty",
-          "request": "221062",
-          "responsePrefix": "621062",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.006103608758678569,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 400
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_fuel_pump_duty_ratio",
-          "name": "Fuel pump duty ratio",
-          "request": "22106A",
-          "responsePrefix": "62106A",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0609756098,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 3996
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_dist_since_bat_disc",
-          "name": "Distance since last battery cable disconnection",
-          "request": "22106C",
-          "responsePrefix": "62106C",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "km",
-          "range": {
-            "max": 65535
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_intake_vvt_target_angle_b1",
-          "name": "Intake VVT target angle B1",
-          "request": "22106F",
-          "responsePrefix": "62106F",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00976424811169604,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.9
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_exhaust_vvt_target_angle_b1",
-          "name": "Exhaust VVT target angle B1",
-          "request": "221071",
-          "responsePrefix": "621071",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00976424811169604,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.9
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_eop",
-          "name": "Engine oil pressure",
-          "request": "221074",
-          "responsePrefix": "621074",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 65535
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_idle_sac_cyl_1",
-          "name": "Idle spark advance control, cylinder 1",
-          "request": "221078",
-          "responsePrefix": "621078",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0625,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 15.9375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_idle_sac_cyl_2",
-          "name": "Idle spark advance control, cylinder 2",
-          "request": "221078",
-          "responsePrefix": "621078",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0625,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 15.9375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_idle_sac_cyl_3",
-          "name": "Idle spark advance control, cylinder 3",
-          "request": "221078",
-          "responsePrefix": "621078",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0625,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 15.9375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_idle_sac_cyl_4",
-          "name": "Idle spark advance control, cylinder 4",
-          "request": "221078",
-          "responsePrefix": "621078",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0625,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 15.9375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_eot",
-          "name": "Engine oil temperature",
-          "request": "22107B",
-          "responsePrefix": "62107B",
-          "group": "live-slow",
-          "extract": {
-            "start": 24,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_rough_idle_cyl_1",
-          "name": "Rough idle, cylinder 1",
-          "request": "221084",
-          "responsePrefix": "621084",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_rough_idle_cyl_2",
-          "name": "Rough idle, cylinder 2",
-          "request": "221084",
-          "responsePrefix": "621084",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_rough_idle_cyl_3",
-          "name": "Rough idle, cylinder 3",
-          "request": "221084",
-          "responsePrefix": "621084",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_rough_idle_cyl_4",
-          "name": "Rough idle, cylinder 4",
-          "request": "221084",
-          "responsePrefix": "621084",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_intake_vvt_change_angle_bank_1",
-          "name": "Intake VVT change angle, bank 1",
-          "request": "221087",
-          "responsePrefix": "621087",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00976424811169604,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.9
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_exhaust_vvt_angle_b1",
-          "name": "Exhaust VVT change angle, bank 1",
-          "request": "221088",
-          "responsePrefix": "621088",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00976424811169604,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.9
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_exhaust_vvt_hold_learn_b1",
-          "name": "Exhaust VVT hold learn value, bank 1",
-          "request": "221089",
-          "responsePrefix": "621089",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.006102082856488899,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 399.9
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_vvt_ie_duty_ratio_bank_1",
-          "name": "Variable valve timing duty ratio, bank 1",
-          "request": "22108A",
-          "responsePrefix": "62108A",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.006102082856488899,
-            "offset": -200
-          },
-          "unit": "%",
-          "range": {
-            "max": 199
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_intake_vvt_over_ret_learn_b1",
-          "name": "Intake VVT most over-retarded learn value, bank 1",
-          "request": "22108D",
-          "responsePrefix": "62108D",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.009765621423666743,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.99
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_exhaust_vvt_over_adv_learn_b1",
-          "name": "Exhaust VVT timing most over-advanced learn value, bank 1",
-          "request": "22108F",
-          "responsePrefix": "62108F",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.009765621423666743,
-            "offset": 0
-          },
-          "unit": "°",
-          "range": {
-            "max": 639.99
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_af_learn_idle_port_b1",
-          "name": "A/F ratio learn value idle, bank 1",
-          "request": "2210A2",
-          "responsePrefix": "6210A2",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_af_learn_low_port_b1",
-          "name": "A/F ratio learn value low, bank 1",
-          "request": "2210A2",
-          "responsePrefix": "6210A2",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_af_learn_mid1_port_b1",
-          "name": "A/F ratio learn value mid.1, bank 1",
-          "request": "2210A2",
-          "responsePrefix": "6210A2",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_af_learn_mid2_port_b1",
-          "name": "A/F ratio learn value mid.2, bank 1",
-          "request": "2210A2",
-          "responsePrefix": "6210A2",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_af_learn_high_port_b1",
-          "name": "A/F ratio learn value high, bank 1",
-          "request": "2210A2",
-          "responsePrefix": "6210A2",
-          "group": "live-slow",
-          "extract": {
-            "start": 4,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.39215686274509803,
-            "offset": -50
-          },
-          "unit": "%",
-          "range": {
-            "min": -50,
-            "max": 50
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_cnt",
-          "name": "Misfire count, all cylinders",
-          "request": "2210A5",
-          "responsePrefix": "6210A5",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_cyl1",
-          "name": "Misfire count, cylinder 1",
-          "request": "2210A7",
-          "responsePrefix": "6210A7",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_cyl2",
-          "name": "Misfire count, cylinder 2",
-          "request": "2210A7",
-          "responsePrefix": "6210A7",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_cyl3",
-          "name": "Misfire count, cylinder 3",
-          "request": "2210A7",
-          "responsePrefix": "6210A7",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_cyl4",
-          "name": "Misfire count, cylinder 4",
-          "request": "2210A7",
-          "responsePrefix": "6210A7",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_load",
-          "name": "Misfire load",
-          "request": "2210AA",
-          "responsePrefix": "6210AA",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 2.0,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 510
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_rpm",
-          "name": "Misfire RPM",
-          "request": "2210AA",
-          "responsePrefix": "6210AA",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 25.0,
-            "offset": 0
-          },
-          "unit": "rpm",
-          "range": {
-            "max": 6375
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_misfire_margin",
-          "name": "Misfire margin",
-          "request": "2210AA",
-          "responsePrefix": "6210AA",
-          "group": "live-slow",
-          "extract": {
-            "start": 4,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -128
-          },
-          "unit": "rpm",
-          "range": {
-            "min": -128,
-            "max": 127
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_lfp",
-          "name": "Low fuel pressure",
-          "request": "2210CD",
-          "responsePrefix": "6210CD",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.1,
-            "offset": -3276.8
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 3276.7
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_alt_duty_cycle",
-          "name": "Alternator output duty cycle",
-          "request": "2215FA",
-          "responsePrefix": "6215FA",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.006097560975609756,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 399
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_at_lock_up_state",
-          "name": "Lock up state",
-          "request": "221620",
-          "responsePrefix": "621620",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "bitfield",
-            "flags": [
-              {
-                "bit": 0,
-                "name": "Lock up state"
-              }
-            ]
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_gear",
-          "name": "Gear",
-          "request": "221621",
-          "responsePrefix": "621621",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_atf_t_pan_v3",
-          "name": "Transmission fluid temperature, pan var.3",
-          "request": "221627",
-          "responsePrefix": "621627",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00390625,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_cat_t_11",
-          "name": "Catalyst temperature, bank 1 sensor 1",
-          "request": "221F3C",
-          "responsePrefix": "621F3C",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.1,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 6513.5
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_cat_t_12",
-          "name": "Catalyst temperature, bank 1 sensor 2",
-          "request": "221F3E",
-          "responsePrefix": "621F3E",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.1,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 6513.5
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_ambient_t",
-          "name": "Ambient temperature",
-          "request": "221F46",
-          "responsePrefix": "621F46",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_eot_v2",
-          "name": "Engine oil temperature, variation 2",
-          "request": "221F5C",
-          "responsePrefix": "621F5C",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_hfp_target",
-          "name": "High fuel pressure, target",
-          "request": "221F6D",
-          "responsePrefix": "621F6D",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 10.0,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 655350
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_hfp_actual",
-          "name": "High fuel pressure, actual",
-          "request": "221F6D",
-          "responsePrefix": "621F6D",
           "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.01,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 655.35
-          },
           "categories": [
             "engine"
-          ]
-        },
-        {
-          "id": "camry_low_fuel_pressure",
-          "name": "Low fuel pressure",
-          "request": "221F6D",
-          "responsePrefix": "621F6D",
-          "group": "live-slow",
-          "extract": {
-            "start": 8,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 10.0,
-            "offset": 0
-          },
-          "unit": "kPa",
-          "range": {
-            "max": 655350
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_electric_water_pump",
-          "name": "Electric water pump",
-          "request": "222827",
-          "responsePrefix": "622827",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 40.0,
-            "offset": 0
-          },
-          "unit": "rpm",
-          "range": {
-            "max": 10200
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_electric_thermostat_duty_ratio",
-          "name": "Electric thermostat duty ratio",
-          "request": "222829",
-          "responsePrefix": "622829",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_coolant_valve_1_close",
-          "name": "Coolant water route switching valve 1, closed?",
-          "request": "22282C",
-          "responsePrefix": "62282C",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "bitfield",
-            "flags": [
-              {
-                "bit": 0,
-                "name": "Coolant water route switching valve 1, closed?"
-              }
-            ]
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_vvt_ie_opening_angle_bank_1",
-          "name": "Variable valve timing opening angle bank 1",
-          "request": "222843",
-          "responsePrefix": "622843",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "%",
-          "range": {
-            "max": 255
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_coolant_valve_2_close",
-          "name": "Coolant water route switching valve 2, closed?",
-          "request": "222847",
-          "responsePrefix": "622847",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "bitfield",
-            "flags": [
-              {
-                "bit": 0,
-                "name": "Coolant water route switching valve 2, closed?"
-              }
-            ]
-          },
-          "categories": [
-            "engine"
-          ]
-        },
-        {
-          "id": "camry_eop_control_valve",
-          "name": "Engine oil pressure control valve",
-          "request": "222848",
-          "responsePrefix": "622848",
-          "group": "live-fast",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.0762939,
-            "offset": 0
-          },
-          "unit": "milliamps",
-          "range": {
-            "max": 4999.9207
-          },
-          "categories": [
-            "engine"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "transmission",
-      "name": "АКПП",
-      "addressing": {
-        "request": "701",
-        "response": "709"
-      },
-      "session": {
-        "kind": "none"
-      },
-      "supportedParametersProbe": "udsProbe",
-      "parameters": [
-        {
-          "id": "camry_lock_up_state",
-          "name": "Lock up state",
-          "request": "221620",
-          "responsePrefix": "621620",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "bitfield",
-            "flags": [
-              {
-                "bit": 0,
-                "name": "Lock up state"
-              }
-            ]
-          },
-          "categories": [
-            "transmission"
-          ]
-        },
-        {
-          "id": "camry_atf_t_pan",
-          "name": "Transmission fluid temperature, pan",
-          "request": "221627",
-          "responsePrefix": "621627",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.00390625,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "transmission"
-          ]
-        },
-        {
-          "id": "camry_atf_thermal_degrad_est",
-          "name": "Automatic transmission fluid thermal degradation estimate",
-          "request": "22162B",
-          "responsePrefix": "62162B",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 2
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
-          },
-          "unit": "scalar",
-          "range": {
-            "max": 65535
-          },
-          "categories": [
-            "transmission"
           ]
         }
       ]
@@ -4475,7 +2314,6 @@
           "name": "Hazard switch history",
           "request": "21BC",
           "responsePrefix": "61BC",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4489,6 +2327,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4498,7 +2337,6 @@
           "name": "Front right wheel speed",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -4512,6 +2350,7 @@
           "range": {
             "max": 326.4
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4521,7 +2360,6 @@
           "name": "Front left wheel speed",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-fast",
           "extract": {
             "start": 1,
             "length": 1
@@ -4535,6 +2373,7 @@
           "range": {
             "max": 326.4
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4544,7 +2383,6 @@
           "name": "Rear right wheel speed",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-fast",
           "extract": {
             "start": 2,
             "length": 1
@@ -4558,6 +2396,7 @@
           "range": {
             "max": 326.4
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4567,7 +2406,6 @@
           "name": "Rear left wheel speed",
           "request": "2103",
           "responsePrefix": "6103",
-          "group": "live-fast",
           "extract": {
             "start": 3,
             "length": 1
@@ -4581,6 +2419,7 @@
           "range": {
             "max": 326.4
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4590,7 +2429,6 @@
           "name": "Deceleration",
           "request": "2105",
           "responsePrefix": "6105",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -4600,11 +2438,12 @@
             "scale": 0.14258823529411765,
             "offset": -18.18
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -18.18,
             "max": 18.18
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4614,7 +2453,6 @@
           "name": "Deceleration 2",
           "request": "2105",
           "responsePrefix": "6105",
-          "group": "live-fast",
           "extract": {
             "start": 1,
             "length": 1
@@ -4624,11 +2462,12 @@
             "scale": 0.14258823529411765,
             "offset": -18.18
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -18.18,
             "max": 18.18
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4638,7 +2477,6 @@
           "name": "Yaw rate, sensor 1",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4648,11 +2486,11 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "scalar",
           "range": {
             "min": -128,
             "max": 127
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4662,7 +2500,6 @@
           "name": "Yaw rate, sensor 2",
           "request": "2106",
           "responsePrefix": "6106",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -4672,11 +2509,11 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "scalar",
           "range": {
             "min": -128,
             "max": 127
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4686,7 +2523,6 @@
           "name": "Wheel cylinder pressure",
           "request": "2107",
           "responsePrefix": "6107",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4700,6 +2536,7 @@
           "range": {
             "max": 5
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4709,7 +2546,6 @@
           "name": "Reservoir warning",
           "request": "211D",
           "responsePrefix": "611D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4723,6 +2559,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4732,7 +2569,6 @@
           "name": "Main idle",
           "request": "211D",
           "responsePrefix": "611D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4746,6 +2582,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4755,7 +2592,6 @@
           "name": "Stop light",
           "request": "211F",
           "responsePrefix": "611F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4769,6 +2605,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4778,7 +2615,6 @@
           "name": "Parking brake",
           "request": "211F",
           "responsePrefix": "611F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4792,6 +2628,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4801,7 +2638,6 @@
           "name": "Vehicle speed, 7B0",
           "request": "2121",
           "responsePrefix": "6121",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -4815,6 +2651,10 @@
           "range": {
             "max": 326.4
           },
+          "crossCheck": {
+            "reference": "std.speed"
+          },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4824,7 +2664,6 @@
           "name": "Stop light relay",
           "request": "213C",
           "responsePrefix": "613C",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4838,6 +2677,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4847,7 +2687,6 @@
           "name": "Anti-lock braking system warning light",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4861,6 +2700,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4870,7 +2710,6 @@
           "name": "Brake warning light",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4884,6 +2723,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4893,7 +2733,6 @@
           "name": "Slip indicator light",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4907,6 +2746,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4916,7 +2756,6 @@
           "name": "Buzzer",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4930,6 +2769,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4939,7 +2779,6 @@
           "name": "Electronic control brake warning light",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -4953,6 +2792,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -4962,7 +2802,6 @@
           "name": "Front right wheel acceleration",
           "request": "2142",
           "responsePrefix": "6142",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -4972,10 +2811,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "max": 255
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -4985,7 +2825,6 @@
           "name": "Front left wheel acceleration",
           "request": "2142",
           "responsePrefix": "6142",
-          "group": "live-fast",
           "extract": {
             "start": 1,
             "length": 1
@@ -4995,10 +2834,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "max": 255
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5008,7 +2848,6 @@
           "name": "Rear right wheel acceleration",
           "request": "2142",
           "responsePrefix": "6142",
-          "group": "live-fast",
           "extract": {
             "start": 2,
             "length": 1
@@ -5018,10 +2857,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "max": 255
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5031,7 +2871,6 @@
           "name": "Rear left wheel acceleration",
           "request": "2142",
           "responsePrefix": "6142",
-          "group": "live-fast",
           "extract": {
             "start": 3,
             "length": 1
@@ -5041,10 +2880,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "max": 255
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5054,7 +2894,6 @@
           "name": "Zero point of deceleration",
           "request": "2146",
           "responsePrefix": "6146",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -5064,11 +2903,12 @@
             "scale": 0.1961568627,
             "offset": -25.11
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -25.11,
             "max": 24
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5078,7 +2918,6 @@
           "name": "Zero point of deceleration 2",
           "request": "2146",
           "responsePrefix": "6146",
-          "group": "live-fast",
           "extract": {
             "start": 1,
             "length": 1
@@ -5088,11 +2927,12 @@
             "scale": 0.1961568627,
             "offset": -25.11
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -25.11,
             "max": 24
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5102,7 +2942,6 @@
           "name": "Zero point of yaw rate",
           "request": "2146",
           "responsePrefix": "6146",
-          "group": "live-fast",
           "extract": {
             "start": 2,
             "length": 1
@@ -5112,11 +2951,11 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "scalar",
           "range": {
             "min": -128,
             "max": 127
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5126,7 +2965,6 @@
           "name": "Lateral g",
           "request": "2147",
           "responsePrefix": "6147",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -5136,11 +2974,12 @@
             "scale": 0.1961568627,
             "offset": -25.11
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -25.11,
             "max": 24
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5150,7 +2989,6 @@
           "name": "Forward and rearward g",
           "request": "2147",
           "responsePrefix": "6147",
-          "group": "live-fast",
           "extract": {
             "start": 1,
             "length": 1
@@ -5160,11 +2998,12 @@
             "scale": 0.1961568627,
             "offset": -25.11
           },
-          "unit": "metersPerSecondSquared",
+          "unit": "m/s²",
           "range": {
             "min": -25.11,
             "max": 24
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5174,7 +3013,6 @@
           "name": "Yaw rate value",
           "request": "2147",
           "responsePrefix": "6147",
-          "group": "live-fast",
           "extract": {
             "start": 2,
             "length": 1
@@ -5184,11 +3022,11 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "scalar",
           "range": {
             "min": -128,
             "max": 127
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5198,7 +3036,6 @@
           "name": "Steering angle value",
           "request": "2147",
           "responsePrefix": "6147",
-          "group": "live-fast",
           "extract": {
             "start": 3,
             "length": 2
@@ -5213,6 +3050,7 @@
             "min": -3276.8,
             "max": 3276.7
           },
+          "group": "live-fast",
           "categories": [
             "brake"
           ]
@@ -5222,7 +3060,6 @@
           "name": "Regenerative request",
           "request": "2148",
           "responsePrefix": "6148",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -5236,6 +3073,7 @@
           "range": {
             "max": 65535
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5245,7 +3083,6 @@
           "name": "Regenerative operation",
           "request": "2148",
           "responsePrefix": "6148",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 2
@@ -5259,6 +3096,7 @@
           "range": {
             "max": 65535
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5268,7 +3106,6 @@
           "name": "Regen cooperation",
           "request": "2158",
           "responsePrefix": "6158",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5282,6 +3119,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5291,7 +3129,6 @@
           "name": "Traction control, status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5305,6 +3142,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5314,7 +3152,6 @@
           "name": "Traction control, engine status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5328,6 +3165,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5337,7 +3175,6 @@
           "name": "Traction control, brake status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5351,6 +3188,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5360,7 +3198,6 @@
           "name": "Front right wheel vehicle stability control status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5374,6 +3211,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5383,7 +3221,6 @@
           "name": "Front left wheel vehicle stability control status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5397,6 +3234,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5406,7 +3244,6 @@
           "name": "Rear right wheel vehicle stability control status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5420,6 +3257,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5429,7 +3267,6 @@
           "name": "Rear left wheel vehicle stability control status",
           "request": "215A",
           "responsePrefix": "615A",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5443,6 +3280,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5452,7 +3290,6 @@
           "name": "Front right wheel ABS status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5466,6 +3303,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5475,7 +3313,6 @@
           "name": "Front left wheel ABS status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5489,6 +3326,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5498,7 +3336,6 @@
           "name": "Rear right wheel ABS status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5512,6 +3349,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5521,7 +3359,6 @@
           "name": "Rear left wheel ABS status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5535,6 +3372,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5544,7 +3382,6 @@
           "name": "Rear right wheel electronic brake force distribution status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5558,6 +3395,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5567,7 +3405,6 @@
           "name": "Rear left wheel electronic brake force distribution status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5581,6 +3418,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5590,7 +3428,6 @@
           "name": "Brake assist status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5604,6 +3441,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5613,7 +3451,6 @@
           "name": "Predictive brake assist status",
           "request": "215F",
           "responsePrefix": "615F",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5627,6 +3464,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5636,7 +3474,6 @@
           "name": "Zero point of yaw rate",
           "request": "21A1",
           "responsePrefix": "61A1",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5646,11 +3483,11 @@
             "scale": 1.0,
             "offset": -128
           },
-          "unit": "scalar",
           "range": {
             "min": -128,
             "max": 127
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5660,7 +3497,6 @@
           "name": "Main relay a, solenoid current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5670,10 +3506,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5683,7 +3520,6 @@
           "name": "Main relay r solenoid current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5693,10 +3529,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5706,7 +3543,6 @@
           "name": "Service contactor solenoid current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -5716,10 +3552,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5729,7 +3566,6 @@
           "name": "Charge contactor current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 3,
             "length": 1
@@ -5739,10 +3575,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5752,7 +3589,6 @@
           "name": "Main connector solenoid current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -5762,10 +3598,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5775,7 +3612,6 @@
           "name": "Relay control solenoid current",
           "request": "21A3",
           "responsePrefix": "61A3",
-          "group": "live-slow",
           "extract": {
             "start": 5,
             "length": 1
@@ -5785,10 +3621,11 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "milliamps",
+          "unit": "mA",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5798,7 +3635,6 @@
           "name": "Inspection mode",
           "request": "21A6",
           "responsePrefix": "61A6",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5812,6 +3648,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5821,7 +3658,6 @@
           "name": "Front right wheel speed open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5835,6 +3671,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5844,7 +3681,6 @@
           "name": "Front left wheel speed open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5858,6 +3694,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5867,7 +3704,6 @@
           "name": "Rear right wheel speed open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5881,6 +3717,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5890,7 +3727,6 @@
           "name": "Rear left wheel speed open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5904,6 +3740,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5913,7 +3750,6 @@
           "name": "Yaw rate open error?",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5927,6 +3763,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5936,7 +3773,6 @@
           "name": "Deceleration open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -5950,6 +3786,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5959,7 +3796,6 @@
           "name": "Master cylinder open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5973,6 +3809,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -5982,7 +3819,6 @@
           "name": "Stroke open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -5996,6 +3832,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -6005,7 +3842,6 @@
           "name": "Front right wheel cylinder open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -6019,6 +3855,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -6028,7 +3865,6 @@
           "name": "Accumulator open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -6042,6 +3878,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -6051,7 +3888,6 @@
           "name": "HV communication open",
           "request": "21BE",
           "responsePrefix": "61BE",
-          "group": "live-slow",
           "extract": {
             "start": 2,
             "length": 1
@@ -6065,6 +3901,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "brake"
           ]
@@ -6088,7 +3925,6 @@
           "name": "Tail cancel SW",
           "request": "2112",
           "responsePrefix": "6112",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6102,6 +3938,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6111,7 +3948,6 @@
           "name": "P-seatbelt buckle SW",
           "request": "2112",
           "responsePrefix": "6112",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -6125,6 +3961,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6134,7 +3971,6 @@
           "name": "Check engine SW",
           "request": "2112",
           "responsePrefix": "6112",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -6148,6 +3984,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6157,7 +3994,6 @@
           "name": "Oil pressure switch",
           "request": "2112",
           "responsePrefix": "6112",
-          "group": "live-slow",
           "extract": {
             "start": 4,
             "length": 1
@@ -6171,6 +4007,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6180,7 +4017,6 @@
           "name": "Battery voltage",
           "request": "2113",
           "responsePrefix": "6113",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6194,6 +4030,7 @@
           "range": {
             "max": 25.5
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6203,7 +4040,6 @@
           "name": "Speed",
           "request": "2121",
           "responsePrefix": "6121",
-          "group": "live-fast",
           "extract": {
             "start": 0,
             "length": 1
@@ -6217,6 +4053,10 @@
           "range": {
             "max": 255
           },
+          "crossCheck": {
+            "reference": "std.speed"
+          },
+          "group": "live-fast",
           "categories": [
             "body"
           ]
@@ -6226,7 +4066,6 @@
           "name": "Engine coolant temperature",
           "request": "2123",
           "responsePrefix": "6123",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6240,6 +4079,10 @@
           "range": {
             "max": 127.5
           },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6249,7 +4092,6 @@
           "name": "Distance since oil change",
           "request": "2141",
           "responsePrefix": "6141",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6263,6 +4105,7 @@
           "range": {
             "max": 41038.272
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6272,7 +4115,6 @@
           "name": "Rheostat",
           "request": "2168",
           "responsePrefix": "6168",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6282,10 +4124,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6295,7 +4137,6 @@
           "name": "Key remind sound",
           "request": "21A1",
           "responsePrefix": "61A1",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6305,10 +4146,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6318,7 +4159,6 @@
           "name": "Seat belt beep, driver",
           "request": "21A7",
           "responsePrefix": "61A7",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6332,6 +4172,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6341,7 +4182,6 @@
           "name": "Seat belt beep, passenger",
           "request": "21A7",
           "responsePrefix": "61A7",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6355,6 +4195,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6364,7 +4205,6 @@
           "name": "Seat belt beep, reminder",
           "request": "21A7",
           "responsePrefix": "61A7",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6378,6 +4218,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6387,7 +4228,6 @@
           "name": "Reverse beep",
           "request": "21AC",
           "responsePrefix": "61AC",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6401,6 +4241,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6410,7 +4251,6 @@
           "name": "Fuel level",
           "request": "221022",
           "responsePrefix": "621022",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -6424,6 +4264,7 @@
           "range": {
             "max": 655.35
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]
@@ -6447,7 +4288,6 @@
           "name": "Cabin temperature",
           "request": "2121",
           "responsePrefix": "6121",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6462,6 +4302,7 @@
             "min": -6.5,
             "max": 57.25
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6471,7 +4312,6 @@
           "name": "Ambient air temperature",
           "request": "2122",
           "responsePrefix": "6122",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6486,6 +4326,11 @@
             "min": -23.3,
             "max": 65.95
           },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6495,7 +4340,6 @@
           "name": "Solar sensor, driver side",
           "request": "2124",
           "responsePrefix": "6124",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6505,10 +4349,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6518,7 +4362,6 @@
           "name": "Engine coolant temperature",
           "request": "2126",
           "responsePrefix": "6126",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6533,6 +4376,10 @@
             "min": 1.3,
             "max": 90.55
           },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6542,7 +4389,6 @@
           "name": "Set temperature, driver side",
           "request": "2129",
           "responsePrefix": "6129",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6556,6 +4402,7 @@
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6565,7 +4412,6 @@
           "name": "Blower motor speed level",
           "request": "213C",
           "responsePrefix": "613C",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6575,10 +4421,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6588,7 +4434,6 @@
           "name": "Adjusted ambient temperature",
           "request": "213D",
           "responsePrefix": "613D",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6603,6 +4448,11 @@
             "min": -30.8,
             "max": 50.8
           },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6612,7 +4462,6 @@
           "name": "Air outlet servo pulse, driver",
           "request": "2143",
           "responsePrefix": "6143",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6622,10 +4471,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6635,7 +4484,6 @@
           "name": "Air outlet servo actual pulse, driver",
           "request": "2143",
           "responsePrefix": "6143",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -6645,10 +4493,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6658,7 +4506,6 @@
           "name": "Air inlet damper target pulse",
           "request": "2144",
           "responsePrefix": "6144",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6668,10 +4515,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6681,7 +4528,6 @@
           "name": "Air inlet damper actual pulse",
           "request": "2144",
           "responsePrefix": "6144",
-          "group": "live-slow",
           "extract": {
             "start": 1,
             "length": 1
@@ -6691,10 +4537,10 @@
             "scale": 1.0,
             "offset": 0
           },
-          "unit": "scalar",
           "range": {
             "max": 255
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6704,7 +4550,6 @@
           "name": "Evaporator fin thermistor",
           "request": "214B",
           "responsePrefix": "614B",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6719,6 +4564,7 @@
             "min": -29.7,
             "max": 59.55
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6728,7 +4574,6 @@
           "name": "Evaporator target temperature",
           "request": "214C",
           "responsePrefix": "614C",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 2
@@ -6738,11 +4583,11 @@
             "scale": 0.01,
             "offset": -327.68
           },
-          "unit": "scalar",
           "range": {
             "min": -327.68,
             "max": 327.67
           },
+          "group": "live-slow",
           "categories": [
             "climate"
           ]
@@ -6752,7 +4597,6 @@
           "name": "Regulator pressure sensor",
           "request": "2153",
           "responsePrefix": "6153",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -6762,262 +4606,13 @@
             "scale": 0.01471,
             "offset": -0.45668
           },
-          "unit": "scalar",
           "range": {
             "min": -0.45668,
             "max": 3.29437
           },
+          "group": "live-slow",
           "categories": [
             "climate"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "tires",
-      "name": "Датчики давления шин",
-      "addressing": {
-        "request": "750",
-        "response": "758"
-      },
-      "session": {
-        "kind": "none"
-      },
-      "supportedParametersProbe": "udsProbe",
-      "parameters": [
-        {
-          "id": "camry_tire_t_fl",
-          "name": "Front left tire temperature",
-          "request": "2116",
-          "responsePrefix": "6116",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_t_fr",
-          "name": "Front right tire temperature",
-          "request": "2116",
-          "responsePrefix": "6116",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_t_rl",
-          "name": "Rear left tire temperature",
-          "request": "2116",
-          "responsePrefix": "6116",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_t_rr",
-          "name": "Rear right tire temperature",
-          "request": "2116",
-          "responsePrefix": "6116",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_t_spare",
-          "name": "Spare tire temperature",
-          "request": "2116",
-          "responsePrefix": "6116",
-          "group": "live-slow",
-          "extract": {
-            "start": 4,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 1.0,
-            "offset": -40
-          },
-          "unit": "°C",
-          "range": {
-            "min": -40,
-            "max": 215
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_p_fl",
-          "name": "Front left tire pressure",
-          "request": "2130",
-          "responsePrefix": "6130",
-          "group": "live-slow",
-          "extract": {
-            "start": 0,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.017241379310344827,
-            "offset": -0.5
-          },
-          "unit": "bar",
-          "range": {
-            "max": 3.896
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_p_fr",
-          "name": "Front right tire pressure",
-          "request": "2130",
-          "responsePrefix": "6130",
-          "group": "live-slow",
-          "extract": {
-            "start": 1,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.017241379310344827,
-            "offset": -0.5
-          },
-          "unit": "bar",
-          "range": {
-            "max": 3.896
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_p_rl",
-          "name": "Rear left tire pressure",
-          "request": "2130",
-          "responsePrefix": "6130",
-          "group": "live-slow",
-          "extract": {
-            "start": 2,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.017241379310344827,
-            "offset": -0.5
-          },
-          "unit": "bar",
-          "range": {
-            "max": 3.896
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_p_rr",
-          "name": "Rear right tire pressure",
-          "request": "2130",
-          "responsePrefix": "6130",
-          "group": "live-slow",
-          "extract": {
-            "start": 3,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.017241379310344827,
-            "offset": -0.5
-          },
-          "unit": "bar",
-          "range": {
-            "max": 3.896
-          },
-          "categories": [
-            "tires"
-          ]
-        },
-        {
-          "id": "camry_tire_p_spare",
-          "name": "Spare tire pressure",
-          "request": "2130",
-          "responsePrefix": "6130",
-          "group": "live-slow",
-          "extract": {
-            "start": 4,
-            "length": 1
-          },
-          "decode": {
-            "kind": "linear",
-            "scale": 0.017241379310344827,
-            "offset": -0.5
-          },
-          "unit": "bar",
-          "range": {
-            "max": 3.896
-          },
-          "categories": [
-            "tires"
           ]
         }
       ]
@@ -7039,7 +4634,6 @@
           "name": "Parking brake",
           "request": "2162",
           "responsePrefix": "6162",
-          "group": "live-slow",
           "extract": {
             "start": 0,
             "length": 1
@@ -7053,6 +4647,7 @@
               }
             ]
           },
+          "group": "live-slow",
           "categories": [
             "body"
           ]

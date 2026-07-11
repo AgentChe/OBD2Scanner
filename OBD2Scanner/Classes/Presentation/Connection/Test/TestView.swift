@@ -18,9 +18,7 @@ final class TestView: UIView {
     lazy var vinButton = makeButton("VIN")
     lazy var voltageButton = makeButton("Volt")
     lazy var clearButton = makeButton("Clear")
-    lazy var elmLogButton = makeButton("ELM лог ▶")
-    lazy var commandField = makeCommandField()
-    lazy var sendCommandButton = makeButton("→")
+    lazy var reportButton = makeButton("Отчёт")
     lazy var transportControl = makeTransportControl()
     lazy var vehicleControl = makeVehicleControl()
     lazy var statusLabel = makeStatusLabel()
@@ -44,14 +42,8 @@ private extension TestView {
     func makeConstraints() {
         let row1 = makeRow([connectButton, disconnectButton, liveButton, dtcButton])
         let row2 = makeRow([freezeFrameButton, vinButton, voltageButton, clearButton])
-        let row3 = makeRow([elmLogButton])
+        let row3 = makeRow([reportButton])
 
-        let commandRow = UIStackView(arrangedSubviews: [commandField, sendCommandButton])
-        commandRow.axis = .horizontal
-        commandRow.spacing = 6
-        commandRow.translatesAutoresizingMaskIntoConstraints = false
-        sendCommandButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        
         let scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor.clear
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +52,6 @@ private extension TestView {
         scrollView.addSubview(row1)
         scrollView.addSubview(row2)
         scrollView.addSubview(row3)
-        scrollView.addSubview(commandRow)
         scrollView.addSubview(transportControl)
         scrollView.addSubview(vehicleControl)
         scrollView.addSubview(statusLabel)
@@ -95,15 +86,9 @@ private extension TestView {
         ])
 
         NSLayoutConstraint.activate([
-            commandRow.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            commandRow.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            commandRow.topAnchor.constraint(equalTo: row3.bottomAnchor, constant: 8.scale)
-        ])
-
-        NSLayoutConstraint.activate([
             transportControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             transportControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            transportControl.topAnchor.constraint(equalTo: commandRow.bottomAnchor, constant: 8.scale)
+            transportControl.topAnchor.constraint(equalTo: row3.bottomAnchor, constant: 8.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -151,18 +136,6 @@ private extension TestView {
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }
-
-    func makeCommandField() -> UITextField {
-        let field = UITextField()
-        field.borderStyle = .roundedRect
-        field.placeholder = "команда, напр. 2101 или ATSH7E1"
-        field.font = .monospacedSystemFont(ofSize: 13, weight: .regular)
-        field.autocapitalizationType = .allCharacters
-        field.autocorrectionType = .no
-        field.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
     }
 
     func makeTransportControl() -> UISegmentedControl {

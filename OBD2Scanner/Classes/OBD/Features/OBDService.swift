@@ -16,6 +16,7 @@ final class OBDService {
     private let engine = DiagnosticEngine()
     private lazy var stateRelay = BehaviorRelay<DiagnosticsState>(value: .idle)
     private lazy var trafficRelay = PublishRelay<String>()
+    private lazy var liveReportRelay = PublishRelay<LiveSessionReport>()
 
     private init() {
         engine.onStateChange = { [weak self] state in
@@ -23,6 +24,9 @@ final class OBDService {
         }
         engine.onTraffic = { [weak self] line in
             self?.trafficRelay.accept(line)
+        }
+        engine.onLiveReport = { [weak self] report in
+            self?.liveReportRelay.accept(report)
         }
     }
 
@@ -64,6 +68,12 @@ final class OBDService {
     /// Сырой ELM-трафик (`→ команда` / `← ответ`) — для отладочных экранов.
     var traffic: Signal<String> {
         trafficRelay.asSignal()
+    }
+
+    /// Отчёт самопроверки live-сессии — публикуется после остановки опроса.
+    /// Схема `Codable`: тот же отчёт позже уедет в аналитику/на сервер.
+    var liveReport: Signal<LiveSessionReport> {
+        liveReportRelay.asSignal()
     }
 
     // MARK: - Данные

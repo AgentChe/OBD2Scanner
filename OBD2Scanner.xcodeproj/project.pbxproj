@@ -15,6 +15,7 @@
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
+		E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */; };
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
@@ -290,6 +291,7 @@
 		B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
 		BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUChannel.swift; sourceTree = "<group>"; };
 		C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius.json"; sourceTree = "<group>"; };
+		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
 		C6AD63B173D1404555BAE5F6 /* ECUDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUDefinition.swift; sourceTree = "<group>"; };
 		CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-tnga.json"; sourceTree = "<group>"; };
 		DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */,
+				1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */,
 				A0FAE6AB80FEBF5FA3C331EE /* ford.json */,
 				F8E599C4FFC96757C382E2F8 /* gm.json */,
 				AB67790B6A8F5495B31AEC9F /* vag-mqb.json */,
@@ -1760,6 +1763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */,
+				E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */,
 				25C2E76177CC79652F649B86 /* ford.json in Resources */,
 				BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */,
 				245B1550870FDD935A921E72 /* vag-mqb.json in Resources */,

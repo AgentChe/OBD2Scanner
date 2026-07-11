@@ -16,11 +16,14 @@ OBD по машинам: один репозиторий на модель, си
     - сигналы с байт-выровненными полями (bix и len кратны 8) и линейной
       формулой mul/div/add — это подавляющее большинство;
     - знаковые значения (fmt.sign);
-    - частота опроса: freq >= 1 -> live-fast, иначе live-slow.
+    - однобитовые сигналы (len=1) -> decode.kind = "bitfield"
+      (бит движка = 7 - bix%8: OBDb нумерует биты от старшего, движок — от младшего);
+    - байт-выровненные enum-карты (fmt.map) -> decode.kind = "enum";
+    - группа опроса: OBDb `freq` — период опроса в секундах (0.25 = 4 раза/с),
+      период < 1 c -> live-fast, иначе (или без freq) -> live-slow.
 
 Что попадает в отчёт на stderr и переносится вручную:
-    - не байт-выровненные поля (нужен bit-level extract в движке);
-    - enum-карты (fmt.map) — переносятся в decode.kind = "enum";
+    - не байт-выровненные поля шире 1 бита (нужен bit-level extract в движке);
     - формулы сложнее линейной.
 
 Полученный профиль — КАНДИДАТ: обязательна проверка на живой машине
@@ -38,6 +41,8 @@ UNIT_MAP = {
     "rpm": "rpm", "ohms": "Ω", "seconds": "s", "minutes": "min",
     "bars": "bar", "kilopascal": "kPa", "psi": "psi", "newtonMeters": "Nm",
     "gramsPerSecond": "g/s", "degrees": "°", "amphours": "Ah",
+    "milliseconds": "ms", "milliamps": "mA", "metersPerSecondSquared": "m/s²",
+    "scalar": None,  # безразмерная величина — единицу не пишем
 }
 
 
@@ -64,10 +69,17 @@ def convert(obdb, args):
         if not hdr or len(cmd) != 1:
             skipped.append((str(cmd), "нет hdr или нестандартный cmd"))
             continue
+        if not rax and len(hdr) == 3:
+            # 11-битная физическая адресация: ответный CAN ID = запросный + 8
+            # (ISO 15765-4). Без rax команда иначе выглядела бы функциональной.
+            rax = format(int(hdr, 16) + 8, "03X")
         (service, pid), = cmd.items()
         request = (service + pid).upper()
         prefix = format(int(service, 16) + 0x40, "02X") + pid.upper()
-        group = "live-fast" if command.get("freq", 0) >= 1 else "live-slow"
+        # `freq` в OBDb — период опроса в секундах: 0.25 у быстрых величин
+        # (скорости колёс, впрыск), 5–60 у медленных (одометр, шины).
+        period = command.get("freq")
+        group = "live-fast" if period is not None and period < 1 else "live-slow"
 
         if args.filter_year and not year_matches(command.get("filter"), args.filter_year):
             continue
@@ -78,9 +90,26 @@ def convert(obdb, args):
             bix = fmt.get("bix", 0)
             length = fmt.get("len", 8)
 
-            if "map" in fmt:
-                skipped.append((sid, "enum-карта — перенести вручную в decode.kind=enum"))
+            param = {
+                "id": sid.lower(),
+                "name": signal.get("name", sid),
+                "request": request,
+                "responsePrefix": prefix,
+                "group": group,
+            }
+
+            if length == 1:
+                # Одиночный бит: OBDb считает биты от старшего (bix 0 = MSB
+                # байта 0), движок — от младшего в извлечённом байте.
+                param["extract"] = {"start": bix // 8, "length": 1}
+                param["decode"] = {
+                    "kind": "bitfield",
+                    "flags": [{"bit": 7 - bix % 8, "name": signal.get("name", sid)}],
+                }
+                key = (hdr.upper(), (rax or "").upper())
+                ecus.setdefault(key, []).append(param)
                 continue
+
             if bix % 8 or length % 8 or length > 64:
                 skipped.append((sid, f"не байт-выровнен (bix={bix}, len={length}) — нужен bit-level extract"))
                 continue
@@ -88,29 +117,32 @@ def convert(obdb, args):
             extract = {"start": bix // 8, "length": length // 8}
             if fmt.get("sign"):
                 extract["signed"] = True
+            param["extract"] = extract
 
-            param = {
-                "id": sid.lower(),
-                "name": signal.get("name", sid),
-                "request": request,
-                "responsePrefix": prefix,
-                "extract": extract,
-                "decode": {
+            if "map" in fmt:
+                # Значения карты в OBDb — объекты {"description", "value"} или строки.
+                entries = {}
+                for raw_key, entry in fmt["map"].items():
+                    if isinstance(entry, dict):
+                        entries[raw_key] = entry.get("description") or entry.get("value") or raw_key
+                    else:
+                        entries[raw_key] = str(entry)
+                param["decode"] = {"kind": "enum", "map": entries}
+            else:
+                param["decode"] = {
                     "kind": "linear",
                     "scale": fmt.get("mul", 1) / fmt.get("div", 1),
                     "offset": fmt.get("add", 0),
-                },
-                "group": group,
-            }
-            unit = fmt.get("unit")
-            if unit:
-                param["unit"] = UNIT_MAP.get(unit, unit)
-            if "min" in fmt or "max" in fmt:
-                param["range"] = {}
-                if "min" in fmt:
-                    param["range"]["min"] = fmt["min"]
-                if "max" in fmt:
-                    param["range"]["max"] = fmt["max"]
+                }
+                unit = fmt.get("unit")
+                if unit and UNIT_MAP.get(unit, unit):
+                    param["unit"] = UNIT_MAP.get(unit, unit)
+                if "min" in fmt or "max" in fmt:
+                    param["range"] = {}
+                    if "min" in fmt:
+                        param["range"]["min"] = fmt["min"]
+                    if "max" in fmt:
+                        param["range"]["max"] = fmt["max"]
 
             key = (hdr.upper(), (rax or "").upper())
             ecus.setdefault(key, []).append(param)

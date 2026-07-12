@@ -177,8 +177,6 @@
 		DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */; };
 		DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */; };
 		DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */; };
-		DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */; };
-		DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0BC62A6E80F500471667 /* DTC.swift */; };
 		DE4B7E5B2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */; };
 		DE4B7E5D2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */; };
 		DE4B7E5F2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */; };
@@ -188,12 +186,16 @@
 		DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */; };
 		DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */; };
 		DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */; };
-		DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */; };
-		DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7194392A6FCA4100ED3084 /* SensorData.swift */; };
+		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
+		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
+		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
 		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
+		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
+		DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC353003B000005498EB /* BluetoothPermission.swift */; };
+		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
 		DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E962A81265D008F9C97 /* SessionManager.swift */; };
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
 		DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C082FFAC7300044284D /* RecallHistory.swift */; };
@@ -219,7 +221,6 @@
 		DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */; };
 		DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */; };
 		DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */; };
-		DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE2E912A702F0B008C03C8 /* PID.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
 		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
@@ -408,8 +409,6 @@
 		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
-		DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapter.swift; sourceTree = "<group>"; };
-		DE2F0BC62A6E80F500471667 /* DTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTC.swift; sourceTree = "<group>"; };
 		DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
 		DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
 		DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -419,12 +418,16 @@
 		DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderItemView.swift; sourceTree = "<group>"; };
-		DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDAdapterState.swift; sourceTree = "<group>"; };
-		DE7194392A6FCA4100ED3084 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
+		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
+		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000D1 /* UnitsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsSectionView.swift; sourceTree = "<group>"; };
+		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
+		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
+		DEBDCC353003B000005498EB /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
 		DEC61E962A81265D008F9C97 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DEC61E992A812667008F9C97 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DED81C082FFAC7300044284D /* RecallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallHistory.swift; sourceTree = "<group>"; };
@@ -450,7 +453,6 @@
 		DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableActiveVehicleCell.swift; sourceTree = "<group>"; };
 		DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableConnectCell.swift; sourceTree = "<group>"; };
 		DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableMenuCell.swift; sourceTree = "<group>"; };
-		DEDE2E912A702F0B008C03C8 /* PID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PID.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2F0A902A698E0B00471667 /* RxActivityIndicator.swift */,
+				DEBDCC353003B000005498EB /* BluetoothPermission.swift */,
 				DE2F0A812A698E0B00471667 /* Scalable.swift */,
 				DE2F0A822A698E0B00471667 /* NumberLaunches.swift */,
 				DE2F0A832A698E0B00471667 /* TextAttributes.swift */,
@@ -1141,7 +1144,6 @@
 				DE22409A2FF6CCB10023E94C /* Profile */,
 				DEDF4E062FF2C8D70001160D /* Purchase */,
 				DEC61E952A812651008F9C97 /* Session */,
-				DE2F0BC22A6E78B600471667 /* OBDAdapter */,
 				DE2F0B332A6AC5B500471667 /* Vehicle */,
 			);
 			path = Service;
@@ -1228,26 +1230,6 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
-		DE2F0BC22A6E78B600471667 /* OBDAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0BC52A6E80E500471667 /* Model */,
-				DE2F0BC32A6E78C900471667 /* OBDAdapter.swift */,
-			);
-			path = OBDAdapter;
-			sourceTree = "<group>";
-		};
-		DE2F0BC52A6E80E500471667 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F0BC62A6E80F500471667 /* DTC.swift */,
-				DE7194332A6EA9A400ED3084 /* OBDAdapterState.swift */,
-				DE7194392A6FCA4100ED3084 /* SensorData.swift */,
-				DEDE2E912A702F0B008C03C8 /* PID.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DE4B7E592FF2A07C00973BA9 /* PlusJakartaSans */ = {
 			isa = PBXGroup;
 			children = (
@@ -1297,6 +1279,42 @@
 				DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */,
 			);
 			path = Slider;
+			sourceTree = "<group>";
+		};
+		DE947E3D30039DF1004271C3 /* ConnectingType */ = {
+			isa = PBXGroup;
+			children = (
+				DEBDCC303003AE9E005498EB /* BluetoothAccess */,
+				DEBDCC2F3003AE97005498EB /* ConnectingType */,
+			);
+			path = ConnectingType;
+			sourceTree = "<group>";
+		};
+		DE947E433003A849004271C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE947E443003A850004271C3 /* ConnectingTypeButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
+			isa = PBXGroup;
+			children = (
+				DE947E433003A849004271C3 /* View */,
+				DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */,
+				DE947E4030039E18004271C3 /* ConnectingTypeView.swift */,
+			);
+			path = ConnectingType;
+			sourceTree = "<group>";
+		};
+		DEBDCC303003AE9E005498EB /* BluetoothAccess */ = {
+			isa = PBXGroup;
+			children = (
+				DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */,
+				DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */,
+			);
+			path = BluetoothAccess;
 			sourceTree = "<group>";
 		};
 		DEC61E952A812651008F9C97 /* Session */ = {
@@ -1388,6 +1406,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DE947E3D30039DF1004271C3 /* ConnectingType */,
 				DED81C412FFE18700044284D /* Test */,
 				DED81C262FFC113A0044284D /* Dashboard */,
 			);
@@ -1647,6 +1666,7 @@
 				D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */,
 				F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */,
 				A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */,
+				DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */,
 				17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */,
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
@@ -1672,12 +1692,11 @@
 				DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */,
 				DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */,
 				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
+				DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
-				DEDE2E922A702F0B008C03C8 /* PID.swift in Sources */,
 				DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */,
 				DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */,
 				DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */,
-				DE2F0BC42A6E78C900471667 /* OBDAdapter.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
 				DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
@@ -1694,6 +1713,7 @@
 				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
 				DE2240862FF6A5190023E94C /* AddVINViewModel.swift in Sources */,
 				DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */,
+				DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */,
 				DE22405E2FF570190023E94C /* SelectModelTableView.swift in Sources */,
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2240E42FFAC5100023E94C /* RecallHistoryTableCell.swift in Sources */,
@@ -1758,6 +1778,8 @@
 				DE2240CB2FF92CCA0023E94C /* VehicleDetailsViewController.swift in Sources */,
 				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
+				DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */,
+				DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */,
 				DE2240782FF684380023E94C /* AddVehicleResultItemView.swift in Sources */,
 				DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */,
 				DE2240292FF50AB60023E94C /* SelectYearView.swift in Sources */,
@@ -1775,6 +1797,7 @@
 				DE22409C2FF6CCB10023E94C /* ProfileCreateRequest.swift in Sources */,
 				DE22409D2FF6CCB10023E94C /* RequestResult.swift in Sources */,
 				DE2240CF2FF92CD70023E94C /* VehicleDetailsView.swift in Sources */,
+				DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */,
 				DE22409E2FF6CCB10023E94C /* ProfileManager.swift in Sources */,
 				DE2240A62FF79D6C0023E94C /* GetVehicleRefIDRequest.swift in Sources */,
 				DE2240392FF554F90023E94C /* SelectYearCollectionElement.swift in Sources */,
@@ -1786,10 +1809,8 @@
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,
-				DE71943A2A6FCA4100ED3084 /* SensorData.swift in Sources */,
 				DE22400C2FF405440023E94C /* PaygateCell.swift in Sources */,
 				DE2240452FF563DF0023E94C /* SelectBrandViewController.swift in Sources */,
-				DE2F0BC72A6E80F500471667 /* DTC.swift in Sources */,
 				DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */,
 				DE2240712FF653380023E94C /* TryAgainViewController.swift in Sources */,
 				DE2240C32FF7D1E60023E94C /* GarageTableCell.swift in Sources */,
@@ -1832,7 +1853,6 @@
 				DE2240102FF40B7C0023E94C /* PaygateCellWithTitles.swift in Sources */,
 				DE2240632FF64D390023E94C /* AddVehicleResultViewController.swift in Sources */,
 				DE2240932FF6CA170023E94C /* AddVINToVehicleRequest.swift in Sources */,
-				DE7194342A6EA9A400ED3084 /* OBDAdapterState.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,
@@ -2011,7 +2031,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OBD2Scanner/Classes/LTBLT/OBD2Scanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2052,7 +2072,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OBD2Scanner/Classes/LTBLT/OBD2Scanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

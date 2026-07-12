@@ -19,7 +19,6 @@ final class TestView: UIView {
     lazy var voltageButton = makeButton("Volt")
     lazy var clearButton = makeButton("Clear")
     lazy var reportButton = makeButton("Отчёт")
-    lazy var transportControl = makeTransportControl()
     lazy var vehicleControl = makeVehicleControl()
     lazy var statusLabel = makeStatusLabel()
     lazy var liveLabel = makeLiveLabel()
@@ -52,7 +51,6 @@ private extension TestView {
         scrollView.addSubview(row1)
         scrollView.addSubview(row2)
         scrollView.addSubview(row3)
-        scrollView.addSubview(transportControl)
         scrollView.addSubview(vehicleControl)
         scrollView.addSubview(statusLabel)
         scrollView.addSubview(liveLabel)
@@ -86,15 +84,9 @@ private extension TestView {
         ])
 
         NSLayoutConstraint.activate([
-            transportControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            transportControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            transportControl.topAnchor.constraint(equalTo: row3.bottomAnchor, constant: 8.scale)
-        ])
-
-        NSLayoutConstraint.activate([
             vehicleControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             vehicleControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            vehicleControl.topAnchor.constraint(equalTo: transportControl.bottomAnchor, constant: 8.scale)
+            vehicleControl.topAnchor.constraint(equalTo: row3.bottomAnchor, constant: 8.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -136,13 +128,6 @@ private extension TestView {
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }
-
-    func makeTransportControl() -> UISegmentedControl {
-        let control = UISegmentedControl(items: ["BLE", "Wi-Fi"])
-        control.selectedSegmentIndex = 0
-        control.translatesAutoresizingMaskIntoConstraints = false
-        return control
     }
 
     func makeVehicleControl() -> UISegmentedControl {

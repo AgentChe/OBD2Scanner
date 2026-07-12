@@ -152,6 +152,14 @@ private extension TestViewController {
     }
 
     func connect() {
+        let vc = ConnectingTypeViewController.make { [weak self] connectingType in
+            let method: OBDConnectionMethod = connectingType == .wifi ? .wifi : .bluetooth
+            self?.connect(method: method)
+        }
+        present(vc, animated: true)
+    }
+
+    func connect(method: OBDConnectionMethod) {
         // Тестовые заглушки авто для подбора ECU-профиля.
         let vehicle: Vehicle?
         switch mainView.vehicleControl.selectedSegmentIndex {
@@ -173,7 +181,6 @@ private extension TestViewController {
         lastReport = nil
         mainView.reportButton.isEnabled = false
 
-        let method: OBDConnectionMethod = mainView.transportControl.selectedSegmentIndex == 1 ? .wifi : .bluetooth
         if method == .wifi {
             log("Wi-Fi: телефон должен быть в сети адаптера (адрес 192.168.0.10:35000)")
         }

@@ -92,10 +92,10 @@ and smart monitoring";
 
 // MARK: ChooseMethodAddCar
 "ChooseMethodAddCar.Title" = "Add your car";
-"ChooseMethodAddCar.DecodeVIN.Title" = "Select manually";
-"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Choose your car brand, model and year manually";
-"ChooseMethodAddCar.Manually.Title" = "Enter VIN number";
-"ChooseMethodAddCar.Manually.SubTitle" = "Enter your vehicle VIN to automatically decode details";
+"ChooseMethodAddCar.DecodeVIN.Title" = "Enter VIN number";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Enter your vehicle VIN to automatically decode details";
+"ChooseMethodAddCar.Manually.Title" = "Select manually";
+"ChooseMethodAddCar.Manually.SubTitle" = "Choose your car brand, model and year manually";
 
 // MARK: SelectYear
 "SelectYear.Title" = "Select year of manufacture";
@@ -240,3 +240,16 @@ and smart monitoring";
 "TryAgain.SubTitle" = "Something went wrong while loading the data. Try again—that usually helps. If the error persists, please let us know.";
 "TryAgain.Action" = "Try again";
 "TryAgain.ContactSupport" = "Contact support";
+
+// MARK: ConnectingType
+"ConnectingType.Title" = "Connecting";
+"ConnectingType.Text1" = "HOW DOES YOUR ADAPTER CONNECT?";
+"ConnectingType.Text2" = "Check your adapter's packaging or manual if unsure.";
+"ConnectingType.WiFi" = "Wi-Fi";
+"ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
+
+// MARK: BluetoothAccess
+"BluetoothAccess.Title" = "ACCESS TO\nNEARBY DEVICES";
+"BluetoothAccess.SubTitle" = "To find your OBD2 adapter via Bluetooth, allow the app to see nearby devices. We don't use this to determine your location.";
+"BluetoothAccess.AllowAccess" = "Allow access";
+"BluetoothAccess.NotNow" = "Not now";

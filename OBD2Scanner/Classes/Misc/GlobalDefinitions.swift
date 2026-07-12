@@ -5,6 +5,8 @@
 //  Created by Andrey Chernyshev on 16.01.2021.
 //
 
+import Foundation
+
 final class GlobalDefinitions {
     static let domain = "https://obd2.thinkaboutapps.com"
     static let accessToken = "TU9drYgOd0vBWJhqnfga4UnD"

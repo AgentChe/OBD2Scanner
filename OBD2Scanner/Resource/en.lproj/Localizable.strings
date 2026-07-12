@@ -253,3 +253,21 @@ and smart monitoring";
 "BluetoothAccess.SubTitle" = "To find your OBD2 adapter via Bluetooth, allow the app to see nearby devices. We don't use this to determine your location.";
 "BluetoothAccess.AllowAccess" = "Allow access";
 "BluetoothAccess.NotNow" = "Not now";
+
+// MARK: Connecting
+"Connecting.Title.Connecting" = "Connecting...";
+"Connecting.Title.Connected" = "Connected!";
+"Connecting.SubTitle" = "Detecting protocol";
+"Connecting.ProtocolDefinition" = "Protocol Definition";
+"Connecting.ReadingVehicleData" = "Reading vehicle data";
+
+// MARK: ConnectingFailure
+"ConnectingFailure.Title" = "Couldn’t connect";
+"ConnectingFailure.SubTitle" = "We couldn't find or reach your adapter. Let's fix it.";
+"ConnectingFailure.Steps.Title" = "Try these steps";
+"ConnectingFailure.Steps.Step1" = "Make sure the adapter LED is on";
+"ConnectingFailure.Steps.Step2" = "Turn ignition to ON or accessories mode";
+"ConnectingFailure.Steps.Step3" = "Re-pair Bluetooth or reconnect Wi-Fi";
+"ConnectingFailure.Steps.Step4" = "Unplug adapter, wait 5 sec, replug";
+"ConnectingFailure.DemoMode" = "Demo mode";
+"ConnectingFailure.TryAgain" = "Try again";

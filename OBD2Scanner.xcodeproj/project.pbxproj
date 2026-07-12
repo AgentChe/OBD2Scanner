@@ -186,6 +186,12 @@
 		DE4B7E692FF2AA1500973BA9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */; };
 		DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */; };
 		DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */; };
+		DE55472A3003D35300D577B0 /* ConnectingFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547293003D35300D577B0 /* ConnectingFailureViewController.swift */; };
+		DE55472C3003D35A00D577B0 /* ConnectingFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55472B3003D35A00D577B0 /* ConnectingFailureView.swift */; };
+		DE55472F3003DD8000D577B0 /* ConnectingFailureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55472E3003DD8000D577B0 /* ConnectingFailureItemView.swift */; };
+		DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547313003DF0900D577B0 /* ConnectingViewController.swift */; };
+		DE5547343003DF0F00D577B0 /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547333003DF0F00D577B0 /* ConnectingView.swift */; };
+		DE5547393003E3BF00D577B0 /* ConnectingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */; };
 		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
 		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
 		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
@@ -194,8 +200,8 @@
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
 		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
-		DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC353003B000005498EB /* BluetoothPermission.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
+		DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC353003B000005498EB /* BluetoothPermission.swift */; };
 		DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E962A81265D008F9C97 /* SessionManager.swift */; };
 		DEC61E9A2A812667008F9C97 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E992A812667008F9C97 /* Session.swift */; };
 		DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C082FFAC7300044284D /* RecallHistory.swift */; };
@@ -418,6 +424,12 @@
 		DE4B7E682FF2AA1500973BA9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DE4B7E6A2FF2AA1900973BA9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DE4B7E6F2FF2B3A900973BA9 /* OnboardingSliderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderItemView.swift; sourceTree = "<group>"; };
+		DE5547293003D35300D577B0 /* ConnectingFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingFailureViewController.swift; sourceTree = "<group>"; };
+		DE55472B3003D35A00D577B0 /* ConnectingFailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingFailureView.swift; sourceTree = "<group>"; };
+		DE55472E3003DD8000D577B0 /* ConnectingFailureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingFailureItemView.swift; sourceTree = "<group>"; };
+		DE5547313003DF0900D577B0 /* ConnectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingViewController.swift; sourceTree = "<group>"; };
+		DE5547333003DF0F00D577B0 /* ConnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingView.swift; sourceTree = "<group>"; };
+		DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingItemView.swift; sourceTree = "<group>"; };
 		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
 		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
 		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
@@ -1281,6 +1293,51 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
+		DE5547273003D32A00D577B0 /* Connecting */ = {
+			isa = PBXGroup;
+			children = (
+				DE5547303003DF0100D577B0 /* Connecting */,
+				DE5547283003D33200D577B0 /* Failure */,
+			);
+			path = Connecting;
+			sourceTree = "<group>";
+		};
+		DE5547283003D33200D577B0 /* Failure */ = {
+			isa = PBXGroup;
+			children = (
+				DE55472D3003DD7400D577B0 /* View */,
+				DE5547293003D35300D577B0 /* ConnectingFailureViewController.swift */,
+				DE55472B3003D35A00D577B0 /* ConnectingFailureView.swift */,
+			);
+			path = Failure;
+			sourceTree = "<group>";
+		};
+		DE55472D3003DD7400D577B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE55472E3003DD8000D577B0 /* ConnectingFailureItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE5547303003DF0100D577B0 /* Connecting */ = {
+			isa = PBXGroup;
+			children = (
+				DE5547373003E3B400D577B0 /* View */,
+				DE5547313003DF0900D577B0 /* ConnectingViewController.swift */,
+				DE5547333003DF0F00D577B0 /* ConnectingView.swift */,
+			);
+			path = Connecting;
+			sourceTree = "<group>";
+		};
+		DE5547373003E3B400D577B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DE947E3D30039DF1004271C3 /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1406,6 +1463,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DE5547273003D32A00D577B0 /* Connecting */,
 				DE947E3D30039DF1004271C3 /* ConnectingType */,
 				DED81C412FFE18700044284D /* Test */,
 				DED81C262FFC113A0044284D /* Dashboard */,
@@ -1668,6 +1726,7 @@
 				A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */,
 				DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */,
 				17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */,
+				DE5547393003E3BF00D577B0 /* ConnectingItemView.swift in Sources */,
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
 				604A073C9366247228F4CAC6 /* OBDService.swift in Sources */,
@@ -1680,6 +1739,7 @@
 				6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */,
 				56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */,
 				B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */,
+				DE55472C3003D35A00D577B0 /* ConnectingFailureView.swift in Sources */,
 				9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */,
 				72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */,
 				DEEBB1CD33A4D295AFA90722 /* ECUDefinition.swift in Sources */,
@@ -1698,6 +1758,7 @@
 				DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */,
 				DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
+				DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */,
 				DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
 				DED81C392FFC11F20044284D /* DashboardTableDemoCell.swift in Sources */,
@@ -1722,6 +1783,7 @@
 				DE2240192FF420510023E94C /* VehicleMediator.swift in Sources */,
 				DE2240652FF64D420023E94C /* AddVehicleResultViewModel.swift in Sources */,
 				DE2240E12FFAC4DE0023E94C /* RecallHistoryTableView.swift in Sources */,
+				DE55472A3003D35300D577B0 /* ConnectingFailureViewController.swift in Sources */,
 				DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */,
 				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
 				DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */,
@@ -1730,6 +1792,7 @@
 				DE2240CD2FF92CD20023E94C /* VehicleDetailsViewModel.swift in Sources */,
 				DE2240BD2FF7CDCC0023E94C /* GarageView.swift in Sources */,
 				DE2240C72FF8375C0023E94C /* GarageTableElement.swift in Sources */,
+				DE5547343003DF0F00D577B0 /* ConnectingView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE22408D2FF6B8A00023E94C /* RadialGradientView.swift in Sources */,
 				DED81C112FFBF4890044284D /* SettingsViewModel.swift in Sources */,
@@ -1817,6 +1880,7 @@
 				DE2240402FF55AE10023E94C /* UIEdgeInsets+Extension.swift in Sources */,
 				DE22407A2FF688330023E94C /* AddVehicleResultAddAnotherButton.swift in Sources */,
 				DE2240732FF6534C0023E94C /* TryAgainView.swift in Sources */,
+				DE55472F3003DD8000D577B0 /* ConnectingFailureItemView.swift in Sources */,
 				DED81C2A2FFC114A0044284D /* DashboardViewModel.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,

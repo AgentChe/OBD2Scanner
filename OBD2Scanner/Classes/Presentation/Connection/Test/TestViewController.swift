@@ -185,7 +185,18 @@ private extension TestViewController {
             log("Wi-Fi: телефон должен быть в сети адаптера (адрес 192.168.0.10:35000)")
         }
         log("connect… (\(method == .wifi ? "Wi-Fi" : "BLE"), vehicle: \(vehicleName))")
-        service.connect(vehicle: vehicle, method: method)
+
+        // Подключением занимается ConnectingViewController — здесь только
+        // логируем итог; фазы и так видны через подписку на service.state.
+        let vc = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
+            switch outcome {
+            case .connected:
+                self?.log("connecting-экран: подключено")
+            case .demoMode:
+                self?.log("connecting-экран: выбран демо-режим")
+            }
+        }
+        present(vc, animated: false)
     }
 
     func toggleLive() {

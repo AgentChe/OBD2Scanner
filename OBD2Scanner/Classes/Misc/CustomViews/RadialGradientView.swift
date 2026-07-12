@@ -8,8 +8,8 @@
 import UIKit
 
 final class RadialGradientView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(color: UIColor = Appearance.color_28D799) {
+        super.init(frame: .zero)
 
         guard let gradientLayer = layer as? CAGradientLayer else {
             return
@@ -17,10 +17,10 @@ final class RadialGradientView: UIView {
 
         gradientLayer.type = .radial
         gradientLayer.colors = [
-            Appearance.color_28D799.withAlphaComponent(0.12).cgColor,
-            Appearance.color_28D799.withAlphaComponent(0.06).cgColor,
-            Appearance.color_28D799.withAlphaComponent(0.02).cgColor,
-            Appearance.color_28D799.withAlphaComponent(0).cgColor
+            color.withAlphaComponent(0.12).cgColor,
+            color.withAlphaComponent(0.06).cgColor,
+            color.withAlphaComponent(0.02).cgColor,
+            color.withAlphaComponent(0).cgColor
         ]
         gradientLayer.locations = [0, 0.4, 0.7, 1]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)

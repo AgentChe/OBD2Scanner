@@ -31,8 +31,6 @@ extension OBDValue {
     func formatted(unit: String?) -> String {
         switch self {
         case let .number(value):
-            // Защита от кривых формул профиля: Int(_) падает на inf/NaN
-            // и на значениях за пределами Int, поэтому граница по 1e15.
             guard value.isFinite else { return "—" }
             let number = value == value.rounded() && abs(value) < 1e15
                 ? String(Int(value))
@@ -42,7 +40,12 @@ extension OBDValue {
         case let .text(text):
             return text
         case let .flags(flags):
-            return flags.filter(\.isOn).map(\.name).joined(separator: ", ")
+            if flags.count == 1 {
+                return flags[0].isOn ? "yes" : "no"
+            }
+            
+            let active = flags.filter(\.isOn).map(\.name)
+            return active.isEmpty ? "no" : active.joined(separator: ", ")
         }
     }
 }

@@ -176,12 +176,17 @@
           },
           "decode": {
             "kind": "linear",
-            "scale": 1.0,
-            "offset": 0
+            "scale": 0.5,
+            "offset": -64
           },
           "unit": "°",
           "range": {
-            "max": 255
+            "min": -64,
+            "max": 63.5
+          },
+          "crossCheck": {
+            "reference": "std.timing_advance",
+            "absolute": 10
           },
           "group": "live-slow",
           "categories": [
@@ -289,13 +294,17 @@
           },
           "decode": {
             "kind": "linear",
-            "scale": 1.0,
+            "scale": 0.00390625,
             "offset": -128
           },
           "unit": "mA",
           "range": {
             "min": -128,
             "max": 127.99
+          },
+          "crossCheck": {
+            "reference": "std.o2wc_b1s1_ma",
+            "absolute": 5
           },
           "group": "live-slow",
           "categories": [

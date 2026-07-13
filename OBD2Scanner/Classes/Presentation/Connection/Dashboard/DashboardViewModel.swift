@@ -125,9 +125,21 @@ private extension DashboardViewModel {
             }
     }
     
-    // TODO:
     func makeConnectState() -> Driver<Bool> {
-        .just(true)
+        let service = OBDService.shared
+
+        return service.state
+            .asObservable()
+            .startWith(service.currentState)
+            .map { state -> Bool in
+                if case .ready = state {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
     }
     
     func makeHeaderState(activeSubscription: Driver<Bool>) -> Driver<DashboardView.Header> {

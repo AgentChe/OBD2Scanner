@@ -34,7 +34,6 @@
 		958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0007256C63720BCCE6561 /* TestView.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
-		AB10CD20EF30AB40CD50EF61 /* MockOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
 		BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E599C4FFC96757C382E2F8 /* gm.json */; };
 		C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */; };
@@ -274,7 +273,6 @@
 		A0FAE6AB80FEBF5FA3C331EE /* ford.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ford.json; sourceTree = "<group>"; };
 		A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEngine.swift; sourceTree = "<group>"; };
 		A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSessionAuditor.swift; sourceTree = "<group>"; };
-		AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOBDService.swift; sourceTree = "<group>"; };
 		AB67790B6A8F5495B31AEC9F /* vag-mqb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vag-mqb.json"; sourceTree = "<group>"; };
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
@@ -563,7 +561,6 @@
 			isa = PBXGroup;
 			children = (
 				B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */,
-				AB10CD20EF30AB40CD50EF62 /* MockOBDService.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1753,7 +1750,6 @@
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
 				604A073C9366247228F4CAC6 /* OBDService.swift in Sources */,
-				AB10CD20EF30AB40CD50EF61 /* MockOBDService.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,

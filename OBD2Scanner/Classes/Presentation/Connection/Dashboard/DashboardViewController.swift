@@ -15,6 +15,8 @@ final class DashboardViewController: UIViewController {
     private lazy var viewModel = DashboardViewModel()
 
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var didTapTryDemoModeTrigger = PublishRelay<Void>()
 
     override func loadView() {
         view = mainView
@@ -25,7 +27,11 @@ final class DashboardViewController: UIViewController {
 
         let output = viewModel.configure(input: DashboardViewModel.Input(
             didTapUpgragePlan: mainView.unlimitedView.upgradeButton.rx.tap.asSignal(),
-            didTapStartDemoMode: mainView.tableView.didTapStartDemoMode,
+            didTapStartDemoMode: Signal
+                .merge(
+                    mainView.tableView.didTapStartDemoMode,
+                    didTapTryDemoModeTrigger.asSignal()
+                ),
             didTapStopDemoMode: mainView.tableView.didTapStopDemoMode,
             didTapChangeActiveCar: mainView.tableView.didTapChangeActiveCar,
             didTapChangeConnect: mainView.tableView.didTapChangeConnect,
@@ -85,6 +91,19 @@ private extension DashboardViewController {
                 self?.present(vc, animated: true)
             }
             present(vc, animated: false)
+        case .openConnectingType(let vehicle):
+            let vc = ConnectingTypeViewController.make { [weak self] connectingType in
+                let method: OBDConnectionMethod = connectingType == .wifi ? .wifi : .bluetooth
+                let connectingVC = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
+                    guard case .demoMode = outcome else { return }
+                    
+                    self?.didTapTryDemoModeTrigger.accept(Void())
+                }
+                self?.present(connectingVC, animated: false)
+            }
+            present(vc, animated: true)
+        case .disconnect:
+            OBDService.shared.disconnect()
         case .openDiagnostics(let vehicle):
             break // TODO:
         case .openFreezeFrame(let vehicle):

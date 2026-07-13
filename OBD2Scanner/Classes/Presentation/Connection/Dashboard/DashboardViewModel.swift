@@ -12,6 +12,8 @@ final class DashboardViewModel {
     enum Action {
         case openGarage
         case openPaygate
+        case openConnectingType(Vehicle)
+        case disconnect
         case openDiagnostics(Vehicle)
         case openFreezeFrame(Vehicle)
         case openHUD(Vehicle)
@@ -56,6 +58,7 @@ extension DashboardViewModel {
                 connectState: connectState,
                 didTapUpgragePlan: input.didTapUpgragePlan,
                 didTapChangeActiveCar: input.didTapChangeActiveCar,
+                didTapChangeConnect: input.didTapChangeConnect,
                 didSelectMenu: input.didSelectMenu
             )
         )
@@ -70,16 +73,37 @@ private extension DashboardViewModel {
         connectState: Driver<Bool>,
         didTapUpgragePlan: Signal<Void>,
         didTapChangeActiveCar: Signal<Void>,
+        didTapChangeConnect: Signal<Bool>,
         didSelectMenu: Signal<DashboardTableElement.MenuItem>
     ) -> Driver<Action> {
         let upgradePlan = didTapUpgragePlan
             .map { Action.openPaygate }
             .asDriver(onErrorDriveWith: .never())
-        
+
         let openGarage = didTapChangeActiveCar
             .map { Action.openGarage }
             .asDriver(onErrorDriveWith: .never())
-        
+
+        let changeConnect = didTapChangeConnect
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(activeVehicle) { ($0, $1) }
+            .withLatestFrom(activeSubscription) { ($0.0, $0.1, $1) }
+            .compactMap { isConnected, activeVehicle, activeSubscription -> Action? in
+                if isConnected {
+                    return .disconnect
+                }
+
+                guard let activeVehicle else {
+                    return nil
+                }
+                
+                guard activeSubscription else {
+                    return .openPaygate
+                }
+
+                return .openConnectingType(activeVehicle)
+            }
+
         let menu = didSelectMenu
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(activeVehicle) { ($0, $1) }
@@ -101,7 +125,7 @@ private extension DashboardViewModel {
             }
         
         return Driver
-            .merge(upgradePlan, openGarage, menu)
+            .merge(upgradePlan, openGarage, changeConnect, menu)
     }
     
     func makeElements(

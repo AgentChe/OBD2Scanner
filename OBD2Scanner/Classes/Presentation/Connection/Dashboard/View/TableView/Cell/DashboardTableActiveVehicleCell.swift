@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 final class DashboardTableActiveVehicleCell: UITableViewCell {
+    var didTapChangeCar: (() -> Void)?
+    
     lazy var container = makeContainer()
     lazy var changeCarButton = makeChangeCarButton()
     lazy var nameLabel = makeLabel()
@@ -70,6 +72,11 @@ private extension DashboardTableActiveVehicleCell {
         contentView.backgroundColor = UIColor.clear
 
         selectionStyle = .none
+    }
+    
+    @objc
+    func changeCarTapped() {
+        didTapChangeCar?()
     }
 }
 
@@ -144,6 +151,7 @@ private extension DashboardTableActiveVehicleCell {
         let view = UIButton(configuration: configuration)
         view.backgroundColor = Appearance.color_191F2B
         view.layer.cornerRadius = 8.scale
+        view.addTarget(self, action: #selector(changeCarTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

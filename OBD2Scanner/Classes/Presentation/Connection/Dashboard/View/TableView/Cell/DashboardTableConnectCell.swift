@@ -8,6 +8,8 @@
 import UIKit
 
 final class DashboardTableConnectCell: UITableViewCell {
+    var didTapAction: (() -> Void)?
+    
     lazy var container = makeContainer()
     lazy var statusIconView = makeStatusIconView()
     lazy var statusLabel = makeStatusLabel()
@@ -40,7 +42,7 @@ final class DashboardTableConnectCell: UITableViewCell {
 
 // MARK: Public
 extension DashboardTableConnectCell {
-    func setup(isConnected: Bool) {
+    func setup(isConnected: Bool, enable: Bool) {
         statusIconView.image = UIImage(named: isConnected ? "Dashboard.Connected" : "Dashboard.NotConnected")
 
         statusLabel.attributedText = isConnected
@@ -52,6 +54,8 @@ extension DashboardTableConnectCell {
             : "Dashboard.Connect.Connect".localized.attributed(with: buttonAttrs)
         actionButton.configuration?.attributedTitle = AttributedString(title)
         actionButton.backgroundColor = isConnected ? Appearance.color_F5403A : Appearance.color_28D799
+        
+        container.alpha = enable ? 1 : 0.5
     }
 }
 
@@ -62,6 +66,11 @@ private extension DashboardTableConnectCell {
         contentView.backgroundColor = UIColor.clear
 
         selectionStyle = .none
+    }
+    
+    @objc
+    func actionTapped() {
+        didTapAction?()
     }
 }
 
@@ -158,6 +167,7 @@ private extension DashboardTableConnectCell {
 
         let view = UIButton(configuration: configuration)
         view.layer.cornerRadius = 8.scale
+        view.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

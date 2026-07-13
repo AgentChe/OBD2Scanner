@@ -24,12 +24,29 @@ final class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         let output = viewModel.configure(input: DashboardViewModel.Input(
-            didSelectElement: mainView.tableView.didSelectElement
+            didTapUpgragePlan: mainView.unlimitedView.upgradeButton.rx.tap.asSignal(),
+            didTapStartDemoMode: mainView.tableView.didTapStartDemoMode,
+            didTapStopDemoMode: mainView.tableView.didTapStopDemoMode,
+            didTapChangeActiveCar: mainView.tableView.didTapChangeActiveCar,
+            didTapChangeConnect: mainView.tableView.didTapChangeConnect,
+            didSelectMenu: mainView.tableView.didSelectMenu
         ))
 
         output.elements
-            .drive(Binder(mainView) { base, elements in
-                base.tableView.setup(elements: elements)
+            .drive(Binder(mainView.tableView) { base, elements in
+                base.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+        
+        output.headerState
+            .drive(Binder(mainView) { base, headerState in
+                base.setup(header: headerState)
+            })
+            .disposed(by: disposeBag)
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
             })
             .disposed(by: disposeBag)
     }
@@ -53,5 +70,30 @@ extension DashboardViewController {
         let vc = DashboardViewController()
         vc.navigationItem.backButtonTitle = " "
         return vc
+    }
+}
+
+// MARK: Private
+private extension DashboardViewController {
+    func action(_ action: DashboardViewModel.Action) {
+        switch action {
+        case .openGarage:
+            break // TODO: переключиться на таб Main.Tab.Garage в MainViewController
+        case .openPaygate:
+            let vc = UnlimitedPlanViewController.make { [weak self] in
+                let vc = PaygateViewController.make()
+                self?.present(vc, animated: true)
+            }
+            present(vc, animated: false)
+        case .openDiagnostics(let vehicle):
+            break // TODO:
+        case .openFreezeFrame(let vehicle):
+            break // TODO:
+        case .openHUD(let vehicle):
+            break // TODO:
+        case .openRecallHistory(let vehicle):
+            let vc = RecallHistoryViewController.make(vehicle: vehicle)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

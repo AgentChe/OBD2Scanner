@@ -52,8 +52,6 @@ extension DashboardView {
 private extension DashboardView {
     func initialize() {
         backgroundColor = Appearance.color_121721
-
-        setup(header: .unlimited)
     }
 }
 
@@ -63,13 +61,14 @@ private extension DashboardView {
         NSLayoutConstraint.activate([
             unlimitedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             unlimitedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            unlimitedView.topAnchor.constraint(equalTo: topAnchor)
+            unlimitedView.topAnchor.constraint(equalTo: topAnchor),
+            unlimitedView.heightAnchor.constraint(equalToConstant: 180.scale)
         ])
 
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableTopConstraint
         ])
     }

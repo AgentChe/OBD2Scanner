@@ -8,6 +8,8 @@
 import UIKit
 
 final class DashboardTableDemoStartCell: UITableViewCell {
+    var didTapStart: (() -> Void)?
+    
     lazy var container = makeContainer()
     lazy var contentContainer = makeContentContainer()
     lazy var iconView = makeIconView()
@@ -32,6 +34,15 @@ private extension DashboardTableDemoStartCell {
         contentView.backgroundColor = UIColor.clear
 
         selectionStyle = .none
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        container.isUserInteractionEnabled = true
+        container.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func tapped() {
+        didTapStart?()
     }
 }
 

@@ -12,7 +12,11 @@ import RxCocoa
 final class DashboardTableView: UITableView {
     private lazy var elements = [DashboardTableElement]()
 
-    private lazy var didSelectElementTrigger = PublishRelay<DashboardTableElement>()
+    private lazy var didTapStartDemoModeTrigger = PublishRelay<Void>()
+    private lazy var didTapStopDemoModeTrigger = PublishRelay<Void>()
+    private lazy var didTapChangeActiveCarTrigger = PublishRelay<Void>()
+    private lazy var didTapChangeConnectTrigger = PublishRelay<Bool>()
+    private lazy var didSelectMenuTrigger = PublishRelay<DashboardTableElement.MenuItem>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -33,8 +37,24 @@ extension DashboardTableView {
         reloadData()
     }
 
-    var didSelectElement: Signal<DashboardTableElement> {
-        didSelectElementTrigger.asSignal()
+    var didTapStartDemoMode: Signal<Void> {
+        didTapStartDemoModeTrigger.asSignal()
+    }
+    
+    var didTapStopDemoMode: Signal<Void> {
+        didTapStopDemoModeTrigger.asSignal()
+    }
+    
+    var didTapChangeActiveCar: Signal<Void> {
+        didTapChangeActiveCarTrigger.asSignal()
+    }
+    
+    var didTapChangeConnect: Signal<Bool> {
+        didTapChangeConnectTrigger.asSignal()
+    }
+    
+    var didSelectMenu: Signal<DashboardTableElement.MenuItem> {
+        didSelectMenuTrigger.asSignal()
     }
 }
 
@@ -48,17 +68,31 @@ extension DashboardTableView: UITableViewDataSource {
         switch elements[indexPath.row] {
         case .demoMode(let active):
             if active {
-                return dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStopCell.self), for: indexPath) as! DashboardTableDemoStopCell
+                let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStopCell.self), for: indexPath) as! DashboardTableDemoStopCell
+                cell.didTapStop = { [weak self] in
+                    self?.didTapStopDemoModeTrigger.accept(Void())
+                }
+                return cell
             } else {
-                return dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStartCell.self), for: indexPath) as! DashboardTableDemoStartCell
+                let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStartCell.self), for: indexPath) as! DashboardTableDemoStartCell
+                cell.didTapStart = { [weak self] in
+                    self?.didTapStartDemoModeTrigger.accept(Void())
+                }
+                return cell
             }
         case .activeVehicle(let vehicle):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableActiveVehicleCell.self), for: indexPath) as! DashboardTableActiveVehicleCell
             cell.setup(vehicle: vehicle)
+            cell.didTapChangeCar = { [weak self] in
+                self?.didTapChangeActiveCarTrigger.accept(Void())
+            }
             return cell
-        case .connect(let isConnected):
+        case .connect(let isConnected, let enable):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableConnectCell.self), for: indexPath) as! DashboardTableConnectCell
-            cell.setup(isConnected: isConnected)
+            cell.setup(isConnected: isConnected, enable: enable)
+            cell.didTapAction = { [weak self] in
+                self?.didTapChangeConnectTrigger.accept(isConnected)
+            }
             return cell
         case .menu(let item, let enable):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableMenuCell.self), for: indexPath) as! DashboardTableMenuCell
@@ -71,11 +105,9 @@ extension DashboardTableView: UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension DashboardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let element = elements[safe: indexPath.row] else {
-            return
-        }
-
-        didSelectElementTrigger.accept(element)
+        guard case let .menu(item, _) = elements[indexPath.row] else { return }
+        
+        didSelectMenuTrigger.accept(item)
     }
 }
 

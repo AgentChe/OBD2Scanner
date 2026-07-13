@@ -8,6 +8,7 @@
 import UIKit
 
 final class DashboardUnlimitedView: GradientView {
+    lazy var container = makeContainer()
     lazy var specialOfferLabel = makeSpecialOfferLabel()
     lazy var iconView = makeIconView()
     lazy var nameLabel = makeNameLabel()
@@ -29,11 +30,15 @@ final class DashboardUnlimitedView: GradientView {
 private extension DashboardUnlimitedView {
     func initialize() {
         gradientLayer.colors = [
-            Appearance.color_28D799.withAlphaComponent(0.25).cgColor,
-            UIColor.clear.cgColor
+            Appearance.color_28D799.cgColor,
+            Appearance.color_121721.cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.locations = [
+            NSNumber(value: 0),
+            NSNumber(value: 1)
+        ]
     }
 }
 
@@ -41,27 +46,32 @@ private extension DashboardUnlimitedView {
 private extension DashboardUnlimitedView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            specialOfferLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            specialOfferLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 4.scale)
+            container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32.scale),
+            container.heightAnchor.constraint(equalToConstant: 55.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            specialOfferLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            specialOfferLabel.topAnchor.constraint(equalTo: container.topAnchor)
         ])
 
         NSLayoutConstraint.activate([
             iconView.widthAnchor.constraint(equalToConstant: 32.scale),
             iconView.heightAnchor.constraint(equalToConstant: 32.scale),
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            iconView.topAnchor.constraint(equalTo: specialOfferLabel.bottomAnchor, constant: 6.scale),
-            iconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.scale)
+            iconView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            iconView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 8.scale),
-            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: upgradeButton.leadingAnchor, constant: -8.scale),
             nameLabel.centerYAnchor.constraint(equalTo: iconView.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            upgradeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            upgradeButton.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
+            upgradeButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
+            upgradeButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             upgradeButton.heightAnchor.constraint(equalToConstant: 44.scale)
         ])
     }
@@ -69,6 +79,13 @@ private extension DashboardUnlimitedView {
 
 // MARK: Lazy initialization
 private extension DashboardUnlimitedView {
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     func makeSpecialOfferLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.6))
@@ -78,7 +95,7 @@ private extension DashboardUnlimitedView {
         let view = UILabel()
         view.attributedText = "Dashboard.Unlimited.SpecialOffer".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        container.addSubview(view)
         return view
     }
 
@@ -87,7 +104,7 @@ private extension DashboardUnlimitedView {
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "Dashboard.Unlimited")
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        container.addSubview(view)
         return view
     }
 
@@ -100,11 +117,11 @@ private extension DashboardUnlimitedView {
         let view = UILabel()
         view.attributedText = "Dashboard.Unlimited.Title".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        container.addSubview(view)
         return view
     }
 
-    func makeUpgradeButton() -> UIButton {
+    func makeUpgradeButton() -> GradientButton {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
             .font(Fonts.NotoSans.semiBold(size: 16.scale))
@@ -115,11 +132,20 @@ private extension DashboardUnlimitedView {
         configuration.imagePadding = 6.scale
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12.scale, bottom: 0, trailing: 12.scale)
 
-        let view = UIButton(configuration: configuration)
-        view.backgroundColor = Appearance.color_28D799
+        let view = GradientButton(configuration: configuration)
+        view.gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        view.gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        view.gradientLayer.colors = [
+            Appearance.color_00E393.cgColor,
+            Appearance.color_22D8D0.cgColor
+        ]
+        view.gradientLayer.locations = [
+            NSNumber(value: 0),
+            NSNumber(value: 1)
+        ]
         view.layer.cornerRadius = 8.scale
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        container.addSubview(view)
         return view
     }
 }

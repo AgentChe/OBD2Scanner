@@ -15,6 +15,6 @@ enum DashboardTableElement {
 
     case demoMode(Bool)
     case activeVehicle(Vehicle?)
-    case connect(isConnected: Bool)
+    case connect(isConnected: Bool, enable: Bool) 
     case menu(MenuItem, Bool)
 }

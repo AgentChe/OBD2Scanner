@@ -205,6 +205,7 @@
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
 		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
+		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
 		DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC353003B000005498EB /* BluetoothPermission.swift */; };
@@ -448,6 +449,7 @@
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000D1 /* UnitsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsSectionView.swift; sourceTree = "<group>"; };
+		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
 		DEBDCC353003B000005498EB /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
@@ -1152,6 +1154,7 @@
 				DE2240412FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift */,
 				DE2240522FF56CA30023E94C /* SearchField.swift */,
 				DE22408C2FF6B8A00023E94C /* RadialGradientView.swift */,
+				DEB56EE4300538BF001A9E4E /* GradientButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1760,6 +1763,7 @@
 				56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */,
 				B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */,
 				DE55472C3003D35A00D577B0 /* ConnectingFailureView.swift in Sources */,
+				DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */,
 				9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */,
 				72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */,
 				DEEBB1CD33A4D295AFA90722 /* ECUDefinition.swift in Sources */,

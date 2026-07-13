@@ -8,6 +8,8 @@
 import UIKit
 
 final class DashboardTableDemoStopCell: UITableViewCell {
+    var didTapStop: (() -> ())?
+    
     lazy var container = makeContainer()
     lazy var iconView = makeIconView()
     lazy var titleLabel = makeTitleLabel()
@@ -33,6 +35,11 @@ private extension DashboardTableDemoStopCell {
         contentView.backgroundColor = UIColor.clear
 
         selectionStyle = .none
+    }
+    
+    @objc
+    func stopTapped() {
+        didTapStop?()
     }
 }
 
@@ -124,6 +131,7 @@ private extension DashboardTableDemoStopCell {
     func makeStopButton() -> TapAreaButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: "Dashboard.DemoMode.Stop"), for: .normal)
+        view.addTarget(self, action: #selector(stopTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

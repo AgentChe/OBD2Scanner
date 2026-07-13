@@ -8,6 +8,10 @@
 import UIKit
 
 final class MainViewController: UITabBarController {
+    enum Tab: Int {
+        case dashboard, garage, settings, test // TODO: delete test
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +24,10 @@ final class MainViewController: UITabBarController {
 extension MainViewController {
     static func make() -> MainViewController {
         MainViewController()
+    }
+
+    func select(tab: Tab) {
+        selectedIndex = tab.rawValue
     }
 }
 
@@ -39,7 +47,7 @@ private extension MainViewController {
             makeTab(root: SettingsViewController.make(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill"),
             makeTab(root: TestViewController.make(), title: "Test", icon: "wrench.fill") // TODO: delete
         ]
-        selectedIndex = 0
+        selectedIndex = Tab.dashboard.rawValue
     }
 
     func makeTab(root: UIViewController, title: String, icon: String) -> NavigationController {

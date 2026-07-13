@@ -78,7 +78,7 @@ private extension DashboardViewController {
     func action(_ action: DashboardViewModel.Action) {
         switch action {
         case .openGarage:
-            break // TODO: переключиться на таб Main.Tab.Garage в MainViewController
+            (tabBarController as? MainViewController)?.select(tab: .garage)
         case .openPaygate:
             let vc = UnlimitedPlanViewController.make { [weak self] in
                 let vc = PaygateViewController.make()

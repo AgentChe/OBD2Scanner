@@ -131,7 +131,12 @@ private extension TestView {
     }
 
     func makeVehicleControl() -> UISegmentedControl {
-        let control = UISegmentedControl(items: ["Camry '19", "407 '07", "Prius '12", "без авто"])
+        // Порядок сегментов должен совпадать со switch в
+        // TestViewController.connect(method:). apportions… — чтобы длинные
+        // подписи не обрезались равной шириной.
+        let control = UISegmentedControl(items: ["Camry '19", "Prius '10", "Civic '16",
+                                                 "S2000 '00", "T5 '13", "407 '07", "без авто"])
+        control.apportionsSegmentWidthsByContent = true
         control.selectedSegmentIndex = 0
         control.translatesAutoresizingMaskIntoConstraints = false
         return control

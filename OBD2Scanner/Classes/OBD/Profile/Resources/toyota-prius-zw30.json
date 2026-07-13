@@ -1,0 +1,3927 @@
+{
+  "schemaVersion": 1,
+  "id": "toyota-prius-zw30",
+  "name": "Toyota Prius ZW30 (Gen3, OBDb)",
+  "priority": 110,
+  "match": {
+    "brands": [
+      "toyota"
+    ],
+    "models": [
+      "prius"
+    ],
+    "years": {
+      "from": 2009,
+      "to": 2015
+    }
+  },
+  "bus": {
+    "elmProtocol": "6"
+  },
+  "ecus": [
+    {
+      "id": "ecu_700",
+      "name": "ECU 700",
+      "addressing": {
+        "request": "700",
+        "response": "708"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_ewp_target_vss",
+          "name": "Electric water pump target speed",
+          "request": "221043",
+          "responsePrefix": "621043",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 25.0,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "max": 6375
+          }
+        },
+        {
+          "id": "prius_ewp_rpm",
+          "name": "Electric water pump RPM",
+          "request": "221043",
+          "responsePrefix": "621043",
+          "group": "live-fast",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 25.0,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "max": 6375
+          }
+        },
+        {
+          "id": "prius_knock_correct_learned_value",
+          "name": "Knock correction, learned value",
+          "request": "22105C",
+          "responsePrefix": "62105C",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.03125,
+            "offset": -1024
+          },
+          "range": {
+            "min": -1024,
+            "max": 1023
+          }
+        },
+        {
+          "id": "prius_knock_feedback_value",
+          "name": "Knock feedback value",
+          "request": "22105C",
+          "responsePrefix": "62105C",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.03125,
+            "offset": -1024
+          },
+          "range": {
+            "min": -1024,
+            "max": 1023
+          }
+        },
+        {
+          "id": "prius_ecu_internal_t",
+          "name": "ECU internal temperature",
+          "request": "22105E",
+          "responsePrefix": "62105E",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_exhaust_vvt_ocv_control_duty",
+          "name": "Exhaust VVT oil control valve control duty",
+          "request": "221062",
+          "responsePrefix": "621062",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.006103608758678569,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 400
+          }
+        },
+        {
+          "id": "prius_intake_vvt_target_angle_b1",
+          "name": "Intake VVT target angle B1",
+          "request": "22106F",
+          "responsePrefix": "62106F",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00976424811169604,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 639.9
+          }
+        },
+        {
+          "id": "prius_exhaust_vvt_target_angle_b1",
+          "name": "Exhaust VVT target angle B1",
+          "request": "221071",
+          "responsePrefix": "621071",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00976424811169604,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 639.9
+          }
+        },
+        {
+          "id": "prius_eop",
+          "name": "Engine Oil Pressure",
+          "request": "221074",
+          "responsePrefix": "621074",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.078125,
+            "offset": 0
+          },
+          "unit": "kPa",
+          "range": {
+            "max": 1000
+          }
+        },
+        {
+          "id": "prius_idle_sac_cyl_1",
+          "name": "Idle spark advance control, cylinder 1",
+          "request": "221078",
+          "responsePrefix": "621078",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0625,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 15.9375
+          }
+        },
+        {
+          "id": "prius_idle_sac_cyl_2",
+          "name": "Idle spark advance control, cylinder 2",
+          "request": "221078",
+          "responsePrefix": "621078",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0625,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 15.9375
+          }
+        },
+        {
+          "id": "prius_idle_sac_cyl_3",
+          "name": "Idle spark advance control, cylinder 3",
+          "request": "221078",
+          "responsePrefix": "621078",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0625,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 15.9375
+          }
+        },
+        {
+          "id": "prius_idle_sac_cyl_4",
+          "name": "Idle spark advance control, cylinder 4",
+          "request": "221078",
+          "responsePrefix": "621078",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0625,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 15.9375
+          }
+        },
+        {
+          "id": "prius_intake_vvt_change_angle_bank_1",
+          "name": "Intake VVT change angle bank 1",
+          "request": "221087",
+          "responsePrefix": "621087",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00976424811169604,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 639.9
+          }
+        },
+        {
+          "id": "prius_misfire_count",
+          "name": "Misfire, all cylinders counter",
+          "request": "2210A5",
+          "responsePrefix": "6210A5",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_mis_1",
+          "name": "Misfire count, cylinder 1",
+          "request": "2210A7",
+          "responsePrefix": "6210A7",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_mis_2",
+          "name": "Misfire count, cylinder 2",
+          "request": "2210A7",
+          "responsePrefix": "6210A7",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_mis_3",
+          "name": "Misfire count, cylinder 3",
+          "request": "2210A7",
+          "responsePrefix": "6210A7",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_mis_4",
+          "name": "Misfire count, cylinder 4",
+          "request": "2210A7",
+          "responsePrefix": "6210A7",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_misfire_load",
+          "name": "Misfire load",
+          "request": "2210AA",
+          "responsePrefix": "6210AA",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 2.0,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 510
+          }
+        },
+        {
+          "id": "prius_misfire_rpm",
+          "name": "Misfire RPM",
+          "request": "2210AA",
+          "responsePrefix": "6210AA",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 25.0,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "max": 6375
+          }
+        },
+        {
+          "id": "prius_misfire_margin",
+          "name": "Misfire margin",
+          "request": "2210AA",
+          "responsePrefix": "6210AA",
+          "group": "live-slow",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "unit": "rpm",
+          "range": {
+            "min": -128,
+            "max": 127
+          }
+        },
+        {
+          "id": "prius_lfp",
+          "name": "Low fuel pressure sensor",
+          "request": "2210CD",
+          "responsePrefix": "6210CD",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -3276.8
+          },
+          "unit": "kPa",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_lfps",
+          "name": "Low fuel pressure sensor",
+          "request": "2210CD",
+          "responsePrefix": "6210CD",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "kPa",
+          "range": {
+            "min": -3276,
+            "max": 3276
+          }
+        },
+        {
+          "id": "prius_cat_t_bank_1_sensor_1",
+          "name": "Catalyst temperature, bank 1 sensor 1",
+          "request": "221F3C",
+          "responsePrefix": "621F3C",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513.5
+          }
+        },
+        {
+          "id": "prius_cat_t_bank_1_sensor_2",
+          "name": "Catalyst temperature, bank 1 sensor 2",
+          "request": "221F3E",
+          "responsePrefix": "621F3E",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513.5
+          }
+        },
+        {
+          "id": "prius_eot_v2",
+          "name": "Engine oil temperature, variation 2",
+          "request": "221F5C",
+          "responsePrefix": "621F5C",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_eop_control_valve",
+          "name": "Engine oil pressure control valve",
+          "request": "222848",
+          "responsePrefix": "622848",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.076293,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 4999
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_701",
+      "name": "ECU 701",
+      "addressing": {
+        "request": "701",
+        "response": "709"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_odo_v5",
+          "name": "Odometer",
+          "request": "220103",
+          "responsePrefix": "620103",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_747",
+      "name": "ECU 747",
+      "addressing": {
+        "request": "747",
+        "response": "74F"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_odo_v6",
+          "name": "Odometer",
+          "request": "220103",
+          "responsePrefix": "620103",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          }
+        },
+        {
+          "id": "prius_hvbat_c01_v",
+          "name": "HV battery cell #01 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c02_v",
+          "name": "HV battery cell #02 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c03_v",
+          "name": "HV battery cell #03 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c04_v",
+          "name": "HV battery cell #04 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c05_v",
+          "name": "HV battery cell #05 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c06_v",
+          "name": "HV battery cell #06 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 10,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c07_v",
+          "name": "HV battery cell #07 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 12,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c08_v",
+          "name": "HV battery cell #08 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 14,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c09_v",
+          "name": "HV battery cell #09 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 16,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c10_v",
+          "name": "HV battery cell #10 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 18,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c11_v",
+          "name": "HV battery cell #11 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 20,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c12_v",
+          "name": "HV battery cell #12 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 22,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c13_v",
+          "name": "HV battery cell #13 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 24,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c14_v",
+          "name": "HV battery cell #14 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 26,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c15_v",
+          "name": "HV battery cell #15 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 28,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c16_v",
+          "name": "HV battery cell #16 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 30,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c17_v",
+          "name": "HV battery cell #17 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 32,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c18_v",
+          "name": "HV battery cell #18 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 34,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c19_v",
+          "name": "HV battery cell #19 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 36,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c20_v",
+          "name": "HV battery cell #20 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 38,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c21_v",
+          "name": "HV battery cell #21 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 40,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c22_v",
+          "name": "HV battery cell #22 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 42,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c23_v",
+          "name": "HV battery cell #23 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 44,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c24_v",
+          "name": "HV battery cell #24 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 46,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c25_v",
+          "name": "HV battery cell #25 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 48,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c26_v",
+          "name": "HV battery cell #26 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 50,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c27_v",
+          "name": "HV battery cell #27 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 52,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c28_v",
+          "name": "HV battery cell #28 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 54,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c29_v",
+          "name": "HV battery cell #29 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 56,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c30_v",
+          "name": "HV battery cell #30 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 58,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c31_v",
+          "name": "HV battery cell #31 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 60,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c32_v",
+          "name": "HV battery cell #32 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 62,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c33_v",
+          "name": "HV battery cell #33 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 64,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c34_v",
+          "name": "HV battery cell #34 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 66,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c35_v",
+          "name": "HV battery cell #35 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 68,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c36_v",
+          "name": "HV battery cell #36 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 70,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c37_v",
+          "name": "HV battery cell #37 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 72,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c38_v",
+          "name": "HV battery cell #38 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 74,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c39_v",
+          "name": "HV battery cell #39 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 76,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c40_v",
+          "name": "HV battery cell #40 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 78,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c41_v",
+          "name": "HV battery cell #41 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 80,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c42_v",
+          "name": "HV battery cell #42 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 82,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c43_v",
+          "name": "HV battery cell #43 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 84,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c44_v",
+          "name": "HV battery cell #44 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 86,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c45_v",
+          "name": "HV battery cell #45 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 88,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c46_v",
+          "name": "HV battery cell #46 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 90,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c47_v",
+          "name": "HV battery cell #47 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 92,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c48_v",
+          "name": "HV battery cell #48 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 94,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c49_v",
+          "name": "HV battery cell #49 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 96,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c50_v",
+          "name": "HV battery cell #50 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 98,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c51_v",
+          "name": "HV battery cell #51 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 100,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c52_v",
+          "name": "HV battery cell #52 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 102,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c53_v",
+          "name": "HV battery cell #53 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 104,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c54_v",
+          "name": "HV battery cell #54 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 106,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c55_v",
+          "name": "HV battery cell #55 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 108,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c56_v",
+          "name": "HV battery cell #56 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 110,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c57_v",
+          "name": "HV battery cell #57 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 112,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c58_v",
+          "name": "HV battery cell #58 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 114,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c59_v",
+          "name": "HV battery cell #59 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 116,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c60_v",
+          "name": "HV battery cell #60 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 118,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c61_v",
+          "name": "HV battery cell #61 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 120,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c62_v",
+          "name": "HV battery cell #62 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 122,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c63_v",
+          "name": "HV battery cell #63 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 124,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c64_v",
+          "name": "HV battery cell #64 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 126,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c65_v",
+          "name": "HV battery cell #65 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 128,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c66_v",
+          "name": "HV battery cell #66 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 130,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c67_v",
+          "name": "HV battery cell #67 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 132,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c68_v",
+          "name": "HV battery cell #68 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 134,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c69_v",
+          "name": "HV battery cell #69 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 136,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c70_v",
+          "name": "HV battery cell #70 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 138,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c71_v",
+          "name": "HV battery cell #71 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 140,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c72_v",
+          "name": "HV battery cell #72 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 142,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c73_v",
+          "name": "HV battery cell #73 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 144,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c74_v",
+          "name": "HV battery cell #74 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 146,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c75_v",
+          "name": "HV battery cell #75 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 148,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c76_v",
+          "name": "HV battery cell #76 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 150,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c77_v",
+          "name": "HV battery cell #77 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 152,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c78_v",
+          "name": "HV battery cell #78 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 154,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c79_v",
+          "name": "HV battery cell #79 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 156,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c80_v",
+          "name": "HV battery cell #80 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 158,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c81_v",
+          "name": "HV battery cell #81 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 160,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c82_v",
+          "name": "HV battery cell #82 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 162,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c83_v",
+          "name": "HV battery cell #83 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 164,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c84_v",
+          "name": "HV battery cell #84 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 166,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c85_v",
+          "name": "HV battery cell #85 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 168,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c86_v",
+          "name": "HV battery cell #86 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 170,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c87_v",
+          "name": "HV battery cell #87 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 172,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c88_v",
+          "name": "HV battery cell #88 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 174,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c89_v",
+          "name": "HV battery cell #89 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 176,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c90_v",
+          "name": "HV battery cell #90 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 178,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c91_v",
+          "name": "HV battery cell #91 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 180,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c92_v",
+          "name": "HV battery cell #92 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 182,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c93_v",
+          "name": "HV battery cell #93 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 184,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c94_v",
+          "name": "HV battery cell #94 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 186,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c95_v",
+          "name": "HV battery cell #95 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 188,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "prius_hvbat_c96_v",
+          "name": "HV battery cell #96 voltage",
+          "request": "22182E",
+          "responsePrefix": "62182E",
+          "group": "live-slow",
+          "extract": {
+            "start": 190,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 7.629510948348211e-05,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_750",
+      "name": "ECU 750",
+      "addressing": {
+        "request": "750",
+        "response": "758"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_tt_fl_v1",
+          "name": "Front left tire temperature",
+          "request": "2116",
+          "responsePrefix": "6116",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 150
+          }
+        },
+        {
+          "id": "prius_tt_fr_v1",
+          "name": "Front right tire temperature",
+          "request": "2116",
+          "responsePrefix": "6116",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 150
+          }
+        },
+        {
+          "id": "prius_tt_rl_v1",
+          "name": "Rear left tire temperature",
+          "request": "2116",
+          "responsePrefix": "6116",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 150
+          }
+        },
+        {
+          "id": "prius_tt_rr_v1",
+          "name": "Rear right tire temperature",
+          "request": "2116",
+          "responsePrefix": "6116",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 150
+          }
+        },
+        {
+          "id": "prius_tt_spare_v1",
+          "name": "Spare tire temperature",
+          "request": "2116",
+          "responsePrefix": "6116",
+          "group": "live-slow",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 150
+          }
+        },
+        {
+          "id": "prius_tp_fl_v1",
+          "name": "Front left tire pressure",
+          "request": "2130",
+          "responsePrefix": "6130",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.017241379310344827,
+            "offset": -0.5
+          },
+          "unit": "bar",
+          "range": {
+            "max": 3.8
+          }
+        },
+        {
+          "id": "prius_tp_fr_v1",
+          "name": "Front right tire pressure",
+          "request": "2130",
+          "responsePrefix": "6130",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.017241379310344827,
+            "offset": -0.5
+          },
+          "unit": "bar",
+          "range": {
+            "max": 3.8
+          }
+        },
+        {
+          "id": "prius_tp_rl_v1",
+          "name": "Rear left tire pressure",
+          "request": "2130",
+          "responsePrefix": "6130",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.017241379310344827,
+            "offset": -0.5
+          },
+          "unit": "bar",
+          "range": {
+            "max": 3.8
+          }
+        },
+        {
+          "id": "prius_tp_rr_v1",
+          "name": "Rear right tire pressure",
+          "request": "2130",
+          "responsePrefix": "6130",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.017241379310344827,
+            "offset": -0.5
+          },
+          "unit": "bar",
+          "range": {
+            "max": 3.8
+          }
+        },
+        {
+          "id": "prius_tp_spare_v1",
+          "name": "Spare tire pressure",
+          "request": "2130",
+          "responsePrefix": "6130",
+          "group": "live-slow",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.017241379310344827,
+            "offset": -0.5
+          },
+          "unit": "bar",
+          "range": {
+            "max": 3.8
+          }
+        },
+        {
+          "id": "prius_tid_1",
+          "name": "Tire 1 position",
+          "request": "222021",
+          "responsePrefix": "622021",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Front left",
+              "2": "Front right",
+              "3": "Rear left",
+              "4": "Rear right"
+            }
+          }
+        },
+        {
+          "id": "prius_tid_2",
+          "name": "Tire 2 position",
+          "request": "222021",
+          "responsePrefix": "622021",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Front left",
+              "2": "Front right",
+              "3": "Rear left",
+              "4": "Rear right"
+            }
+          }
+        },
+        {
+          "id": "prius_tid_3",
+          "name": "Tire 3 position",
+          "request": "222021",
+          "responsePrefix": "622021",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Front left",
+              "2": "Front right",
+              "3": "Rear left",
+              "4": "Rear right"
+            }
+          }
+        },
+        {
+          "id": "prius_tid_4",
+          "name": "Tire 4 position",
+          "request": "222021",
+          "responsePrefix": "622021",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Front left",
+              "2": "Front right",
+              "3": "Rear left",
+              "4": "Rear right"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7b0",
+      "name": "ECU 7B0",
+      "addressing": {
+        "request": "7B0",
+        "response": "7B8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_tire_fr_spd",
+          "name": "Front right wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          }
+        },
+        {
+          "id": "prius_tire_fl_spd",
+          "name": "Front left wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "group": "live-fast",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          }
+        },
+        {
+          "id": "prius_tire_rr_spd",
+          "name": "Rear right wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "group": "live-fast",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          }
+        },
+        {
+          "id": "prius_tire_rl_spd",
+          "name": "Rear left wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "group": "live-fast",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          }
+        },
+        {
+          "id": "prius_lat_g",
+          "name": "Lateral g",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 1,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.02,
+            "offset": 0
+          },
+          "unit": "gravity",
+          "range": {
+            "min": -2.5,
+            "max": 2.5
+          }
+        },
+        {
+          "id": "prius_lng_g",
+          "name": "Longitudinal g",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "group": "live-fast",
+          "extract": {
+            "start": 1,
+            "length": 1,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.02,
+            "offset": 0
+          },
+          "unit": "gravity",
+          "range": {
+            "min": -2.5,
+            "max": 2.5
+          }
+        },
+        {
+          "id": "prius_yaw_rate",
+          "name": "Yaw rate value (degrees/sec)",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "group": "live-fast",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "unit": "°",
+          "range": {
+            "min": -128,
+            "max": 127
+          }
+        },
+        {
+          "id": "prius_steer_angle",
+          "name": "Steering wheel angle",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "group": "live-fast",
+          "extract": {
+            "start": 3,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -3276.8
+          },
+          "unit": "°",
+          "range": {
+            "min": -3276,
+            "max": 3276
+          }
+        },
+        {
+          "id": "prius_master_cyl_temp",
+          "name": "Master Cylinder Sensor Temperature",
+          "request": "221006",
+          "responsePrefix": "621006",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -80
+          },
+          "unit": "°C",
+          "range": {
+            "min": -20,
+            "max": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7b3",
+      "name": "ECU 7B3",
+      "addressing": {
+        "request": "7B3",
+        "response": "7BB"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_steering_angle",
+          "name": "Steering Angle",
+          "request": "221004",
+          "responsePrefix": "621004",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.5,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "min": -410,
+            "max": 410
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7c0",
+      "name": "ECU 7C0",
+      "addressing": {
+        "request": "7C0",
+        "response": "7C8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_fli_vol",
+          "name": "Fuel level (volume)",
+          "request": "2129",
+          "responsePrefix": "6129",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.13210039630118892,
+            "offset": 0
+          },
+          "unit": "gallons",
+          "range": {
+            "max": 21
+          }
+        },
+        {
+          "id": "prius_battery_voltage",
+          "name": "B+ Battery Voltage",
+          "request": "221021",
+          "responsePrefix": "621021",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 20
+          }
+        },
+        {
+          "id": "prius_flv",
+          "name": "Fuel remaining",
+          "request": "221022",
+          "responsePrefix": "621022",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "L",
+          "range": {
+            "max": 655
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7d0",
+      "name": "ECU 7D0",
+      "addressing": {
+        "request": "7D0",
+        "response": "7D8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_parking_brake",
+          "name": "Parking brake",
+          "request": "2162",
+          "responsePrefix": "6162",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Off",
+              "3": "On",
+              "5": "Off",
+              "7": "On",
+              "9": "Off",
+              "11": "On",
+              "16": "Off",
+              "48": "On",
+              "144": "Off",
+              "176": "On",
+              "208": "Off",
+              "240": "On"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7d2",
+      "name": "ECU 7D2",
+      "addressing": {
+        "request": "7D2",
+        "response": "7DA"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_hvbat_soc_max",
+          "name": "HV battery charge (max)",
+          "request": "22106C",
+          "responsePrefix": "62106C",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.5,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_hvbat_soc_min",
+          "name": "HV battery charge (min)",
+          "request": "22106C",
+          "responsePrefix": "62106C",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.5,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_vss_v2",
+          "name": "Vehicle speed",
+          "request": "221F0D",
+          "responsePrefix": "621F0D",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_odo_v2_v2",
+          "name": "Odometer",
+          "request": "220103",
+          "responsePrefix": "620103",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          }
+        },
+        {
+          "id": "prius_fr_wheel_vss",
+          "name": "Front right wheel speed",
+          "request": "221075",
+          "responsePrefix": "621075",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "unit": "km/h",
+          "range": {
+            "min": -327.68,
+            "max": 327.67
+          }
+        },
+        {
+          "id": "prius_fl_wheel_vss",
+          "name": "Front left wheel speed",
+          "request": "221075",
+          "responsePrefix": "621075",
+          "group": "live-fast",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "unit": "km/h",
+          "range": {
+            "min": -327.68,
+            "max": 327.67
+          }
+        },
+        {
+          "id": "prius_rr_wheel_vss",
+          "name": "Rear right wheel speed",
+          "request": "221075",
+          "responsePrefix": "621075",
+          "group": "live-fast",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "unit": "km/h",
+          "range": {
+            "min": -327.68,
+            "max": 327.67
+          }
+        },
+        {
+          "id": "prius_rl_wheel_vss",
+          "name": "Rear left wheel speed",
+          "request": "221075",
+          "responsePrefix": "621075",
+          "group": "live-fast",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "unit": "km/h",
+          "range": {
+            "min": -327.68,
+            "max": 327.67
+          }
+        },
+        {
+          "id": "prius_rpm",
+          "name": "Motor RPM",
+          "request": "2210A1",
+          "responsePrefix": "6210A1",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -32768
+          },
+          "unit": "rpm",
+          "range": {
+            "min": -32768,
+            "max": 32767
+          }
+        },
+        {
+          "id": "prius_tq",
+          "name": "Motor torque",
+          "request": "2210A1",
+          "responsePrefix": "6210A1",
+          "group": "live-fast",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.125,
+            "offset": -4096
+          },
+          "unit": "Nm",
+          "range": {
+            "min": -4096,
+            "max": 4095
+          }
+        },
+        {
+          "id": "prius_rm_tq_req",
+          "name": "Rear motor torque, requested",
+          "request": "2210A2",
+          "responsePrefix": "6210A2",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -32768
+          },
+          "unit": "Nm",
+          "range": {
+            "min": -32768,
+            "max": 32767
+          }
+        },
+        {
+          "id": "prius_rm_tq",
+          "name": "Rear motor torque",
+          "request": "2210A2",
+          "responsePrefix": "6210A2",
+          "group": "live-fast",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.125,
+            "offset": -4096
+          },
+          "unit": "Nm",
+          "range": {
+            "min": -4096,
+            "max": 4095
+          }
+        },
+        {
+          "id": "prius_rm_invrt_cool_t",
+          "name": "Rear motor inverter, coolant temperature",
+          "request": "2210A6",
+          "responsePrefix": "6210A6",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_m_invrt_max_t",
+          "name": "Motor inverter, maximum temperature",
+          "request": "2210A6",
+          "responsePrefix": "6210A6",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_invrt_coolant_t",
+          "name": "Inverter coolant temperature",
+          "request": "2210B2",
+          "responsePrefix": "6210B2",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_12v_v",
+          "name": "12V battery voltage",
+          "request": "2215EE",
+          "responsePrefix": "6215EE",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.31448,
+            "offset": 0.0125
+          },
+          "unit": "V",
+          "range": {
+            "max": 80.2
+          }
+        },
+        {
+          "id": "prius_12v_c",
+          "name": "12V battery current",
+          "request": "2215F7",
+          "responsePrefix": "6215F7",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0038147,
+            "offset": -125
+          },
+          "unit": "A",
+          "range": {
+            "min": -125,
+            "max": 124
+          }
+        },
+        {
+          "id": "prius_12v_t",
+          "name": "12V battery temperature",
+          "request": "2215F8",
+          "responsePrefix": "6215F8",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513.5
+          }
+        },
+        {
+          "id": "prius_cool_t",
+          "name": "Coolant temperature",
+          "request": "221F05",
+          "responsePrefix": "621F05",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_aat",
+          "name": "Ambient temperature",
+          "request": "221F46",
+          "responsePrefix": "621F46",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_acc_pedal_pos_1",
+          "name": "Accelerator pedal, position 1",
+          "request": "221F49",
+          "responsePrefix": "621F49",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_acc_pedal_pos_2",
+          "name": "Accelerator pedal, position 2",
+          "request": "221F4A",
+          "responsePrefix": "621F4A",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_soc",
+          "name": "State of charge",
+          "request": "221F5B",
+          "responsePrefix": "621F5B",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "prius_hvbat_v",
+          "name": "HV battery voltage",
+          "request": "221F9A",
+          "responsePrefix": "621F9A",
+          "group": "live-fast",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.015625,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 1023
+          }
+        },
+        {
+          "id": "prius_hvbat_c",
+          "name": "HV battery current",
+          "request": "221F9A",
+          "responsePrefix": "621F9A",
+          "group": "live-fast",
+          "extract": {
+            "start": 4,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "A",
+          "range": {
+            "min": -3276.8,
+            "max": 3276.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7e0",
+      "name": "ECU 7E0",
+      "addressing": {
+        "request": "7E0",
+        "response": "7E8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "prius_cc_s",
+          "name": "Cruise control speed",
+          "request": "2121",
+          "responsePrefix": "6121",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "prius_odo",
+          "name": "Odometer",
+          "request": "2128",
+          "responsePrefix": "6128",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          }
+        },
+        {
+          "id": "prius_prev_trip_dst",
+          "name": "Previous trip distance",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "group": "live-slow",
+          "extract": {
+            "start": 5,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 655.35
+          }
+        },
+        {
+          "id": "prius_vvtot",
+          "name": "Variable valve timing oil temperature",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "group": "live-slow",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_eot",
+          "name": "Engine oil temperature",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "group": "live-slow",
+          "extract": {
+            "start": 9,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_atf_pan_t",
+          "name": "Transmission temperature (pan)",
+          "request": "2182",
+          "responsePrefix": "6182",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "prius_atf_tqc_t",
+          "name": "Transmission temperature (torque converter)",
+          "request": "2182",
+          "responsePrefix": "6182",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        }
+      ]
+    }
+  ]
+}

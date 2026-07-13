@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BDB0000000000000000BF01 /* toyota-prius-zw30.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE01 /* toyota-prius-zw30.json */; };
+		0BDB0000000000000000BF02 /* honda-civic-typer.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE02 /* honda-civic-typer.json */; };
+		0BDB0000000000000000BF03 /* honda-s2000.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE03 /* honda-s2000.json */; };
+		0BDB0000000000000000BF04 /* vw-transporter-t5.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE04 /* vw-transporter-t5.json */; };
+		0BDB0000000000000000BF05 /* peugeot-407.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE05 /* peugeot-407.json */; };
 		12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */; };
 		17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */; };
 		1960E062F5F6BBD650921F9A /* Pods_OBD2Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */; };
@@ -245,6 +250,11 @@
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
+		0BDB0000000000000000FE01 /* toyota-prius-zw30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius-zw30.json"; sourceTree = "<group>"; };
+		0BDB0000000000000000FE02 /* honda-civic-typer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "honda-civic-typer.json"; sourceTree = "<group>"; };
+		0BDB0000000000000000FE03 /* honda-s2000.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "honda-s2000.json"; sourceTree = "<group>"; };
+		0BDB0000000000000000FE04 /* vw-transporter-t5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vw-transporter-t5.json"; sourceTree = "<group>"; };
+		0BDB0000000000000000FE05 /* peugeot-407.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "peugeot-407.json"; sourceTree = "<group>"; };
 		1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.release.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.release.xcconfig"; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
 		21D0007256C63720BCCE6561 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -566,6 +576,11 @@
 				AB67790B6A8F5495B31AEC9F /* vag-mqb.json */,
 				EB65549DC99D42ADF3C03946 /* obd2-standard.json */,
 				CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */,
+				0BDB0000000000000000FE01 /* toyota-prius-zw30.json */,
+				0BDB0000000000000000FE02 /* honda-civic-typer.json */,
+				0BDB0000000000000000FE03 /* honda-s2000.json */,
+				0BDB0000000000000000FE04 /* vw-transporter-t5.json */,
+				0BDB0000000000000000FE05 /* peugeot-407.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1642,6 +1657,11 @@
 				245B1550870FDD935A921E72 /* vag-mqb.json in Resources */,
 				21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */,
 				CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */,
+				0BDB0000000000000000BF01 /* toyota-prius-zw30.json in Resources */,
+				0BDB0000000000000000BF02 /* honda-civic-typer.json in Resources */,
+				0BDB0000000000000000BF03 /* honda-s2000.json in Resources */,
+				0BDB0000000000000000BF04 /* vw-transporter-t5.json in Resources */,
+				0BDB0000000000000000BF05 /* peugeot-407.json in Resources */,
 				DE2F0AFC2A69911E00471667 /* Inter-Medium.ttf in Resources */,
 				DE2F0AFD2A69911E00471667 /* Inter-Bold.ttf in Resources */,
 				DE4B7E5F2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf in Resources */,
@@ -2071,7 +2091,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2112,7 +2132,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;

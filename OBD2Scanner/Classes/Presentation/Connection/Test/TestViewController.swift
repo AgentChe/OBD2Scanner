@@ -161,14 +161,21 @@ private extension TestViewController {
 
     func connect(method: OBDConnectionMethod) {
         // Тестовые заглушки авто для подбора ECU-профиля.
+        // Порядок кейсов должен совпадать с сегментами TestView.makeVehicleControl().
         let vehicle: Vehicle?
         switch mainView.vehicleControl.selectedSegmentIndex {
         case 0:
             vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Camry", "year": 2019])
         case 1:
-            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Peugeot", "model": "407", "year": 2007])
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Prius", "year": 2010])
         case 2:
-            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Toyota", "model": "Prius", "year": 2012])
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Honda", "model": "Civic Type R", "year": 2016])
+        case 3:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Honda", "model": "S2000", "year": 2000])
+        case 4:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Volkswagen", "model": "Transporter", "year": 2013])
+        case 5:
+            vehicle = Vehicle(json: ["vehicle_id": "test", "make": "Peugeot", "model": "407", "year": 2007])
         default:
             vehicle = nil
         }

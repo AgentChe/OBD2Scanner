@@ -21,6 +21,14 @@ OBD по машинам: один репозиторий на модель, си
     - байт-выровненные enum-карты (fmt.map) -> decode.kind = "enum";
     - группа опроса: OBDb `freq` — период опроса в секундах (0.25 = 4 раза/с),
       период < 1 c -> live-fast, иначе (или без freq) -> live-slow.
+    - 29-битная адресация: OBDb-шорткат `DAxx` (Honda, часть PSA) разворачивается
+      в ELM327-заголовки 18DA<ecu>F1 / 18DAF1<ecu>; если все ECU 29-битные,
+      профилю ставится протокол 7 (иначе 6).
+
+Полезные флаги сужения (для brand-репо, где сигналов на все платформы сразу):
+    --only-hdr 7E0 7E1   оставить только эти ECU (напр. двигатель/коробка);
+    --drop-path Battery  выбросить сигналы этой ветки (напр. ячейки ВВБ гибрида);
+    --protocol 6|7       принудительно задать протокол шины.
 
 Что попадает в отчёт на stderr и переносится вручную:
     - не байт-выровненные поля шире 1 бита (нужен bit-level extract в движке);
@@ -46,6 +54,27 @@ UNIT_MAP = {
 }
 
 
+def elm_addressing(hdr, rax):
+    """(hdr, rax из OBDb) -> (request, response, is_29bit) как строки заголовков ELM327.
+
+    OBDb-шорткат `DAxx` (Honda, часть PSA) — это 29-битная ISO-TP normal fixed
+    адресация: запросный CAN ID = 18 DA <target> F1, ответный = 18 DA F1 <target>.
+    Движок шлёт их как есть (`ATSH18DA10F1` / `ATCRA18DAF110`), а сборщик кадров
+    берёт первые 8 hex каждой строки ответа как ключ ECU — совпадает с response.
+    Для 11-битной адресации возвращаем hdr/rax без изменений.
+    """
+    hdr = hdr.upper()
+    rax = (rax or "").upper()
+    if len(hdr) == 4 and hdr.startswith("DA"):
+        target = hdr[2:4]
+        return "18" + hdr + "F1", "18DAF1" + (rax or target), True
+    if rax:
+        return hdr, rax, False
+    if len(hdr) == 3:
+        return hdr, format(int(hdr, 16) + 8, "03X"), False
+    return hdr, None, False  # функциональный/нестандартный — без точного ответа
+
+
 def year_matches(filt, year):
     if not filt or year is None:
         return True
@@ -69,6 +98,8 @@ def convert(obdb, args):
         if not hdr or len(cmd) != 1:
             skipped.append((str(cmd), "нет hdr или нестандартный cmd"))
             continue
+        if args.only_hdr and hdr.upper() not in args.only_hdr:
+            continue
         if not rax and len(hdr) == 3:
             # 11-битная физическая адресация: ответный CAN ID = запросный + 8
             # (ISO 15765-4). Без rax команда иначе выглядела бы функциональной.
@@ -85,6 +116,9 @@ def convert(obdb, args):
             continue
 
         for signal in command.get("signals", []):
+            path = signal.get("path", "")
+            if args.drop_path and any(path.startswith(p) for p in args.drop_path):
+                continue
             fmt = signal.get("fmt", {})
             sid = signal.get("id", "?")
             bix = fmt.get("bix", 0)
@@ -149,10 +183,15 @@ def convert(obdb, args):
 
     profile_ecus = []
     used_ids = set()
+    any29 = False
+    all29 = True
     for (hdr, rax), parameters in sorted(ecus.items()):
-        addressing = {"request": hdr}
-        if rax:
-            addressing["response"] = rax
+        request, response, is29 = elm_addressing(hdr, rax)
+        any29 = any29 or is29
+        all29 = all29 and is29
+        addressing = {"request": request}
+        if response:
+            addressing["response"] = response
         ecu_id = f"ecu_{hdr.lower()}"
         if ecu_id in used_ids:
             ecu_id = f"ecu_{hdr.lower()}_{rax.lower() or 'fn'}"
@@ -179,13 +218,23 @@ def convert(obdb, args):
     if years:
         match["years"] = years
 
+    if args.protocol:
+        protocol = args.protocol
+    elif profile_ecus and all29:
+        protocol = "7"  # CAN 29 бит (все ECU 29-битные, напр. Honda)
+    else:
+        protocol = "6"  # CAN 11 бит (почти все машины)
+    if any29 and not all29 and not args.protocol:
+        skipped.append(("*профиль*", "смешаны 11- и 29-битные ECU; ELM327 держит "
+                        "один протокол — задайте --protocol/--only-hdr или разделите"))
+
     profile = {
         "schemaVersion": 1,
         "id": args.id,
         "name": args.name or args.id,
         "priority": args.priority,
         "match": match,
-        "bus": {"elmProtocol": "6"},
+        "bus": {"elmProtocol": protocol},
         "ecus": profile_ecus,
     }
     return profile, skipped
@@ -202,8 +251,18 @@ def main():
     parser.add_argument("--year-to", type=int)
     parser.add_argument("--filter-year", type=int,
                         help="брать только команды, чей OBDb-фильтр покрывает этот год")
+    parser.add_argument("--only-hdr", nargs="*",
+                        help="оставить только команды с этими hdr (напр. 7E0 7E1)")
+    parser.add_argument("--drop-path", nargs="*",
+                        help="выбросить сигналы, чей path начинается с любого из префиксов (напр. Battery)")
+    parser.add_argument("--protocol",
+                        help="явно задать bus.elmProtocol (6=CAN 11 бит, 7=CAN 29 бит); "
+                             "по умолчанию 6, либо 7 если все ECU 29-битные")
     parser.add_argument("--priority", type=int, default=100)
     args = parser.parse_args()
+
+    if args.only_hdr:
+        args.only_hdr = {h.upper() for h in args.only_hdr}
 
     with open(args.input, encoding="utf-8") as f:
         obdb = json.load(f)

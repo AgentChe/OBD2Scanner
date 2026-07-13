@@ -1,21 +1,20 @@
 {
   "schemaVersion": 1,
   "id": "toyota-prius",
-  "name": "Toyota Prius Gen3/v (гибрид, сервис 21)",
+  "name": "Toyota Prius+ / Prius v ZVW40 (Torque, кандидат)",
   "priority": 110,
   "match": {
     "brands": [
       "toyota"
     ],
     "models": [
-      "prius",
       "prius+",
       "prius v",
       "prius plus"
     ],
     "years": {
-      "from": 2009,
-      "to": 2016
+      "from": 2012,
+      "to": 2020
     }
   },
   "bus": {

@@ -7,16 +7,12 @@
 
 import UIKit
 
-final class DashboardUnlimitedView: UIView {
+final class DashboardUnlimitedView: GradientView {
     lazy var specialOfferLabel = makeSpecialOfferLabel()
     lazy var iconView = makeIconView()
     lazy var nameLabel = makeNameLabel()
     lazy var upgradeButton = makeUpgradeButton()
-
-    override class var layerClass: AnyClass {
-        CAGradientLayer.self
-    }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -32,10 +28,6 @@ final class DashboardUnlimitedView: UIView {
 // MARK: Private
 private extension DashboardUnlimitedView {
     func initialize() {
-        guard let gradientLayer = layer as? CAGradientLayer else {
-            return
-        }
-
         gradientLayer.colors = [
             Appearance.color_28D799.withAlphaComponent(0.25).cgColor,
             UIColor.clear.cgColor
@@ -54,8 +46,8 @@ private extension DashboardUnlimitedView {
         ])
 
         NSLayoutConstraint.activate([
-            iconView.widthAnchor.constraint(equalToConstant: 28.scale),
-            iconView.heightAnchor.constraint(equalToConstant: 28.scale),
+            iconView.widthAnchor.constraint(equalToConstant: 32.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 32.scale),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             iconView.topAnchor.constraint(equalTo: specialOfferLabel.bottomAnchor, constant: 6.scale),
             iconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.scale)
@@ -80,7 +72,7 @@ private extension DashboardUnlimitedView {
     func makeSpecialOfferLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.6))
-            .font(Fonts.NotoSans.regular(size: 12.scale))
+            .font(Fonts.NotoSans.medium(size: 12.scale))
             .textAlignment(.left)
 
         let view = UILabel()
@@ -102,7 +94,7 @@ private extension DashboardUnlimitedView {
     func makeNameLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
-            .font(Fonts.NotoSans.bold(size: 20.scale))
+            .font(Fonts.NotoSans.semiBold(size: 24.scale))
             .textAlignment(.left)
 
         let view = UILabel()
@@ -114,18 +106,18 @@ private extension DashboardUnlimitedView {
 
     func makeUpgradeButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_121721)
-            .font(Fonts.NotoSans.semiBold(size: 14.scale))
+            .textColor(Appearance.color_FFFFFF)
+            .font(Fonts.NotoSans.semiBold(size: 16.scale))
 
         var configuration = UIButton.Configuration.plain()
         configuration.attributedTitle = AttributedString("Dashboard.Unlimited.UpgradePlan".localized.attributed(with: attrs))
         configuration.image = UIImage(named: "Dashboard.UpgradePlan")
         configuration.imagePadding = 6.scale
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16.scale, bottom: 0, trailing: 16.scale)
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12.scale, bottom: 0, trailing: 12.scale)
 
         let view = UIButton(configuration: configuration)
         view.backgroundColor = Appearance.color_28D799
-        view.layer.cornerRadius = 12.scale
+        view.layer.cornerRadius = 8.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

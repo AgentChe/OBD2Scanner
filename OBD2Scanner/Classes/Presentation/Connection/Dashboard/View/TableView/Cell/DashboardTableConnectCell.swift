@@ -16,18 +16,15 @@ final class DashboardTableConnectCell: UITableViewCell {
 
     private lazy var connectedAttrs = TextAttributes()
         .textColor(Appearance.color_28D799)
-        .font(Fonts.NotoSans.semiBold(size: 16.scale))
+        .font(Fonts.NotoSans.bold(size: 16.scale))
         .textAlignment(.left)
     private lazy var notConnectedAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
-        .font(Fonts.NotoSans.semiBold(size: 16.scale))
+        .font(Fonts.NotoSans.bold(size: 16.scale))
         .textAlignment(.left)
-    private lazy var connectAttrs = TextAttributes()
-        .textColor(Appearance.color_121721)
-        .font(Fonts.NotoSans.semiBold(size: 14.scale))
-    private lazy var disconnectAttrs = TextAttributes()
+    private lazy var buttonAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
-        .font(Fonts.NotoSans.semiBold(size: 14.scale))
+        .font(Fonts.NotoSans.semiBold(size: 16.scale))
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,8 +48,8 @@ extension DashboardTableConnectCell {
             : "Dashboard.Connect.NotConnected".localized.attributed(with: notConnectedAttrs)
 
         let title = isConnected
-            ? "Dashboard.Connect.Disconnect".localized.attributed(with: disconnectAttrs)
-            : "Dashboard.Connect.Connect".localized.attributed(with: connectAttrs)
+            ? "Dashboard.Connect.Disconnect".localized.attributed(with: buttonAttrs)
+            : "Dashboard.Connect.Connect".localized.attributed(with: buttonAttrs)
         actionButton.configuration?.attributedTitle = AttributedString(title)
         actionButton.backgroundColor = isConnected ? Appearance.color_F5403A : Appearance.color_28D799
     }
@@ -74,14 +71,14 @@ private extension DashboardTableConnectCell {
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
-            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6.scale),
+            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40.scale),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6.scale),
-            container.heightAnchor.constraint(equalToConstant: 76.scale)
+            container.heightAnchor.constraint(equalToConstant: 92.scale)
         ])
 
         NSLayoutConstraint.activate([
-            statusIconView.widthAnchor.constraint(equalToConstant: 52.scale),
-            statusIconView.heightAnchor.constraint(equalToConstant: 52.scale),
+            statusIconView.widthAnchor.constraint(equalToConstant: 68.scale),
+            statusIconView.heightAnchor.constraint(equalToConstant: 68.scale),
             statusIconView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.scale),
             statusIconView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
         ])
@@ -89,13 +86,13 @@ private extension DashboardTableConnectCell {
         NSLayoutConstraint.activate([
             statusLabel.leadingAnchor.constraint(equalTo: statusIconView.trailingAnchor, constant: 12.scale),
             statusLabel.trailingAnchor.constraint(lessThanOrEqualTo: actionButton.leadingAnchor, constant: -8.scale),
-            statusLabel.bottomAnchor.constraint(equalTo: container.centerYAnchor, constant: -1.scale)
+            statusLabel.bottomAnchor.constraint(equalTo: container.centerYAnchor, constant: -2.scale)
         ])
 
         NSLayoutConstraint.activate([
-            subTitleLabel.leadingAnchor.constraint(equalTo: statusLabel.leadingAnchor),
+            subTitleLabel.leadingAnchor.constraint(equalTo: statusIconView.trailingAnchor, constant: 12.scale),
             subTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: actionButton.leadingAnchor, constant: -8.scale),
-            subTitleLabel.topAnchor.constraint(equalTo: container.centerYAnchor, constant: 1.scale)
+            subTitleLabel.topAnchor.constraint(equalTo: container.centerYAnchor, constant: 2.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -108,12 +105,20 @@ private extension DashboardTableConnectCell {
 
 // MARK: Lazy initialization
 private extension DashboardTableConnectCell {
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.backgroundColor = Appearance.color_191F2B
+    func makeContainer() -> GradientView {
+        let view = GradientView()
+        view.backgroundColor = UIColor.clear
+        view.gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        view.gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        view.gradientLayer.colors = [
+            Appearance.color_191F2B.cgColor,
+            Appearance.color_293348.cgColor
+        ]
+        view.gradientLayer.locations = [
+            NSNumber(value: 0),
+            NSNumber(value: 1)
+        ]
         view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
@@ -136,8 +141,8 @@ private extension DashboardTableConnectCell {
 
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
-            .font(Fonts.NotoSans.regular(size: 13.scale))
+            .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.6))
+            .font(Fonts.NotoSans.regular(size: 14.scale))
             .textAlignment(.left)
 
         let view = UILabel()
@@ -152,7 +157,7 @@ private extension DashboardTableConnectCell {
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16.scale, bottom: 0, trailing: 16.scale)
 
         let view = UIButton(configuration: configuration)
-        view.layer.cornerRadius = 10.scale
+        view.layer.cornerRadius = 8.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

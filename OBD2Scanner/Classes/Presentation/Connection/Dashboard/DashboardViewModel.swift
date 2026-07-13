@@ -30,13 +30,13 @@ extension DashboardViewModel {
 private extension DashboardViewModel {
     func makeElements() -> Driver<[DashboardTableElement]> {
         Driver.just([
-            .demoMode,
+            .demoMode(true),
             .activeVehicle(nil),
             .connect(isConnected: false),
-            .menu(.diagnostics),
-            .menu(.freezeFrame),
-            .menu(.hud),
-            .menu(.recallHistory)
+            .menu(.diagnostics, true),
+            .menu(.freezeFrame, true),
+            .menu(.hud, true),
+            .menu(.recallHistory, true)
         ])
     }
 }

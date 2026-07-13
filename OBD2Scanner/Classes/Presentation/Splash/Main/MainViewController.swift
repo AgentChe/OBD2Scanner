@@ -39,7 +39,7 @@ private extension MainViewController {
             makeTab(root: SettingsViewController.make(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill"),
             makeTab(root: TestViewController.make(), title: "Test", icon: "wrench.fill") // TODO: delete
         ]
-        selectedIndex = 1
+        selectedIndex = 0
     }
 
     func makeTab(root: UIViewController, title: String, icon: String) -> NavigationController {

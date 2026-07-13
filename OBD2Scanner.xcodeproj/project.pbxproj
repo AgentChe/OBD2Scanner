@@ -177,6 +177,7 @@
 		DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */; };
 		DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */; };
 		DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */; };
+		DE30F907300515E20062CE8D /* DashboardTableDemoStopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */; };
 		DE4B7E5B2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */; };
 		DE4B7E5D2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */; };
 		DE4B7E5F2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */; };
@@ -222,8 +223,7 @@
 		DED81C302FFC11760044284D /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2F2FFC11760044284D /* DashboardTableView.swift */; };
 		DED81C322FFC117D0044284D /* DashboardTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C312FFC117D0044284D /* DashboardTableElement.swift */; };
 		DED81C352FFC11B10044284D /* DashboardUnlimitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */; };
-		DED81C372FFC11DF0044284D /* DashboardDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C362FFC11DF0044284D /* DashboardDemoView.swift */; };
-		DED81C392FFC11F20044284D /* DashboardTableDemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C382FFC11F20044284D /* DashboardTableDemoCell.swift */; };
+		DED81C392FFC11F20044284D /* DashboardTableDemoStartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */; };
 		DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */; };
 		DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */; };
 		DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */; };
@@ -415,6 +415,7 @@
 		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
+		DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoStopCell.swift; sourceTree = "<group>"; };
 		DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
 		DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
 		DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -460,8 +461,7 @@
 		DED81C2F2FFC11760044284D /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
 		DED81C312FFC117D0044284D /* DashboardTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableElement.swift; sourceTree = "<group>"; };
 		DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUnlimitedView.swift; sourceTree = "<group>"; };
-		DED81C362FFC11DF0044284D /* DashboardDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDemoView.swift; sourceTree = "<group>"; };
-		DED81C382FFC11F20044284D /* DashboardTableDemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoCell.swift; sourceTree = "<group>"; };
+		DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoStartCell.swift; sourceTree = "<group>"; };
 		DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableActiveVehicleCell.swift; sourceTree = "<group>"; };
 		DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableConnectCell.swift; sourceTree = "<group>"; };
 		DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableMenuCell.swift; sourceTree = "<group>"; };
@@ -1487,7 +1487,6 @@
 			children = (
 				DED81C2E2FFC11670044284D /* TableView */,
 				DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */,
-				DED81C362FFC11DF0044284D /* DashboardDemoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1505,7 +1504,8 @@
 		DED81C332FFC117F0044284D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				DED81C382FFC11F20044284D /* DashboardTableDemoCell.swift */,
+				DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */,
+				DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */,
 				DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */,
 				DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */,
 				DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */,
@@ -1761,7 +1761,7 @@
 				DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */,
 				DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
-				DED81C392FFC11F20044284D /* DashboardTableDemoCell.swift in Sources */,
+				DED81C392FFC11F20044284D /* DashboardTableDemoStartCell.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
 				DE2240372FF554EF0023E94C /* SelectYearCollectionView.swift in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
@@ -1813,6 +1813,7 @@
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
 				DED81C302FFC11760044284D /* DashboardTableView.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
+				DE30F907300515E20062CE8D /* DashboardTableDemoStopCell.swift in Sources */,
 				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
 				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
@@ -1850,7 +1851,6 @@
 				DE2F0AB62A698E0B00471667 /* RestAPITransport.swift in Sources */,
 				DE2F0AC62A698E0B00471667 /* NavigationControllerSettings.swift in Sources */,
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
-				DED81C372FFC11DF0044284D /* DashboardDemoView.swift in Sources */,
 				DE22405A2FF570090023E94C /* SelectModelView.swift in Sources */,
 				DE2F0ACA2A698E0B00471667 /* PaddingTextField.swift in Sources */,
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,

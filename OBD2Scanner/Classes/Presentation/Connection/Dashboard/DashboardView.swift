@@ -11,11 +11,9 @@ final class DashboardView: UIView {
     enum Header {
         case none
         case unlimited
-        case demo
     }
 
     lazy var unlimitedView = makeUnlimitedView()
-    lazy var demoView = makeDemoView()
     lazy var tableView = makeTableView()
 
     private lazy var tableTopConstraint = tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
@@ -36,8 +34,7 @@ final class DashboardView: UIView {
 extension DashboardView {
     func setup(header: Header) {
         unlimitedView.isHidden = header != .unlimited
-        demoView.isHidden = header != .demo
-
+        
         tableTopConstraint.isActive = false
 
         switch header {
@@ -45,8 +42,6 @@ extension DashboardView {
             tableTopConstraint = tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         case .unlimited:
             tableTopConstraint = tableView.topAnchor.constraint(equalTo: unlimitedView.bottomAnchor)
-        case .demo:
-            tableTopConstraint = tableView.topAnchor.constraint(equalTo: demoView.bottomAnchor)
         }
 
         tableTopConstraint.isActive = true
@@ -58,7 +53,7 @@ private extension DashboardView {
     func initialize() {
         backgroundColor = Appearance.color_121721
 
-        setup(header: .none)
+        setup(header: .unlimited)
     }
 }
 
@@ -69,12 +64,6 @@ private extension DashboardView {
             unlimitedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             unlimitedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             unlimitedView.topAnchor.constraint(equalTo: topAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            demoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            demoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            demoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -90,13 +79,6 @@ private extension DashboardView {
 private extension DashboardView {
     func makeUnlimitedView() -> DashboardUnlimitedView {
         let view = DashboardUnlimitedView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-
-    func makeDemoView() -> DashboardDemoView {
-        let view = DashboardDemoView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

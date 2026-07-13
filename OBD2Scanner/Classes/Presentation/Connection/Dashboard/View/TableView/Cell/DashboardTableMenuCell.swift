@@ -10,9 +10,10 @@ import UIKit
 final class DashboardTableMenuCell: UITableViewCell {
     lazy var container = makeContainer()
     lazy var iconView = makeIconView()
-    lazy var titleLabel = makeTitleLabel()
-    lazy var subTitleLabel = makeSubTitleLabel()
+    lazy var titleLabel = makeLabel()
+    lazy var subTitleLabel = makeLabel()
     lazy var arrowView = makeArrowView()
+    lazy var separator = makeSeparator()
 
     private lazy var titleAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
@@ -37,7 +38,7 @@ final class DashboardTableMenuCell: UITableViewCell {
 
 // MARK: Public
 extension DashboardTableMenuCell {
-    func setup(item: DashboardTableElement.MenuItem) {
+    func setup(item: DashboardTableElement.MenuItem, enable: Bool) {
         let icon: String
         let title: String
         let subTitle: String
@@ -64,6 +65,10 @@ extension DashboardTableMenuCell {
         iconView.image = UIImage(named: icon)
         titleLabel.attributedText = title.attributed(with: titleAttrs)
         subTitleLabel.attributedText = subTitle.attributed(with: subTitleAttrs)
+        
+        separator.isHidden = item == .recallHistory
+        
+        container.alpha = enable ? 1 : 0.5
     }
 }
 
@@ -85,13 +90,13 @@ private extension DashboardTableMenuCell {
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6.scale),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6.scale),
-            container.heightAnchor.constraint(equalToConstant: 68.scale)
+            container.heightAnchor.constraint(equalToConstant: 60.scale)
         ])
 
         NSLayoutConstraint.activate([
             iconView.widthAnchor.constraint(equalToConstant: 44.scale),
             iconView.heightAnchor.constraint(equalToConstant: 44.scale),
-            iconView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.scale),
+            iconView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             iconView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
         ])
 
@@ -102,7 +107,7 @@ private extension DashboardTableMenuCell {
         ])
 
         NSLayoutConstraint.activate([
-            subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subTitleLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12.scale),
             subTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: arrowView.leadingAnchor, constant: -8.scale),
             subTitleLabel.topAnchor.constraint(equalTo: container.centerYAnchor, constant: 1.scale)
         ])
@@ -110,8 +115,15 @@ private extension DashboardTableMenuCell {
         NSLayoutConstraint.activate([
             arrowView.widthAnchor.constraint(equalToConstant: 20.scale),
             arrowView.heightAnchor.constraint(equalToConstant: 20.scale),
-            arrowView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale),
+            arrowView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             arrowView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            separator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            separator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
+            separator.topAnchor.constraint(equalTo: container.bottomAnchor, constant: 3.scale),
+            separator.heightAnchor.constraint(equalToConstant: 1.scale)
         ])
     }
 }
@@ -120,10 +132,7 @@ private extension DashboardTableMenuCell {
 private extension DashboardTableMenuCell {
     func makeContainer() -> UIView {
         let view = UIView()
-        view.backgroundColor = Appearance.color_191F2B
-        view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
@@ -137,14 +146,7 @@ private extension DashboardTableMenuCell {
         return view
     }
 
-    func makeTitleLabel() -> UILabel {
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
-        return view
-    }
-
-    func makeSubTitleLabel() -> UILabel {
+    func makeLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
@@ -157,6 +159,14 @@ private extension DashboardTableMenuCell {
         view.image = UIImage(named: "Settings.ArrowRight")
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
+        return view
+    }
+    
+    func makeSeparator() -> UIView {
+        let view = UIView()
+        view.backgroundColor = Appearance.color_FFFFFF.withAlphaComponent(0.03)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(view)
         return view
     }
 }

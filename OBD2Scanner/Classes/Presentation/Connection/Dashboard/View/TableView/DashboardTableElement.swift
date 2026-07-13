@@ -13,8 +13,8 @@ enum DashboardTableElement {
         case recallHistory
     }
 
-    case demoMode
+    case demoMode(Bool)
     case activeVehicle(Vehicle?)
     case connect(isConnected: Bool)
-    case menu(MenuItem)
+    case menu(MenuItem, Bool)
 }

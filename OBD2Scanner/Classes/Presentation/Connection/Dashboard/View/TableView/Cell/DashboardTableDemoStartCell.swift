@@ -1,5 +1,5 @@
 //
-//  DashboardTableDemoCell.swift
+//  DashboardTableDemoStartCell.swift
 //  OBD2Scanner
 //
 //  Created by Андрей Чернышев on 06.07.2026.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DashboardTableDemoCell: UITableViewCell {
+final class DashboardTableDemoStartCell: UITableViewCell {
     lazy var container = makeContainer()
     lazy var contentContainer = makeContentContainer()
     lazy var iconView = makeIconView()
@@ -26,7 +26,7 @@ final class DashboardTableDemoCell: UITableViewCell {
 }
 
 // MARK: Private
-private extension DashboardTableDemoCell {
+private extension DashboardTableDemoStartCell {
     func initialize() {
         backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
@@ -36,14 +36,14 @@ private extension DashboardTableDemoCell {
 }
 
 // MARK: Make constraints
-private extension DashboardTableDemoCell {
+private extension DashboardTableDemoStartCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6.scale),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6.scale),
-            container.heightAnchor.constraint(equalToConstant: 56.scale)
+            container.heightAnchor.constraint(equalToConstant: 52.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -68,13 +68,11 @@ private extension DashboardTableDemoCell {
 }
 
 // MARK: Lazy initialization
-private extension DashboardTableDemoCell {
+private extension DashboardTableDemoStartCell {
     func makeContainer() -> UIView {
         let view = UIView()
-        view.backgroundColor = Appearance.color_191F2B
+        view.backgroundColor = Appearance.color_1A2231
         view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
@@ -100,7 +98,7 @@ private extension DashboardTableDemoCell {
     func makeNameLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
-            .font(Fonts.NotoSans.semiBold(size: 16.scale))
+            .font(Fonts.NotoSans.medium(size: 16.scale))
             .textAlignment(.left)
 
         let view = UILabel()

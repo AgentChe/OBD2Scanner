@@ -46,9 +46,12 @@ extension DashboardTableView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch elements[indexPath.row] {
-        case .demoMode:
-            let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoCell.self), for: indexPath) as! DashboardTableDemoCell
-            return cell
+        case .demoMode(let active):
+            if active {
+                return dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStopCell.self), for: indexPath) as! DashboardTableDemoStopCell
+            } else {
+                return dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoStartCell.self), for: indexPath) as! DashboardTableDemoStartCell
+            }
         case .activeVehicle(let vehicle):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableActiveVehicleCell.self), for: indexPath) as! DashboardTableActiveVehicleCell
             cell.setup(vehicle: vehicle)
@@ -57,9 +60,9 @@ extension DashboardTableView: UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableConnectCell.self), for: indexPath) as! DashboardTableConnectCell
             cell.setup(isConnected: isConnected)
             return cell
-        case .menu(let item):
+        case .menu(let item, let enable):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableMenuCell.self), for: indexPath) as! DashboardTableMenuCell
-            cell.setup(item: item)
+            cell.setup(item: item, enable: enable)
             return cell
         }
     }
@@ -79,7 +82,8 @@ extension DashboardTableView: UITableViewDelegate {
 // MARK: Private
 private extension DashboardTableView {
     func initialize() {
-        register(DashboardTableDemoCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoCell.self))
+        register(DashboardTableDemoStartCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoStartCell.self))
+        register(DashboardTableDemoStopCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoStopCell.self))
         register(DashboardTableActiveVehicleCell.self, forCellReuseIdentifier: String(describing: DashboardTableActiveVehicleCell.self))
         register(DashboardTableConnectCell.self, forCellReuseIdentifier: String(describing: DashboardTableConnectCell.self))
         register(DashboardTableMenuCell.self, forCellReuseIdentifier: String(describing: DashboardTableMenuCell.self))

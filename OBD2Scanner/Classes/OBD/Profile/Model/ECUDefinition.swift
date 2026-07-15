@@ -72,8 +72,12 @@ struct DTCConfig: Codable, Equatable {
     let pending: DTCCommand?
     /// Постоянные коды (не стираются командой очистки).
     let permanent: DTCCommand?
-    /// Очистка кодов и стёртых значений.
+    /// Полный сброс кодов блока: J1979 mode `04` или UDS `14 FFFFFF`.
+    /// Вместе с кодами ECU стирает freeze frame и статусы мониторингов.
     let clear: DTCCommand?
+    /// Точечный сброс одного кода: UDS `14 {dtc}`. Только UDS — mode 04
+    /// параметров не принимает; поддержка на стороне ECU опциональна.
+    let clearSingle: DTCCommand?
     /// Чтение freeze frame по коду.
     let freezeFrame: DTCCommand?
 

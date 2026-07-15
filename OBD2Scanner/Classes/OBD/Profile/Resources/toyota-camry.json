@@ -2314,6 +2314,9 @@
         "read": {
           "request": "03",
           "format": "j1979"
+        },
+        "clear": {
+          "request": "04"
         }
       },
       "supportedParametersProbe": "udsProbe",

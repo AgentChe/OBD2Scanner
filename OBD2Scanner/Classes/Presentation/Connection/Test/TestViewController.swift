@@ -144,6 +144,18 @@ private extension TestViewController {
             })
             .disposed(by: disposeBag)
 
+        mainView.clearDTCButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.clearAllDTC()
+            })
+            .disposed(by: disposeBag)
+
+        mainView.clearOneDTCButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.clearSingleDTC()
+            })
+            .disposed(by: disposeBag)
+
         mainView.reportButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.shareReport()
@@ -275,6 +287,42 @@ private extension TestViewController {
                 }
             }, onFailure: { [weak self] error in
                 self?.log("DTC error: \(error)")
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func clearAllDTC() {
+        log("DTC clear: полный сброс…")
+        service.clearTroubleCodes()
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] _ in
+                self?.log("DTC clear: подтверждено, перечитываю коды")
+                self?.readDTC()
+            }, onFailure: { [weak self] error in
+                self?.log("DTC clear error: \(error)")
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func clearSingleDTC() {
+        // Точечно стираются только UDS-коды (3 байта) — берём первый такой.
+        guard let code = lastCodes.first(where: { $0.failureType != nil }) ?? lastCodes.first else {
+            log("DTC clear: сначала прочитай DTC")
+            return
+        }
+
+        log("DTC clear: сброс \(code.displayCode) [ECU \(code.ecu)]…")
+        service.clearTroubleCode(code)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] _ in
+                self?.log("DTC clear: \(code.displayCode) стёрт, перечитываю коды")
+                self?.readDTC()
+            }, onFailure: { [weak self] error in
+                if case DiagnosticsError.clearNotSupported = error {
+                    self?.log("DTC clear: точечный сброс для \(code.displayCode) недоступен — только полный")
+                } else {
+                    self?.log("DTC clear error: \(error)")
+                }
             })
             .disposed(by: disposeBag)
     }

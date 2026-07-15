@@ -171,6 +171,84 @@ final class DiagnosticEngine {
         }
     }
 
+    /// Полный сброс кодов: команда `dtc.clear` каждого канала (J1979 mode 04 /
+    /// UDS 14 FFFFFF). Успех — хотя бы один ECU подтвердил позитивным эхом.
+    /// Вместе с кодами стираются freeze frame и статусы мониторингов;
+    /// permanent-коды не стираются — гаснут сами после циклов самопроверки.
+    func clearTroubleCodes(completion: @escaping (Result<Void, DiagnosticsError>) -> Void) {
+        guard let session else {
+            callbackQueue.async { completion(.failure(.notConnected)) }
+            return
+        }
+        session.queue.async {
+            guard case .ready = self.state else {
+                self.callbackQueue.async { completion(.failure(.notConnected)) }
+                return
+            }
+            let commands: [(ECUChannel, String)] = self.channels.compactMap { channel in
+                channel.definition.dtc?.clear.map { (channel, $0.request) }
+            }
+            guard !commands.isEmpty else {
+                self.callbackQueue.async { completion(.failure(.clearNotSupported)) }
+                return
+            }
+            self.clearDTCCommand(commands, index: 0, confirmed: false, lastError: nil) { result in
+                self.callbackQueue.async { completion(result) }
+            }
+        }
+    }
+
+    /// Точечный сброс одного кода: `dtc.clearSingle` (UDS `14 <код>`) тому ECU,
+    /// который код сообщил. Для J1979- и permanent-кодов невозможен
+    /// по протоколу — `.clearNotSupported`; то же при отказе ECU (NRC 0x31).
+    func clearTroubleCode(_ dtc: DiagnosticTroubleCode,
+                          completion: @escaping (Result<Void, DiagnosticsError>) -> Void) {
+        guard let session else {
+            callbackQueue.async { completion(.failure(.notConnected)) }
+            return
+        }
+        session.queue.async {
+            guard case .ready = self.state else {
+                self.callbackQueue.async { completion(.failure(.notConnected)) }
+                return
+            }
+            // 2-байтовые (J1979) коды точечно не стираются: mode 04 стирает
+            // только всё сразу. Permanent не стирается вовсе.
+            guard dtc.origin != .permanent, dtc.raw.count == 3,
+                  let channel = self.channels.first(where: {
+                      $0.definition.addressing.response == dtc.ecu
+                          && $0.definition.dtc?.clearSingle != nil
+                  }),
+                  let template = channel.definition.dtc?.clearSingle?.request else {
+                self.callbackQueue.async { completion(.failure(.clearNotSupported)) }
+                return
+            }
+            let request = template.replacingOccurrences(of: "{dtc}", with: Hex.string(dtc.raw))
+            self.route(to: channel) { result in
+                guard case .success = result else {
+                    self.callbackQueue.async { completion(.failure(.notConnected)) }
+                    return
+                }
+                channel.perform(request, timeout: 5.0) { result in
+                    let mapped: Result<Void, DiagnosticsError>
+                    switch result {
+                    case let .success(responses):
+                        mapped = Self.hasPositiveEcho(responses, request: request)
+                            ? .success(())
+                            : .failure(.noData)
+                    case let .failure(.negativeResponse(_, code)) where [0x11, 0x12, 0x31].contains(code):
+                        // Сервис 14 не поддержан или ECU не умеет стирать
+                        // по одному коду — предложить полный сброс.
+                        mapped = .failure(.clearNotSupported)
+                    case let .failure(error):
+                        mapped = .failure(error)
+                    }
+                    self.callbackQueue.async { completion(mapped) }
+                }
+            }
+        }
+    }
+
     // MARK: - Freeze frame
 
     func readFreezeFrame(for dtc: DiagnosticTroubleCode,
@@ -614,6 +692,49 @@ private extension DiagnosticEngine {
                 next(codes)
             }
         }
+    }
+
+    /// Последовательно шлёт команды очистки. `confirmed` копится по каналам:
+    /// молчание или отказ одного ECU не отменяет успех остальных — при
+    /// broadcast-запросе mode 04 часть блоков штатно не отвечает.
+    func clearDTCCommand(_ commands: [(ECUChannel, String)],
+                         index: Int,
+                         confirmed: Bool,
+                         lastError: DiagnosticsError?,
+                         completion: @escaping (Result<Void, DiagnosticsError>) -> Void) {
+        guard index < commands.count else {
+            completion(confirmed ? .success(()) : .failure(lastError ?? .noData))
+            return
+        }
+        let (channel, request) = commands[index]
+        let next = { (confirmed: Bool, lastError: DiagnosticsError?) in
+            self.clearDTCCommand(commands, index: index + 1,
+                                 confirmed: confirmed, lastError: lastError,
+                                 completion: completion)
+        }
+
+        route(to: channel) { result in
+            guard case .success = result else {
+                next(confirmed, lastError ?? .notConnected)
+                return
+            }
+            channel.perform(request, timeout: 5.0) { result in
+                switch result {
+                case let .success(responses):
+                    let ok = Self.hasPositiveEcho(responses, request: request)
+                    next(confirmed || ok, lastError)
+                case let .failure(error):
+                    next(confirmed, error)
+                }
+            }
+        }
+    }
+
+    /// Хотя бы один ECU подтвердил команду позитивным эхом
+    /// (первый байт запроса + 0x40: `04` → `44`, `14` → `54`).
+    static func hasPositiveEcho(_ responses: [String: [UInt8]], request: String) -> Bool {
+        guard let service = Hex.bytes(request)?.first else { return false }
+        return responses.values.contains { $0.first == service &+ 0x40 }
     }
 
     func dedupe(_ codes: [DiagnosticTroubleCode]) -> [DiagnosticTroubleCode] {

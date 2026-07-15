@@ -17,6 +17,8 @@
       "supportedParametersProbe": "udsProbe",
       "dtc": {
         "read":        { "request": "1902AF", "format": "uds" },
+        "clear":       { "request": "14FFFFFF" },
+        "clearSingle": { "request": "14{dtc}" },
         "freezeFrame": { "request": "1904{dtc}FF", "format": "udsSnapshot" }
       },
       "parameters": [

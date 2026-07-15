@@ -109,6 +109,44 @@ final class OBDService {
         }
     }
 
+    /// Полный сброс DTC по всем каналам: J1979 mode 04 + UDS 14 FFFFFF.
+    /// Вместе с кодами ECU стирает freeze frame и статусы мониторингов
+    /// (гаснет MIL); permanent-коды не стираются — гаснут сами после
+    /// успешных циклов самопроверки. После успеха список кодов нужно
+    /// перечитать `readTroubleCodes()` — pending может вернуться сразу,
+    /// если неисправность на месте.
+    func clearTroubleCodes() -> Single<Void> {
+        Single.create { [engine] event in
+            engine.clearTroubleCodes { result in
+                switch result {
+                case .success:
+                    event(.success(()))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    /// Точечный сброс одного кода: UDS `14 <код>` ECU-источнику.
+    /// Для J1979- и permanent-кодов невозможен по протоколу, часть ECU
+    /// не поддерживает — `DiagnosticsError.clearNotSupported`; в этом
+    /// случае UI предлагает полный сброс.
+    func clearTroubleCode(_ dtc: DiagnosticTroubleCode) -> Single<Void> {
+        Single.create { [engine] event in
+            engine.clearTroubleCode(dtc) { result in
+                switch result {
+                case .success:
+                    event(.success(()))
+                case let .failure(error):
+                    event(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
     /// Freeze frame по коду: J1979 mode 02 или UDS snapshot (19 04) —
     /// движок выбирает сам по типу кода.
     func readFreezeFrame(for dtc: DiagnosticTroubleCode) -> Single<[ParameterReading]> {

@@ -18,6 +18,8 @@ final class TestView: UIView {
     lazy var vinButton = makeButton("VIN")
     lazy var voltageButton = makeButton("Volt")
     lazy var clearButton = makeButton("Clear")
+    lazy var clearDTCButton = makeButton("Стереть DTC")
+    lazy var clearOneDTCButton = makeButton("Стереть 1")
     lazy var reportButton = makeButton("Отчёт")
     lazy var vehicleControl = makeVehicleControl()
     lazy var statusLabel = makeStatusLabel()
@@ -41,7 +43,7 @@ private extension TestView {
     func makeConstraints() {
         let row1 = makeRow([connectButton, disconnectButton, liveButton, dtcButton])
         let row2 = makeRow([freezeFrameButton, vinButton, voltageButton, clearButton])
-        let row3 = makeRow([reportButton])
+        let row3 = makeRow([clearDTCButton, clearOneDTCButton, reportButton])
 
         let scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor.clear

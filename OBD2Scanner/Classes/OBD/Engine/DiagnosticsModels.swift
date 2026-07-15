@@ -23,6 +23,9 @@ enum DiagnosticsError: Error, Equatable {
     case noData
     /// Отрицательный ответ UDS `7F <sid> <NRC>`.
     case negativeResponse(service: UInt8, code: UInt8)
+    /// Очистка DTC недоступна: в профилях нет команды, точечный сброс
+    /// невозможен для этого кода (J1979 / permanent) или ECU его отверг.
+    case clearNotSupported
     /// Ошибка шины/адаптера (`CAN ERROR`, `BUFFER FULL`…).
     case busError(String)
 }

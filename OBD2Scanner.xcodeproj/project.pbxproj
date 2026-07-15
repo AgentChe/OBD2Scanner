@@ -18,9 +18,9 @@
 		21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */ = {isa = PBXBuildFile; fileRef = EB65549DC99D42ADF3C03946 /* obd2-standard.json */; };
 		245B1550870FDD935A921E72 /* vag-mqb.json in Resources */ = {isa = PBXBuildFile; fileRef = AB67790B6A8F5495B31AEC9F /* vag-mqb.json */; };
 		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
+		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
-		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
 		56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */; };
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
@@ -250,7 +250,6 @@
 /* Begin PBXFileReference section */
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
-		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
 		0BDB0000000000000000FE01 /* toyota-prius-zw30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius-zw30.json"; sourceTree = "<group>"; };
 		0BDB0000000000000000FE02 /* honda-civic-typer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "honda-civic-typer.json"; sourceTree = "<group>"; };
@@ -265,6 +264,7 @@
 		3D38234F5E4764BD3478388B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParameter.swift; sourceTree = "<group>"; };
 		749CD11EDD2616D50EC7C1FF /* OBDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDValue.swift; sourceTree = "<group>"; };
+		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
 		82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANResponseAssembler.swift; sourceTree = "<group>"; };
 		841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatcher.swift; sourceTree = "<group>"; };
 		8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
@@ -2095,7 +2095,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2136,7 +2136,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;

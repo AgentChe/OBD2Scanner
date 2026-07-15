@@ -293,13 +293,8 @@ final class DiagnosticEngine {
                     let mapped: Result<String, DiagnosticsError>
                     switch result {
                     case let .success(responses):
-                        if let payload = self.preferredPayload(from: responses, channel: channel),
-                           let data = ResponseParser.payload(after: "4902", in: payload),
-                           data.count > 1 {
-                            // Первый байт — счётчик записей, дальше ASCII.
-                            let vin = String(decoding: data.dropFirst().filter { $0 >= 0x20 && $0 <= 0x7E },
-                                             as: UTF8.self)
-                            mapped = vin.isEmpty ? .failure(.noData) : .success(vin)
+                        if let vin = self.decodeVIN(from: responses, channel: channel) {
+                            mapped = .success(vin)
                         } else {
                             mapped = .failure(.noData)
                         }
@@ -419,9 +414,14 @@ private extension DiagnosticEngine {
             self.assembler = CANResponseAssembler.forProtocolNumber(number)
 
             if self.assembler == nil {
-                // Старые шины (K-line, J1850): без заголовков, простая склейка.
+                // Старые шины (K-line, J1850): заголовки выключаем (каждая
+                // строка ответа — одно сообщение), а потолок ожидания ответа
+                // поднимаем до максимума ~1 с — шине на 10.4 kbps штатных
+                // 600 мс может не хватить; адаптивный ATAT1 ужмёт по факту.
                 self.session?.execute("ATH0", timeout: 2.0) { _ in
-                    self.buildChannels(selection: selection)
+                    self.session?.execute("ATSTFF", timeout: 2.0) { _ in
+                        self.buildChannels(selection: selection)
+                    }
                 }
             } else {
                 self.buildChannels(selection: selection)
@@ -514,6 +514,29 @@ private extension DiagnosticEngine {
             }
             completion(result)
         }
+    }
+
+    /// VIN из ответа mode 09 02. На CAN это один ISO-TP payload
+    /// `49 02 01 <17 ASCII>` (первый байт — счётчик записей). На K-line VIN
+    /// приходит несколькими сообщениями `49 02 <номер> <4 байта>` — они
+    /// складываются по номеру. Непечатаемый паддинг отбрасывается,
+    /// при избытке символов берутся последние 17 (VIN фиксированной длины).
+    func decodeVIN(from responses: [String: [UInt8]], channel: ECUChannel) -> String? {
+        let messages: [[UInt8]]
+        if assembler != nil {
+            guard let payload = preferredPayload(from: responses, channel: channel),
+                  let data = ResponseParser.payload(after: "4902", in: payload) else { return nil }
+            messages = [data]
+        } else {
+            messages = responses.values
+                .compactMap { ResponseParser.payload(after: "4902", in: $0) }
+                .filter { !$0.isEmpty }
+                .sorted { $0[0] < $1[0] }
+        }
+        let ascii = messages.flatMap { $0.dropFirst() }.filter { $0 >= 0x20 && $0 <= 0x7E }
+        guard !ascii.isEmpty else { return nil }
+        let vin = String(decoding: ascii, as: UTF8.self)
+        return vin.count > 17 ? String(vin.suffix(17)) : vin
     }
 
     func preferredPayload(from responses: [String: [UInt8]], channel: ECUChannel) -> [UInt8]? {

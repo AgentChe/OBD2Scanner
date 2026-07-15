@@ -46,6 +46,15 @@ final class ECUChannel {
     /// Настраивает адресацию ELM327 на этот ECU. Вызывается движком
     /// при каждом переключении между каналами.
     func applyAddressing(completion: @escaping (Result<Void, DiagnosticsError>) -> Void) {
+        // Не-CAN шины (K-line, J1850): корректные заголовки для активного
+        // протокола ELM327 держит сам, а `ATSH` с CAN-адресом их ломает —
+        // три nibble ложатся в общие байты заголовка (00 07 DF вместо
+        // 68 6A F1 у ISO 9141), после чего ECU перестаёт отвечать всем
+        // запросам. Адресация здесь не нужна вовсе.
+        guard assembler != nil else {
+            completion(.success(()))
+            return
+        }
         session.execute("ATSH" + definition.addressing.request, timeout: 2.0) { [weak self] result in
             guard let self else { return }
             if case let .failure(error) = result {
@@ -157,9 +166,17 @@ private extension ECUChannel {
         if let assembler {
             responses = assembler.assemble(lines: lines)
         } else {
-            // Не-CAN протоколы (ATH0): hex-строки — единый поток payload.
-            let bytes = lines.compactMap { Hex.bytes($0) }.flatMap { $0 }
-            responses = bytes.isEmpty ? [:] : ["ECU": bytes]
+            // Не-CAN протоколы (ATH0): каждая строка — отдельное сообщение
+            // (другой ECU или продолжение длинного ответа). Склеивать нельзя:
+            // эхо сервиса следующего сообщения попало бы в данные предыдущего —
+            // два ECU, ответившие на mode 03, дали бы фантомный код из байта
+            // 0x43. Заголовков нет, так что имена ECU синтетические.
+            var messages = [String: [UInt8]]()
+            for line in lines {
+                guard let bytes = Hex.bytes(line), !bytes.isEmpty else { continue }
+                messages[messages.isEmpty ? "ECU" : "ECU\(messages.count + 1)"] = bytes
+            }
+            responses = messages
         }
 
         guard !responses.isEmpty else {

@@ -25,6 +25,13 @@
 	<string>Bluetooth is used to connect to your OBD2 adapter.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Local network access is used to connect to Wi-Fi OBD2 adapters.</string>
+	<!-- Протокольные строки MFi-адаптеров. iOS открывает EASession только
+	     для строк из этого списка. Строку нового адаптера печатает
+	     MFiTransport в консоль при несовпадении — добавить её сюда. -->
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.obdlink.mfi</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Medium.ttf</string>

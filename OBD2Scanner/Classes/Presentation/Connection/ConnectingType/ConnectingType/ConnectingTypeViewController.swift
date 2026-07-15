@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 enum ConnectingType {
-    case wifi, bluetooth
+    case wifi, bluetooth, mfi
 }
 
 final class ConnectingTypeViewController: UIViewController {
@@ -40,7 +40,8 @@ final class ConnectingTypeViewController: UIViewController {
         let selected = Signal<ConnectingType>
             .merge(
                 mainView.wifiButton.didSelect,
-                mainView.bluetoothButton.didSelect
+                mainView.bluetoothButton.didSelect,
+                mainView.bluetoothMFiButton.didSelect
             )
             .startWith(.bluetooth)
             .asDriver(onErrorDriveWith: .never())
@@ -49,6 +50,7 @@ final class ConnectingTypeViewController: UIViewController {
             .drive(Binder(mainView) { base, selected in
                 base.wifiButton.marked = selected == .wifi
                 base.bluetoothButton.marked = selected == .bluetooth
+                base.bluetoothMFiButton.marked = selected == .mfi
             })
             .disposed(by: disposeBag)
         
@@ -80,7 +82,7 @@ extension ConnectingTypeViewController {
 private extension ConnectingTypeViewController {
     func selected(connectingType: ConnectingType)  {
         switch connectingType {
-        case .bluetooth:
+        case .bluetooth, .mfi:
             guard BluetoothPermission.isGranted else {
                 let vc = BluetoothAccessViewController.make { [weak self] in
                     self?.complete(with: .bluetooth)

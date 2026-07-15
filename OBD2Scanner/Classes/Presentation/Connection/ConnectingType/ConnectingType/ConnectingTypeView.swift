@@ -16,6 +16,7 @@ final class ConnectingTypeView: UIView {
     lazy var text2Label = makeText2Label()
     lazy var wifiButton = makeConnectingTypeButton(conenctingType: .wifi)
     lazy var bluetoothButton = makeConnectingTypeButton(conenctingType: .bluetooth)
+    lazy var bluetoothMFiButton = makeConnectingTypeButton(conenctingType: .mfi)
     lazy var continueButton = makeContinueButton()
     
     override init(frame: CGRect) {
@@ -90,6 +91,13 @@ private extension ConnectingTypeView {
             bluetoothButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             bluetoothButton.topAnchor.constraint(equalTo: wifiButton.bottomAnchor, constant: 12.scale),
             bluetoothButton.heightAnchor.constraint(equalToConstant: 64.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bluetoothMFiButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            bluetoothMFiButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            bluetoothMFiButton.topAnchor.constraint(equalTo: bluetoothButton.bottomAnchor, constant: 12.scale),
+            bluetoothMFiButton.heightAnchor.constraint(equalToConstant: 64.scale)
         ])
         
         NSLayoutConstraint.activate([

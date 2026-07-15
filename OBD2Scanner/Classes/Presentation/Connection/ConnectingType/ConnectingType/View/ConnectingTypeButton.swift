@@ -65,7 +65,7 @@ private extension ConnectingTypeButton {
             switch connectingType {
             case .wifi:
                 return "ConnectingType.WiFi" + ext
-            case .bluetooth:
+            case .bluetooth, .mfi:
                 return "ConnectingType.Bluetooth" + ext
             }
         }()
@@ -131,6 +131,8 @@ private extension ConnectingTypeButton {
                 return "ConnectingType.WiFi".localized
             case .bluetooth:
                 return "ConnectingType.Bluetooth".localized
+            case .mfi:
+                return "ConnectingType.BluetoothMFi".localized
             }
         }()
         

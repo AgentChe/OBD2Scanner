@@ -165,7 +165,16 @@ private extension TestViewController {
 
     func connect() {
         let vc = ConnectingTypeViewController.make { [weak self] connectingType in
-            let method: OBDConnectionMethod = connectingType == .wifi ? .wifi : .bluetooth
+            let method: OBDConnectionMethod = {
+                switch connectingType {
+                case .bluetooth:
+                    return .bluetooth
+                case .wifi:
+                    return .wifi
+                case .mfi:
+                    return .mfi
+                }
+            }()
             self?.connect(method: method)
         }
         present(vc, animated: true)

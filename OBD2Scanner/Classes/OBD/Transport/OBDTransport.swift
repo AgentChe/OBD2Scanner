@@ -43,4 +43,8 @@ enum OBDConnectionMethod {
     /// Wi-Fi адаптеры (ELM327 WiFi): телефон должен быть подключён
     /// к Wi-Fi сети самого адаптера.
     case wifi
+    /// MFi-адаптеры (Bluetooth Classic: OBDLink MX+, vLinker FS…):
+    /// адаптер должен быть спарен в Настройках → Bluetooth, а его
+    /// протокольная строка — задекларирована в Info.plist.
+    case mfi
 }

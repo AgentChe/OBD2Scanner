@@ -93,7 +93,17 @@ private extension DashboardViewController {
             present(vc, animated: false)
         case .openConnectingType(let vehicle):
             let vc = ConnectingTypeViewController.make { [weak self] connectingType in
-                let method: OBDConnectionMethod = connectingType == .wifi ? .wifi : .bluetooth
+                let method: OBDConnectionMethod = {
+                    switch connectingType {
+                    case .bluetooth:
+                        return .bluetooth
+                    case .wifi:
+                        return .wifi
+                    case .mfi:
+                        return .mfi
+                    }
+                }()
+                
                 let connectingVC = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
                     guard case .demoMode = outcome else { return }
                     

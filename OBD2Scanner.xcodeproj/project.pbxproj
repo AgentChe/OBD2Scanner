@@ -20,6 +20,7 @@
 		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
+		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
 		56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */; };
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
@@ -249,6 +250,7 @@
 /* Begin PBXFileReference section */
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
+		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
 		0BDB0000000000000000FE01 /* toyota-prius-zw30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius-zw30.json"; sourceTree = "<group>"; };
 		0BDB0000000000000000FE02 /* honda-civic-typer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "honda-civic-typer.json"; sourceTree = "<group>"; };
@@ -1583,6 +1585,7 @@
 			isa = PBXGroup;
 			children = (
 				09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */,
+				7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */,
 				0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */,
 				A06B781E75DE91D333084F2F /* BLETransport.swift */,
 			);
@@ -1738,6 +1741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */,
+				3408346C720747739902B049 /* MFiTransport.swift in Sources */,
 				958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */,
 				945AC3A5CE23EA034BAAC9D5 /* TestViewController.swift in Sources */,
 				FC432CF1EBDC2B84FA49130D /* OBDTransport.swift in Sources */,

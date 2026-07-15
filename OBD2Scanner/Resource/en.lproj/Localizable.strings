@@ -247,6 +247,7 @@ and smart monitoring";
 "ConnectingType.Text2" = "Check your adapter's packaging or manual if unsure.";
 "ConnectingType.WiFi" = "Wi-Fi";
 "ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
+"ConnectingType.BluetoothMFi" = "Bluetooth MFI";
 
 // MARK: BluetoothAccess
 "BluetoothAccess.Title" = "ACCESS TO\nNEARBY DEVICES";

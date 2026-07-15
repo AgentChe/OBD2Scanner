@@ -38,7 +38,8 @@ final class OBDService {
     ///   - vehicle: авто из гаража — по нему подбирается ECU-профиль;
     ///     `nil` — только стандартный OBD-II.
     ///   - method: способ подключения; для `.wifi` телефон должен быть
-    ///     подключён к сети адаптера (стандартно 192.168.0.10:35000).
+    ///     подключён к сети адаптера (стандартно 192.168.0.10:35000),
+    ///     для `.mfi` — адаптер спарен в Настройках → Bluetooth.
     func connect(vehicle: Vehicle?, method: OBDConnectionMethod = .bluetooth) {
         let descriptor = vehicle.map {
             VehicleDescriptor(brand: $0.brand, model: $0.model, vin: $0.vin, year: $0.year, fuelType: nil)
@@ -49,6 +50,8 @@ final class OBDService {
             transport = BLETransport()
         case .wifi:
             transport = WiFiTransport()
+        case .mfi:
+            transport = MFiTransport()
         }
         engine.connect(vehicle: descriptor, transport: transport)
     }

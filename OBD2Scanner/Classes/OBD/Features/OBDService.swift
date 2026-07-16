@@ -212,3 +212,6 @@ final class OBDService {
         }
     }
 }
+
+// MARK: OBDServiceProtocol
+extension OBDService: OBDServiceProtocol {}

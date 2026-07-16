@@ -26,6 +26,9 @@
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
+		385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */; };
+		FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */; };
+		075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */; };
 		6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */; };
 		72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA93F529B9078CBBA1327E /* OBDProfile.swift */; };
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
@@ -281,6 +284,9 @@
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
 		B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
+		F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDServiceProtocol.swift; sourceTree = "<group>"; };
+		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
+		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUChannel.swift; sourceTree = "<group>"; };
 		C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius.json"; sourceTree = "<group>"; };
 		C6AD63B173D1404555BAE5F6 /* ECUDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUDefinition.swift; sourceTree = "<group>"; };
@@ -567,6 +573,8 @@
 			isa = PBXGroup;
 			children = (
 				B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */,
+				F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */,
+				9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1173,9 +1181,18 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
+		D108629976F7CA97C799EA82 /* DemoMode */ = {
+			isa = PBXGroup;
+			children = (
+				5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */,
+			);
+			path = DemoMode;
+			sourceTree = "<group>";
+		};
 		DE2F0ADA2A698E1100471667 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D108629976F7CA97C799EA82 /* DemoMode */,
 				DE22409A2FF6CCB10023E94C /* Profile */,
 				DEDF4E062FF2C8D70001160D /* Purchase */,
 				DEC61E952A812651008F9C97 /* Session */,
@@ -1760,6 +1777,9 @@
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
 				604A073C9366247228F4CAC6 /* OBDService.swift in Sources */,
+				385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */,
+				FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */,
+				075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,

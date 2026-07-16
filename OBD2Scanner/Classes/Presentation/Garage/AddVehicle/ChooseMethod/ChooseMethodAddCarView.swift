@@ -8,8 +8,11 @@
 import UIKit
 
 final class ChooseMethodAddCarView: UIView {
-    lazy var manuallyButton = makeChooseMethodButton(method: .manually)
-    lazy var decodeVINButton = makeChooseMethodButton(method: .decodeVIN)
+    lazy var scrollView = makeScrollView()
+    lazy var manuallyItemView = makeChooseMethodItemView(method: .manually)
+    lazy var decodeVINItemView = makeChooseMethodItemView(method: .decodeVIN)
+    lazy var findVINInfoView = makeFindVINInfoView()
+    lazy var contactUsButton = makeContactUsButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,25 +37,73 @@ private extension ChooseMethodAddCarView {
 private extension ChooseMethodAddCarView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            manuallyButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            manuallyButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            manuallyButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24.scale),
-            manuallyButton.heightAnchor.constraint(equalToConstant: 106.scale)
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: contactUsButton.topAnchor, constant: -2.scale)
         ])
         
         NSLayoutConstraint.activate([
-            decodeVINButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            decodeVINButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            decodeVINButton.topAnchor.constraint(equalTo: manuallyButton.bottomAnchor, constant: 8.scale),
-            decodeVINButton.heightAnchor.constraint(equalToConstant: 106.scale)
+            manuallyItemView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            manuallyItemView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            manuallyItemView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.scale),
+            manuallyItemView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
+            manuallyItemView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            manuallyItemView.heightAnchor.constraint(equalToConstant: 256.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            decodeVINItemView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.scale),
+            decodeVINItemView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
+            decodeVINItemView.topAnchor.constraint(equalTo: manuallyItemView.bottomAnchor, constant: 8.scale),
+            decodeVINItemView.heightAnchor.constraint(equalToConstant: 256.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            findVINInfoView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.scale),
+            findVINInfoView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
+            findVINInfoView.topAnchor.constraint(equalTo: decodeVINItemView.bottomAnchor, constant: 12.scale),
+            findVINInfoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            contactUsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            contactUsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            contactUsButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale),
+            contactUsButton.heightAnchor.constraint(equalToConstant: 68.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension ChooseMethodAddCarView {
-    func makeChooseMethodButton(method: ChooseMethodAddCarButton.Method) -> ChooseMethodAddCarButton {
-        let view = ChooseMethodAddCarButton(method: method)
+    func makeScrollView() -> UIScrollView {
+        let view = UIScrollView()
+        view.contentInset = UIEdgeInsets(vertical: 24.scale)
+        view.setContentOffset(CGPoint(x: 0, y: -24.scale), animated: false)
+        view.backgroundColor = UIColor.clear
+        view.showsVerticalScrollIndicator = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeChooseMethodItemView(method: ChooseMethodAddCarItemView.Method) -> ChooseMethodAddCarItemView {
+        let view = ChooseMethodAddCarItemView(method: method)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeFindVINInfoView() -> ChooseMethodAddCarFindVINInfoView {
+        let view = ChooseMethodAddCarFindVINInfoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeContactUsButton() -> ChooseMethodAddCarContactUsButton {
+        let view = ChooseMethodAddCarContactUsButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

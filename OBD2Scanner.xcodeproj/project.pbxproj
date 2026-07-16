@@ -75,7 +75,7 @@
 		DE2240252FF50AA60023E94C /* SelectYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240242FF50AA60023E94C /* SelectYearViewController.swift */; };
 		DE2240272FF50AB00023E94C /* SelectYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240262FF50AB00023E94C /* SelectYearViewModel.swift */; };
 		DE2240292FF50AB60023E94C /* SelectYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240282FF50AB60023E94C /* SelectYearView.swift */; };
-		DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift */; };
+		DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift */; };
 		DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22402C2FF50C580023E94C /* ChooseMethodAddCarView.swift */; };
 		DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE22402D2FF50C580023E94C /* ChooseMethodAddCarViewController.swift */; };
 		DE2240322FF50D7A0023E94C /* AddCarStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2240312FF50D7A0023E94C /* AddCarStepView.swift */; };
@@ -198,6 +198,8 @@
 		DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547313003DF0900D577B0 /* ConnectingViewController.swift */; };
 		DE5547343003DF0F00D577B0 /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547333003DF0F00D577B0 /* ConnectingView.swift */; };
 		DE5547393003E3BF00D577B0 /* ConnectingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */; };
+		DE7029B23008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B13008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift */; };
+		DE7029B43008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B33008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift */; };
 		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
 		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
 		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
@@ -317,7 +319,7 @@
 		DE2240242FF50AA60023E94C /* SelectYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearViewController.swift; sourceTree = "<group>"; };
 		DE2240262FF50AB00023E94C /* SelectYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearViewModel.swift; sourceTree = "<group>"; };
 		DE2240282FF50AB60023E94C /* SelectYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearView.swift; sourceTree = "<group>"; };
-		DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarButton.swift; sourceTree = "<group>"; };
+		DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarItemView.swift; sourceTree = "<group>"; };
 		DE22402C2FF50C580023E94C /* ChooseMethodAddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarView.swift; sourceTree = "<group>"; };
 		DE22402D2FF50C580023E94C /* ChooseMethodAddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarViewController.swift; sourceTree = "<group>"; };
 		DE2240312FF50D7A0023E94C /* AddCarStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarStepView.swift; sourceTree = "<group>"; };
@@ -442,6 +444,8 @@
 		DE5547313003DF0900D577B0 /* ConnectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingViewController.swift; sourceTree = "<group>"; };
 		DE5547333003DF0F00D577B0 /* ConnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingView.swift; sourceTree = "<group>"; };
 		DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingItemView.swift; sourceTree = "<group>"; };
+		DE7029B13008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarContactUsButton.swift; sourceTree = "<group>"; };
+		DE7029B33008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarFindVINInfoView.swift; sourceTree = "<group>"; };
 		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
 		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
 		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
@@ -756,7 +760,9 @@
 		DE2240202FF427AE0023E94C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift */,
+				DE22402A2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift */,
+				DE7029B13008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift */,
+				DE7029B33008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1856,7 +1862,7 @@
 				DE2240172FF416990023E94C /* VehicleYear.swift in Sources */,
 				DED81C132FFBF48D0044284D /* SettingsView.swift in Sources */,
 				DE22403B2FF555010023E94C /* SelectYearCollectionCell.swift in Sources */,
-				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarButton.swift in Sources */,
+				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift in Sources */,
 				DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */,
 				DE4B7E6B2FF2AA1900973BA9 /* OnboardingView.swift in Sources */,
 				DED81C1F2FFC055A0044284D /* UnitsViewController.swift in Sources */,
@@ -1905,8 +1911,10 @@
 				DE22407A2FF688330023E94C /* AddVehicleResultAddAnotherButton.swift in Sources */,
 				DE2240732FF6534C0023E94C /* TryAgainView.swift in Sources */,
 				DE55472F3003DD8000D577B0 /* ConnectingFailureItemView.swift in Sources */,
+				DE7029B23008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift in Sources */,
 				DED81C2A2FFC114A0044284D /* DashboardViewModel.swift in Sources */,
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
+				DE7029B43008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,
 				DE223FFC2FF3F22C0023E94C /* PaygateProductButton.swift in Sources */,
 				DE223FFD2FF3F22C0023E94C /* PaygateSubscriptionButton.swift in Sources */,

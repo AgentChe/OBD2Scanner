@@ -92,10 +92,16 @@ and smart monitoring";
 
 // MARK: ChooseMethodAddCar
 "ChooseMethodAddCar.Title" = "Add your car";
-"ChooseMethodAddCar.DecodeVIN.Title" = "Enter VIN number";
-"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Enter your vehicle VIN to automatically decode details";
-"ChooseMethodAddCar.Manually.Title" = "Select manually";
-"ChooseMethodAddCar.Manually.SubTitle" = "Choose your car brand, model and year manually";
+"ChooseMethodAddCar.Manually.Title" = "SELECT BY CATALOG";
+"ChooseMethodAddCar.Manually.SubTitle" = "Choose your car brand, model\nand year manually";
+"ChooseMethodAddCar.Manually.Action" = "Select vehicle";
+"ChooseMethodAddCar.DecodeVIN.Title" = "SEARCH CAR BY VIN";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Enter your vehicle VIN to\nautomatically decode details";
+"ChooseMethodAddCar.DecodeVIN.Action" = "Enter VIN";
+"ChooseMethodAddCar.FindVIN.Title" = "Where I can find VIN?";
+"ChooseMethodAddCar.FindVIN.Info" = "The VIN is located in the registration\ndocument and on the car body";
+"ChooseMethodAddCar.ContactUs.Title" = "Contact Us";
+"ChooseMethodAddCar.ContactUs.Text" = "Our support team is here for you";
 
 // MARK: SelectYear
 "SelectYear.Title" = "Select year of manufacture";

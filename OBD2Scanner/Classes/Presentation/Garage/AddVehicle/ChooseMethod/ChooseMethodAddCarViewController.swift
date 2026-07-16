@@ -35,11 +35,17 @@ final class ChooseMethodAddCarViewController: UIViewController {
 
         Signal
             .merge(
-                mainView.manuallyButton.didTap,
-                mainView.decodeVINButton.didTap
+                mainView.manuallyItemView.didTap,
+                mainView.decodeVINItemView.didTap
             )
             .emit(to: Binder(self) { base, method in
                 base.didChoose(method: method)
+            })
+            .disposed(by: disposeBag)
+        
+        mainView.contactUsButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                UIApplication.shared.open(GlobalDefinitions.contactUsUrl)
             })
             .disposed(by: disposeBag)
 
@@ -83,7 +89,7 @@ private extension ChooseMethodAddCarViewController {
         }
     }
 
-    func didChoose(method: ChooseMethodAddCarButton.Method) {
+    func didChoose(method: ChooseMethodAddCarItemView.Method) {
         switch method {
         case .manually:
             let vc = SelectYearViewController.make(complete: complete)

@@ -116,7 +116,8 @@ private extension DashboardViewModel {
                 case .diagnostics:
                     return connectState ? .openDiagnostics(activeVehicle) : nil
                 case .freezeFrame:
-                    return connectState ? (activeSubscription ? .openFreezeFrame(activeVehicle) : .openPaygate) : nil
+//                    return connectState ? (activeSubscription ? .openFreezeFrame(activeVehicle) : .openPaygate) : nil
+                    return .openFreezeFrame(activeVehicle)
                 case .hud:
                     return connectState ? (activeSubscription ? .openHUD(activeVehicle) : .openPaygate) : nil
                 case .recallHistory:

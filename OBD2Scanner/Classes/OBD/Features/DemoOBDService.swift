@@ -374,7 +374,8 @@ private extension DemoOBDService {
         "std.ltft_1": 12.5,
         "std.intake_temp": 35,
         "std.timing_advance": 21.5,
-        "std.fuel_level": 58
+        "std.fuel_level": 58,
+        "std.control_module_voltage": 14.0
     ]
 }
 

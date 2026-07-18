@@ -116,8 +116,9 @@ private extension DashboardViewController {
             OBDService.shared.disconnect()
         case .openDiagnostics(let vehicle):
             break // TODO:
-        case .openFreezeFrame(let vehicle):
-            break // TODO:
+        case .openFreezeFrame:
+            let vc = FreezeFrameViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         case .openHUD(let vehicle):
             break // TODO:
         case .openRecallHistory(let vehicle):

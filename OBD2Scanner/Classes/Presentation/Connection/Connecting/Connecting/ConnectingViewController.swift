@@ -19,7 +19,7 @@ final class ConnectingViewController: UIViewController {
 
     private lazy var disposeBag = DisposeBag()
 
-    private let service = OBDService.shared
+    private let service = DemoOBDService.shared// OBDService.shared TODO:
 
     private let vehicle: Vehicle?
     private let method: OBDConnectionMethod
@@ -60,6 +60,8 @@ final class ConnectingViewController: UIViewController {
                 base.apply(state: state)
             })
             .disposed(by: disposeBag)
+        
+        DemoModeManager.shared.activate() // TODO: delete line 
 
         service.connect(vehicle: vehicle, method: method)
     }

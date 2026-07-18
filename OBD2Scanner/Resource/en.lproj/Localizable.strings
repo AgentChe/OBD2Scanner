@@ -278,3 +278,22 @@ and smart monitoring";
 "ConnectingFailure.Steps.Step4" = "Unplug adapter, wait 5 sec, replug";
 "ConnectingFailure.DemoMode" = "Demo mode";
 "ConnectingFailure.TryAgain" = "Try again";
+
+// MARK: FreezeFrame
+"FreezeFrame.Title" = "Freeze frame";
+"FreezeFrame.Status.Confirmed" = "CONFIRMED";
+"FreezeFrame.Status.Pending" = "PENDING";
+"FreezeFrame.Status.Permanent" = "PERMANENT";
+"FreezeFrame.Captured" = "Captured %@";
+"FreezeFrame.JustNow" = "just now";
+"FreezeFrame.Empty.Title" = "NO FREEZE FRAME\nDATA AVAILABLE";
+"FreezeFrame.Empty.SubTitle" = "Freeze frame captures vehicle prameters at the moment a fault occurs. It helps diagnose issues mere accurately";
+"FreezeFrame.Empty.Back" = "Back";
+"FreezeFrame.EmptyItem.1" = "A fault code is detected by the ECU";
+"FreezeFrame.EmptyItem.2" = "Vehicle data is captured automatically";
+"FreezeFrame.EmptyItem.3" = "You can review and analyze the snapshot";
+
+// MARK: FreezeFrame Details
+"FreezeFrameDetails.Title" = "Freeze frame details";
+"FreezeFrameDetails.CapturedCaption" = "Captured at fault detection";
+"FreezeFrameDetails.VehicleState" = "Vehicle state at the time";

@@ -5,6 +5,7 @@
 //  Created by Андрей Чернышев on 06.07.2026.
 //
 
+// TODO: применить
 struct Units: Codable, Hashable {
     enum Torque: String, Codable {
         case newtonMeter = "nm"

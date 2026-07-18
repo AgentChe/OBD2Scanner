@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */; };
 		0BDB0000000000000000BF01 /* toyota-prius-zw30.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE01 /* toyota-prius-zw30.json */; };
 		0BDB0000000000000000BF02 /* honda-civic-typer.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE02 /* honda-civic-typer.json */; };
 		0BDB0000000000000000BF03 /* honda-s2000.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE03 /* honda-s2000.json */; };
@@ -19,6 +20,7 @@
 		245B1550870FDD935A921E72 /* vag-mqb.json in Resources */ = {isa = PBXBuildFile; fileRef = AB67790B6A8F5495B31AEC9F /* vag-mqb.json */; };
 		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
 		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
+		385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */; };
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
@@ -26,9 +28,6 @@
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
-		385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */; };
-		FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */; };
-		075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */; };
 		6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */; };
 		72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA93F529B9078CBBA1327E /* OBDProfile.swift */; };
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
@@ -203,6 +202,10 @@
 		DE5547393003E3BF00D577B0 /* ConnectingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */; };
 		DE7029B23008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B13008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift */; };
 		DE7029B43008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B33008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift */; };
+		DE7029B8300A58F100203CFF /* FreezeFrameEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B7300A58F100203CFF /* FreezeFrameEmptyView.swift */; };
+		DE7029BB300A5CD300203CFF /* FreezeFrameEmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029BA300A5CD300203CFF /* FreezeFrameEmptyItemView.swift */; };
+		DE7029BD300AB21F00203CFF /* FreezeFrameCapturedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */; };
+		DE7029C1300AB32100203CFF /* FreezeFrameCapturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */; };
 		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
 		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
 		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
@@ -246,9 +249,21 @@
 		DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */; };
 		DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E022FF2C8D70001160D /* IAPProduct.swift */; };
 		DEEBB1CD33A4D295AFA90722 /* ECUDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD63B173D1404555BAE5F6 /* ECUDefinition.swift */; };
+		DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100130091111000000A1 /* FreezeFrameItem.swift */; };
+		DEFF200230091111000000B2 /* DTCDescriptionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100230091111000000A2 /* DTCDescriptionLibrary.swift */; };
+		DEFF200330091111000000B3 /* FreezeFrameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100330091111000000A3 /* FreezeFrameViewModel.swift */; };
+		DEFF200430091111000000B4 /* FreezeFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100430091111000000A4 /* FreezeFrameViewController.swift */; };
+		DEFF200530091111000000B5 /* FreezeFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100530091111000000A5 /* FreezeFrameView.swift */; };
+		DEFF200630091111000000B6 /* FreezeFrameTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100630091111000000A6 /* FreezeFrameTableView.swift */; };
+		DEFF200730091111000000B7 /* FreezeFrameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100730091111000000A7 /* FreezeFrameTableCell.swift */; };
+		DEFF200830091111000000B8 /* FreezeFrameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100830091111000000A8 /* FreezeFrameDetailsViewController.swift */; };
+		DEFF200930091111000000B9 /* FreezeFrameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */; };
+		DEFF200A30091111000000BA /* FreezeFrameGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */; };
+		DEFF200B30091111000000BB /* FreezeFrameParameterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */; };
 		E0EA6810E6E91D2BE1081B51 /* OBDParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */; };
 		E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */; };
 		F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC60C496368C976B78E1EAB /* ELM327Session.swift */; };
+		FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */; };
 		FC432CF1EBDC2B84FA49130D /* OBDTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */; };
 /* End PBXBuildFile section */
 
@@ -267,6 +282,7 @@
 		284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticTroubleCode.swift; sourceTree = "<group>"; };
 		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
 		3D38234F5E4764BD3478388B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParameter.swift; sourceTree = "<group>"; };
 		749CD11EDD2616D50EC7C1FF /* OBDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDValue.swift; sourceTree = "<group>"; };
 		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
@@ -275,6 +291,7 @@
 		8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8ECA93F529B9078CBBA1327E /* OBDProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDProfile.swift; sourceTree = "<group>"; };
 		90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.debug.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.debug.xcconfig"; sourceTree = "<group>"; };
+		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
 		A06B781E75DE91D333084F2F /* BLETransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETransport.swift; sourceTree = "<group>"; };
 		A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsModels.swift; sourceTree = "<group>"; };
 		A0FAE6AB80FEBF5FA3C331EE /* ford.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ford.json; sourceTree = "<group>"; };
@@ -284,9 +301,6 @@
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
 		B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
-		F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDServiceProtocol.swift; sourceTree = "<group>"; };
-		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
-		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUChannel.swift; sourceTree = "<group>"; };
 		C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius.json"; sourceTree = "<group>"; };
 		C6AD63B173D1404555BAE5F6 /* ECUDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUDefinition.swift; sourceTree = "<group>"; };
@@ -452,6 +466,10 @@
 		DE5547383003E3BF00D577B0 /* ConnectingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingItemView.swift; sourceTree = "<group>"; };
 		DE7029B13008CBEE00203CFF /* ChooseMethodAddCarContactUsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarContactUsButton.swift; sourceTree = "<group>"; };
 		DE7029B33008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMethodAddCarFindVINInfoView.swift; sourceTree = "<group>"; };
+		DE7029B7300A58F100203CFF /* FreezeFrameEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameEmptyView.swift; sourceTree = "<group>"; };
+		DE7029BA300A5CD300203CFF /* FreezeFrameEmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameEmptyItemView.swift; sourceTree = "<group>"; };
+		DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameCapturedRowView.swift; sourceTree = "<group>"; };
+		DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameCapturedView.swift; sourceTree = "<group>"; };
 		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
 		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
 		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
@@ -494,9 +512,21 @@
 		DEDF4E022FF2C8D70001160D /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		DEDF4E042FF2C8D70001160D /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseValidationObserver.swift; sourceTree = "<group>"; };
+		DEFF100130091111000000A1 /* FreezeFrameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameItem.swift; sourceTree = "<group>"; };
+		DEFF100230091111000000A2 /* DTCDescriptionLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCDescriptionLibrary.swift; sourceTree = "<group>"; };
+		DEFF100330091111000000A3 /* FreezeFrameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameViewModel.swift; sourceTree = "<group>"; };
+		DEFF100430091111000000A4 /* FreezeFrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameViewController.swift; sourceTree = "<group>"; };
+		DEFF100530091111000000A5 /* FreezeFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameView.swift; sourceTree = "<group>"; };
+		DEFF100630091111000000A6 /* FreezeFrameTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameTableView.swift; sourceTree = "<group>"; };
+		DEFF100730091111000000A7 /* FreezeFrameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameTableCell.swift; sourceTree = "<group>"; };
+		DEFF100830091111000000A8 /* FreezeFrameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsViewController.swift; sourceTree = "<group>"; };
+		DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsView.swift; sourceTree = "<group>"; };
+		DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameGaugeView.swift; sourceTree = "<group>"; };
+		DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameParameterRowView.swift; sourceTree = "<group>"; };
 		EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCDecoder.swift; sourceTree = "<group>"; };
 		EB65549DC99D42ADF3C03946 /* obd2-standard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "obd2-standard.json"; sourceTree = "<group>"; };
 		ECC60C496368C976B78E1EAB /* ELM327Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELM327Session.swift; sourceTree = "<group>"; };
+		F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDServiceProtocol.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E599C4FFC96757C382E2F8 /* gm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gm.json; sourceTree = "<group>"; };
 		FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
@@ -630,6 +660,14 @@
 				0353490CD5355CCA8009FFC5 /* ProfileStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		D108629976F7CA97C799EA82 /* DemoMode */ = {
+			isa = PBXGroup;
+			children = (
+				5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */,
+			);
+			path = DemoMode;
 			sourceTree = "<group>";
 		};
 		DE0A5C6D2FF29B4E003D95B0 /* NotoSans */ = {
@@ -1181,14 +1219,6 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
-		D108629976F7CA97C799EA82 /* DemoMode */ = {
-			isa = PBXGroup;
-			children = (
-				5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */,
-			);
-			path = DemoMode;
-			sourceTree = "<group>";
-		};
 		DE2F0ADA2A698E1100471667 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1378,6 +1408,45 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DE7029B53008E83400203CFF /* FreezeFrame */ = {
+			isa = PBXGroup;
+			children = (
+				DE7029B63008F00400203CFF /* FreezeFrame */,
+				DEFF300430091111000000C4 /* Details */,
+			);
+			path = FreezeFrame;
+			sourceTree = "<group>";
+		};
+		DE7029B63008F00400203CFF /* FreezeFrame */ = {
+			isa = PBXGroup;
+			children = (
+				DEFF300130091111000000C1 /* Model */,
+				DEFF300230091111000000C2 /* View */,
+				DEFF100430091111000000A4 /* FreezeFrameViewController.swift */,
+				DEFF100330091111000000A3 /* FreezeFrameViewModel.swift */,
+				DEFF100530091111000000A5 /* FreezeFrameView.swift */,
+			);
+			path = FreezeFrame;
+			sourceTree = "<group>";
+		};
+		DE7029B9300A5CC400203CFF /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				DE7029B7300A58F100203CFF /* FreezeFrameEmptyView.swift */,
+				DE7029BA300A5CD300203CFF /* FreezeFrameEmptyItemView.swift */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
+		DE7029BF300AB28200203CFF /* Captured */ = {
+			isa = PBXGroup;
+			children = (
+				DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */,
+				DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */,
+			);
+			path = Captured;
+			sourceTree = "<group>";
+		};
 		DE947E3D30039DF1004271C3 /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1503,6 +1572,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DE7029B53008E83400203CFF /* FreezeFrame */,
 				DE5547273003D32A00D577B0 /* Connecting */,
 				DE947E3D30039DF1004271C3 /* ConnectingType */,
 				DED81C412FFE18700044284D /* Test */,
@@ -1602,6 +1672,53 @@
 				DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */,
 			);
 			path = Purchase;
+			sourceTree = "<group>";
+		};
+		DEFF300130091111000000C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEFF100130091111000000A1 /* FreezeFrameItem.swift */,
+				DEFF100230091111000000A2 /* DTCDescriptionLibrary.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEFF300230091111000000C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE7029B9300A5CC400203CFF /* Empty */,
+				DEFF300330091111000000C3 /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEFF300330091111000000C3 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEFF100630091111000000A6 /* FreezeFrameTableView.swift */,
+				DEFF100730091111000000A7 /* FreezeFrameTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEFF300430091111000000C4 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				DEFF300530091111000000C5 /* View */,
+				DEFF100830091111000000A8 /* FreezeFrameDetailsViewController.swift */,
+				DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		DEFF300530091111000000C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE7029BF300AB28200203CFF /* Captured */,
+				DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */,
+				DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E7F1480A901C9908309A1E78 /* Transport */ = {
@@ -1780,6 +1897,7 @@
 				385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */,
 				FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */,
 				075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */,
+				DE7029C1300AB32100203CFF /* FreezeFrameCapturedView.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,
@@ -1846,6 +1964,7 @@
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE22408D2FF6B8A00023E94C /* RadialGradientView.swift in Sources */,
 				DED81C112FFBF4890044284D /* SettingsViewModel.swift in Sources */,
+				DE7029B8300A58F100203CFF /* FreezeFrameEmptyView.swift in Sources */,
 				DE2240252FF50AA60023E94C /* SelectYearViewController.swift in Sources */,
 				DE2240562FF56FFE0023E94C /* SelectModelViewController.swift in Sources */,
 				DED81C212FFC05610044284D /* UnitsViewModel.swift in Sources */,
@@ -1888,6 +2007,7 @@
 				DED81C1F2FFC055A0044284D /* UnitsViewController.swift in Sources */,
 				DE2240A92FF7AAC70023E94C /* DecodeVINViewController.swift in Sources */,
 				DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */,
+				DE7029BB300A5CD300203CFF /* FreezeFrameEmptyItemView.swift in Sources */,
 				DE2240342FF552AE0023E94C /* AddVehicleFlowResult.swift in Sources */,
 				DE2240CB2FF92CCA0023E94C /* VehicleDetailsViewController.swift in Sources */,
 				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
@@ -1907,6 +2027,17 @@
 				DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */,
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
 				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
+				DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */,
+				DEFF200230091111000000B2 /* DTCDescriptionLibrary.swift in Sources */,
+				DEFF200330091111000000B3 /* FreezeFrameViewModel.swift in Sources */,
+				DEFF200430091111000000B4 /* FreezeFrameViewController.swift in Sources */,
+				DEFF200530091111000000B5 /* FreezeFrameView.swift in Sources */,
+				DEFF200630091111000000B6 /* FreezeFrameTableView.swift in Sources */,
+				DEFF200730091111000000B7 /* FreezeFrameTableCell.swift in Sources */,
+				DEFF200830091111000000B8 /* FreezeFrameDetailsViewController.swift in Sources */,
+				DEFF200930091111000000B9 /* FreezeFrameDetailsView.swift in Sources */,
+				DEFF200A30091111000000BA /* FreezeFrameGaugeView.swift in Sources */,
+				DEFF200B30091111000000BB /* FreezeFrameParameterRowView.swift in Sources */,
 				DE22409C2FF6CCB10023E94C /* ProfileCreateRequest.swift in Sources */,
 				DE22409D2FF6CCB10023E94C /* RequestResult.swift in Sources */,
 				DE2240CF2FF92CD70023E94C /* VehicleDetailsView.swift in Sources */,
@@ -1917,6 +2048,7 @@
 				DE22408B2FF6A9A60023E94C /* EnterVINTextField.swift in Sources */,
 				DE2240582FF570040023E94C /* SelectModelViewModel.swift in Sources */,
 				DE2240912FF6C9BC0023E94C /* DecodeVINRequest.swift in Sources */,
+				DE7029BD300AB21F00203CFF /* FreezeFrameCapturedRowView.swift in Sources */,
 				DE2240DD2FFAC4C30023E94C /* RecallHistoryView.swift in Sources */,
 				DED81C352FFC11B10044284D /* DashboardUnlimitedView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,

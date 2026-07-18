@@ -8,16 +8,10 @@
 import UIKit
 
 final class DashboardView: UIView {
-    enum Header {
-        case none
-        case unlimited
-    }
-
-    lazy var unlimitedView = makeUnlimitedView()
-    lazy var tableView = makeTableView()
-
-    private lazy var tableTopConstraint = tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-
+    lazy var scrollView = makeScrollView()
+    lazy var stackView = makeStackView()
+    lazy var activeVehicleView = makeActiveVehicleView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -27,24 +21,6 @@ final class DashboardView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: Public
-extension DashboardView {
-    func setup(header: Header) {
-        unlimitedView.isHidden = header != .unlimited
-        
-        tableTopConstraint.isActive = false
-
-        switch header {
-        case .none:
-            tableTopConstraint = tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-        case .unlimited:
-            tableTopConstraint = tableView.topAnchor.constraint(equalTo: unlimitedView.bottomAnchor)
-        }
-
-        tableTopConstraint.isActive = true
     }
 }
 
@@ -59,34 +35,46 @@ private extension DashboardView {
 private extension DashboardView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            unlimitedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            unlimitedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            unlimitedView.topAnchor.constraint(equalTo: topAnchor),
-            unlimitedView.heightAnchor.constraint(equalToConstant: 180.scale)
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableTopConstraint
+            stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 16.scale),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -16.scale),
+            stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16.scale),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24.scale),
+            stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -32.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DashboardView {
-    func makeUnlimitedView() -> DashboardUnlimitedView {
-        let view = DashboardUnlimitedView()
+    func makeScrollView() -> UIScrollView {
+        let view = UIScrollView()
+        view.backgroundColor = UIColor.clear
+        view.showsVerticalScrollIndicator = false
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
 
-    func makeTableView() -> DashboardTableView {
-        let view = DashboardTableView()
+    func makeStackView() -> UIStackView {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.spacing = 24.scale
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeActiveVehicleView() -> DashboardActiveVehicleView {
+        let view = DashboardActiveVehicleView()
+        stackView.addArrangedSubview(view)
         return view
     }
 }

@@ -184,7 +184,6 @@
 		DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */; };
 		DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */; };
 		DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */; };
-		DE30F907300515E20062CE8D /* DashboardTableDemoStopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */; };
 		DE4B7E5B2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */; };
 		DE4B7E5D2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */; };
 		DE4B7E5F2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */; };
@@ -234,11 +233,7 @@
 		DED81C282FFC11450044284D /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C272FFC11450044284D /* DashboardViewController.swift */; };
 		DED81C2A2FFC114A0044284D /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C292FFC114A0044284D /* DashboardViewModel.swift */; };
 		DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2B2FFC114F0044284D /* DashboardView.swift */; };
-		DED81C302FFC11760044284D /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2F2FFC11760044284D /* DashboardTableView.swift */; };
-		DED81C322FFC117D0044284D /* DashboardTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C312FFC117D0044284D /* DashboardTableElement.swift */; };
-		DED81C352FFC11B10044284D /* DashboardUnlimitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */; };
-		DED81C392FFC11F20044284D /* DashboardTableDemoStartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */; };
-		DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */; };
+		DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */; };
 		DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */; };
 		DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
@@ -448,7 +443,6 @@
 		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
-		DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoStopCell.swift; sourceTree = "<group>"; };
 		DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
 		DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
 		DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -498,11 +492,7 @@
 		DED81C272FFC11450044284D /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		DED81C292FFC114A0044284D /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		DED81C2B2FFC114F0044284D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		DED81C2F2FFC11760044284D /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
-		DED81C312FFC117D0044284D /* DashboardTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableElement.swift; sourceTree = "<group>"; };
-		DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUnlimitedView.swift; sourceTree = "<group>"; };
-		DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoStartCell.swift; sourceTree = "<group>"; };
-		DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableActiveVehicleCell.swift; sourceTree = "<group>"; };
+		DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardActiveVehicleView.swift; sourceTree = "<group>"; };
 		DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableConnectCell.swift; sourceTree = "<group>"; };
 		DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableMenuCell.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
@@ -1595,8 +1585,8 @@
 		DED81C2D2FFC115D0044284D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */,
 				DED81C2E2FFC11670044284D /* TableView */,
-				DED81C342FFC11B10044284D /* DashboardUnlimitedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1605,8 +1595,6 @@
 			isa = PBXGroup;
 			children = (
 				DED81C332FFC117F0044284D /* Cell */,
-				DED81C2F2FFC11760044284D /* DashboardTableView.swift */,
-				DED81C312FFC117D0044284D /* DashboardTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1614,9 +1602,6 @@
 		DED81C332FFC117F0044284D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				DED81C382FFC11F20044284D /* DashboardTableDemoStartCell.swift */,
-				DE30F906300515E20062CE8D /* DashboardTableDemoStopCell.swift */,
-				DED81C3A2FFC12000044284D /* DashboardTableActiveVehicleCell.swift */,
 				DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */,
 				DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */,
 			);
@@ -1923,13 +1908,12 @@
 				DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
 				DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */,
-				DED81C3B2FFC12000044284D /* DashboardTableActiveVehicleCell.swift in Sources */,
+				DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */,
 				DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
 				DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */,
 				DE2240C12FF7D1DF0023E94C /* GarageTableView.swift in Sources */,
 				DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */,
-				DED81C392FFC11F20044284D /* DashboardTableDemoStartCell.swift in Sources */,
 				DE2F0AC82A698E0B00471667 /* TapAreaButton.swift in Sources */,
 				DE2240372FF554EF0023E94C /* SelectYearCollectionView.swift in Sources */,
 				DE2F0AAD2A698E0B00471667 /* UIColor+Extension.swift in Sources */,
@@ -1947,7 +1931,6 @@
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2240E42FFAC5100023E94C /* RecallHistoryTableCell.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
-				DED81C322FFC117D0044284D /* DashboardTableElement.swift in Sources */,
 				DE2240192FF420510023E94C /* VehicleMediator.swift in Sources */,
 				DE2240652FF64D420023E94C /* AddVehicleResultViewModel.swift in Sources */,
 				DE2240E12FFAC4DE0023E94C /* RecallHistoryTableView.swift in Sources */,
@@ -1980,9 +1963,7 @@
 				DE2240422FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
-				DED81C302FFC11760044284D /* DashboardTableView.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
-				DE30F907300515E20062CE8D /* DashboardTableDemoStopCell.swift in Sources */,
 				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
 				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
@@ -2050,7 +2031,6 @@
 				DE2240912FF6C9BC0023E94C /* DecodeVINRequest.swift in Sources */,
 				DE7029BD300AB21F00203CFF /* FreezeFrameCapturedRowView.swift in Sources */,
 				DE2240DD2FFAC4C30023E94C /* RecallHistoryView.swift in Sources */,
-				DED81C352FFC11B10044284D /* DashboardUnlimitedView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,

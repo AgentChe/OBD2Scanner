@@ -15,8 +15,6 @@ final class DashboardViewController: UIViewController {
     private lazy var viewModel = DashboardViewModel()
 
     private lazy var disposeBag = DisposeBag()
-    
-    private lazy var didTapTryDemoModeTrigger = PublishRelay<Void>()
 
     override func loadView() {
         view = mainView
@@ -26,27 +24,12 @@ final class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         let output = viewModel.configure(input: DashboardViewModel.Input(
-            didTapUpgragePlan: mainView.unlimitedView.upgradeButton.rx.tap.asSignal(),
-            didTapStartDemoMode: Signal
-                .merge(
-                    mainView.tableView.didTapStartDemoMode,
-                    didTapTryDemoModeTrigger.asSignal()
-                ),
-            didTapStopDemoMode: mainView.tableView.didTapStopDemoMode,
-            didTapChangeActiveCar: mainView.tableView.didTapChangeActiveCar,
-            didTapChangeConnect: mainView.tableView.didTapChangeConnect,
-            didSelectMenu: mainView.tableView.didSelectMenu
+            didTapChangeActiveCar: mainView.activeVehicleView.didTapChangeCar
         ))
-
-        output.elements
-            .drive(Binder(mainView.tableView) { base, elements in
-                base.setup(elements: elements)
-            })
-            .disposed(by: disposeBag)
         
-        output.headerState
-            .drive(Binder(mainView) { base, headerState in
-                base.setup(header: headerState)
+        output.activeVehicle
+            .drive(Binder(mainView.activeVehicleView) { base, activeVehicle in
+                base.setup(vehicle: activeVehicle)
             })
             .disposed(by: disposeBag)
         
@@ -83,47 +66,8 @@ extension DashboardViewController {
 private extension DashboardViewController {
     func action(_ action: DashboardViewModel.Action) {
         switch action {
-        case .openGarage:
+        case .changeActiveCar:
             (tabBarController as? MainViewController)?.select(tab: .garage)
-        case .openPaygate:
-            let vc = UnlimitedPlanViewController.make { [weak self] in
-                let vc = PaygateViewController.make()
-                self?.present(vc, animated: true)
-            }
-            present(vc, animated: false)
-        case .openConnectingType(let vehicle):
-            let vc = ConnectingTypeViewController.make { [weak self] connectingType in
-                let method: OBDConnectionMethod = {
-                    switch connectingType {
-                    case .bluetooth:
-                        return .bluetooth
-                    case .wifi:
-                        return .wifi
-                    case .mfi:
-                        return .mfi
-                    }
-                }()
-                
-                let connectingVC = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
-                    guard case .demoMode = outcome else { return }
-                    
-                    self?.didTapTryDemoModeTrigger.accept(Void())
-                }
-                self?.present(connectingVC, animated: false)
-            }
-            present(vc, animated: true)
-        case .disconnect:
-            OBDService.shared.disconnect()
-        case .openDiagnostics(let vehicle):
-            break // TODO:
-        case .openFreezeFrame:
-            let vc = FreezeFrameViewController.make()
-            navigationController?.pushViewController(vc, animated: true)
-        case .openHUD(let vehicle):
-            break // TODO:
-        case .openRecallHistory(let vehicle):
-            let vc = RecallHistoryViewController.make(vehicle: vehicle)
-            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

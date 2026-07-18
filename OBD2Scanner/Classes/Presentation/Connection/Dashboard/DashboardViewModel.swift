@@ -10,14 +10,7 @@ import RxCocoa
 
 final class DashboardViewModel {
     enum Action {
-        case openGarage
-        case openPaygate
-        case openConnectingType(Vehicle)
-        case disconnect
-        case openDiagnostics(Vehicle)
-        case openFreezeFrame(Vehicle)
-        case openHUD(Vehicle)
-        case openRecallHistory(Vehicle)
+        case changeActiveCar
     }
     
     private lazy var vehicleManager = VehicleManager()
@@ -26,40 +19,23 @@ final class DashboardViewModel {
 // MARK: Public
 extension DashboardViewModel {
     struct Input {
-        let didTapUpgragePlan: Signal<Void>
-        let didTapStartDemoMode: Signal<Void>
-        let didTapStopDemoMode: Signal<Void>
         let didTapChangeActiveCar: Signal<Void>
-        let didTapChangeConnect: Signal<Bool>
-        let didSelectMenu: Signal<DashboardTableElement.MenuItem>
     }
 
     struct Output {
-        let elements: Driver<[DashboardTableElement]>
-        let headerState: Driver<DashboardView.Header>
+        let activeVehicle: Driver<Vehicle?>
         let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
         let garage = makeGarage()
-        let connectState = makeConnectState()
         let activeVehicle = makeActiveVehicle(garage: garage)
         let activeSubscription = makeActiveSubscription()
         
         return Output(
-            elements: makeElements(
-                activeVehicle: activeVehicle,
-                connectState: connectState
-            ),
-            headerState: makeHeaderState(activeSubscription: activeSubscription),
+            activeVehicle: activeVehicle,
             action: makeAction(
-                activeVehicle: activeVehicle,
-                activeSubscription: activeSubscription,
-                connectState: connectState,
-                didTapUpgragePlan: input.didTapUpgragePlan,
-                didTapChangeActiveCar: input.didTapChangeActiveCar,
-                didTapChangeConnect: input.didTapChangeConnect,
-                didSelectMenu: input.didSelectMenu
+                didTapChangeActiveCar: input.didTapChangeActiveCar
             )
         )
     }
@@ -68,108 +44,14 @@ extension DashboardViewModel {
 // MARK: Private
 private extension DashboardViewModel {
     func makeAction(
-        activeVehicle: Driver<Vehicle?>,
-        activeSubscription: Driver<Bool>,
-        connectState: Driver<Bool>,
-        didTapUpgragePlan: Signal<Void>,
-        didTapChangeActiveCar: Signal<Void>,
-        didTapChangeConnect: Signal<Bool>,
-        didSelectMenu: Signal<DashboardTableElement.MenuItem>
+        didTapChangeActiveCar: Signal<Void>
     ) -> Driver<Action> {
-        let upgradePlan = didTapUpgragePlan
-            .map { Action.openPaygate }
+        let changeActiveCar = didTapChangeActiveCar
+            .map { Action.changeActiveCar }
             .asDriver(onErrorDriveWith: .never())
-
-        let openGarage = didTapChangeActiveCar
-            .map { Action.openGarage }
-            .asDriver(onErrorDriveWith: .never())
-
-        let changeConnect = didTapChangeConnect
-            .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(activeVehicle) { ($0, $1) }
-            .withLatestFrom(activeSubscription) { ($0.0, $0.1, $1) }
-            .compactMap { isConnected, activeVehicle, activeSubscription -> Action? in
-                if isConnected {
-                    return .disconnect
-                }
-
-                guard let activeVehicle else {
-                    return nil
-                }
-                
-                guard activeSubscription else {
-                    return .openPaygate
-                }
-
-                return .openConnectingType(activeVehicle)
-            }
-
-        let menu = didSelectMenu
-            .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(activeVehicle) { ($0, $1) }
-            .withLatestFrom(activeSubscription) { ($0.0, $0.1, $1) }
-            .withLatestFrom(connectState) { ($0.0, $0.1, $0.2, $1) }
-            .compactMap { menu, activeVehicle, activeSubscription, connectState -> Action? in
-                guard let activeVehicle else { return nil }
-                
-                switch menu {
-                case .diagnostics:
-                    return connectState ? .openDiagnostics(activeVehicle) : nil
-                case .freezeFrame:
-//                    return connectState ? (activeSubscription ? .openFreezeFrame(activeVehicle) : .openPaygate) : nil
-                    return .openFreezeFrame(activeVehicle)
-                case .hud:
-                    return connectState ? (activeSubscription ? .openHUD(activeVehicle) : .openPaygate) : nil
-                case .recallHistory:
-                    return activeSubscription ? .openRecallHistory(activeVehicle) : .openPaygate
-                }
-            }
         
         return Driver
-            .merge(upgradePlan, openGarage, changeConnect, menu)
-    }
-    
-    func makeElements(
-        activeVehicle: Driver<Vehicle?>,
-        connectState: Driver<Bool>
-    ) -> Driver<[DashboardTableElement]> {
-        Driver
-            .combineLatest(activeVehicle, connectState)
-            .map { activeVehicle, connectState -> [DashboardTableElement] in
-                let useOBDAvailable = activeVehicle != nil && connectState
-                
-                return [
-                    .demoMode(false), // TODO: use demo mode
-                    .activeVehicle(activeVehicle),
-                    .connect(isConnected: connectState, enable: activeVehicle != nil),
-                    .menu(.diagnostics, useOBDAvailable),
-                    .menu(.freezeFrame, useOBDAvailable),
-                    .menu(.hud, useOBDAvailable),
-                    .menu(.recallHistory, activeVehicle != nil)
-                ]
-            }
-    }
-    
-    func makeConnectState() -> Driver<Bool> {
-        let service = OBDService.shared
-
-        return service.state
-            .asObservable()
-            .startWith(service.currentState)
-            .map { state -> Bool in
-                if case .ready = state {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            .distinctUntilChanged()
-            .asDriver(onErrorJustReturn: false)
-    }
-    
-    func makeHeaderState(activeSubscription: Driver<Bool>) -> Driver<DashboardView.Header> {
-        activeSubscription
-            .map { $0 ? .none : .unlimited }
+            .merge(changeActiveCar)
     }
     
     func makeActiveVehicle(garage: Driver<[Vehicle]>) -> Driver<Vehicle?> {

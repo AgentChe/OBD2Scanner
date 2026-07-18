@@ -1,17 +1,16 @@
 //
-//  DashboardTableActiveVehicleCell.swift
+//  DashboardActiveVehicleView.swift
 //  OBD2Scanner
 //
 //  Created by Андрей Чернышев on 06.07.2026.
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import Kingfisher
 
-final class DashboardTableActiveVehicleCell: UITableViewCell {
-    var didTapChangeCar: (() -> Void)?
-    
-    lazy var container = makeContainer()
+final class DashboardActiveVehicleView: UIView {
     lazy var changeCarButton = makeChangeCarButton()
     lazy var nameLabel = makeLabel()
     lazy var yearLabel = makeLabel()
@@ -28,9 +27,9 @@ final class DashboardTableActiveVehicleCell: UITableViewCell {
         .font(Fonts.NotoSans.regular(size: 14.scale))
         .textAlignment(.left)
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
         makeConstraints()
         initialize()
     }
@@ -38,18 +37,12 @@ final class DashboardTableActiveVehicleCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        previewView.kf.cancelDownloadTask()
-        previewView.image = nil
-    }
 }
 
 // MARK: Public
-extension DashboardTableActiveVehicleCell {
+extension DashboardActiveVehicleView {
     func setup(vehicle: Vehicle?) {
+        previewView.kf.cancelDownloadTask()
         previewView.kf.setImage(
             with: vehicle?.preview,
             options: [.onFailureImage(UIImage(named: "Vehicle.EmptyPreview"))]
@@ -63,80 +56,62 @@ extension DashboardTableActiveVehicleCell {
         let year = vehicle?.year.map { String($0) } ?? "—"
         yearLabel.attributedText = year.attributed(with: yearAttrs)
     }
+    
+    var didTapChangeCar: Signal<Void> {
+        changeCarButton.rx.tap.asSignal()
+    }
 }
 
 // MARK: Private
-private extension DashboardTableActiveVehicleCell {
+private extension DashboardActiveVehicleView {
     func initialize() {
-        backgroundColor = UIColor.clear
-        contentView.backgroundColor = UIColor.clear
-
-        selectionStyle = .none
-    }
-    
-    @objc
-    func changeCarTapped() {
-        didTapChangeCar?()
+        backgroundColor = Appearance.color_1A2231
+        layer.cornerRadius = 12.scale
     }
 }
 
 // MARK: Make constraints
-private extension DashboardTableActiveVehicleCell {
+private extension DashboardActiveVehicleView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
-            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
-            container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6.scale),
-            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6.scale),
-            container.heightAnchor.constraint(equalToConstant: 132.scale)
+            heightAnchor.constraint(equalToConstant: 132.scale)
         ])
-
+        
         NSLayoutConstraint.activate([
-            changeCarButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
-            changeCarButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 16.scale),
+            changeCarButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            changeCarButton.topAnchor.constraint(equalTo: topAnchor, constant: 16.scale),
             changeCarButton.heightAnchor.constraint(equalToConstant: 36.scale)
         ])
 
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: previewView.leadingAnchor, constant: -8.scale),
             nameLabel.topAnchor.constraint(equalTo: changeCarButton.bottomAnchor, constant: 12.scale)
         ])
 
         NSLayoutConstraint.activate([
-            yearLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
+            yearLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             yearLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4.scale)
         ])
         
         NSLayoutConstraint.activate([
             previewView.widthAnchor.constraint(equalToConstant: 145.scale),
             previewView.heightAnchor.constraint(equalToConstant: 132.scale),
-            previewView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            previewView.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+            previewView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            previewView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
             gradientView.widthAnchor.constraint(equalToConstant: 80.scale),
             gradientView.heightAnchor.constraint(equalToConstant: 132.scale),
-            gradientView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            gradientView.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+            gradientView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
-private extension DashboardTableActiveVehicleCell {
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.backgroundColor = Appearance.color_1A2231
-        view.layer.cornerRadius = 12.scale
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(view)
-        return view
-    }
-
+private extension DashboardActiveVehicleView {
     func makeChangeCarButton() -> UIButton {
         let attrs = TextAttributes()
             .textColor(Appearance.color_526387)
@@ -151,16 +126,17 @@ private extension DashboardTableActiveVehicleCell {
         let view = UIButton(configuration: configuration)
         view.backgroundColor = Appearance.color_191F2B
         view.layer.cornerRadius = 8.scale
-        view.addTarget(self, action: #selector(changeCarTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        addSubview(view)
         return view
     }
 
     func makeLabel() -> UILabel {
         let view = UILabel()
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.8
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        addSubview(view)
         return view
     }
 
@@ -168,7 +144,7 @@ private extension DashboardTableActiveVehicleCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        addSubview(view)
         return view
     }
     
@@ -187,7 +163,7 @@ private extension DashboardTableActiveVehicleCell {
         view.layer.cornerRadius = 12.scale
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        addSubview(view)
         return view
     }
 }

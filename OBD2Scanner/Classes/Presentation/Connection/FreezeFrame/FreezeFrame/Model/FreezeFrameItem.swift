@@ -10,6 +10,7 @@ import UIKit
 struct FreezeFrameItem {
     let dtc: DiagnosticTroubleCode
     let readings: [ParameterReading]
+    let units: Units
 }
 
 // MARK: Public

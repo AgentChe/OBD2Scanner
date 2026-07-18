@@ -81,9 +81,10 @@ private extension FreezeFrameDetailsView {
                 return
             }
 
+            let (value, unit) = Self.gaugeParts(for: reading, units: item.units)
             let view = FreezeFrameGaugeView(
-                value: reading.value.formatted(unit: nil),
-                unit: reading.parameter.unit == "rpm" ? "RPM" : reading.parameter.unit,
+                value: value,
+                unit: unit == "rpm" ? "RPM" : unit,
                 progress: Self.progress(for: reading),
                 colors: colors
             )
@@ -100,7 +101,7 @@ private extension FreezeFrameDetailsView {
         item.otherReadings.forEach { reading in
             let row = FreezeFrameParameterRowView(
                 name: reading.parameter.name,
-                value: reading.formatted
+                value: reading.formatted(units: item.units)
             )
             parametersView.addArrangedSubview(row)
         }
@@ -108,6 +109,15 @@ private extension FreezeFrameDetailsView {
         parametersView.isHidden = parametersView.arrangedSubviews.isEmpty
     }
     
+    static func gaugeParts(for reading: ParameterReading, units: Units) -> (value: String, unit: String?) {
+        guard case let .number(number) = reading.value else {
+            return (reading.value.formatted(unit: nil), reading.parameter.unit)
+        }
+
+        let converted = units.convert(value: number, unit: reading.parameter.unit)
+        return (OBDValue.number(converted.value).formatted(unit: nil), converted.unit)
+    }
+
     static func progress(for reading: ParameterReading) -> Double {
         guard case let .number(value) = reading.value,
               let range = reading.parameter.range,

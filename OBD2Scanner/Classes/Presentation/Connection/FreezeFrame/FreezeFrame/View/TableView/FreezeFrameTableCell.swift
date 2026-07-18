@@ -92,7 +92,7 @@ private extension FreezeFrameTableCell {
         stats.forEach { icon, reading in
             guard let reading else { return }
 
-            let itemView = makeStatItem(icon: icon, text: reading.formatted)
+            let itemView = makeStatItem(icon: icon, text: reading.formatted(units: item.units))
             statsView.addArrangedSubview(itemView)
         }
 

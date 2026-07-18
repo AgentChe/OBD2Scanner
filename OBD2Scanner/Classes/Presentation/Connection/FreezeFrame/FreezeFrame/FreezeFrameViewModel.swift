@@ -15,8 +15,10 @@ final class FreezeFrameViewModel {
     }
 
     private lazy var activity = RxActivityIndicator()
-    
+
     private lazy var service = OBDServiceProvider.current
+
+    private lazy var profileManager = ProfileManager()
 }
 
 // MARK: Public
@@ -47,16 +49,22 @@ extension FreezeFrameViewModel {
 // MARK: Private
 private extension FreezeFrameViewModel {
     func makeItems() -> Driver<[FreezeFrameItem]> {
-        service.readTroubleCodes()
-            .flatMap { [weak self] codes -> Single<[FreezeFrameItem]> in
+        Single
+            .zip(
+                service.readTroubleCodes(),
+                profileManager
+                    .obtainUnits()
+                    .catchAndReturn(.default)
+            )
+            .flatMap { [weak self] codes, units -> Single<[FreezeFrameItem]> in
                 guard let self, !codes.isEmpty else {
                     return .just([])
                 }
-                
+
                 let reads = codes.map { code in
                     self.service.readFreezeFrame(for: code)
-                        .map { FreezeFrameItem(dtc: code, readings: $0) }
-                        .catchAndReturn(FreezeFrameItem(dtc: code, readings: []))
+                        .map { FreezeFrameItem(dtc: code, readings: $0, units: units) }
+                        .catchAndReturn(FreezeFrameItem(dtc: code, readings: [], units: units))
                         .asObservable()
                 }
 

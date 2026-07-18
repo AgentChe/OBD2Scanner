@@ -287,7 +287,7 @@ and smart monitoring";
 "FreezeFrame.Captured" = "Captured %@";
 "FreezeFrame.JustNow" = "just now";
 "FreezeFrame.Empty.Title" = "NO FREEZE FRAME\nDATA AVAILABLE";
-"FreezeFrame.Empty.SubTitle" = "Freeze frame captures vehicle prameters at the moment a fault occurs. It helps diagnose issues mere accurately";
+"FreezeFrame.Empty.SubTitle" = "Freeze frame captures vehicle parameters at the moment a fault occurs. It helps diagnose issues more accurately";
 "FreezeFrame.Empty.Back" = "Back";
 "FreezeFrame.EmptyItem.1" = "A fault code is detected by the ECU";
 "FreezeFrame.EmptyItem.2" = "Vehicle data is captured automatically";

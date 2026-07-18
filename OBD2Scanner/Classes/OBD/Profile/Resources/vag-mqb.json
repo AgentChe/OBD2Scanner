@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "vag-mqb",
-  "name": "VW Group MQB (кандидат)",
+  "name": "VW Group MQB (candidate)",
   "priority": 100,
   "match": {
     "brands": ["volkswagen", "audi", "skoda", "seat", "cupra"],
@@ -11,7 +11,7 @@
   "ecus": [
     {
       "id": "engine",
-      "name": "Двигатель",
+      "name": "Engine",
       "addressing": { "request": "7E0", "response": "7E8" },
       "session": { "kind": "none" },
       "supportedParametersProbe": "udsProbe",
@@ -24,7 +24,7 @@
       "parameters": [
         {
           "id": "vag.vin",
-          "name": "VIN (из ECU)",
+          "name": "VIN (from ECU)",
           "request": "22F190",
           "responsePrefix": "62F190",
           "extract": { "start": 0, "length": 17 },
@@ -34,7 +34,7 @@
         },
         {
           "id": "vag.map",
-          "name": "Давление во впуске (абс.)",
+          "name": "Intake manifold pressure (abs.)",
           "request": "22202A",
           "responsePrefix": "62202A",
           "extract": { "start": 0, "length": 2 },

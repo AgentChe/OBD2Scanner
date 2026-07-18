@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "peugeot-407",
-  "name": "Peugeot 407 (OBDb brand — кандидат, данные новых Peugeot)",
+  "name": "Peugeot 407 (OBDb brand — candidate, data from newer Peugeots)",
   "priority": 100,
   "match": {
     "brands": [

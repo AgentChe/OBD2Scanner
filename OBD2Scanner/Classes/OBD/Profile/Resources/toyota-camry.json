@@ -20,7 +20,7 @@
   "ecus": [
     {
       "id": "engine",
-      "name": "Двигатель (сервис 21)",
+      "name": "Engine (service 21)",
       "addressing": {
         "request": "7E0",
         "response": "7E8"
@@ -32,7 +32,7 @@
       "parameters": [
         {
           "id": "toyota.rpm_2101",
-          "name": "Обороты (2101, проверено на XV70)",
+          "name": "Engine RPM (2101, verified on XV70)",
           "request": "2101",
           "responsePrefix": "6101",
           "extract": {
@@ -60,7 +60,7 @@
         },
         {
           "id": "toyota.coolant_2101",
-          "name": "Температура ОЖ (2101, проверено на XV70)",
+          "name": "Coolant temperature (2101, verified on XV70)",
           "request": "2101",
           "responsePrefix": "6101",
           "extract": {
@@ -2302,7 +2302,7 @@
     },
     {
       "id": "brake",
-      "name": "Тормоза / ABS / ESP",
+      "name": "Brakes / ABS / ESP",
       "addressing": {
         "request": "7B0",
         "response": "7B8"
@@ -3922,7 +3922,7 @@
     },
     {
       "id": "meter",
-      "name": "Приборная панель",
+      "name": "Instrument cluster",
       "addressing": {
         "request": "7C0",
         "response": "7C8"
@@ -4285,7 +4285,7 @@
     },
     {
       "id": "hvac",
-      "name": "Климат-контроль",
+      "name": "Climate control",
       "addressing": {
         "request": "7C4",
         "response": "7CC"
@@ -4631,7 +4631,7 @@
     },
     {
       "id": "epb",
-      "name": "Модуль 0x7D0 (стояночный тормоз)",
+      "name": "Module 0x7D0 (parking brake)",
       "addressing": {
         "request": "7D0",
         "response": "7D8"

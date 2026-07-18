@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "honda-civic-typer",
-  "name": "Honda Civic Type R FK2 (OBDb, кандидат)",
+  "name": "Honda Civic Type R FK2 (OBDb, candidate)",
   "priority": 100,
   "match": {
     "brands": [

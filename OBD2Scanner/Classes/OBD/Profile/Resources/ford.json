@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "ford",
-  "name": "Ford (Forscan-эра, кандидат)",
+  "name": "Ford (Forscan-era, candidate)",
   "priority": 100,
   "match": {
     "brands": ["ford"],
@@ -11,14 +11,14 @@
   "ecus": [
     {
       "id": "transmission",
-      "name": "АКПП",
+      "name": "Transmission",
       "addressing": { "request": "7E1", "response": "7E9" },
       "session": { "kind": "none" },
       "supportedParametersProbe": "udsProbe",
       "parameters": [
         {
           "id": "ford.trans_temp",
-          "name": "Температура АКПП",
+          "name": "Transmission fluid temperature",
           "request": "221E1C",
           "responsePrefix": "621E1C",
           "extract": { "start": 0, "length": 2, "signed": true },

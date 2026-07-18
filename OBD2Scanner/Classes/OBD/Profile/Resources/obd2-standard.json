@@ -10,7 +10,7 @@
   "ecus": [
     {
       "id": "broadcast",
-      "name": "Эмиссионные ECU",
+      "name": "Emission ECUs",
       "addressing": {
         "request": "7DF"
       },
@@ -42,7 +42,7 @@
       "parameters": [
         {
           "id": "std.fuel_system_status",
-          "name": "Статус топливной системы",
+          "name": "Fuel system status",
           "request": "0103",
           "responsePrefix": "4103",
           "extract": {
@@ -52,11 +52,11 @@
           "decode": {
             "kind": "enum",
             "map": {
-              "1": "Open loop (прогрев)",
+              "1": "Open loop (warm-up)",
               "2": "Closed loop",
-              "4": "Open loop (нагрузка/торможение)",
-              "8": "Open loop (сбой системы)",
-              "16": "Closed loop (есть неисправность)"
+              "4": "Open loop (load/decel)",
+              "8": "Open loop (system fault)",
+              "16": "Closed loop (with fault)"
             }
           },
           "group": "live-slow",
@@ -66,7 +66,7 @@
         },
         {
           "id": "std.engine_load",
-          "name": "Нагрузка двигателя",
+          "name": "Engine load",
           "request": "0104",
           "responsePrefix": "4104",
           "extract": {
@@ -91,7 +91,7 @@
         },
         {
           "id": "std.coolant_temp",
-          "name": "Температура ОЖ",
+          "name": "Coolant temperature",
           "request": "0105",
           "responsePrefix": "4105",
           "extract": {
@@ -116,7 +116,7 @@
         },
         {
           "id": "std.stft_1",
-          "name": "Кратковр. топл. коррекция (банк 1)",
+          "name": "Short term fuel trim (bank 1)",
           "request": "0106",
           "responsePrefix": "4106",
           "extract": {
@@ -140,7 +140,7 @@
         },
         {
           "id": "std.ltft_1",
-          "name": "Долговр. топл. коррекция (банк 1)",
+          "name": "Long term fuel trim (bank 1)",
           "request": "0107",
           "responsePrefix": "4107",
           "extract": {
@@ -164,7 +164,7 @@
         },
         {
           "id": "std.stft_2",
-          "name": "Кратковр. топл. коррекция (банк 2)",
+          "name": "Short term fuel trim (bank 2)",
           "request": "0108",
           "responsePrefix": "4108",
           "extract": {
@@ -188,7 +188,7 @@
         },
         {
           "id": "std.ltft_2",
-          "name": "Долговр. топл. коррекция (банк 2)",
+          "name": "Long term fuel trim (bank 2)",
           "request": "0109",
           "responsePrefix": "4109",
           "extract": {
@@ -212,7 +212,7 @@
         },
         {
           "id": "std.fuel_pressure",
-          "name": "Давление топлива",
+          "name": "Fuel pressure",
           "request": "010A",
           "responsePrefix": "410A",
           "extract": {
@@ -233,7 +233,7 @@
         },
         {
           "id": "std.intake_map",
-          "name": "Давление во впуске (MAP)",
+          "name": "Intake manifold pressure (MAP)",
           "request": "010B",
           "responsePrefix": "410B",
           "extract": {
@@ -257,7 +257,7 @@
         },
         {
           "id": "std.rpm",
-          "name": "Обороты двигателя",
+          "name": "Engine RPM",
           "request": "010C",
           "responsePrefix": "410C",
           "extract": {
@@ -282,7 +282,7 @@
         },
         {
           "id": "std.speed",
-          "name": "Скорость автомобиля",
+          "name": "Vehicle speed",
           "request": "010D",
           "responsePrefix": "410D",
           "extract": {
@@ -306,7 +306,7 @@
         },
         {
           "id": "std.timing_advance",
-          "name": "Угол опережения зажигания",
+          "name": "Ignition timing advance",
           "request": "010E",
           "responsePrefix": "410E",
           "extract": {
@@ -330,7 +330,7 @@
         },
         {
           "id": "std.intake_temp",
-          "name": "Температура впуска",
+          "name": "Intake air temperature",
           "request": "010F",
           "responsePrefix": "410F",
           "extract": {
@@ -351,7 +351,7 @@
         },
         {
           "id": "std.maf",
-          "name": "Массовый расход воздуха (MAF)",
+          "name": "Mass air flow (MAF)",
           "request": "0110",
           "responsePrefix": "4110",
           "extract": {
@@ -375,7 +375,7 @@
         },
         {
           "id": "std.throttle",
-          "name": "Положение дросселя",
+          "name": "Throttle position",
           "request": "0111",
           "responsePrefix": "4111",
           "extract": {
@@ -400,7 +400,7 @@
         },
         {
           "id": "std.o2_b1s1_v",
-          "name": "Лямбда B1S1: напряжение",
+          "name": "O2 sensor B1S1: voltage",
           "request": "0114",
           "responsePrefix": "4114",
           "extract": {
@@ -424,7 +424,7 @@
         },
         {
           "id": "std.o2_b1s1_trim",
-          "name": "Лямбда B1S1: коррекция",
+          "name": "O2 sensor B1S1: fuel trim",
           "request": "0114",
           "responsePrefix": "4114",
           "extract": {
@@ -448,7 +448,7 @@
         },
         {
           "id": "std.o2_b1s2_v",
-          "name": "Лямбда B1S2: напряжение",
+          "name": "O2 sensor B1S2: voltage",
           "request": "0115",
           "responsePrefix": "4115",
           "extract": {
@@ -472,7 +472,7 @@
         },
         {
           "id": "std.o2_b1s2_trim",
-          "name": "Лямбда B1S2: коррекция",
+          "name": "O2 sensor B1S2: fuel trim",
           "request": "0115",
           "responsePrefix": "4115",
           "extract": {
@@ -496,7 +496,7 @@
         },
         {
           "id": "std.o2_b1s3_v",
-          "name": "Лямбда B1S3: напряжение",
+          "name": "O2 sensor B1S3: voltage",
           "request": "0116",
           "responsePrefix": "4116",
           "extract": {
@@ -520,7 +520,7 @@
         },
         {
           "id": "std.o2_b1s3_trim",
-          "name": "Лямбда B1S3: коррекция",
+          "name": "O2 sensor B1S3: fuel trim",
           "request": "0116",
           "responsePrefix": "4116",
           "extract": {
@@ -544,7 +544,7 @@
         },
         {
           "id": "std.o2_b1s4_v",
-          "name": "Лямбда B1S4: напряжение",
+          "name": "O2 sensor B1S4: voltage",
           "request": "0117",
           "responsePrefix": "4117",
           "extract": {
@@ -568,7 +568,7 @@
         },
         {
           "id": "std.o2_b1s4_trim",
-          "name": "Лямбда B1S4: коррекция",
+          "name": "O2 sensor B1S4: fuel trim",
           "request": "0117",
           "responsePrefix": "4117",
           "extract": {
@@ -592,7 +592,7 @@
         },
         {
           "id": "std.o2_b2s1_v",
-          "name": "Лямбда B2S1: напряжение",
+          "name": "O2 sensor B2S1: voltage",
           "request": "0118",
           "responsePrefix": "4118",
           "extract": {
@@ -616,7 +616,7 @@
         },
         {
           "id": "std.o2_b2s1_trim",
-          "name": "Лямбда B2S1: коррекция",
+          "name": "O2 sensor B2S1: fuel trim",
           "request": "0118",
           "responsePrefix": "4118",
           "extract": {
@@ -640,7 +640,7 @@
         },
         {
           "id": "std.o2_b2s2_v",
-          "name": "Лямбда B2S2: напряжение",
+          "name": "O2 sensor B2S2: voltage",
           "request": "0119",
           "responsePrefix": "4119",
           "extract": {
@@ -664,7 +664,7 @@
         },
         {
           "id": "std.o2_b2s2_trim",
-          "name": "Лямбда B2S2: коррекция",
+          "name": "O2 sensor B2S2: fuel trim",
           "request": "0119",
           "responsePrefix": "4119",
           "extract": {
@@ -688,7 +688,7 @@
         },
         {
           "id": "std.o2_b2s3_v",
-          "name": "Лямбда B2S3: напряжение",
+          "name": "O2 sensor B2S3: voltage",
           "request": "011A",
           "responsePrefix": "411A",
           "extract": {
@@ -712,7 +712,7 @@
         },
         {
           "id": "std.o2_b2s3_trim",
-          "name": "Лямбда B2S3: коррекция",
+          "name": "O2 sensor B2S3: fuel trim",
           "request": "011A",
           "responsePrefix": "411A",
           "extract": {
@@ -736,7 +736,7 @@
         },
         {
           "id": "std.o2_b2s4_v",
-          "name": "Лямбда B2S4: напряжение",
+          "name": "O2 sensor B2S4: voltage",
           "request": "011B",
           "responsePrefix": "411B",
           "extract": {
@@ -760,7 +760,7 @@
         },
         {
           "id": "std.o2_b2s4_trim",
-          "name": "Лямбда B2S4: коррекция",
+          "name": "O2 sensor B2S4: fuel trim",
           "request": "011B",
           "responsePrefix": "411B",
           "extract": {
@@ -784,7 +784,7 @@
         },
         {
           "id": "std.obd_standard",
-          "name": "Стандарт OBD",
+          "name": "OBD standard",
           "request": "011C",
           "responsePrefix": "411C",
           "extract": {
@@ -796,16 +796,16 @@
             "map": {
               "1": "OBD-II (CARB)",
               "2": "OBD (EPA)",
-              "3": "OBD и OBD-II",
+              "3": "OBD and OBD-II",
               "4": "OBD-I",
-              "5": "Нет OBD",
+              "5": "No OBD",
               "6": "EOBD",
-              "7": "EOBD и OBD-II",
-              "8": "EOBD и OBD",
+              "7": "EOBD and OBD-II",
+              "8": "EOBD and OBD",
               "9": "EOBD, OBD, OBD-II",
               "10": "JOBD",
-              "11": "JOBD и OBD-II",
-              "12": "JOBD и EOBD",
+              "11": "JOBD and OBD-II",
+              "12": "JOBD and EOBD",
               "13": "JOBD, EOBD, OBD-II"
             }
           },
@@ -816,7 +816,7 @@
         },
         {
           "id": "std.runtime",
-          "name": "Время работы двигателя",
+          "name": "Engine run time",
           "request": "011F",
           "responsePrefix": "411F",
           "extract": {
@@ -836,7 +836,7 @@
         },
         {
           "id": "std.distance_mil",
-          "name": "Пробег с горящим MIL",
+          "name": "Distance with MIL on",
           "request": "0121",
           "responsePrefix": "4121",
           "extract": {
@@ -856,7 +856,7 @@
         },
         {
           "id": "std.fuel_rail_pressure",
-          "name": "Давление в рампе (отн. вакуума)",
+          "name": "Fuel rail pressure (rel. to vacuum)",
           "request": "0122",
           "responsePrefix": "4122",
           "extract": {
@@ -873,7 +873,7 @@
         },
         {
           "id": "std.fuel_rail_gauge",
-          "name": "Давление в рампе (прямое)",
+          "name": "Fuel rail pressure (direct injection)",
           "request": "0123",
           "responsePrefix": "4123",
           "extract": {
@@ -890,7 +890,7 @@
         },
         {
           "id": "std.o2wr_b1s1_lambda",
-          "name": "ШДК B1S1: λ",
+          "name": "Wideband O2 B1S1: lambda",
           "request": "0124",
           "responsePrefix": "4124",
           "extract": {
@@ -914,7 +914,7 @@
         },
         {
           "id": "std.o2wr_b1s1_v",
-          "name": "ШДК B1S1: напряжение",
+          "name": "Wideband O2 B1S1: voltage",
           "request": "0124",
           "responsePrefix": "4124",
           "extract": {
@@ -938,7 +938,7 @@
         },
         {
           "id": "std.o2wr_b1s2_lambda",
-          "name": "ШДК B1S2: λ",
+          "name": "Wideband O2 B1S2: lambda",
           "request": "0125",
           "responsePrefix": "4125",
           "extract": {
@@ -962,7 +962,7 @@
         },
         {
           "id": "std.o2wr_b1s2_v",
-          "name": "ШДК B1S2: напряжение",
+          "name": "Wideband O2 B1S2: voltage",
           "request": "0125",
           "responsePrefix": "4125",
           "extract": {
@@ -986,7 +986,7 @@
         },
         {
           "id": "std.o2wr_b1s3_lambda",
-          "name": "ШДК B1S3: λ",
+          "name": "Wideband O2 B1S3: lambda",
           "request": "0126",
           "responsePrefix": "4126",
           "extract": {
@@ -1010,7 +1010,7 @@
         },
         {
           "id": "std.o2wr_b1s3_v",
-          "name": "ШДК B1S3: напряжение",
+          "name": "Wideband O2 B1S3: voltage",
           "request": "0126",
           "responsePrefix": "4126",
           "extract": {
@@ -1034,7 +1034,7 @@
         },
         {
           "id": "std.o2wr_b1s4_lambda",
-          "name": "ШДК B1S4: λ",
+          "name": "Wideband O2 B1S4: lambda",
           "request": "0127",
           "responsePrefix": "4127",
           "extract": {
@@ -1058,7 +1058,7 @@
         },
         {
           "id": "std.o2wr_b1s4_v",
-          "name": "ШДК B1S4: напряжение",
+          "name": "Wideband O2 B1S4: voltage",
           "request": "0127",
           "responsePrefix": "4127",
           "extract": {
@@ -1082,7 +1082,7 @@
         },
         {
           "id": "std.o2wr_b2s1_lambda",
-          "name": "ШДК B2S1: λ",
+          "name": "Wideband O2 B2S1: lambda",
           "request": "0128",
           "responsePrefix": "4128",
           "extract": {
@@ -1106,7 +1106,7 @@
         },
         {
           "id": "std.o2wr_b2s1_v",
-          "name": "ШДК B2S1: напряжение",
+          "name": "Wideband O2 B2S1: voltage",
           "request": "0128",
           "responsePrefix": "4128",
           "extract": {
@@ -1130,7 +1130,7 @@
         },
         {
           "id": "std.o2wr_b2s2_lambda",
-          "name": "ШДК B2S2: λ",
+          "name": "Wideband O2 B2S2: lambda",
           "request": "0129",
           "responsePrefix": "4129",
           "extract": {
@@ -1154,7 +1154,7 @@
         },
         {
           "id": "std.o2wr_b2s2_v",
-          "name": "ШДК B2S2: напряжение",
+          "name": "Wideband O2 B2S2: voltage",
           "request": "0129",
           "responsePrefix": "4129",
           "extract": {
@@ -1178,7 +1178,7 @@
         },
         {
           "id": "std.o2wr_b2s3_lambda",
-          "name": "ШДК B2S3: λ",
+          "name": "Wideband O2 B2S3: lambda",
           "request": "012A",
           "responsePrefix": "412A",
           "extract": {
@@ -1202,7 +1202,7 @@
         },
         {
           "id": "std.o2wr_b2s3_v",
-          "name": "ШДК B2S3: напряжение",
+          "name": "Wideband O2 B2S3: voltage",
           "request": "012A",
           "responsePrefix": "412A",
           "extract": {
@@ -1226,7 +1226,7 @@
         },
         {
           "id": "std.o2wr_b2s4_lambda",
-          "name": "ШДК B2S4: λ",
+          "name": "Wideband O2 B2S4: lambda",
           "request": "012B",
           "responsePrefix": "412B",
           "extract": {
@@ -1250,7 +1250,7 @@
         },
         {
           "id": "std.o2wr_b2s4_v",
-          "name": "ШДК B2S4: напряжение",
+          "name": "Wideband O2 B2S4: voltage",
           "request": "012B",
           "responsePrefix": "412B",
           "extract": {
@@ -1274,7 +1274,7 @@
         },
         {
           "id": "std.commanded_egr",
-          "name": "Команда EGR",
+          "name": "Commanded EGR",
           "request": "012C",
           "responsePrefix": "412C",
           "extract": {
@@ -1295,7 +1295,7 @@
         },
         {
           "id": "std.egr_error",
-          "name": "Ошибка EGR",
+          "name": "EGR error",
           "request": "012D",
           "responsePrefix": "412D",
           "extract": {
@@ -1316,7 +1316,7 @@
         },
         {
           "id": "std.evap_purge",
-          "name": "Продувка адсорбера",
+          "name": "Commanded EVAP purge",
           "request": "012E",
           "responsePrefix": "412E",
           "extract": {
@@ -1337,7 +1337,7 @@
         },
         {
           "id": "std.fuel_level",
-          "name": "Уровень топлива",
+          "name": "Fuel level",
           "request": "012F",
           "responsePrefix": "412F",
           "extract": {
@@ -1361,7 +1361,7 @@
         },
         {
           "id": "std.warmups_cleared",
-          "name": "Прогревов после сброса DTC",
+          "name": "Warm-ups since DTC clear",
           "request": "0130",
           "responsePrefix": "4130",
           "extract": {
@@ -1380,7 +1380,7 @@
         },
         {
           "id": "std.distance_cleared",
-          "name": "Пробег после сброса DTC",
+          "name": "Distance since DTC clear",
           "request": "0131",
           "responsePrefix": "4131",
           "extract": {
@@ -1400,7 +1400,7 @@
         },
         {
           "id": "std.evap_pressure",
-          "name": "Давление паров топлива",
+          "name": "EVAP vapor pressure",
           "request": "0132",
           "responsePrefix": "4132",
           "extract": {
@@ -1418,7 +1418,7 @@
         },
         {
           "id": "std.baro",
-          "name": "Атмосферное давление",
+          "name": "Barometric pressure",
           "request": "0133",
           "responsePrefix": "4133",
           "extract": {
@@ -1439,7 +1439,7 @@
         },
         {
           "id": "std.o2wc_b1s1_lambda",
-          "name": "ШДК B1S1: λ (ток)",
+          "name": "Wideband O2 B1S1: lambda (current)",
           "request": "0134",
           "responsePrefix": "4134",
           "extract": {
@@ -1463,7 +1463,7 @@
         },
         {
           "id": "std.o2wc_b1s1_ma",
-          "name": "ШДК B1S1: ток",
+          "name": "Wideband O2 B1S1: current",
           "request": "0134",
           "responsePrefix": "4134",
           "extract": {
@@ -1487,7 +1487,7 @@
         },
         {
           "id": "std.o2wc_b1s2_lambda",
-          "name": "ШДК B1S2: λ (ток)",
+          "name": "Wideband O2 B1S2: lambda (current)",
           "request": "0135",
           "responsePrefix": "4135",
           "extract": {
@@ -1511,7 +1511,7 @@
         },
         {
           "id": "std.o2wc_b1s2_ma",
-          "name": "ШДК B1S2: ток",
+          "name": "Wideband O2 B1S2: current",
           "request": "0135",
           "responsePrefix": "4135",
           "extract": {
@@ -1535,7 +1535,7 @@
         },
         {
           "id": "std.o2wc_b1s3_lambda",
-          "name": "ШДК B1S3: λ (ток)",
+          "name": "Wideband O2 B1S3: lambda (current)",
           "request": "0136",
           "responsePrefix": "4136",
           "extract": {
@@ -1559,7 +1559,7 @@
         },
         {
           "id": "std.o2wc_b1s3_ma",
-          "name": "ШДК B1S3: ток",
+          "name": "Wideband O2 B1S3: current",
           "request": "0136",
           "responsePrefix": "4136",
           "extract": {
@@ -1583,7 +1583,7 @@
         },
         {
           "id": "std.o2wc_b1s4_lambda",
-          "name": "ШДК B1S4: λ (ток)",
+          "name": "Wideband O2 B1S4: lambda (current)",
           "request": "0137",
           "responsePrefix": "4137",
           "extract": {
@@ -1607,7 +1607,7 @@
         },
         {
           "id": "std.o2wc_b1s4_ma",
-          "name": "ШДК B1S4: ток",
+          "name": "Wideband O2 B1S4: current",
           "request": "0137",
           "responsePrefix": "4137",
           "extract": {
@@ -1631,7 +1631,7 @@
         },
         {
           "id": "std.o2wc_b2s1_lambda",
-          "name": "ШДК B2S1: λ (ток)",
+          "name": "Wideband O2 B2S1: lambda (current)",
           "request": "0138",
           "responsePrefix": "4138",
           "extract": {
@@ -1655,7 +1655,7 @@
         },
         {
           "id": "std.o2wc_b2s1_ma",
-          "name": "ШДК B2S1: ток",
+          "name": "Wideband O2 B2S1: current",
           "request": "0138",
           "responsePrefix": "4138",
           "extract": {
@@ -1679,7 +1679,7 @@
         },
         {
           "id": "std.o2wc_b2s2_lambda",
-          "name": "ШДК B2S2: λ (ток)",
+          "name": "Wideband O2 B2S2: lambda (current)",
           "request": "0139",
           "responsePrefix": "4139",
           "extract": {
@@ -1703,7 +1703,7 @@
         },
         {
           "id": "std.o2wc_b2s2_ma",
-          "name": "ШДК B2S2: ток",
+          "name": "Wideband O2 B2S2: current",
           "request": "0139",
           "responsePrefix": "4139",
           "extract": {
@@ -1727,7 +1727,7 @@
         },
         {
           "id": "std.o2wc_b2s3_lambda",
-          "name": "ШДК B2S3: λ (ток)",
+          "name": "Wideband O2 B2S3: lambda (current)",
           "request": "013A",
           "responsePrefix": "413A",
           "extract": {
@@ -1751,7 +1751,7 @@
         },
         {
           "id": "std.o2wc_b2s3_ma",
-          "name": "ШДК B2S3: ток",
+          "name": "Wideband O2 B2S3: current",
           "request": "013A",
           "responsePrefix": "413A",
           "extract": {
@@ -1775,7 +1775,7 @@
         },
         {
           "id": "std.o2wc_b2s4_lambda",
-          "name": "ШДК B2S4: λ (ток)",
+          "name": "Wideband O2 B2S4: lambda (current)",
           "request": "013B",
           "responsePrefix": "413B",
           "extract": {
@@ -1799,7 +1799,7 @@
         },
         {
           "id": "std.o2wc_b2s4_ma",
-          "name": "ШДК B2S4: ток",
+          "name": "Wideband O2 B2S4: current",
           "request": "013B",
           "responsePrefix": "413B",
           "extract": {
@@ -1823,7 +1823,7 @@
         },
         {
           "id": "std.cat_temp_b1s1",
-          "name": "Температура катализатора B1S1",
+          "name": "Catalyst temperature B1S1",
           "request": "013C",
           "responsePrefix": "413C",
           "extract": {
@@ -1847,7 +1847,7 @@
         },
         {
           "id": "std.cat_temp_b2s1",
-          "name": "Температура катализатора B2S1",
+          "name": "Catalyst temperature B2S1",
           "request": "013D",
           "responsePrefix": "413D",
           "extract": {
@@ -1871,7 +1871,7 @@
         },
         {
           "id": "std.cat_temp_b1s2",
-          "name": "Температура катализатора B1S2",
+          "name": "Catalyst temperature B1S2",
           "request": "013E",
           "responsePrefix": "413E",
           "extract": {
@@ -1895,7 +1895,7 @@
         },
         {
           "id": "std.cat_temp_b2s2",
-          "name": "Температура катализатора B2S2",
+          "name": "Catalyst temperature B2S2",
           "request": "013F",
           "responsePrefix": "413F",
           "extract": {
@@ -1919,7 +1919,7 @@
         },
         {
           "id": "std.control_module_voltage",
-          "name": "Напряжение блока управления",
+          "name": "Control module voltage",
           "request": "0142",
           "responsePrefix": "4142",
           "extract": {
@@ -1943,7 +1943,7 @@
         },
         {
           "id": "std.abs_load",
-          "name": "Абсолютная нагрузка",
+          "name": "Absolute load",
           "request": "0143",
           "responsePrefix": "4143",
           "extract": {
@@ -1960,7 +1960,7 @@
         },
         {
           "id": "std.commanded_lambda",
-          "name": "Заданный коэф. смеси",
+          "name": "Commanded equivalence ratio",
           "request": "0144",
           "responsePrefix": "4144",
           "extract": {
@@ -1981,7 +1981,7 @@
         },
         {
           "id": "std.rel_throttle",
-          "name": "Отн. положение дросселя",
+          "name": "Relative throttle position",
           "request": "0145",
           "responsePrefix": "4145",
           "extract": {
@@ -2002,7 +2002,7 @@
         },
         {
           "id": "std.ambient_temp",
-          "name": "Температура за бортом",
+          "name": "Ambient air temperature",
           "request": "0146",
           "responsePrefix": "4146",
           "extract": {
@@ -2026,7 +2026,7 @@
         },
         {
           "id": "std.abs_throttle_b",
-          "name": "Дроссель B (абс.)",
+          "name": "Absolute throttle position B",
           "request": "0147",
           "responsePrefix": "4147",
           "extract": {
@@ -2047,7 +2047,7 @@
         },
         {
           "id": "std.abs_throttle_c",
-          "name": "Дроссель C (абс.)",
+          "name": "Absolute throttle position C",
           "request": "0148",
           "responsePrefix": "4148",
           "extract": {
@@ -2068,7 +2068,7 @@
         },
         {
           "id": "std.pedal_d",
-          "name": "Педаль газа D",
+          "name": "Accelerator pedal position D",
           "request": "0149",
           "responsePrefix": "4149",
           "extract": {
@@ -2089,7 +2089,7 @@
         },
         {
           "id": "std.pedal_e",
-          "name": "Педаль газа E",
+          "name": "Accelerator pedal position E",
           "request": "014A",
           "responsePrefix": "414A",
           "extract": {
@@ -2110,7 +2110,7 @@
         },
         {
           "id": "std.pedal_f",
-          "name": "Педаль газа F",
+          "name": "Accelerator pedal position F",
           "request": "014B",
           "responsePrefix": "414B",
           "extract": {
@@ -2131,7 +2131,7 @@
         },
         {
           "id": "std.throttle_actuator",
-          "name": "Команда актуатора дросселя",
+          "name": "Commanded throttle actuator",
           "request": "014C",
           "responsePrefix": "414C",
           "extract": {
@@ -2152,7 +2152,7 @@
         },
         {
           "id": "std.time_mil",
-          "name": "Время с горящим MIL",
+          "name": "Time with MIL on",
           "request": "014D",
           "responsePrefix": "414D",
           "extract": {
@@ -2172,7 +2172,7 @@
         },
         {
           "id": "std.time_cleared",
-          "name": "Время после сброса DTC",
+          "name": "Time since DTC clear",
           "request": "014E",
           "responsePrefix": "414E",
           "extract": {
@@ -2192,7 +2192,7 @@
         },
         {
           "id": "std.fuel_type",
-          "name": "Тип топлива",
+          "name": "Fuel type",
           "request": "0151",
           "responsePrefix": "4151",
           "extract": {
@@ -2202,17 +2202,17 @@
           "decode": {
             "kind": "enum",
             "map": {
-              "1": "Бензин",
-              "2": "Метанол",
-              "3": "Этанол",
-              "4": "Дизель",
-              "5": "СНГ (LPG)",
-              "6": "Метан (CNG)",
-              "7": "Пропан",
-              "8": "Электро",
-              "17": "Гибрид (бензин)",
-              "18": "Гибрид (дизель)",
-              "19": "Гибрид (электро)"
+              "1": "Gasoline",
+              "2": "Methanol",
+              "3": "Ethanol",
+              "4": "Diesel",
+              "5": "LPG",
+              "6": "CNG",
+              "7": "Propane",
+              "8": "Electric",
+              "17": "Hybrid (gasoline)",
+              "18": "Hybrid (diesel)",
+              "19": "Hybrid (electric)"
             }
           },
           "group": "once",
@@ -2222,7 +2222,7 @@
         },
         {
           "id": "std.ethanol",
-          "name": "Доля этанола",
+          "name": "Ethanol content",
           "request": "0152",
           "responsePrefix": "4152",
           "extract": {
@@ -2246,7 +2246,7 @@
         },
         {
           "id": "std.evap_pressure_abs",
-          "name": "Давление паров (абс.)",
+          "name": "EVAP vapor pressure (abs.)",
           "request": "0153",
           "responsePrefix": "4153",
           "extract": {
@@ -2263,7 +2263,7 @@
         },
         {
           "id": "std.evap_pressure_alt",
-          "name": "Давление паров (альт.)",
+          "name": "EVAP vapor pressure (alt.)",
           "request": "0154",
           "responsePrefix": "4154",
           "extract": {
@@ -2280,7 +2280,7 @@
         },
         {
           "id": "std.stft_o2_b1",
-          "name": "Кратковр. коррекция по O2 (банк 1)",
+          "name": "Short term O2 trim (bank 1)",
           "request": "0155",
           "responsePrefix": "4155",
           "extract": {
@@ -2301,7 +2301,7 @@
         },
         {
           "id": "std.ltft_o2_b1",
-          "name": "Долговр. коррекция по O2 (банк 1)",
+          "name": "Long term O2 trim (bank 1)",
           "request": "0156",
           "responsePrefix": "4156",
           "extract": {
@@ -2322,7 +2322,7 @@
         },
         {
           "id": "std.stft_o2_b2",
-          "name": "Кратковр. коррекция по O2 (банк 2)",
+          "name": "Short term O2 trim (bank 2)",
           "request": "0157",
           "responsePrefix": "4157",
           "extract": {
@@ -2343,7 +2343,7 @@
         },
         {
           "id": "std.ltft_o2_b2",
-          "name": "Долговр. коррекция по O2 (банк 2)",
+          "name": "Long term O2 trim (bank 2)",
           "request": "0158",
           "responsePrefix": "4158",
           "extract": {
@@ -2364,7 +2364,7 @@
         },
         {
           "id": "std.fuel_rail_abs",
-          "name": "Давление в рампе (абс.)",
+          "name": "Fuel rail pressure (abs.)",
           "request": "0159",
           "responsePrefix": "4159",
           "extract": {
@@ -2381,7 +2381,7 @@
         },
         {
           "id": "std.rel_pedal",
-          "name": "Отн. положение педали",
+          "name": "Relative pedal position",
           "request": "015A",
           "responsePrefix": "415A",
           "extract": {
@@ -2402,7 +2402,7 @@
         },
         {
           "id": "std.hybrid_battery",
-          "name": "Заряд гибридной батареи",
+          "name": "Hybrid battery charge",
           "request": "015B",
           "responsePrefix": "415B",
           "extract": {
@@ -2426,7 +2426,7 @@
         },
         {
           "id": "std.oil_temp",
-          "name": "Температура масла",
+          "name": "Engine oil temperature",
           "request": "015C",
           "responsePrefix": "415C",
           "extract": {
@@ -2450,7 +2450,7 @@
         },
         {
           "id": "std.injection_timing",
-          "name": "Угол впрыска",
+          "name": "Fuel injection timing",
           "request": "015D",
           "responsePrefix": "415D",
           "extract": {
@@ -2467,7 +2467,7 @@
         },
         {
           "id": "std.fuel_rate",
-          "name": "Расход топлива (ECU)",
+          "name": "Fuel rate (ECU)",
           "request": "015E",
           "responsePrefix": "415E",
           "extract": {
@@ -2491,7 +2491,7 @@
         },
         {
           "id": "std.torque_demanded",
-          "name": "Запрошенный момент",
+          "name": "Demanded torque",
           "request": "0161",
           "responsePrefix": "4161",
           "extract": {
@@ -2515,7 +2515,7 @@
         },
         {
           "id": "std.torque_actual",
-          "name": "Фактический момент",
+          "name": "Actual torque",
           "request": "0162",
           "responsePrefix": "4162",
           "extract": {
@@ -2539,7 +2539,7 @@
         },
         {
           "id": "std.torque_reference",
-          "name": "Опорный момент",
+          "name": "Reference torque",
           "request": "0163",
           "responsePrefix": "4163",
           "extract": {

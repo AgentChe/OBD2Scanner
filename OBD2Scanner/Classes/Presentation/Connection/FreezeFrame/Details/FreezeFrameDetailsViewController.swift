@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: перевести все параметры на англ
 final class FreezeFrameDetailsViewController: UIViewController {
     private let mainView: FreezeFrameDetailsView
 

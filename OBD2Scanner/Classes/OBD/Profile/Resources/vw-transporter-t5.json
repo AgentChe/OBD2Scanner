@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "vw-transporter-t5",
-  "name": "VW Transporter T5 (OBDb brand — двигатель/коробка, кандидат)",
+  "name": "VW Transporter T5 (OBDb brand — engine/gearbox, candidate)",
   "priority": 105,
   "match": {
     "brands": [

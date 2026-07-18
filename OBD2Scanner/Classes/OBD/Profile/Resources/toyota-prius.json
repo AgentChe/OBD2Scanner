@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "toyota-prius",
-  "name": "Toyota Prius+ / Prius v ZVW40 (Torque, кандидат)",
+  "name": "Toyota Prius+ / Prius v ZVW40 (Torque, candidate)",
   "priority": 110,
   "match": {
     "brands": [
@@ -23,7 +23,7 @@
   "ecus": [
     {
       "id": "module700",
-      "name": "Модуль 0x700",
+      "name": "Module 0x700",
       "addressing": {
         "request": "700",
         "response": "708"
@@ -61,7 +61,7 @@
     },
     {
       "id": "brake",
-      "name": "Тормоза / рекуперация",
+      "name": "Brakes / regen braking",
       "addressing": {
         "request": "7B0",
         "response": "7B8"
@@ -126,7 +126,7 @@
     },
     {
       "id": "engine",
-      "name": "Двигатель",
+      "name": "Engine",
       "addressing": {
         "request": "7E0",
         "response": "7E8"
@@ -164,7 +164,7 @@
     },
     {
       "id": "hybrid",
-      "name": "Гибридная система (HV ECU)",
+      "name": "Hybrid system (HV ECU)",
       "addressing": {
         "request": "7E2",
         "response": "7EA"

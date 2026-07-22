@@ -10,20 +10,27 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-final class DashboardActiveVehicleView: UIView {
+final class DashboardActiveVehicleView: GradientView {
+    enum State {
+        case connect, demoMode, connected
+    }
+    
+    lazy var titleLabel = makeTitleLabel()
     lazy var changeCarButton = makeChangeCarButton()
     lazy var nameLabel = makeLabel()
     lazy var yearLabel = makeLabel()
     lazy var previewView = makePreviewView()
-    lazy var gradientView = makeGradientView()
+    lazy var connectButton = makeConnectButton()
+    lazy var demoModeTurnOffButton = makeDemoModeTurnOffButton()
+    lazy var disconnectButton = makeDisconnectButton()
 
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
-        .font(Fonts.NotoSans.semiBold(size: 20.scale))
+        .font(Fonts.NotoSans.medium(size: 20.scale))
         .textAlignment(.left)
         .lineBreakMode(.byTruncatingTail)
     private lazy var yearAttrs = TextAttributes()
-        .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
+        .textColor(Appearance.color_757980)
         .font(Fonts.NotoSans.regular(size: 14.scale))
         .textAlignment(.left)
 
@@ -57,16 +64,44 @@ extension DashboardActiveVehicleView {
         yearLabel.attributedText = year.attributed(with: yearAttrs)
     }
     
+    func setup(state: State) {
+        connectButton.isHidden = state != .connect
+        demoModeTurnOffButton.isHidden = state != .demoMode
+        disconnectButton.isHidden = state != .connected
+    }
+    
     var didTapChangeCar: Signal<Void> {
         changeCarButton.rx.tap.asSignal()
+    }
+    
+    var didTapConnect: Signal<Void> {
+        connectButton.rx.tap.asSignal()
+    }
+    
+    var didTapDemoModeTurnOff: Signal<Void> {
+        demoModeTurnOffButton.rx.tap.asSignal()
+    }
+    
+    var didTapDisconnect: Signal<Void> {
+        disconnectButton.rx.tap.asSignal()
     }
 }
 
 // MARK: Private
 private extension DashboardActiveVehicleView {
     func initialize() {
-        backgroundColor = Appearance.color_1A2231
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.colors = [
+            Appearance.color_191F2B.cgColor,
+            Appearance.color_293348.cgColor
+        ]
+        gradientLayer.locations = [
+            NSNumber(value: 0),
+            NSNumber(value: 1)
+        ]
         layer.cornerRadius = 12.scale
+        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 }
 
@@ -74,38 +109,53 @@ private extension DashboardActiveVehicleView {
 private extension DashboardActiveVehicleView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 132.scale)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 79.scale)
         ])
         
         NSLayoutConstraint.activate([
-            changeCarButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            changeCarButton.topAnchor.constraint(equalTo: topAnchor, constant: 16.scale),
-            changeCarButton.heightAnchor.constraint(equalToConstant: 36.scale)
+            changeCarButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            changeCarButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
-
+        
+        NSLayoutConstraint.activate([
+            connectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            connectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            connectButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16.scale),
+            connectButton.heightAnchor.constraint(equalToConstant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            previewView.widthAnchor.constraint(equalToConstant: 210.scale),
+            previewView.heightAnchor.constraint(equalToConstant: 86.scale),
+            previewView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            previewView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.scale)
+        ])
+        
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: previewView.leadingAnchor, constant: -8.scale),
-            nameLabel.topAnchor.constraint(equalTo: changeCarButton.bottomAnchor, constant: 12.scale)
+            nameLabel.trailingAnchor.constraint(equalTo: previewView.leadingAnchor, constant: -8.scale),
+            nameLabel.bottomAnchor.constraint(equalTo: previewView.centerYAnchor, constant: -2.scale)
         ])
-
+        
         NSLayoutConstraint.activate([
             yearLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            yearLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4.scale)
+            yearLabel.trailingAnchor.constraint(equalTo: previewView.leadingAnchor, constant: -8.scale),
+            yearLabel.topAnchor.constraint(equalTo: previewView.centerYAnchor, constant: 2.scale)
         ])
         
         NSLayoutConstraint.activate([
-            previewView.widthAnchor.constraint(equalToConstant: 145.scale),
-            previewView.heightAnchor.constraint(equalToConstant: 132.scale),
-            previewView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            previewView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            demoModeTurnOffButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            demoModeTurnOffButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            demoModeTurnOffButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16.scale),
+            demoModeTurnOffButton.heightAnchor.constraint(equalToConstant: 44.scale)
         ])
         
         NSLayoutConstraint.activate([
-            gradientView.widthAnchor.constraint(equalToConstant: 80.scale),
-            gradientView.heightAnchor.constraint(equalToConstant: 132.scale),
-            gradientView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            disconnectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            disconnectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            disconnectButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16.scale),
+            disconnectButton.heightAnchor.constraint(equalToConstant: 44.scale)
         ])
     }
 }
@@ -114,18 +164,29 @@ private extension DashboardActiveVehicleView {
 private extension DashboardActiveVehicleView {
     func makeChangeCarButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_526387)
-            .font(Fonts.NotoSans.regular(size: 14.scale))
-
+            .textColor(Appearance.color_28D799)
+            .font(Fonts.NotoSans.semiBold(size: 14.scale))
+        
         var configuration = UIButton.Configuration.plain()
         configuration.attributedTitle = AttributedString("Dashboard.Vehicle.ChangeCar".localized.attributed(with: attrs))
-        configuration.image = UIImage(named: "Dashboard.ChangeCar")
-        configuration.imagePadding = 6.scale
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8.scale, bottom: 0, trailing: 8.scale)
+        configuration.image = UIImage(named: "Dashboard.Vehicle.ChangeCar")
+        configuration.imagePadding = 4.scale
 
         let view = UIButton(configuration: configuration)
-        view.backgroundColor = Appearance.color_191F2B
-        view.layer.cornerRadius = 8.scale
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeTitleLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(Appearance.color_FFFFFF)
+            .font(Fonts.NotoSans.bold(size: 24.scale))
+            .textAlignment(.left)
+        
+        let view = UILabel()
+        view.attributedText = "Dashboard.Vehicle.Title".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -148,20 +209,51 @@ private extension DashboardActiveVehicleView {
         return view
     }
     
-    func makeGradientView() -> GradientView {
-        let view = GradientView()
-        view.gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        view.gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        view.gradientLayer.locations = [
-            NSNumber(value: 0),
-            NSNumber(value: 1),
-        ]
-        view.gradientLayer.colors = [
-            Appearance.color_1A2231.withAlphaComponent(0).cgColor,
-            Appearance.color_1A2231.cgColor,
-        ]
+    func makeConnectButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.color_FFFFFF)
+            .font(Fonts.NotoSans.semiBold(size: 16.scale))
+        
+        let view = UIButton()
+        view.setAttributedTitle("Dashboard.Vehicle.Connect".localized.attributed(with: attrs), for: .normal)
         view.layer.cornerRadius = 12.scale
-        view.layer.masksToBounds = true
+        view.backgroundColor = Appearance.color_28D799
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeDemoModeTurnOffButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.color_28D799)
+            .font(Fonts.NotoSans.semiBold(size: 16.scale))
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("Dashboard.Vehicle.DemoModeTurnOff".localized.attributed(with: attrs))
+        configuration.image = UIImage(named: "Dashboard.Vehicle.DemoModeTurnOff")
+        configuration.imagePadding = 6.scale
+        
+        let view = UIButton(configuration: configuration)
+        view.layer.cornerRadius = 12.scale
+        view.backgroundColor = Appearance.color_28D799.withAlphaComponent(0.1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeDisconnectButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.color_F5403A)
+            .font(Fonts.NotoSans.semiBold(size: 16.scale))
+
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString("Dashboard.Vehicle.Disconnect".localized.attributed(with: attrs))
+        configuration.image = UIImage(named: "Dashboard.Vehicle.Disconnect")
+        configuration.imagePadding = 6.scale
+
+        let view = UIButton(configuration: configuration)
+        view.layer.cornerRadius = 12.scale
+        view.backgroundColor = Appearance.color_F5403A.withAlphaComponent(0.1)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

@@ -11,6 +11,8 @@ import RxCocoa
 final class DashboardViewModel {
     enum Action {
         case changeActiveCar
+        case startConnectProcess(vehicle: Vehicle?)
+        case disconnect
     }
     
     private lazy var vehicleManager = VehicleManager()
@@ -20,14 +22,24 @@ final class DashboardViewModel {
 extension DashboardViewModel {
     struct Input {
         let didTapChangeActiveCar: Signal<Void>
+        let didTapTryDemoMode: Signal<Void>
+        let didTapDemoModeTurnOff: Signal<Void>
+        let didTapConnect: Signal<Void>
+        let didTapDisconnect: Signal<Void>
     }
 
     struct Output {
         let activeVehicle: Driver<Vehicle?>
         let action: Driver<Action>
+        let dashboardState: Driver<DashboardActiveVehicleView.State>
+        let elements: Driver<[DashboardTableElement]>
     }
 
     func configure(input: Input) -> Output {
+        let demoMode = makeDemoMode(
+            didTapTryDemoMode: input.didTapTryDemoMode,
+            didTapDemoModeTurnOff: input.didTapDemoModeTurnOff
+        )
         let garage = makeGarage()
         let activeVehicle = makeActiveVehicle(garage: garage)
         let activeSubscription = makeActiveSubscription()
@@ -35,7 +47,14 @@ extension DashboardViewModel {
         return Output(
             activeVehicle: activeVehicle,
             action: makeAction(
-                didTapChangeActiveCar: input.didTapChangeActiveCar
+                activeVehicle: activeVehicle,
+                didTapChangeActiveCar: input.didTapChangeActiveCar,
+                didTapConnect: input.didTapConnect,
+                didTapDisconnect: input.didTapDisconnect
+            ),
+            dashboardState: makeDashboardState(demoMode: demoMode),
+            elements: makeElements(
+                demoMode: demoMode
             )
         )
     }
@@ -43,15 +62,83 @@ extension DashboardViewModel {
 
 // MARK: Private
 private extension DashboardViewModel {
+    func makeElements(
+        demoMode: Driver<Bool>
+    ) -> Driver<[DashboardTableElement]> {
+        demoMode
+            .map { demoMode -> [DashboardTableElement] in
+                [.demoMode(demoMode)]
+            }
+    }
+    
     func makeAction(
-        didTapChangeActiveCar: Signal<Void>
+        activeVehicle: Driver<Vehicle?>,
+        didTapChangeActiveCar: Signal<Void>,
+        didTapConnect: Signal<Void>,
+        didTapDisconnect: Signal<Void>
     ) -> Driver<Action> {
         let changeActiveCar = didTapChangeActiveCar
             .map { Action.changeActiveCar }
             .asDriver(onErrorDriveWith: .never())
         
+        let connect = didTapConnect
+            .withLatestFrom(activeVehicle)
+            .map { Action.startConnectProcess(vehicle: $0) }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let disconnect = didTapDisconnect
+            .map { Action.disconnect }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(changeActiveCar)
+            .merge(changeActiveCar, connect, disconnect)
+    }
+    
+    func makeDashboardState(demoMode: Driver<Bool>) -> Driver<DashboardActiveVehicleView.State> {
+        Driver
+            .combineLatest(
+                demoMode,
+                OBDService.shared.state.asDriver(onErrorDriveWith: .never())
+            )
+            .map { demoMode, state -> DashboardActiveVehicleView.State in
+                if demoMode {
+                    return .demoMode
+                }
+                
+                switch state {
+                case .ready:
+                    return .connected
+                default:
+                    return .connect
+                }
+            }
+    }
+    
+    func makeDemoMode(
+        didTapTryDemoMode: Signal<Void>,
+        didTapDemoModeTurnOff: Signal<Void>
+    ) -> Driver<Bool> {
+        let manager = DemoModeManager.shared
+        
+        let enable = didTapTryDemoMode
+            .map {
+                manager.activate()
+                DemoOBDService.shared.connect(vehicle: nil)
+                return manager.isActive
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let turnOff = didTapDemoModeTurnOff
+            .map {
+                manager.deactivate()
+                DemoOBDService.shared.disconnect()
+                return manager.isActive
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(enable, turnOff)
+            .startWith(manager.isActive)
     }
     
     func makeActiveVehicle(garage: Driver<[Vehicle]>) -> Driver<Vehicle?> {

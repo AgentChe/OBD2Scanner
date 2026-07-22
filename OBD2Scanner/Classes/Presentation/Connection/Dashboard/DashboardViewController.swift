@@ -15,6 +15,8 @@ final class DashboardViewController: UIViewController {
     private lazy var viewModel = DashboardViewModel()
 
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var didTapTryDemoTrigger = PublishRelay<Void>()
 
     override func loadView() {
         view = mainView
@@ -24,12 +26,31 @@ final class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         let output = viewModel.configure(input: DashboardViewModel.Input(
-            didTapChangeActiveCar: mainView.activeVehicleView.didTapChangeCar
+            didTapChangeActiveCar: mainView.activeVehicleView.didTapChangeCar,
+            didTapTryDemoMode: Signal.merge(
+                mainView.tableView.didTapTryDemo,
+                didTapTryDemoTrigger.asSignal()
+            ),
+            didTapDemoModeTurnOff: mainView.activeVehicleView.didTapDemoModeTurnOff,
+            didTapConnect: mainView.activeVehicleView.didTapConnect,
+            didTapDisconnect: mainView.activeVehicleView.didTapDisconnect
         ))
         
         output.activeVehicle
             .drive(Binder(mainView.activeVehicleView) { base, activeVehicle in
                 base.setup(vehicle: activeVehicle)
+            })
+            .disposed(by: disposeBag)
+        
+        output.dashboardState
+            .drive(Binder(mainView.activeVehicleView) { base, dashboardState in
+                base.setup(state: dashboardState)
+            })
+            .disposed(by: disposeBag)
+        
+        output.elements
+            .drive(Binder(mainView.tableView) { base, elements in
+                base.setup(elements: elements)
             })
             .disposed(by: disposeBag)
         
@@ -68,6 +89,29 @@ private extension DashboardViewController {
         switch action {
         case .changeActiveCar:
             (tabBarController as? MainViewController)?.select(tab: .garage)
+        case .startConnectProcess(let vehicle):
+            let vc = ConnectingTypeViewController.make { [weak self] connectingType in
+                let method: OBDConnectionMethod = {
+                    switch connectingType {
+                    case .bluetooth:
+                        return .bluetooth
+                    case .wifi:
+                        return .wifi
+                    case .mfi:
+                        return .mfi
+                    }
+                }()
+                
+                let vc = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
+                    guard case .demoMode = outcome else { return }
+                    
+                    self?.didTapTryDemoTrigger.accept(Void())
+                }
+                self?.present(vc, animated: false)
+            }
+            present(vc, animated: true)
+        case .disconnect:
+            OBDService.shared.disconnect()
         }
     }
 }

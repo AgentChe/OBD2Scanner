@@ -8,9 +8,8 @@
 import UIKit
 
 final class DashboardView: UIView {
-    lazy var scrollView = makeScrollView()
-    lazy var stackView = makeStackView()
     lazy var activeVehicleView = makeActiveVehicleView()
+    lazy var tableView = makeTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,46 +34,34 @@ private extension DashboardView {
 private extension DashboardView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            activeVehicleView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            activeVehicleView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            activeVehicleView.topAnchor.constraint(equalTo: topAnchor),
+            activeVehicleView.heightAnchor.constraint(equalToConstant: 297.scale)
         ])
-
+        
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 16.scale),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -16.scale),
-            stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16.scale),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24.scale),
-            stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -32.scale)
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: activeVehicleView.bottomAnchor, constant: 2.scale),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DashboardView {
-    func makeScrollView() -> UIScrollView {
-        let view = UIScrollView()
-        view.backgroundColor = UIColor.clear
-        view.showsVerticalScrollIndicator = false
+    func makeActiveVehicleView() -> DashboardActiveVehicleView {
+        let view = DashboardActiveVehicleView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
-
-    func makeStackView() -> UIStackView {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.alignment = .fill
-        view.spacing = 24.scale
-        view.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(view)
-        return view
-    }
     
-    func makeActiveVehicleView() -> DashboardActiveVehicleView {
-        let view = DashboardActiveVehicleView()
-        stackView.addArrangedSubview(view)
+    func makeTableView() -> DashboardTableView {
+        let view = DashboardTableView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
         return view
     }
 }

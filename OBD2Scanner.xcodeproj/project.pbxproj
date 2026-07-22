@@ -208,6 +208,9 @@
 		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
 		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
 		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
+		DE9C13B13010CF280095E927 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B03010CF280095E927 /* DashboardTableView.swift */; };
+		DE9C13B33010CF360095E927 /* DashboardTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B23010CF360095E927 /* DashboardTableElement.swift */; };
+		DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -234,8 +237,6 @@
 		DED81C2A2FFC114A0044284D /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C292FFC114A0044284D /* DashboardViewModel.swift */; };
 		DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2B2FFC114F0044284D /* DashboardView.swift */; };
 		DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */; };
-		DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */; };
-		DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
 		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
@@ -467,6 +468,9 @@
 		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
 		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
 		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
+		DE9C13B03010CF280095E927 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
+		DE9C13B23010CF360095E927 /* DashboardTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableElement.swift; sourceTree = "<group>"; };
+		DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoModeCell.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -493,8 +497,6 @@
 		DED81C292FFC114A0044284D /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		DED81C2B2FFC114F0044284D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardActiveVehicleView.swift; sourceTree = "<group>"; };
-		DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableConnectCell.swift; sourceTree = "<group>"; };
-		DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableMenuCell.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
@@ -1454,6 +1456,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DE9C13AF3010CF050095E927 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13B43010CF390095E927 /* Cell */,
+				DE9C13B03010CF280095E927 /* DashboardTableView.swift */,
+				DE9C13B23010CF360095E927 /* DashboardTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE9C13B43010CF390095E927 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1585,27 +1605,10 @@
 		DED81C2D2FFC115D0044284D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13AF3010CF050095E927 /* TableView */,
 				DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */,
-				DED81C2E2FFC11670044284D /* TableView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		DED81C2E2FFC11670044284D /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				DED81C332FFC117F0044284D /* Cell */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		DED81C332FFC117F0044284D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				DED81C3C2FFC120A0044284D /* DashboardTableConnectCell.swift */,
-				DED81C3E2FFC12960044284D /* DashboardTableMenuCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		DED81C402FFD2FB60044284D /* OBD */ = {
@@ -1925,9 +1928,9 @@
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
 				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
 				DE2240862FF6A5190023E94C /* AddVINViewModel.swift in Sources */,
-				DED81C3F2FFC12960044284D /* DashboardTableMenuCell.swift in Sources */,
 				DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */,
 				DE22405E2FF570190023E94C /* SelectModelTableView.swift in Sources */,
+				DE9C13B13010CF280095E927 /* DashboardTableView.swift in Sources */,
 				DE223FE72FF3E1610023E94C /* UnlimitedPlanItemView.swift in Sources */,
 				DE2240E42FFAC5100023E94C /* RecallHistoryTableCell.swift in Sources */,
 				DE2F0AB22A698E0B00471667 /* UIView+ReactiveExtension.swift in Sources */,
@@ -1937,6 +1940,7 @@
 				DE55472A3003D35300D577B0 /* ConnectingFailureViewController.swift in Sources */,
 				DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */,
 				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
+				DE9C13B33010CF360095E927 /* DashboardTableElement.swift in Sources */,
 				DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */,
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
@@ -2005,7 +2009,6 @@
 				DE22405A2FF570090023E94C /* SelectModelView.swift in Sources */,
 				DE2F0ACA2A698E0B00471667 /* PaddingTextField.swift in Sources */,
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
-				DED81C3D2FFC120A0044284D /* DashboardTableConnectCell.swift in Sources */,
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
 				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
 				DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */,
@@ -2071,6 +2074,7 @@
 				DE2240072FF402BD0023E94C /* PaygateHeaderView.swift in Sources */,
 				DE2240D42FF92D410023E94C /* VehicleDetailsVINView.swift in Sources */,
 				DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */,
+				DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */,
 				DE2240882FF6A51F0023E94C /* AddVINView.swift in Sources */,
 				DE22408F2FF6C6B50023E94C /* AddVehicleRequest.swift in Sources */,
 				DE22403E2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift in Sources */,

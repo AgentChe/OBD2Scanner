@@ -16,7 +16,7 @@ final class FreezeFrameViewModel {
 
     private lazy var activity = RxActivityIndicator()
 
-    private lazy var service = OBDServiceProvider.current
+    private lazy var service = OBDServiceProvider.service()
 
     private lazy var profileManager = ProfileManager()
 }

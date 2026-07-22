@@ -28,7 +28,7 @@ protocol OBDServiceProtocol: AnyObject {
 }
 
 enum OBDServiceProvider {
-    static var current: OBDServiceProtocol {
-        DemoModeManager.shared.isActive ? DemoOBDService.shared : OBDService.shared
+    static func service(demo: Bool = DemoModeManager.shared.isActive) -> OBDServiceProtocol {
+        demo ? DemoOBDService.shared : OBDService.shared
     }
 }

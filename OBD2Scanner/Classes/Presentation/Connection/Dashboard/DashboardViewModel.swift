@@ -13,6 +13,13 @@ final class DashboardViewModel {
         case changeActiveCar
         case startConnectProcess(vehicle: Vehicle?)
         case disconnect
+        case openPaygate
+        case openDTC
+        case openFreezeFrame
+        case openRecallHistory(Vehicle)
+        case clearDTC
+        case errorNeedConnect
+        case errorNeedMakeActiveVehicle
     }
     
     private lazy var vehicleManager = VehicleManager()
@@ -26,6 +33,7 @@ extension DashboardViewModel {
         let didTapDemoModeTurnOff: Signal<Void>
         let didTapConnect: Signal<Void>
         let didTapDisconnect: Signal<Void>
+        let didTapOption: Signal<DashboardOptionButton.Option>
     }
 
     struct Output {
@@ -36,21 +44,24 @@ extension DashboardViewModel {
     }
 
     func configure(input: Input) -> Output {
+        let activeSubscription = makeActiveSubscription()
         let demoMode = makeDemoMode(
             didTapTryDemoMode: input.didTapTryDemoMode,
             didTapDemoModeTurnOff: input.didTapDemoModeTurnOff
         )
         let garage = makeGarage()
         let activeVehicle = makeActiveVehicle(garage: garage)
-        let activeSubscription = makeActiveSubscription()
         
         return Output(
             activeVehicle: activeVehicle,
             action: makeAction(
                 activeVehicle: activeVehicle,
+                activeSubscription: activeSubscription,
+                demoMode: demoMode,
                 didTapChangeActiveCar: input.didTapChangeActiveCar,
                 didTapConnect: input.didTapConnect,
-                didTapDisconnect: input.didTapDisconnect
+                didTapDisconnect: input.didTapDisconnect,
+                didTapOption: input.didTapOption
             ),
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
@@ -67,15 +78,18 @@ private extension DashboardViewModel {
     ) -> Driver<[DashboardTableElement]> {
         demoMode
             .map { demoMode -> [DashboardTableElement] in
-                [.demoMode(demoMode)]
+                [.options, .demoMode(demoMode)]
             }
     }
     
     func makeAction(
         activeVehicle: Driver<Vehicle?>,
+        activeSubscription: Driver<Bool>,
+        demoMode: Driver<Bool>,
         didTapChangeActiveCar: Signal<Void>,
         didTapConnect: Signal<Void>,
-        didTapDisconnect: Signal<Void>
+        didTapDisconnect: Signal<Void>,
+        didTapOption: Signal<DashboardOptionButton.Option>
     ) -> Driver<Action> {
         let changeActiveCar = didTapChangeActiveCar
             .map { Action.changeActiveCar }
@@ -90,8 +104,42 @@ private extension DashboardViewModel {
             .map { Action.disconnect }
             .asDriver(onErrorDriveWith: .never())
         
+        let optionAction = didTapOption
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(activeVehicle) { ($0, $1) }
+            .withLatestFrom(activeSubscription) { ($0.0, $0.1, $1) }
+            .withLatestFrom(demoMode) { ($0.0, $0.1, $0.2, $1) }
+            .map { option, activeVehicle, activeSubscription, demoMode -> Action in
+                if !demoMode && !activeSubscription {
+                    return .openPaygate
+                }
+                
+                let connected: Bool = {
+                    switch OBDService.shared.currentState {
+                    case .ready:
+                        return true
+                    default:
+                        return false
+                    }
+                }()
+                
+                switch option {
+                case .dtc:
+                    return demoMode ? .openDTC : (connected ? .openDTC : .errorNeedConnect)
+                case .recallHistory:
+                    if let activeVehicle {
+                        return .openRecallHistory(activeVehicle)
+                    }
+                    return .errorNeedMakeActiveVehicle
+                case .freezeFrame:
+                    return demoMode ? .openFreezeFrame : (connected ? .openFreezeFrame : .errorNeedConnect)
+                case .dtcClear:
+                    return demoMode ? .clearDTC : (connected ? .clearDTC : .errorNeedConnect)
+                }
+            }
+        
         return Driver
-            .merge(changeActiveCar, connect, disconnect)
+            .merge(changeActiveCar, connect, disconnect, optionAction)
     }
     
     func makeDashboardState(demoMode: Driver<Bool>) -> Driver<DashboardActiveVehicleView.State> {

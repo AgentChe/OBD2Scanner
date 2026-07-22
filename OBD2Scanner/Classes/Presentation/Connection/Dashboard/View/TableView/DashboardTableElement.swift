@@ -6,5 +6,6 @@
 //
 
 enum DashboardTableElement {
+    case options 
     case demoMode(Bool)
 }

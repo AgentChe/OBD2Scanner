@@ -208,12 +208,17 @@ and smart monitoring";
 "Dashboard.DemoMode.SubTitle" = "Sample data — not from your car";
 "Dashboard.DemoMode.Try" = "Try demo";
 "Dashboard.DemoMode.Active" = "Active";
-"Dashboard.Menu.Diagnostics.Title" = "Diagnostics";
-"Dashboard.Menu.Diagnostics.SubTitle" = "Check your car health";
-"Dashboard.Menu.FreezeFrame.Title" = "Freeze frame";
-"Dashboard.Menu.FreezeFrame.SubTitle" = "DTC snapshot";
-"Dashboard.Menu.HUD.Title" = "HUD";
-"Dashboard.Menu.HUD.SubTitle" = "Head-up display";
+"Dashboard.Options.Title" = "OPTIONS";
+"Dashboard.Options.DTC" = "PIDs diagnostic";
+"Dashboard.Options.FreezeFrame" = "Freeze frame";
+"Dashboard.Options.RecallHistory" = "Recall history";
+"Dashboard.Options.DTCClear" = "DTC clear";
+"Dashboard.ErrorNeedConnect.Title" = "Not connected";
+"Dashboard.ErrorNeedConnect.Message" = "Connect to your OBD2 adapter to use this feature";
+"Dashboard.ErrorNeedConnect.TryConnect" = "Connect";
+"Dashboard.ErrorNeedMakeActiveVehicle.Title" = "No active vehicle";
+"Dashboard.ErrorNeedMakeActiveVehicle.Message" = "Choose an active vehicle in your garage to continue";
+"Dashboard.ErrorNeedMakeActiveVehicle.ChangeCar" = "Change car";
 
 // MARK: Units
 "Units.Title" = "UNITS";

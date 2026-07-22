@@ -12,6 +12,7 @@ import RxCocoa
 final class DashboardTableView: UITableView {
     private lazy var elements = [DashboardTableElement]()
     
+    private lazy var didTapOptionTrigger = PublishRelay<DashboardOptionButton.Option>()
     private lazy var didTapTryDemoTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
@@ -33,6 +34,10 @@ extension DashboardTableView {
         reloadData()
     }
     
+    var didTapOption: Signal<DashboardOptionButton.Option> {
+        didTapOptionTrigger.asSignal()
+    }
+    
     var didTapTryDemo: Signal<Void> {
         didTapTryDemoTrigger.asSignal()
     }
@@ -46,6 +51,12 @@ extension DashboardTableView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch elements[indexPath.row] {
+        case .options:
+            let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableOptionsCell.self)) as! DashboardTableOptionsCell
+            cell.didTapOption = { [weak self] option in
+                self?.didTapOptionTrigger.accept(option)
+            }
+            return cell
         case .demoMode(let enable):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDemoModeCell.self), for: indexPath) as! DashboardTableDemoModeCell
             cell.setup(demoModeEnable: enable)
@@ -60,11 +71,9 @@ extension DashboardTableView: UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension DashboardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         switch elements[indexPath.row] {
+        case .options:
+            return DashboardTableOptionsCell.Constants.topInset + DashboardTableOptionsCell.Constants.containerHeight
         case .demoMode:
             return DashboardTableDemoModeCell.Constants.topInset + DashboardTableDemoModeCell.Constants.containerHeight
         }
@@ -74,6 +83,7 @@ extension DashboardTableView: UITableViewDelegate {
 // MARK: Private
 private extension DashboardTableView {
     func initialize() {
+        register(DashboardTableOptionsCell.self, forCellReuseIdentifier: String(describing: DashboardTableOptionsCell.self))
         register(DashboardTableDemoModeCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoModeCell.self))
 
         dataSource = self

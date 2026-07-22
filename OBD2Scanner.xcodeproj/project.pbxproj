@@ -211,6 +211,8 @@
 		DE9C13B13010CF280095E927 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B03010CF280095E927 /* DashboardTableView.swift */; };
 		DE9C13B33010CF360095E927 /* DashboardTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B23010CF360095E927 /* DashboardTableElement.swift */; };
 		DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */; };
+		DE9C13B83010E4290095E927 /* DashboardTableOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B73010E4290095E927 /* DashboardTableOptionsCell.swift */; };
+		DE9C13BB3010E4410095E927 /* DashboardOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13BA3010E4410095E927 /* DashboardOptionButton.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -471,6 +473,8 @@
 		DE9C13B03010CF280095E927 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
 		DE9C13B23010CF360095E927 /* DashboardTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableElement.swift; sourceTree = "<group>"; };
 		DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoModeCell.swift; sourceTree = "<group>"; };
+		DE9C13B73010E4290095E927 /* DashboardTableOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableOptionsCell.swift; sourceTree = "<group>"; };
+		DE9C13BA3010E4410095E927 /* DashboardOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardOptionButton.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1469,9 +1473,19 @@
 		DE9C13B43010CF390095E927 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13B93010E4340095E927 /* Options */,
 				DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DE9C13B93010E4340095E927 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13B73010E4290095E927 /* DashboardTableOptionsCell.swift */,
+				DE9C13BA3010E4410095E927 /* DashboardOptionButton.swift */,
+			);
+			path = Options;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -1912,6 +1926,7 @@
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
 				DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */,
 				DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */,
+				DE9C13B83010E4290095E927 /* DashboardTableOptionsCell.swift in Sources */,
 				DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
 				DE5547323003DF0900D577B0 /* ConnectingViewController.swift in Sources */,
@@ -2014,6 +2029,7 @@
 				DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */,
 				DEFF200230091111000000B2 /* DTCDescriptionLibrary.swift in Sources */,
 				DEFF200330091111000000B3 /* FreezeFrameViewModel.swift in Sources */,
+				DE9C13BB3010E4410095E927 /* DashboardOptionButton.swift in Sources */,
 				DEFF200430091111000000B4 /* FreezeFrameViewController.swift in Sources */,
 				DEFF200530091111000000B5 /* FreezeFrameView.swift in Sources */,
 				DEFF200630091111000000B6 /* FreezeFrameTableView.swift in Sources */,

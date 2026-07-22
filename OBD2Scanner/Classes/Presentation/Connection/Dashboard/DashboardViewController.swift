@@ -16,6 +16,8 @@ final class DashboardViewController: UIViewController {
 
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var didTapChangeCarTrigger = PublishRelay<Void>()
+    private lazy var didTapConnectTrigger = PublishRelay<Void>()
     private lazy var didTapTryDemoTrigger = PublishRelay<Void>()
 
     override func loadView() {
@@ -26,14 +28,21 @@ final class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         let output = viewModel.configure(input: DashboardViewModel.Input(
-            didTapChangeActiveCar: mainView.activeVehicleView.didTapChangeCar,
+            didTapChangeActiveCar: Signal.merge(
+                mainView.activeVehicleView.didTapChangeCar,
+                didTapChangeCarTrigger.asSignal()
+            ),
             didTapTryDemoMode: Signal.merge(
                 mainView.tableView.didTapTryDemo,
                 didTapTryDemoTrigger.asSignal()
             ),
             didTapDemoModeTurnOff: mainView.activeVehicleView.didTapDemoModeTurnOff,
-            didTapConnect: mainView.activeVehicleView.didTapConnect,
-            didTapDisconnect: mainView.activeVehicleView.didTapDisconnect
+            didTapConnect: Signal.merge(
+                mainView.activeVehicleView.didTapConnect,
+                didTapConnectTrigger.asSignal()
+            ),
+            didTapDisconnect: mainView.activeVehicleView.didTapDisconnect,
+            didTapOption: mainView.tableView.didTapOption
         ))
         
         output.activeVehicle
@@ -112,6 +121,61 @@ private extension DashboardViewController {
             present(vc, animated: true)
         case .disconnect:
             OBDService.shared.disconnect()
+        case .openPaygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
+        case .openDTC:
+            break // TODO:
+        case .openFreezeFrame:
+            let vc = FreezeFrameViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openRecallHistory(let vehicle):
+            let vc = RecallHistoryViewController.make(vehicle: vehicle)
+            navigationController?.pushViewController(vc, animated: true)
+        case .clearDTC:
+            break // TODO:
+        case .errorNeedConnect:
+            errorNeedConnect()
+        case .errorNeedMakeActiveVehicle:
+            errorNeedMakeActiveVehicle()
         }
+    }
+    
+    func errorNeedConnect() {
+        let alert = UIAlertController(
+            title: "Dashboard.ErrorNeedConnect.Title".localized,
+            message: "Dashboard.ErrorNeedConnect.Message".localized,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "Cancel".localized,
+            style: .cancel
+        ))
+        alert.addAction(UIAlertAction(
+            title: "Dashboard.ErrorNeedConnect.TryConnect".localized,
+            style: .default
+        ) { [weak self] _ in
+            self?.didTapConnectTrigger.accept(Void())
+        })
+        present(alert, animated: true)
+    }
+    
+    func errorNeedMakeActiveVehicle() {
+        let alert = UIAlertController(
+            title: "Dashboard.ErrorNeedMakeActiveVehicle.Title".localized,
+            message: "Dashboard.ErrorNeedMakeActiveVehicle.Message".localized,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "Cancel".localized,
+            style: .cancel
+        ))
+        alert.addAction(UIAlertAction(
+            title: "Dashboard.ErrorNeedMakeActiveVehicle.ChangeCar".localized,
+            style: .default
+        ) { [weak self] _ in
+            self?.didTapChangeCarTrigger.accept(Void())
+        })
+        present(alert, animated: true)
     }
 }

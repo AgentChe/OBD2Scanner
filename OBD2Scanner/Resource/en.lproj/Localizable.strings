@@ -297,3 +297,17 @@ and smart monitoring";
 "FreezeFrameDetails.Title" = "Freeze frame details";
 "FreezeFrameDetails.CapturedCaption" = "Captured at fault detection";
 "FreezeFrameDetails.VehicleState" = "Vehicle state at the time";
+
+// MARK: DTCClearInfo
+"DTCClearInfo.Title" = "CLEAR ALL ERROR CODES?";
+"DTCClearInfo.SubTitle" = "One tap — no scan needed. This sends a reset to the ECU and will:";
+"DTCClearInfo.Cell1" = "Turn off the check-engine light (MIL)";
+"DTCClearInfo.Cell2" = "Erase stored & pending trouble codes";
+"DTCClearInfo.Cell3" = "Clear freeze-frame data & reset readiness monitors";
+"DTCClearInfo.Warning" = "This won't fix the cause — if the fault is still present, codes may come back.";
+"DTCClearInfo.ClearAllCodes" = "Clear all codes";
+
+// MARK: DTCClearing
+"DTCClearing.Clearing" = "Clearing codes";
+"DTCClearing.Cleared" = "ALL CODES CLEARED";
+"DTCClearing.Failed" = "Failed to clear codes";

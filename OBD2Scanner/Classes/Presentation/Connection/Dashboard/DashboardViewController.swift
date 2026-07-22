@@ -133,7 +133,11 @@ private extension DashboardViewController {
             let vc = RecallHistoryViewController.make(vehicle: vehicle)
             navigationController?.pushViewController(vc, animated: true)
         case .clearDTC:
-            break // TODO:
+            let vc = DTCClearInfoViewController.make { [weak self] in
+                let vc = DTCClearingViewController.make()
+                self?.present(vc, animated: false)
+            }
+            present(vc, animated: false)
         case .errorNeedConnect:
             errorNeedConnect()
         case .errorNeedMakeActiveVehicle:

@@ -213,6 +213,12 @@
 		DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */; };
 		DE9C13B83010E4290095E927 /* DashboardTableOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13B73010E4290095E927 /* DashboardTableOptionsCell.swift */; };
 		DE9C13BB3010E4410095E927 /* DashboardOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13BA3010E4410095E927 /* DashboardOptionButton.swift */; };
+		DE9C13BF3010F7E10095E927 /* DTCClearInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13BE3010F7E10095E927 /* DTCClearInfoViewController.swift */; };
+		DE9C13C13010F7E70095E927 /* DTCClearInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C03010F7E70095E927 /* DTCClearInfoView.swift */; };
+		DE9C13C43010FA650095E927 /* DTCClearInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C33010FA650095E927 /* DTCClearInfoCell.swift */; };
+		DE9C13C63010FC060095E927 /* DTCClearInfoWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C53010FC060095E927 /* DTCClearInfoWarningView.swift */; };
+		DE9C13C9301101570095E927 /* DTCClearingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C8301101570095E927 /* DTCClearingViewController.swift */; };
+		DE9C13CB301101600095E927 /* DTCClearingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13CA301101600095E927 /* DTCClearingView.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -475,6 +481,12 @@
 		DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDemoModeCell.swift; sourceTree = "<group>"; };
 		DE9C13B73010E4290095E927 /* DashboardTableOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableOptionsCell.swift; sourceTree = "<group>"; };
 		DE9C13BA3010E4410095E927 /* DashboardOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardOptionButton.swift; sourceTree = "<group>"; };
+		DE9C13BE3010F7E10095E927 /* DTCClearInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearInfoViewController.swift; sourceTree = "<group>"; };
+		DE9C13C03010F7E70095E927 /* DTCClearInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearInfoView.swift; sourceTree = "<group>"; };
+		DE9C13C33010FA650095E927 /* DTCClearInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearInfoCell.swift; sourceTree = "<group>"; };
+		DE9C13C53010FC060095E927 /* DTCClearInfoWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearInfoWarningView.swift; sourceTree = "<group>"; };
+		DE9C13C8301101570095E927 /* DTCClearingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearingViewController.swift; sourceTree = "<group>"; };
+		DE9C13CA301101600095E927 /* DTCClearingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearingView.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1488,6 +1500,43 @@
 			path = Options;
 			sourceTree = "<group>";
 		};
+		DE9C13BC3010F7CF0095E927 /* DTCClear */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13C7301101470095E927 /* Clearing */,
+				DE9C13BD3010F7D50095E927 /* Info */,
+			);
+			path = DTCClear;
+			sourceTree = "<group>";
+		};
+		DE9C13BD3010F7D50095E927 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13C23010FA5A0095E927 /* View */,
+				DE9C13BE3010F7E10095E927 /* DTCClearInfoViewController.swift */,
+				DE9C13C03010F7E70095E927 /* DTCClearInfoView.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		DE9C13C23010FA5A0095E927 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13C33010FA650095E927 /* DTCClearInfoCell.swift */,
+				DE9C13C53010FC060095E927 /* DTCClearInfoWarningView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE9C13C7301101470095E927 /* Clearing */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13C8301101570095E927 /* DTCClearingViewController.swift */,
+				DE9C13CA301101600095E927 /* DTCClearingView.swift */,
+			);
+			path = Clearing;
+			sourceTree = "<group>";
+		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1596,6 +1645,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13BC3010F7CF0095E927 /* DTCClear */,
 				DE7029B53008E83400203CFF /* FreezeFrame */,
 				DE5547273003D32A00D577B0 /* Connecting */,
 				DE947E3D30039DF1004271C3 /* ConnectingType */,
@@ -1903,6 +1953,7 @@
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,
+				DE9C13CB301101600095E927 /* DTCClearingView.swift in Sources */,
 				C7A1FD4E96AB9A30F2D36D69 /* OBDValue.swift in Sources */,
 				3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */,
 				6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */,
@@ -1921,6 +1972,7 @@
 				DED81C192FFBF4CE0044284D /* SettingsTableElement.swift in Sources */,
 				DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */,
 				DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */,
+				DE9C13C63010FC060095E927 /* DTCClearInfoWarningView.swift in Sources */,
 				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
 				DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
@@ -1960,12 +2012,14 @@
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2240CD2FF92CD20023E94C /* VehicleDetailsViewModel.swift in Sources */,
+				DE9C13C13010F7E70095E927 /* DTCClearInfoView.swift in Sources */,
 				DE2240BD2FF7CDCC0023E94C /* GarageView.swift in Sources */,
 				DE2240C72FF8375C0023E94C /* GarageTableElement.swift in Sources */,
 				DE5547343003DF0F00D577B0 /* ConnectingView.swift in Sources */,
 				DE2F0ABB2A698E0B00471667 /* ObservableRetrySingle.swift in Sources */,
 				DE22408D2FF6B8A00023E94C /* RadialGradientView.swift in Sources */,
 				DED81C112FFBF4890044284D /* SettingsViewModel.swift in Sources */,
+				DE9C13C43010FA650095E927 /* DTCClearInfoCell.swift in Sources */,
 				DE7029B8300A58F100203CFF /* FreezeFrameEmptyView.swift in Sources */,
 				DE2240252FF50AA60023E94C /* SelectYearViewController.swift in Sources */,
 				DE2240562FF56FFE0023E94C /* SelectModelViewController.swift in Sources */,
@@ -1990,6 +2044,7 @@
 				DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */,
 				DE2240322FF50D7A0023E94C /* AddCarStepView.swift in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
+				DE9C13BF3010F7E10095E927 /* DTCClearInfoViewController.swift in Sources */,
 				DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */,
 				DE2240A22FF6CEC30023E94C /* ObtainGarageRequest.swift in Sources */,
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
@@ -2026,6 +2081,7 @@
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
 				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
+				DE9C13C9301101570095E927 /* DTCClearingViewController.swift in Sources */,
 				DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */,
 				DEFF200230091111000000B2 /* DTCDescriptionLibrary.swift in Sources */,
 				DEFF200330091111000000B3 /* FreezeFrameViewModel.swift in Sources */,

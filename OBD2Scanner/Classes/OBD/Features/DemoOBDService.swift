@@ -60,9 +60,9 @@ extension DemoOBDService {
 
         let steps: [(delayMs: Int, state: DiagnosticsState, traffic: [String])] = [
             (100, .searchingAdapter, []),
-            (900, .initializingAdapter, ["→ ATZ", "← ELM327 v2.1", "→ ATE0", "← OK"]),
-            (800, .connectingVehicle, ["→ ATSP0", "← OK", "→ 0100", "← 41 00 BE 3F A8 13"]),
-            (1100, .ready(vehicleProtocol: 6, profileIDs: [Self.profileID]), [])
+            (100, .initializingAdapter, ["→ ATZ", "← ELM327 v2.1", "→ ATE0", "← OK"]),
+            (100, .connectingVehicle, ["→ ATSP0", "← OK", "→ 0100", "← 41 00 BE 3F A8 13"]),
+            (100, .ready(vehicleProtocol: 6, profileIDs: [Self.profileID]), [])
         ]
 
         connectDisposable = Observable.from(steps)

@@ -61,6 +61,11 @@ final class DTCClearInfoViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
+        guard
+            let touch = touches.first,
+            !mainView.container.frame.contains(touch.location(in: mainView))
+        else { return }
+        
         dismiss()
     }
 }

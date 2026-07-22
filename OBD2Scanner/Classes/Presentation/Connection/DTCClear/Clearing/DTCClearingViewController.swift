@@ -23,8 +23,6 @@ final class DTCClearingViewController: UIViewController {
 
     private let didFinish: ((Outcome) -> Void)?
 
-    private var isFinished = false
-
     private init(didFinish: ((Outcome) -> Void)?) {
         self.didFinish = didFinish
 

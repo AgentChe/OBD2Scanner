@@ -20,8 +20,8 @@ final class DTCClearingView: UIView {
     lazy var imageView = makeImageView()
     lazy var label = makeLabel()
     
-    private lazy var imageViewWidthConstaint = NSLayoutConstraint()
-    private lazy var imageViewHeightConstaint = NSLayoutConstraint()
+    private lazy var imageViewWidthConstraint = NSLayoutConstraint()
+    private lazy var imageViewHeightConstraint = NSLayoutConstraint()
 
     private lazy var containerYConstraint = NSLayoutConstraint()
     
@@ -63,16 +63,16 @@ extension DTCClearingView {
         imageView.image = UIImage(named: iconName)
         
         NSLayoutConstraint.deactivate([
-            imageViewWidthConstaint,
-            imageViewHeightConstaint
+            imageViewWidthConstraint,
+            imageViewHeightConstraint
         ])
         
-        imageViewWidthConstaint.constant = state == .cleared ? 60.scale : 98.scale
-        imageViewHeightConstaint.constant = state == .cleared ? 60.scale : 86.scale
+        imageViewWidthConstraint.constant = state == .cleared ? 60.scale : 98.scale
+        imageViewHeightConstraint.constant = state == .cleared ? 60.scale : 86.scale
         
         NSLayoutConstraint.activate([
-            imageViewWidthConstaint,
-            imageViewHeightConstaint
+            imageViewWidthConstraint,
+            imageViewHeightConstraint
         ])
         
         let attrs: TextAttributes = {
@@ -88,11 +88,11 @@ extension DTCClearingView {
         let key: String = {
             switch state {
             case .clearing:
-                return "DTCClearing.Clearing".localized
+                return "DTCClearing.Clearing"
             case .cleared:
-                return "DTCClearing.Cleared".localized
+                return "DTCClearing.Cleared"
             case .failed:
-                return "DTCClearing.Failed".localized
+                return "DTCClearing.Failed"
             }
         }()
         label.attributedText = key.localized.attributed(with: attrs)
@@ -150,11 +150,11 @@ private extension DTCClearingView {
             gradientView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
         
-        imageViewWidthConstaint = imageView.widthAnchor.constraint(equalToConstant: 98.scale)
-        imageViewHeightConstaint = imageView.heightAnchor.constraint(equalToConstant: 86.scale)
+        imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 98.scale)
+        imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 86.scale)
         NSLayoutConstraint.activate([
-            imageViewWidthConstaint,
-            imageViewHeightConstaint,
+            imageViewWidthConstraint,
+            imageViewHeightConstraint,
             imageView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             imageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 49.scale)
         ])

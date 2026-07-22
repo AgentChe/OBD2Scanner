@@ -33,8 +33,6 @@
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
 		7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */; };
-		945AC3A5CE23EA034BAAC9D5 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38234F5E4764BD3478388B /* TestViewController.swift */; };
-		958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0007256C63720BCCE6561 /* TestView.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
@@ -282,10 +280,8 @@
 		0BDB0000000000000000FE05 /* peugeot-407.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "peugeot-407.json"; sourceTree = "<group>"; };
 		1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.release.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.release.xcconfig"; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
-		21D0007256C63720BCCE6561 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticTroubleCode.swift; sourceTree = "<group>"; };
 		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
-		3D38234F5E4764BD3478388B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParameter.swift; sourceTree = "<group>"; };
 		749CD11EDD2616D50EC7C1FF /* OBDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDValue.swift; sourceTree = "<group>"; };
@@ -1649,7 +1645,6 @@
 				DE7029B53008E83400203CFF /* FreezeFrame */,
 				DE5547273003D32A00D577B0 /* Connecting */,
 				DE947E3D30039DF1004271C3 /* ConnectingType */,
-				DED81C412FFE18700044284D /* Test */,
 				DED81C262FFC113A0044284D /* Dashboard */,
 			);
 			path = Connection;
@@ -1686,15 +1681,6 @@
 				0BBC635D12BADAA516738EDD /* Profile */,
 			);
 			path = OBD;
-			sourceTree = "<group>";
-		};
-		DED81C412FFE18700044284D /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				21D0007256C63720BCCE6561 /* TestView.swift */,
-				3D38234F5E4764BD3478388B /* TestViewController.swift */,
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		DEDF4E002FF2C8D70001160D /* Error */ = {
@@ -1934,8 +1920,6 @@
 			files = (
 				537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */,
 				3408346C720747739902B049 /* MFiTransport.swift in Sources */,
-				958B164CAB6CDE90D5AC7018 /* TestView.swift in Sources */,
-				945AC3A5CE23EA034BAAC9D5 /* TestViewController.swift in Sources */,
 				FC432CF1EBDC2B84FA49130D /* OBDTransport.swift in Sources */,
 				D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */,
 				F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */,

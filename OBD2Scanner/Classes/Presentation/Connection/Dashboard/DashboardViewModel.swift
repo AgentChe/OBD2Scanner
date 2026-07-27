@@ -14,7 +14,7 @@ final class DashboardViewModel {
         case startConnectProcess(vehicle: Vehicle?)
         case disconnect
         case openPaygate
-        case openDTC(Vehicle?)
+        case openDTC(String?)
         case openFreezeFrame
         case openRecallHistory(Vehicle)
         case clearDTC
@@ -51,7 +51,7 @@ extension DashboardViewModel {
         )
         let garage = makeGarage()
         let activeVehicle = makeActiveVehicle(garage: garage)
-        let dtcLogs = makeDTCLogs()
+        let dtcLog = makeDTCLog(activeVehicle: activeVehicle)
         
         return Output(
             activeVehicle: activeVehicle,
@@ -67,7 +67,7 @@ extension DashboardViewModel {
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
                 demoMode: demoMode,
-                dtcLogs: dtcLogs
+                dtcLog: dtcLog
             )
         )
     }
@@ -77,15 +77,15 @@ extension DashboardViewModel {
 private extension DashboardViewModel {
     func makeElements(
         demoMode: Driver<Bool>,
-        dtcLogs: Driver<[DTCLog]>
+        dtcLog: Driver<DTCLog?>
     ) -> Driver<[DashboardTableElement]> {
         Driver
-            .combineLatest(demoMode, dtcLogs)
-            .map { demoMode, dtcLogs -> [DashboardTableElement] in
+            .combineLatest(demoMode, dtcLog)
+            .map { demoMode, dtcLog -> [DashboardTableElement] in
                 [
                     .options,
                     .demoMode(demoMode),
-                    .dtcLogs(count: dtcLogs.count)
+                    .dtcLogs(count: dtcLog?.codes.count ?? 0)
                 ]
             }
     }
@@ -133,7 +133,7 @@ private extension DashboardViewModel {
                 
                 switch option {
                 case .dtc:
-                    return demoMode ? .openDTC(activeVehicle) : (connected ? .openDTC(activeVehicle) : .errorNeedConnect)
+                    return demoMode ? .openDTC(activeVehicle?.id) : (connected ? .openDTC(activeVehicle?.id) : .errorNeedConnect)
                 case .recallHistory:
                     if let activeVehicle {
                         return .openRecallHistory(activeVehicle)
@@ -263,7 +263,7 @@ private extension DashboardViewModel {
             }
     }
     
-    func makeDTCLogs() -> Driver<[DTCLog]> {
+    func makeDTCLog(activeVehicle: Driver<Vehicle?>) -> Driver<DTCLog?> {
         enum Mutation {
             case add(DTCLog)
             case remove(String)
@@ -278,11 +278,11 @@ private extension DashboardViewModel {
             )
             .asDriver(onErrorDriveWith: .never())
 
-        let dtcLogs = vehicleManager
+        let stored = vehicleManager
             .obtainDTCLog()
             .asDriver(onErrorJustReturn: [])
 
-        return dtcLogs
+        let dtcLogs = stored
             .flatMapLatest { initial -> Driver<[DTCLog]> in
                 mutation
                     .scan(initial) { dtcLogs, mutation -> [DTCLog] in
@@ -290,6 +290,7 @@ private extension DashboardViewModel {
 
                         switch mutation {
                         case .add(let dtcLog):
+                            result.removeAll(where: { $0.vehicleId == dtcLog.vehicleId })
                             result.append(dtcLog)
                         case .remove(let id):
                             result.removeAll(where: { $0.id == id })
@@ -299,8 +300,11 @@ private extension DashboardViewModel {
                     }
                     .startWith(initial)
             }
-            .map { dtcLogs -> [DTCLog] in
-                dtcLogs.sorted { $0.date > $1.date }
+
+        return Driver
+            .combineLatest(dtcLogs, activeVehicle)
+            .map { dtcLogs, activeVehicle -> DTCLog? in
+                dtcLogs.first(where: { $0.vehicleId == activeVehicle?.id })
             }
     }
 

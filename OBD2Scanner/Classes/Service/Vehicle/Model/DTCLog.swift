@@ -9,7 +9,7 @@ import Foundation
 
 struct DTCLog: Codable {
     let id: String
-    let vehicle: Vehicle
+    let vehicleId: String
     let codes: [DiagnosticTroubleCode]
     let date: Date
 }

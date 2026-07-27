@@ -13,10 +13,10 @@ final class DTCInfoViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private let vehicle: Vehicle?
+    private let vehicleId: String?
     
-    private init(vehicle: Vehicle?) {
-        self.vehicle = vehicle
+    private init(vehicleId: String?) {
+        self.vehicleId = vehicleId
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,8 +48,8 @@ final class DTCInfoViewController: UIViewController {
 
 // MARK: Public
 extension DTCInfoViewController {
-    static func make(vehicle: Vehicle?) -> DTCInfoViewController {
-        let vc = DTCInfoViewController(vehicle: vehicle)
+    static func make(vehicleId: String?) -> DTCInfoViewController {
+        let vc = DTCInfoViewController(vehicleId: vehicleId)
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "DTCInfo.TItle".localized
         return vc
@@ -62,7 +62,7 @@ private extension DTCInfoViewController {
         let vc = DTCReadingViewController.make { [weak self] output in
             guard let self, case let .readed(codes) = output else { return }
             
-            let vc = DTCResultViewController.make(vehicle: vehicle, codes: codes)
+            let vc = DTCResultViewController.make(vehicleId: vehicleId, codes: codes)
             navigationController?.pushViewController(vc, animated: true)
         }
         present(vc, animated: false)

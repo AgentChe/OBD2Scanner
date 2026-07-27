@@ -19,12 +19,12 @@ final class DTCResultViewController: UIViewController {
     private lazy var didClearedCodesTrigger = PublishRelay<Void>()
     private lazy var didTapSavePIDsTrigger = PublishRelay<Void>()
     
-    private let vehicle: Vehicle?
+    private let vehicleId: String?
     private let codes: [DiagnosticTroubleCode]
 
-    private init(vehicle: Vehicle?, codes: [DiagnosticTroubleCode]) {
-        self.viewModel = DTCResultViewModel(vehicle: vehicle, codes: codes)
-        self.vehicle = vehicle
+    private init(vehicleId: String?, codes: [DiagnosticTroubleCode]) {
+        self.viewModel = DTCResultViewModel(vehicleId: vehicleId, codes: codes)
+        self.vehicleId = vehicleId
         self.codes = codes
 
         super.init(nibName: nil, bundle: nil)
@@ -67,8 +67,8 @@ final class DTCResultViewController: UIViewController {
 
 // MARK: Public
 extension DTCResultViewController {
-    static func make(vehicle: Vehicle?, codes: [DiagnosticTroubleCode]) -> DTCResultViewController {
-        let vc = DTCResultViewController(vehicle: vehicle, codes: codes)
+    static func make(vehicleId: String?, codes: [DiagnosticTroubleCode]) -> DTCResultViewController {
+        let vc = DTCResultViewController(vehicleId: vehicleId, codes: codes)
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "DTCResult.Title".localized
         return vc
@@ -115,7 +115,8 @@ private extension DTCResultViewController {
     }
 
     func addSavePIDsButton() {
-        guard !DemoModeManager.shared.isActive, vehicle != nil, !codes.isEmpty else { return }
+        // TODO: добавить !DemoModeManager.shared.isActive
+        guard vehicleId != nil, !codes.isEmpty else { return }
 
         let item = UIBarButtonItem(
             title: "DTCResult.Action.SavePIDs".localized,

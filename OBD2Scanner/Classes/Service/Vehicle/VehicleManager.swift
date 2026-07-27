@@ -29,7 +29,7 @@ protocol VehicleManagerProtocol {
     func setupCurrent(vehicleID: String) -> Single<Void>
     func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]>
     
-    func addDTCLog(vehicle: Vehicle, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
+    func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
     func obtainDTCLog() -> Single<[DTCLog]>
 }
@@ -149,9 +149,11 @@ extension VehicleManager: VehicleManagerProtocol {
         return restAPITransport
             .callServerApi(requestBody: request)
             .map { RequestResult.map(response: $0) }
-            .do(onSuccess: { result in
+            .do(onSuccess: { [self] result in
                 if result.success {
                     VehicleMediator.shared.remove(id: id)
+
+                    removeDTCLogs(vehicleId: id)
                 }
             })
     }
@@ -201,16 +203,16 @@ extension VehicleManager: VehicleManagerProtocol {
             .map { RecallHistory.make(response: $0) }
     }
 
-    func addDTCLog(vehicle: Vehicle, codes: [DiagnosticTroubleCode]) -> Single<DTCLog> {
+    func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog> {
         Single<DTCLog>.create { [self] single in
             let dtcLog = DTCLog(
                 id: UUID().uuidString,
-                vehicle: vehicle,
+                vehicleId: vehicleId,
                 codes: codes,
                 date: Date()
             )
 
-            var dtcLogs = storedDTCLogs()
+            var dtcLogs = storedDTCLogs().filter { $0.vehicleId != vehicleId }
             dtcLogs.append(dtcLog)
             store(dtcLogs: dtcLogs)
 
@@ -248,6 +250,19 @@ extension VehicleManager: VehicleManagerProtocol {
 
 // MARK: Private
 private extension VehicleManager {
+    func removeDTCLogs(vehicleId: String) {
+        let dtcLogs = storedDTCLogs()
+
+        let removed = dtcLogs.filter { $0.vehicleId == vehicleId }
+        guard !removed.isEmpty else {
+            return
+        }
+
+        store(dtcLogs: dtcLogs.filter { $0.vehicleId != vehicleId })
+
+        removed.forEach { VehicleMediator.shared.remove(dtcLogId: $0.id) }
+    }
+
     func storedDTCLogs() -> [DTCLog] {
         guard
             let data = UserDefaults.standard.data(forKey: Constants.dtcLogsKey),

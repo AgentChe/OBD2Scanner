@@ -19,11 +19,11 @@ final class DTCResultViewModel {
 
     private lazy var vehicleManager = VehicleManager()
 
-    private let vehicle: Driver<Vehicle?>
+    private let vehicleId: Driver<String?>
     private let codes: Driver<[DiagnosticTroubleCode]>
 
-    init(vehicle: Vehicle?, codes: [DiagnosticTroubleCode]) {
-        self.vehicle = BehaviorRelay(value: vehicle).asDriver()
+    init(vehicleId: String?, codes: [DiagnosticTroubleCode]) {
+        self.vehicleId = BehaviorRelay(value: vehicleId).asDriver()
         self.codes = BehaviorRelay(value: codes).asDriver()
     }
 }
@@ -81,14 +81,14 @@ private extension DTCResultViewModel {
 
         let savePIDs = didTapSavePIDs
             .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(Driver.combineLatest(vehicle, codes))
-            .flatMapLatest { [weak self] vehicle, codes -> Driver<Action> in
-                guard let self, let vehicle else {
+            .withLatestFrom(Driver.combineLatest(vehicleId, codes))
+            .flatMapLatest { [weak self] vehicleId, codes -> Driver<Action> in
+                guard let self, let vehicleId else {
                     return .empty()
                 }
 
                 return vehicleManager
-                    .addDTCLog(vehicle: vehicle, codes: codes)
+                    .addDTCLog(vehicleId: vehicleId, codes: codes)
                     .map { _ in Action.savedPIDs }
                     .asDriver(onErrorDriveWith: .empty())
             }

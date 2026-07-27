@@ -102,14 +102,14 @@ private extension DTCInfoView {
         NSLayoutConstraint.activate([
             readButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             readButton.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -6.scale),
-            readButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32.scale),
+            readButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale),
             readButton.heightAnchor.constraint(equalToConstant: 52.scale)
         ])
 
         NSLayoutConstraint.activate([
             clearButton.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 6.scale),
             clearButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            clearButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32.scale),
+            clearButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale),
             clearButton.heightAnchor.constraint(equalToConstant: 52.scale)
         ])
     }

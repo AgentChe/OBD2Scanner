@@ -16,6 +16,8 @@ final class DTCResultViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var didClearedCodesTrigger = PublishRelay<Void>()
+    
     private init(codes: [DiagnosticTroubleCode]) {
         viewModel = DTCResultViewModel(codes: codes)
         
@@ -36,7 +38,8 @@ final class DTCResultViewController: UIViewController {
         let output = viewModel.configure(input: DTCResultViewModel.Input(
             didTapClose: mainView.closeButton.rx.tap.asSignal(),
             didTapClearCodes: mainView.clearButton.rx.tap.asSignal(),
-            didTapHowToFix: mainView.tableView.didTapHowToFix
+            didTapHowToFix: mainView.tableView.didTapHowToFix,
+            didClearedCodes: didClearedCodesTrigger.asSignal()
         ))
         
         output.action
@@ -74,12 +77,16 @@ private extension DTCResultViewController {
             navigationController?.popViewController(animated: true)
         case .clearCodes:
             let vc = DTCClearInfoViewController.make { [weak self] in
-                let vc = DTCClearingViewController.make()
+                let vc = DTCClearingViewController.make { outcome in
+                    guard case .cleared = outcome else { return }
+                    
+                    self?.didClearedCodesTrigger.accept(Void())
+                }
                 self?.present(vc, animated: false)
             }
             present(vc, animated: false)
         case .openHowToFix:
-            break // TODO: 
+            break // TODO:
         }
     }
 }

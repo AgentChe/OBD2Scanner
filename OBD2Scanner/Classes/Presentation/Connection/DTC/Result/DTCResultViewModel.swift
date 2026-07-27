@@ -29,6 +29,7 @@ extension DTCResultViewModel {
         let didTapClose: Signal<Void>
         let didTapClearCodes: Signal<Void>
         let didTapHowToFix: Signal<DiagnosticTroubleCode>
+        let didClearedCodes: Signal<Void>
     }
     
     struct Output {
@@ -43,7 +44,10 @@ extension DTCResultViewModel {
                 didTapClearCodes: input.didTapClearCodes,
                 didTapHowToFix: input.didTapHowToFix
             ),
-            elements: codes
+            elements: makeElements(
+                codes: codes,
+                didClearedCodes: input.didClearedCodes
+            )
         )
     }
 }
@@ -69,5 +73,18 @@ private extension DTCResultViewModel {
 
         return Driver
             .merge(close, clearOrPaygate, howToFix)
+    }
+    
+    func makeElements(
+        codes: Driver<[DiagnosticTroubleCode]>,
+        didClearedCodes: Signal<Void>
+    ) -> Driver<[DiagnosticTroubleCode]> {
+        Driver
+            .merge(
+                codes.map { $0 + $0 + $0 }, // TODO: 
+                didClearedCodes
+                    .map { [] }
+                    .asDriver(onErrorJustReturn: [])
+            )
     }
 }

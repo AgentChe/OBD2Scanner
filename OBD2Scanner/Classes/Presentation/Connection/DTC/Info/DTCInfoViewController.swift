@@ -20,6 +20,12 @@ final class DTCInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.readButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                base.read()
+            })
+            .disposed(by: disposeBag)
+        
         mainView.clearButton.rx.tap
             .bind(to: Binder(self) { base, void in
                 base.clear()
@@ -40,6 +46,13 @@ extension DTCInfoViewController {
 
 // MARK: Private
 private extension DTCInfoViewController {
+    func read() {
+        let vc = DTCReadingViewController.make { codes in
+            print("___ codes: \(codes)") // TODO: 
+        }
+        present(vc, animated: false)
+    }
+    
     func clear() {
         guard SessionManager().hasActiveSubscriptions() else {
             let vc = PaygateViewController.make()

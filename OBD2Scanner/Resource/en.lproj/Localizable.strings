@@ -325,3 +325,7 @@ and smart monitoring";
 "DTCInfo.Permanent.Item1" = "Confirmed and saved malfunctions that cannot be erased.";
 "DTCInfo.Action.Read" = "Read";
 "DTCInfo.Action.Clear" = "Clear";
+
+// MARK: DTCReading
+"DTCReading.Clearing" = "Reading codes...";
+"DTCReading.Failed" = "Failed to read codes";

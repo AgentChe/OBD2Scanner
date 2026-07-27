@@ -220,6 +220,8 @@
 		DE9C13CF30171C960095E927 /* DTCInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13CE30171C960095E927 /* DTCInfoViewController.swift */; };
 		DE9C13D130171CA00095E927 /* DTCInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D030171CA00095E927 /* DTCInfoView.swift */; };
 		DE9C13D430171D100095E927 /* DTCInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */; };
+		DE9C13D4301727100095E927 /* DTCReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D3301727100095E927 /* DTCReadingViewController.swift */; };
+		DE9C13D63017271E0095E927 /* DTCReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D53017271E0095E927 /* DTCReadingView.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -489,6 +491,8 @@
 		DE9C13CE30171C960095E927 /* DTCInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoViewController.swift; sourceTree = "<group>"; };
 		DE9C13D030171CA00095E927 /* DTCInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoView.swift; sourceTree = "<group>"; };
 		DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoSectionView.swift; sourceTree = "<group>"; };
+		DE9C13D3301727100095E927 /* DTCReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCReadingViewController.swift; sourceTree = "<group>"; };
+		DE9C13D53017271E0095E927 /* DTCReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCReadingView.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1542,6 +1546,7 @@
 		DE9C13CC30171BFB0095E927 /* DTC */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13D2301726F20095E927 /* Reading */,
 				DE9C13CD30171C7F0095E927 /* Info */,
 			);
 			path = DTC;
@@ -1563,6 +1568,15 @@
 				DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DE9C13D2301726F20095E927 /* Reading */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13D3301727100095E927 /* DTCReadingViewController.swift */,
+				DE9C13D53017271E0095E927 /* DTCReadingView.swift */,
+			);
+			path = Reading;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -2085,6 +2099,7 @@
 				DE2240CB2FF92CCA0023E94C /* VehicleDetailsViewController.swift in Sources */,
 				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
+				DE9C13D63017271E0095E927 /* DTCReadingView.swift in Sources */,
 				DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */,
 				DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */,
 				DE2240782FF684380023E94C /* AddVehicleResultItemView.swift in Sources */,
@@ -2100,6 +2115,7 @@
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
 				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
 				DE9C13C9301101570095E927 /* DTCClearingViewController.swift in Sources */,
+				DE9C13D4301727100095E927 /* DTCReadingViewController.swift in Sources */,
 				DEFF200130091111000000B1 /* FreezeFrameItem.swift in Sources */,
 				DEFF200230091111000000B2 /* DTCDescriptionLibrary.swift in Sources */,
 				DEFF200330091111000000B3 /* FreezeFrameViewModel.swift in Sources */,

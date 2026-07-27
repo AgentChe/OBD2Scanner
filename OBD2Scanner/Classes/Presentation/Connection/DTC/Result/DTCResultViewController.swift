@@ -115,7 +115,7 @@ private extension DTCResultViewController {
     }
 
     func addSavePIDsButton() {
-        guard vehicle != nil, !codes.isEmpty else { return }
+        guard !DemoModeManager.shared.isActive, vehicle != nil, !codes.isEmpty else { return }
 
         let item = UIBarButtonItem(
             title: "DTCResult.Action.SavePIDs".localized,

@@ -64,6 +64,10 @@ extension DashboardTableView: UITableViewDataSource {
                 self?.didTapTryDemoTrigger.accept(Void())
             }
             return cell
+        case .dtcLogs(let count):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDTCLogsCell.self), for: indexPath) as! DashboardTableDTCLogsCell
+            cell.setup(count: count)
+            return cell
         }
     }
 }
@@ -76,6 +80,8 @@ extension DashboardTableView: UITableViewDelegate {
             return DashboardTableOptionsCell.Constants.topInset + DashboardTableOptionsCell.Constants.containerHeight
         case .demoMode:
             return DashboardTableDemoModeCell.Constants.topInset + DashboardTableDemoModeCell.Constants.containerHeight
+        case .dtcLogs:
+            return DashboardTableDTCLogsCell.Constants.topInset + DashboardTableDTCLogsCell.Constants.containerHeight
         }
     }
 }
@@ -85,6 +91,7 @@ private extension DashboardTableView {
     func initialize() {
         register(DashboardTableOptionsCell.self, forCellReuseIdentifier: String(describing: DashboardTableOptionsCell.self))
         register(DashboardTableDemoModeCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoModeCell.self))
+        register(DashboardTableDTCLogsCell.self, forCellReuseIdentifier: String(describing: DashboardTableDTCLogsCell.self))
 
         dataSource = self
         delegate = self

@@ -51,6 +51,7 @@ extension DashboardViewModel {
         )
         let garage = makeGarage()
         let activeVehicle = makeActiveVehicle(garage: garage)
+        let dtcLogs = makeDTCLogs()
         
         return Output(
             activeVehicle: activeVehicle,
@@ -65,7 +66,8 @@ extension DashboardViewModel {
             ),
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
-                demoMode: demoMode
+                demoMode: demoMode,
+                dtcLogs: dtcLogs
             )
         )
     }
@@ -74,11 +76,17 @@ extension DashboardViewModel {
 // MARK: Private
 private extension DashboardViewModel {
     func makeElements(
-        demoMode: Driver<Bool>
+        demoMode: Driver<Bool>,
+        dtcLogs: Driver<[DTCLog]>
     ) -> Driver<[DashboardTableElement]> {
-        demoMode
-            .map { demoMode -> [DashboardTableElement] in
-                [.options, .demoMode(demoMode)]
+        Driver
+            .combineLatest(demoMode, dtcLogs)
+            .map { demoMode, dtcLogs -> [DashboardTableElement] in
+                [
+                    .options,
+                    .demoMode(demoMode),
+                    .dtcLogs(count: dtcLogs.count)
+                ]
             }
     }
     
@@ -255,6 +263,47 @@ private extension DashboardViewModel {
             }
     }
     
+    func makeDTCLogs() -> Driver<[DTCLog]> {
+        enum Mutation {
+            case add(DTCLog)
+            case remove(String)
+        }
+
+        let mediator = VehicleMediator.shared
+
+        let mutation = Signal
+            .merge(
+                mediator.didAddDTCLog.map { Mutation.add($0) },
+                mediator.didRemoveDTCLog.map { Mutation.remove($0) }
+            )
+            .asDriver(onErrorDriveWith: .never())
+
+        let dtcLogs = vehicleManager
+            .obtainDTCLog()
+            .asDriver(onErrorJustReturn: [])
+
+        return dtcLogs
+            .flatMapLatest { initial -> Driver<[DTCLog]> in
+                mutation
+                    .scan(initial) { dtcLogs, mutation -> [DTCLog] in
+                        var result = dtcLogs
+
+                        switch mutation {
+                        case .add(let dtcLog):
+                            result.append(dtcLog)
+                        case .remove(let id):
+                            result.removeAll(where: { $0.id == id })
+                        }
+
+                        return result
+                    }
+                    .startWith(initial)
+            }
+            .map { dtcLogs -> [DTCLog] in
+                dtcLogs.sorted { $0.date > $1.date }
+            }
+    }
+
     func makeActiveSubscription() -> Driver<Bool> {
         PurchaseValidationObserver.shared
             .didValidatedWithActiveSubscription

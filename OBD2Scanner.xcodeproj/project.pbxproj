@@ -228,6 +228,7 @@
 		DE9C13E130172CF00095E927 /* DTCResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E030172CF00095E927 /* DTCResultTableView.swift */; };
 		DE9C13E330172CF70095E927 /* DTCResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */; };
 		DE9C13E530175F240095E927 /* DTCLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E430175F240095E927 /* DTCLog.swift */; };
+		DE9C13E730176DA70095E927 /* DashboardTableDTCLogsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E630176DA70095E927 /* DashboardTableDTCLogsCell.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -505,6 +506,7 @@
 		DE9C13E030172CF00095E927 /* DTCResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableView.swift; sourceTree = "<group>"; };
 		DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableCell.swift; sourceTree = "<group>"; };
 		DE9C13E430175F240095E927 /* DTCLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLog.swift; sourceTree = "<group>"; };
+		DE9C13E630176DA70095E927 /* DashboardTableDTCLogsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableDTCLogsCell.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1506,6 +1508,7 @@
 			children = (
 				DE9C13B93010E4340095E927 /* Options */,
 				DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */,
+				DE9C13E630176DA70095E927 /* DashboardTableDTCLogsCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2113,6 +2116,7 @@
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
+				DE9C13E730176DA70095E927 /* DashboardTableDTCLogsCell.swift in Sources */,
 				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
 				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,

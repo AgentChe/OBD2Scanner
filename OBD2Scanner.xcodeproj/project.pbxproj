@@ -227,6 +227,7 @@
 		DE9C13DD30172B080095E927 /* DTCResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13DC30172B080095E927 /* DTCResultView.swift */; };
 		DE9C13E130172CF00095E927 /* DTCResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E030172CF00095E927 /* DTCResultTableView.swift */; };
 		DE9C13E330172CF70095E927 /* DTCResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */; };
+		DE9C13E530175F240095E927 /* DTCLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E430175F240095E927 /* DTCLog.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -503,6 +504,7 @@
 		DE9C13DC30172B080095E927 /* DTCResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultView.swift; sourceTree = "<group>"; };
 		DE9C13E030172CF00095E927 /* DTCResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableView.swift; sourceTree = "<group>"; };
 		DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableCell.swift; sourceTree = "<group>"; };
+		DE9C13E430175F240095E927 /* DTCLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLog.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -798,6 +800,7 @@
 				DE2240162FF416990023E94C /* VehicleYear.swift */,
 				DE2240A32FF79D030023E94C /* VehicleReferefence.swift */,
 				DED81C082FFAC7300044284D /* RecallHistory.swift */,
+				DE9C13E430175F240095E927 /* DTCLog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2122,6 +2125,7 @@
 				DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */,
 				DE2240A22FF6CEC30023E94C /* ObtainGarageRequest.swift in Sources */,
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
+				DE9C13E530175F240095E927 /* DTCLog.swift in Sources */,
 				DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */,
 				DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */,
 				DE2F0ABA2A698E0B00471667 /* ScreenSize.swift in Sources */,

@@ -5,6 +5,7 @@
 //  Created by Андрей Чернышев on 21.07.2023.
 //
 
+import Foundation
 import RxSwift
 
 protocol VehicleManagerProtocol {
@@ -27,11 +28,16 @@ protocol VehicleManagerProtocol {
     func obtainCurrentVehicleID() -> Single<String?>
     func setupCurrent(vehicleID: String) -> Single<Void>
     func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]>
+    
+    func addDTCLog(vehicle: Vehicle, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
+    func remove(dtcLogId: String) -> Single<String>
+    func obtainDTCLog() -> Single<[DTCLog]>
 }
 
 final class VehicleManager {
     enum Constants {
         static let currentVehicleKey = "vehicle_manager_current_vehicle"
+        static let dtcLogsKey = "vehicle_manager_dtc_logs"
     }
     
     private lazy var sessionManager = SessionManager()
@@ -193,5 +199,69 @@ extension VehicleManager: VehicleManagerProtocol {
         return restAPITransport
             .callServerApi(requestBody: requestBody)
             .map { RecallHistory.make(response: $0) }
+    }
+
+    func addDTCLog(vehicle: Vehicle, codes: [DiagnosticTroubleCode]) -> Single<DTCLog> {
+        Single<DTCLog>.create { [self] single in
+            let dtcLog = DTCLog(
+                id: UUID().uuidString,
+                vehicle: vehicle,
+                codes: codes,
+                date: Date()
+            )
+
+            var dtcLogs = storedDTCLogs()
+            dtcLogs.append(dtcLog)
+            store(dtcLogs: dtcLogs)
+
+            single(.success(dtcLog))
+
+            VehicleMediator.shared.add(dtcLog: dtcLog)
+
+            return Disposables.create()
+        }
+    }
+
+    func remove(dtcLogId: String) -> Single<String> {
+        Single<String>.create { [self] single in
+            let dtcLogs = storedDTCLogs().filter { $0.id != dtcLogId }
+            store(dtcLogs: dtcLogs)
+
+            single(.success(dtcLogId))
+
+            VehicleMediator.shared.remove(dtcLogId: dtcLogId)
+
+            return Disposables.create()
+        }
+    }
+
+    func obtainDTCLog() -> Single<[DTCLog]> {
+        Single<[DTCLog]>.create { [self] single in
+            let dtcLogs = storedDTCLogs().sorted { $0.date > $1.date }
+
+            single(.success(dtcLogs))
+
+            return Disposables.create()
+        }
+    }
+}
+
+// MARK: Private
+private extension VehicleManager {
+    func storedDTCLogs() -> [DTCLog] {
+        guard
+            let data = UserDefaults.standard.data(forKey: Constants.dtcLogsKey),
+            let dtcLogs = try? JSONDecoder().decode([DTCLog].self, from: data)
+        else { return [] }
+
+        return dtcLogs
+    }
+
+    func store(dtcLogs: [DTCLog]) {
+        guard let data = try? JSONEncoder().encode(dtcLogs) else {
+            return
+        }
+
+        UserDefaults.standard.set(data, forKey: Constants.dtcLogsKey)
     }
 }

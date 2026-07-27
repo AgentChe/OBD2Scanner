@@ -14,11 +14,16 @@ final class DTCResultViewModel {
         case close
         case clearCodes
         case openHowToFix(DiagnosticTroubleCode)
+        case savedPIDs
     }
-    
+
+    private lazy var vehicleManager = VehicleManager()
+
+    private let vehicle: Driver<Vehicle?>
     private let codes: Driver<[DiagnosticTroubleCode]>
-    
-    init(codes: [DiagnosticTroubleCode]) {
+
+    init(vehicle: Vehicle?, codes: [DiagnosticTroubleCode]) {
+        self.vehicle = BehaviorRelay(value: vehicle).asDriver()
         self.codes = BehaviorRelay(value: codes).asDriver()
     }
 }
@@ -30,6 +35,7 @@ extension DTCResultViewModel {
         let didTapClearCodes: Signal<Void>
         let didTapHowToFix: Signal<DiagnosticTroubleCode>
         let didClearedCodes: Signal<Void>
+        let didTapSavePIDs: Signal<Void>
     }
     
     struct Output {
@@ -42,12 +48,11 @@ extension DTCResultViewModel {
             action: makeAction(
                 didTapClose: input.didTapClose,
                 didTapClearCodes: input.didTapClearCodes,
-                didTapHowToFix: input.didTapHowToFix
-            ),
-            elements: makeElements(
-                codes: codes,
+                didTapHowToFix: input.didTapHowToFix,
+                didTapSavePIDs: input.didTapSavePIDs,
                 didClearedCodes: input.didClearedCodes
-            )
+            ),
+            elements: codes
         )
     }
 }
@@ -57,9 +62,12 @@ private extension DTCResultViewModel {
     func makeAction(
         didTapClose: Signal<Void>,
         didTapClearCodes: Signal<Void>,
-        didTapHowToFix: Signal<DiagnosticTroubleCode>
+        didTapHowToFix: Signal<DiagnosticTroubleCode>,
+        didTapSavePIDs: Signal<Void>,
+        didClearedCodes: Signal<Void>
     ) -> Driver<Action> {
-        let close = didTapClose
+        let close = Signal
+            .merge(didTapClose, didClearedCodes)
             .map { Action.close }
             .asDriver(onErrorDriveWith: .never())
 
@@ -71,20 +79,21 @@ private extension DTCResultViewModel {
             .map { Action.openHowToFix($0) }
             .asDriver(onErrorDriveWith: .never())
 
+        let savePIDs = didTapSavePIDs
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(Driver.combineLatest(vehicle, codes))
+            .flatMapLatest { [weak self] vehicle, codes -> Driver<Action> in
+                guard let self, let vehicle else {
+                    return .empty()
+                }
+
+                return vehicleManager
+                    .addDTCLog(vehicle: vehicle, codes: codes)
+                    .map { _ in Action.savedPIDs }
+                    .asDriver(onErrorDriveWith: .empty())
+            }
+
         return Driver
-            .merge(close, clearOrPaygate, howToFix)
-    }
-    
-    func makeElements(
-        codes: Driver<[DiagnosticTroubleCode]>,
-        didClearedCodes: Signal<Void>
-    ) -> Driver<[DiagnosticTroubleCode]> {
-        Driver
-            .merge(
-                codes.map { $0 + $0 + $0 }, // TODO: 
-                didClearedCodes
-                    .map { [] }
-                    .asDriver(onErrorJustReturn: [])
-            )
+            .merge(close, clearOrPaygate, howToFix, savePIDs)
     }
 }

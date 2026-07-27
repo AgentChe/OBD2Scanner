@@ -11,10 +11,10 @@ import Foundation
 ///
 /// Именуется полностью, чтобы не пересекаться с легаси-типом `DTC`
 /// из группы `Service/OBDAdapter`, который будет удалён вместе с LTBLT.
-struct DiagnosticTroubleCode: Equatable {
+struct DiagnosticTroubleCode: Equatable, Codable {
     /// Происхождение кода — определяет, как показывать его в UI
     /// и можно ли его стереть.
-    enum Origin: String, Equatable {
+    enum Origin: String, Equatable, Codable {
         /// Подтверждённый код (J1979 mode 03 / UDS confirmedDTC). Горит MIL.
         case stored
         /// Ожидающий подтверждения (J1979 mode 07 / UDS pendingDTC).

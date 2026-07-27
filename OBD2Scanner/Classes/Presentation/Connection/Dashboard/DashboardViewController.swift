@@ -124,8 +124,8 @@ private extension DashboardViewController {
         case .openPaygate:
             let vc = PaygateViewController.make()
             present(vc, animated: true)
-        case .openDTC:
-            let vc = DTCInfoViewController.make()
+        case .openDTC(let vehicle):
+            let vc = DTCInfoViewController.make(vehicle: vehicle)
             navigationController?.pushViewController(vc, animated: true)
         case .openFreezeFrame:
             let vc = FreezeFrameViewController.make()

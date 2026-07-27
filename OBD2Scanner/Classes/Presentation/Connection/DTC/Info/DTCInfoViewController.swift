@@ -13,6 +13,18 @@ final class DTCInfoViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private let vehicle: Vehicle?
+    
+    private init(vehicle: Vehicle?) {
+        self.vehicle = vehicle
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -36,8 +48,8 @@ final class DTCInfoViewController: UIViewController {
 
 // MARK: Public
 extension DTCInfoViewController {
-    static func make() -> DTCInfoViewController {
-        let vc = DTCInfoViewController()
+    static func make(vehicle: Vehicle?) -> DTCInfoViewController {
+        let vc = DTCInfoViewController(vehicle: vehicle)
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "DTCInfo.TItle".localized
         return vc
@@ -48,10 +60,10 @@ extension DTCInfoViewController {
 private extension DTCInfoViewController {
     func read() {
         let vc = DTCReadingViewController.make { [weak self] output in
-            guard case let .readed(codes) = output else { return }
+            guard let self, case let .readed(codes) = output else { return }
             
-            let vc = DTCResultViewController.make(codes: codes)
-            self?.navigationController?.pushViewController(vc, animated: true)
+            let vc = DTCResultViewController.make(vehicle: vehicle, codes: codes)
+            navigationController?.pushViewController(vc, animated: true)
         }
         present(vc, animated: false)
     }

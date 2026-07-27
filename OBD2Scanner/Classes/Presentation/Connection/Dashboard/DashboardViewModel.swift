@@ -14,7 +14,7 @@ final class DashboardViewModel {
         case startConnectProcess(vehicle: Vehicle?)
         case disconnect
         case openPaygate
-        case openDTC
+        case openDTC(Vehicle?)
         case openFreezeFrame
         case openRecallHistory(Vehicle)
         case clearDTC
@@ -125,7 +125,7 @@ private extension DashboardViewModel {
                 
                 switch option {
                 case .dtc:
-                    return demoMode ? .openDTC : (connected ? .openDTC : .errorNeedConnect)
+                    return demoMode ? .openDTC(activeVehicle) : (connected ? .openDTC(activeVehicle) : .errorNeedConnect)
                 case .recallHistory:
                     if let activeVehicle {
                         return .openRecallHistory(activeVehicle)

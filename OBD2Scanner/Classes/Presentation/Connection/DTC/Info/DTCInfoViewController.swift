@@ -47,8 +47,11 @@ extension DTCInfoViewController {
 // MARK: Private
 private extension DTCInfoViewController {
     func read() {
-        let vc = DTCReadingViewController.make { codes in
-            print("___ codes: \(codes)") // TODO: 
+        let vc = DTCReadingViewController.make { [weak self] output in
+            guard case let .readed(codes) = output else { return }
+            
+            let vc = DTCResultViewController.make(codes: codes)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
         present(vc, animated: false)
     }

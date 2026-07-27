@@ -329,3 +329,35 @@ and smart monitoring";
 // MARK: DTCReading
 "DTCReading.Clearing" = "Reading codes...";
 "DTCReading.Failed" = "Failed to read codes";
+
+// MARK: DTCResult
+"DTCResult.Title" = "DTC Result";
+"DTCResult.Action.Close" = "Close";
+"DTCResult.Action.Clear" = "Clear";
+"DTCResult.HowToFix" = "How to fix?";
+"DTCResult.UnknownCode" = "Unknown trouble code";
+"DTCResult.Unknown" = "Unknown";
+"DTCResult.InfoKey" = "%@: ";
+"DTCResult.Status.Confirmed" = "Confirmed";
+"DTCResult.Status.Pending" = "Pending";
+"DTCResult.Status.Permanent" = "Permanent";
+"DTCResult.System" = "System";
+"DTCResult.Type" = "Type";
+"DTCResult.AffectedSystem" = "Affected System";
+"DTCResult.System.Powertrain" = "Powertrain";
+"DTCResult.System.Body" = "Body";
+"DTCResult.System.Chassis" = "Chassis";
+"DTCResult.System.Network" = "Network";
+"DTCResult.Type.Generic" = "Generic (SAE)";
+"DTCResult.Type.Manufacturer" = "Manufacturer";
+"DTCResult.Affected.FuelAir" = "Fuel & Air Metering";
+"DTCResult.Affected.FuelAirInjector" = "Fuel & Air Metering (Injector Circuit)";
+"DTCResult.Affected.Ignition" = "Ignition System / Misfire";
+"DTCResult.Affected.Emission" = "Auxiliary Emission Controls";
+"DTCResult.Affected.SpeedIdle" = "Speed & Idle Control";
+"DTCResult.Affected.Computer" = "Computer & Output Circuit";
+"DTCResult.Affected.Transmission" = "Transmission";
+"DTCResult.Affected.Hybrid" = "Hybrid Propulsion";
+"DTCResult.Affected.BodyElectronics" = "Body Electronics";
+"DTCResult.Affected.Chassis" = "Chassis / Brakes & Suspension";
+"DTCResult.Affected.Network" = "CAN Bus / ECU Communication";

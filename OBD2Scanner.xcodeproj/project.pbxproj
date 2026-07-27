@@ -222,6 +222,11 @@
 		DE9C13D430171D100095E927 /* DTCInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */; };
 		DE9C13D4301727100095E927 /* DTCReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D3301727100095E927 /* DTCReadingViewController.swift */; };
 		DE9C13D63017271E0095E927 /* DTCReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D53017271E0095E927 /* DTCReadingView.swift */; };
+		DE9C13D930172AFC0095E927 /* DTCResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D830172AFC0095E927 /* DTCResultViewController.swift */; };
+		DE9C13DB30172B050095E927 /* DTCResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13DA30172B050095E927 /* DTCResultViewModel.swift */; };
+		DE9C13DD30172B080095E927 /* DTCResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13DC30172B080095E927 /* DTCResultView.swift */; };
+		DE9C13E130172CF00095E927 /* DTCResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E030172CF00095E927 /* DTCResultTableView.swift */; };
+		DE9C13E330172CF70095E927 /* DTCResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -493,6 +498,11 @@
 		DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoSectionView.swift; sourceTree = "<group>"; };
 		DE9C13D3301727100095E927 /* DTCReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCReadingViewController.swift; sourceTree = "<group>"; };
 		DE9C13D53017271E0095E927 /* DTCReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCReadingView.swift; sourceTree = "<group>"; };
+		DE9C13D830172AFC0095E927 /* DTCResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultViewController.swift; sourceTree = "<group>"; };
+		DE9C13DA30172B050095E927 /* DTCResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultViewModel.swift; sourceTree = "<group>"; };
+		DE9C13DC30172B080095E927 /* DTCResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultView.swift; sourceTree = "<group>"; };
+		DE9C13E030172CF00095E927 /* DTCResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableView.swift; sourceTree = "<group>"; };
+		DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultTableCell.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1546,6 +1556,7 @@
 		DE9C13CC30171BFB0095E927 /* DTC */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13D730172AF20095E927 /* Result */,
 				DE9C13D2301726F20095E927 /* Reading */,
 				DE9C13CD30171C7F0095E927 /* Info */,
 			);
@@ -1577,6 +1588,34 @@
 				DE9C13D53017271E0095E927 /* DTCReadingView.swift */,
 			);
 			path = Reading;
+			sourceTree = "<group>";
+		};
+		DE9C13D730172AF20095E927 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13DE30172CDE0095E927 /* View */,
+				DE9C13D830172AFC0095E927 /* DTCResultViewController.swift */,
+				DE9C13DA30172B050095E927 /* DTCResultViewModel.swift */,
+				DE9C13DC30172B080095E927 /* DTCResultView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		DE9C13DE30172CDE0095E927 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13DF30172CE60095E927 /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE9C13DF30172CE60095E927 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13E030172CF00095E927 /* DTCResultTableView.swift */,
+				DE9C13E230172CF70095E927 /* DTCResultTableCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -1980,6 +2019,7 @@
 				385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */,
 				FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */,
 				075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */,
+				DE9C13DD30172B080095E927 /* DTCResultView.swift in Sources */,
 				DE7029C1300AB32100203CFF /* FreezeFrameCapturedView.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
@@ -2022,6 +2062,7 @@
 				DE2F0B112A69957D00471667 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE2F0B382A6AC61E00471667 /* VehicleManager.swift in Sources */,
 				DE223FE42FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift in Sources */,
+				DE9C13E130172CF00095E927 /* DTCResultTableView.swift in Sources */,
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
 				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
@@ -2074,6 +2115,7 @@
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
 				DEDF4E0B2FF2C8D70001160D /* IAPActionResult.swift in Sources */,
 				DEDF4E0C2FF2C8D70001160D /* IAPProduct.swift in Sources */,
+				DE9C13E330172CF70095E927 /* DTCResultTableCell.swift in Sources */,
 				DE2240322FF50D7A0023E94C /* AddCarStepView.swift in Sources */,
 				DE2F0AB52A698E0B00471667 /* APIRequestBody.swift in Sources */,
 				DE9C13BF3010F7E10095E927 /* DTCClearInfoViewController.swift in Sources */,
@@ -2096,6 +2138,7 @@
 				DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */,
 				DE7029BB300A5CD300203CFF /* FreezeFrameEmptyItemView.swift in Sources */,
 				DE2240342FF552AE0023E94C /* AddVehicleFlowResult.swift in Sources */,
+				DE9C13D930172AFC0095E927 /* DTCResultViewController.swift in Sources */,
 				DE2240CB2FF92CCA0023E94C /* VehicleDetailsViewController.swift in Sources */,
 				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
@@ -2175,6 +2218,7 @@
 				DE2240D92FFAC4B50023E94C /* RecallHistoryViewController.swift in Sources */,
 				DE2240672FF64D480023E94C /* AddVehicleResultView.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
+				DE9C13DB30172B050095E927 /* DTCResultViewModel.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
 				DE2240272FF50AB00023E94C /* SelectYearViewModel.swift in Sources */,
 				DE2240072FF402BD0023E94C /* PaygateHeaderView.swift in Sources */,

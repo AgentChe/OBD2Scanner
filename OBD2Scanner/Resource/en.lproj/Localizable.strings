@@ -311,3 +311,17 @@ and smart monitoring";
 "DTCClearing.Clearing" = "Clearing codes";
 "DTCClearing.Cleared" = "ALL CODES CLEARED";
 "DTCClearing.Failed" = "Failed to clear codes";
+
+// MARK: DTCInfo
+"DTCInfo.TItle" = "Diagnostics";
+"DTCInfo.Caption" = "Diagnostics Trouble Codes (DTC)";
+"DTCInfo.Confirmed.Title" = "1. CONFIRMED CODES:";
+"DTCInfo.Confirmed.Item1" = "Saved to the car's memory with a confirmed malfunction.";
+"DTCInfo.Confirmed.Item2" = "Confirmed means the issue happened multiple times during one drive cycle.";
+"DTCInfo.Pending.Title" = "2. PENDING CODES:";
+"DTCInfo.Pending.Item1" = "Indicate a potential malfunction in the current drive cycle.";
+"DTCInfo.Pending.Item2" = "If the issue repeats, it becomes a Confirmed Code and is saved; otherwise it disappears when you turn the engine off or clear it.";
+"DTCInfo.Permanent.Title" = "3. PERMANENT CODES:";
+"DTCInfo.Permanent.Item1" = "Confirmed and saved malfunctions that cannot be erased.";
+"DTCInfo.Action.Read" = "Read";
+"DTCInfo.Action.Clear" = "Clear";

@@ -217,6 +217,9 @@
 		DE9C13C63010FC060095E927 /* DTCClearInfoWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C53010FC060095E927 /* DTCClearInfoWarningView.swift */; };
 		DE9C13C9301101570095E927 /* DTCClearingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13C8301101570095E927 /* DTCClearingViewController.swift */; };
 		DE9C13CB301101600095E927 /* DTCClearingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13CA301101600095E927 /* DTCClearingView.swift */; };
+		DE9C13CF30171C960095E927 /* DTCInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13CE30171C960095E927 /* DTCInfoViewController.swift */; };
+		DE9C13D130171CA00095E927 /* DTCInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D030171CA00095E927 /* DTCInfoView.swift */; };
+		DE9C13D430171D100095E927 /* DTCInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */; };
 		DEA1000000000000000000A2 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000A1 /* Units.swift */; };
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
@@ -483,6 +486,9 @@
 		DE9C13C53010FC060095E927 /* DTCClearInfoWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearInfoWarningView.swift; sourceTree = "<group>"; };
 		DE9C13C8301101570095E927 /* DTCClearingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearingViewController.swift; sourceTree = "<group>"; };
 		DE9C13CA301101600095E927 /* DTCClearingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCClearingView.swift; sourceTree = "<group>"; };
+		DE9C13CE30171C960095E927 /* DTCInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoViewController.swift; sourceTree = "<group>"; };
+		DE9C13D030171CA00095E927 /* DTCInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoView.swift; sourceTree = "<group>"; };
+		DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCInfoSectionView.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000A1 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
@@ -1533,6 +1539,32 @@
 			path = Clearing;
 			sourceTree = "<group>";
 		};
+		DE9C13CC30171BFB0095E927 /* DTC */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13CD30171C7F0095E927 /* Info */,
+			);
+			path = DTC;
+			sourceTree = "<group>";
+		};
+		DE9C13CD30171C7F0095E927 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13D230171D100095E927 /* View */,
+				DE9C13CE30171C960095E927 /* DTCInfoViewController.swift */,
+				DE9C13D030171CA00095E927 /* DTCInfoView.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		DE9C13D230171D100095E927 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C13D330171D100095E927 /* DTCInfoSectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1641,6 +1673,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C13CC30171BFB0095E927 /* DTC */,
 				DE9C13BC3010F7CF0095E927 /* DTCClear */,
 				DE7029B53008E83400203CFF /* FreezeFrame */,
 				DE5547273003D32A00D577B0 /* Connecting */,
@@ -1994,6 +2027,7 @@
 				DE9C13B33010CF360095E927 /* DashboardTableElement.swift in Sources */,
 				DE2240AD2FF7AAD40023E94C /* DecodeVINView.swift in Sources */,
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
+				DE9C13CF30171C960095E927 /* DTCInfoViewController.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
 				DE2240CD2FF92CD20023E94C /* VehicleDetailsViewModel.swift in Sources */,
 				DE9C13C13010F7E70095E927 /* DTCClearInfoView.swift in Sources */,
@@ -2129,6 +2163,8 @@
 				DE2240272FF50AB00023E94C /* SelectYearViewModel.swift in Sources */,
 				DE2240072FF402BD0023E94C /* PaygateHeaderView.swift in Sources */,
 				DE2240D42FF92D410023E94C /* VehicleDetailsVINView.swift in Sources */,
+				DE9C13D130171CA00095E927 /* DTCInfoView.swift in Sources */,
+				DE9C13D430171D100095E927 /* DTCInfoSectionView.swift in Sources */,
 				DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */,
 				DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */,
 				DE2240882FF6A51F0023E94C /* AddVINView.swift in Sources */,

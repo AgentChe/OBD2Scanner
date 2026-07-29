@@ -380,3 +380,23 @@ and smart monitoring";
 "DTCLog.DeleteAlert.Title" = "Delete error log?";
 "DTCLog.DeleteAlert.Message" = "All saved trouble codes for this vehicle will be removed";
 "DTCLog.DeleteAlert.Delete" = "Delete";
+
+// MARK: DTCCodeFixInfo
+"DTCCodeFixInfo.Title" = "How to fix";
+"DTCCodeFixInfo.UnknownCode" = "Unknown trouble code";
+"DTCCodeFixInfo.Status.Confirmed" = "Confirmed";
+"DTCCodeFixInfo.Status.Pending" = "Pending";
+"DTCCodeFixInfo.Status.Permanent" = "Permanent";
+"DTCCodeFixInfo.Stats.Urgency" = "Urgency";
+"DTCCodeFixInfo.Stats.Urgency.Low" = "Low";
+"DTCCodeFixInfo.Stats.Urgency.Medium" = "Medium";
+"DTCCodeFixInfo.Stats.Urgency.High" = "High";
+"DTCCodeFixInfo.Stats.TypicalFix" = "Typical fix";
+"DTCCodeFixInfo.Stats.TypicalFix.Value" = "$%d–%d";
+"DTCCodeFixInfo.Stats.Drivable" = "Drivable";
+"DTCCodeFixInfo.Stats.Drivable.Yes" = "Yes";
+"DTCCodeFixInfo.Stats.Drivable.No" = "No";
+"DTCCodeFixInfo.Means.Title" = "WHAT IT MEANS";
+"DTCCodeFixInfo.Vehicle.Title" = "HOW TO FIX IT";
+"DTCCodeFixInfo.Instruction.Trim" = "Trim";
+"DTCCodeFixInfo.Instruction.Disclaimer" = "Guidance based on common causes for this engine, not a guaranteed diagnosis. When unsure, consult a mechanic.";

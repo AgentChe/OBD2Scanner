@@ -95,7 +95,8 @@ private extension DTCResultViewController {
             }
             present(vc, animated: false)
         case let .openHowToFix(vehicleId, code):
-            break // TODO: 
+            let vc = DTCCodeFixInfoViewController.make(vehicleId: vehicleId, code: code)
+            navigationController?.pushViewController(vc, animated: true)
         case .savedPIDs:
             showSavedPIDsAlert()
         }
@@ -115,8 +116,7 @@ private extension DTCResultViewController {
     }
 
     func addSavePIDsButton() {
-        // TODO: добавить !DemoModeManager.shared.isActive
-        guard vehicleId != nil, !codes.isEmpty else { return }
+        guard !DemoModeManager.shared.isActive, vehicleId != nil, !codes.isEmpty else { return }
 
         let item = UIBarButtonItem(
             title: "DTCResult.Action.SavePIDs".localized,

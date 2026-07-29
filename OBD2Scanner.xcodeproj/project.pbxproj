@@ -241,6 +241,19 @@
 		DEB51F5E301A1ACE0098A5A5 /* DTCLogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F5D301A1ACE0098A5A5 /* DTCLogTableView.swift */; };
 		DEB51F60301A1AD70098A5A5 /* DTCLogTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F5F301A1AD70098A5A5 /* DTCLogTableElement.swift */; };
 		DEB51F62301A1B680098A5A5 /* DTCLogTableVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */; };
+		DEB51F65301A2ABA0098A5A5 /* DTCCodeFixInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F64301A2ABA0098A5A5 /* DTCCodeFixInfoViewController.swift */; };
+		DEB51F67301A2AC00098A5A5 /* DTCCodeFixInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F66301A2AC00098A5A5 /* DTCCodeFixInfoViewModel.swift */; };
+		DEB51F69301A2AC40098A5A5 /* DTCCodeFixInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F68301A2AC40098A5A5 /* DTCCodeFixInfoView.swift */; };
+		DEB51F6B301A2ACF0098A5A5 /* DTCCodeFixInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F6A301A2ACF0098A5A5 /* DTCCodeFixInfo.swift */; };
+		DEB51F6D301A30040098A5A5 /* ObtainDTCCodeFixInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F6C301A30040098A5A5 /* ObtainDTCCodeFixInfoRequest.swift */; };
+		DEB51F72301A358C0098A5A5 /* DTCCodeFixInfoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F71301A358C0098A5A5 /* DTCCodeFixInfoTableView.swift */; };
+		DEB51F74301A35940098A5A5 /* DTCCodeFixInfoTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F73301A35940098A5A5 /* DTCCodeFixInfoTableElement.swift */; };
+		DEB51F77301A38E60098A5A5 /* DTCCodeFixInfoCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F76301A38E60098A5A5 /* DTCCodeFixInfoCodeCell.swift */; };
+		DEB51F79301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F78301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift */; };
+		DEB51F7B301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7A301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift */; };
+		DEB51F7D301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7C301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift */; };
+		DEB51F7F301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */; };
+		DEB51F82301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -527,6 +540,19 @@
 		DEB51F5D301A1ACE0098A5A5 /* DTCLogTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableView.swift; sourceTree = "<group>"; };
 		DEB51F5F301A1AD70098A5A5 /* DTCLogTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableElement.swift; sourceTree = "<group>"; };
 		DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableVehicleCell.swift; sourceTree = "<group>"; };
+		DEB51F64301A2ABA0098A5A5 /* DTCCodeFixInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoViewController.swift; sourceTree = "<group>"; };
+		DEB51F66301A2AC00098A5A5 /* DTCCodeFixInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoViewModel.swift; sourceTree = "<group>"; };
+		DEB51F68301A2AC40098A5A5 /* DTCCodeFixInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoView.swift; sourceTree = "<group>"; };
+		DEB51F6A301A2ACF0098A5A5 /* DTCCodeFixInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfo.swift; sourceTree = "<group>"; };
+		DEB51F6C301A30040098A5A5 /* ObtainDTCCodeFixInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainDTCCodeFixInfoRequest.swift; sourceTree = "<group>"; };
+		DEB51F71301A358C0098A5A5 /* DTCCodeFixInfoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoTableView.swift; sourceTree = "<group>"; };
+		DEB51F73301A35940098A5A5 /* DTCCodeFixInfoTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoTableElement.swift; sourceTree = "<group>"; };
+		DEB51F76301A38E60098A5A5 /* DTCCodeFixInfoCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoCodeCell.swift; sourceTree = "<group>"; };
+		DEB51F78301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoStatsCell.swift; sourceTree = "<group>"; };
+		DEB51F7A301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoMeansCell.swift; sourceTree = "<group>"; };
+		DEB51F7C301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoVehicleCell.swift; sourceTree = "<group>"; };
+		DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoInstructionCell.swift; sourceTree = "<group>"; };
+		DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoStatsItemView.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -819,6 +845,7 @@
 				DE2240A32FF79D030023E94C /* VehicleReferefence.swift */,
 				DED81C082FFAC7300044284D /* RecallHistory.swift */,
 				DE9C13E430175F240095E927 /* DTCLog.swift */,
+				DEB51F6A301A2ACF0098A5A5 /* DTCCodeFixInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1353,6 +1380,7 @@
 				DE2240A12FF6CEC30023E94C /* ObtainGarageRequest.swift */,
 				DE2240A52FF79D6C0023E94C /* GetVehicleRefIDRequest.swift */,
 				DED81C0A2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift */,
+				DEB51F6C301A30040098A5A5 /* ObtainDTCCodeFixInfoRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1578,6 +1606,7 @@
 		DE9C13CC30171BFB0095E927 /* DTC */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F63301A2AA80098A5A5 /* DTCCodeFixInfo */,
 				DEB51F51301A168F0098A5A5 /* DTCLog */,
 				DE9C13BC3010F7CF0095E927 /* DTCClear */,
 				DE9C13D730172AF20095E927 /* Result */,
@@ -1688,6 +1717,56 @@
 				DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEB51F63301A2AA80098A5A5 /* DTCCodeFixInfo */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F6F301A357C0098A5A5 /* View */,
+				DEB51F64301A2ABA0098A5A5 /* DTCCodeFixInfoViewController.swift */,
+				DEB51F66301A2AC00098A5A5 /* DTCCodeFixInfoViewModel.swift */,
+				DEB51F68301A2AC40098A5A5 /* DTCCodeFixInfoView.swift */,
+			);
+			path = DTCCodeFixInfo;
+			sourceTree = "<group>";
+		};
+		DEB51F6F301A357C0098A5A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F70301A35800098A5A5 /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEB51F70301A35800098A5A5 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F75301A38C80098A5A5 /* Cells */,
+				DEB51F71301A358C0098A5A5 /* DTCCodeFixInfoTableView.swift */,
+				DEB51F73301A35940098A5A5 /* DTCCodeFixInfoTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEB51F75301A38C80098A5A5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F80301A40310098A5A5 /* Stats */,
+				DEB51F76301A38E60098A5A5 /* DTCCodeFixInfoCodeCell.swift */,
+				DEB51F7A301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift */,
+				DEB51F7C301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift */,
+				DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEB51F80301A40310098A5A5 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F78301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift */,
+				DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */,
+			);
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -2116,11 +2195,13 @@
 				DED81C202FFBF5030044284D /* SettingsLinksView.swift in Sources */,
 				DE9C13C63010FC060095E927 /* DTCClearInfoWarningView.swift in Sources */,
 				DE2240532FF56CA30023E94C /* SearchField.swift in Sources */,
+				DEB51F69301A2AC40098A5A5 /* DTCCodeFixInfoView.swift in Sources */,
 				DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */,
 				DE2240152FF416720023E94C /* Model.swift in Sources */,
 				DE22404F2FF564310023E94C /* SelectBrandTableCell.swift in Sources */,
 				DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */,
 				DE9C13B83010E4290095E927 /* DashboardTableOptionsCell.swift in Sources */,
+				DEB51F67301A2AC00098A5A5 /* DTCCodeFixInfoViewModel.swift in Sources */,
 				DEB51F4C3019CB780098A5A5 /* DTCResultEmptyView.swift in Sources */,
 				DE2240D22FF92CEB0023E94C /* VehicleDetailsRecallHistoryButton.swift in Sources */,
 				DE22400E2FF40B250023E94C /* PaygateUnlimitedView.swift in Sources */,
@@ -2181,6 +2262,7 @@
 				DE2240422FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
+				DEB51F7B301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
 				DE9C13E730176DA70095E927 /* DashboardTableDTCLogsCell.swift in Sources */,
 				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
@@ -2195,6 +2277,7 @@
 				DE9C13BF3010F7E10095E927 /* DTCClearInfoViewController.swift in Sources */,
 				DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */,
 				DE2240A22FF6CEC30023E94C /* ObtainGarageRequest.swift in Sources */,
+				DEB51F77301A38E60098A5A5 /* DTCCodeFixInfoCodeCell.swift in Sources */,
 				DE2F0ACF2A698E0B00471667 /* AppDelegate.swift in Sources */,
 				DE9C13E530175F240095E927 /* DTCLog.swift in Sources */,
 				DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */,
@@ -2205,6 +2288,7 @@
 				DE2240172FF416990023E94C /* VehicleYear.swift in Sources */,
 				DEB51F59301A16B70098A5A5 /* DTCLogView.swift in Sources */,
 				DED81C132FFBF48D0044284D /* SettingsView.swift in Sources */,
+				DEB51F6D301A30040098A5A5 /* ObtainDTCCodeFixInfoRequest.swift in Sources */,
 				DE22403B2FF555010023E94C /* SelectYearCollectionCell.swift in Sources */,
 				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift in Sources */,
 				DE4B7E702FF2B3A900973BA9 /* OnboardingSliderItemView.swift in Sources */,
@@ -2219,8 +2303,10 @@
 				DED81C0F2FFBF4820044284D /* SettingsViewController.swift in Sources */,
 				DEC61E972A81265D008F9C97 /* SessionManager.swift in Sources */,
 				DE9C13D63017271E0095E927 /* DTCReadingView.swift in Sources */,
+				DEB51F72301A358C0098A5A5 /* DTCCodeFixInfoTableView.swift in Sources */,
 				DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */,
 				DEBDCC363003B000005498EB /* BluetoothPermission.swift in Sources */,
+				DEB51F7F301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift in Sources */,
 				DE2240782FF684380023E94C /* AddVehicleResultItemView.swift in Sources */,
 				DE22404D2FF564100023E94C /* SelectBrandTableView.swift in Sources */,
 				DE2240292FF50AB60023E94C /* SelectYearView.swift in Sources */,
@@ -2230,6 +2316,7 @@
 				DE2F0B362A6AC5C800471667 /* Vehicle.swift in Sources */,
 				DE22405A2FF570090023E94C /* SelectModelView.swift in Sources */,
 				DE2F0ACA2A698E0B00471667 /* PaddingTextField.swift in Sources */,
+				DEB51F74301A35940098A5A5 /* DTCCodeFixInfoTableElement.swift in Sources */,
 				DE2F0AAB2A698E0B00471667 /* UIApplication+Extension.swift in Sources */,
 				DE22409B2FF6CCB10023E94C /* ProfileBindingRequest.swift in Sources */,
 				DE2240DB2FFAC4BD0023E94C /* RecallHistoryViewModel.swift in Sources */,
@@ -2285,6 +2372,7 @@
 				DE2240022FF3F22C0023E94C /* PaygateViewController.swift in Sources */,
 				DE2240032FF3F22C0023E94C /* PaygateViewModel.swift in Sources */,
 				DE2240042FF3F22C0023E94C /* PaygateInteractor.swift in Sources */,
+				DEB51F7D301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift in Sources */,
 				DED81C232FFC05660044284D /* UnitsView.swift in Sources */,
 				DE2240052FF3F22C0023E94C /* Currency.swift in Sources */,
 				DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */,
@@ -2295,6 +2383,7 @@
 				DE22400A2FF4043C0023E94C /* PaygateCellItemView.swift in Sources */,
 				DE2240D92FFAC4B50023E94C /* RecallHistoryViewController.swift in Sources */,
 				DE2240672FF64D480023E94C /* AddVehicleResultView.swift in Sources */,
+				DEB51F65301A2ABA0098A5A5 /* DTCCodeFixInfoViewController.swift in Sources */,
 				DE2F0AB82A698E0B00471667 /* NumberLaunches.swift in Sources */,
 				DE9C13DB30172B050095E927 /* DTCResultViewModel.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
@@ -2307,14 +2396,17 @@
 				DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */,
 				DE9C13B63010CFF90095E927 /* DashboardTableDemoModeCell.swift in Sources */,
 				DE2240882FF6A51F0023E94C /* AddVINView.swift in Sources */,
+				DEB51F6B301A2ACF0098A5A5 /* DTCCodeFixInfo.swift in Sources */,
 				DE22408F2FF6C6B50023E94C /* AddVehicleRequest.swift in Sources */,
 				DE22403E2FF555140023E94C /* SelectYearCollectionDescriptionCell.swift in Sources */,
 				DE2240762FF67B570023E94C /* AddVehicleResultVINView.swift in Sources */,
 				DE2F0AB32A698E0B00471667 /* GlobalDefinitions.swift in Sources */,
 				DE2240842FF6A5120023E94C /* AddVINViewController.swift in Sources */,
+				DEB51F82301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift in Sources */,
 				DE2240D62FF92D940023E94C /* VehicleDetailsItemView.swift in Sources */,
 				DE2240102FF40B7C0023E94C /* PaygateCellWithTitles.swift in Sources */,
 				DE2240632FF64D390023E94C /* AddVehicleResultViewController.swift in Sources */,
+				DEB51F79301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift in Sources */,
 				DEB51F55301A16AC0098A5A5 /* DTCLogViewController.swift in Sources */,
 				DE2240932FF6CA170023E94C /* AddVINToVehicleRequest.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,

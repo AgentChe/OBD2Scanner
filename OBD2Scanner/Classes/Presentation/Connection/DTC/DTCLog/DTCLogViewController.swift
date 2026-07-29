@@ -82,7 +82,8 @@ private extension DTCLogViewController {
         case .close:
             navigationController?.popViewController(animated: true)
         case let .openHowToFix(vehicleId, code):
-            break // TODO:
+            let vc = DTCCodeFixInfoViewController.make(vehicleId: vehicleId, code: code)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

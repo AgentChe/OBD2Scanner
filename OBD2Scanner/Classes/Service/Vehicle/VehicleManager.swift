@@ -32,6 +32,7 @@ protocol VehicleManagerProtocol {
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
     func obtainDTCLogs() -> Single<[DTCLog]>
+    func obtainDTCCodeFixInfo(vehicle: Vehicle, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?>
 }
 
 final class VehicleManager {
@@ -245,6 +246,11 @@ extension VehicleManager: VehicleManagerProtocol {
 
             return Disposables.create()
         }
+    }
+    
+    // TODO:
+    func obtainDTCCodeFixInfo(vehicle: Vehicle, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?> {
+        .just(DTCCodeFixInfo())
     }
 }
 

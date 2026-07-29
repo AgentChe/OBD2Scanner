@@ -369,3 +369,7 @@ and smart monitoring";
 "DTCResult.Affected.BodyElectronics" = "Body Electronics";
 "DTCResult.Affected.Chassis" = "Chassis / Brakes & Suspension";
 "DTCResult.Affected.Network" = "CAN Bus / ECU Communication";
+"DTCResult.Empty.Title" = "NO ERRORS FOUND";
+"DTCResult.Empty.Cell1" = "No stored or pending trouble codes";
+"DTCResult.Empty.Cell2" = "Check-engine light (MIL) is off";
+"DTCResult.Empty.Cell3" = "All readiness monitors passed";

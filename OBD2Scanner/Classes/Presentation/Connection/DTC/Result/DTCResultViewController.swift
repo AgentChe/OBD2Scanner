@@ -56,7 +56,7 @@ final class DTCResultViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.elements
-            .drive(Binder(mainView.tableView) { base, elements in
+            .drive(Binder(mainView) { base, elements in
                 base.setup(elements: elements)
             })
             .disposed(by: disposeBag)

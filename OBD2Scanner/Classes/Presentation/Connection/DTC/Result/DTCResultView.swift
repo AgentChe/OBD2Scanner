@@ -11,6 +11,7 @@ final class DTCResultView: UIView {
     lazy var tableView = makeTableView()
     lazy var closeButton = makeCloseButton()
     lazy var clearButton = makeClearButton()
+    lazy var emptyView = makeEmptyView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +22,18 @@ final class DTCResultView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension DTCResultView {
+    func setup(elements: [DiagnosticTroubleCode]) {
+        tableView.setup(elements: elements)
+        
+        let isEmpty = elements.isEmpty
+        closeButton.isHidden = isEmpty
+        clearButton.isHidden = isEmpty
+        emptyView.isHidden = !isEmpty
     }
 }
 
@@ -53,6 +66,12 @@ private extension DTCResultView {
             clearButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             clearButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale),
             clearButton.heightAnchor.constraint(equalToConstant: 52.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
@@ -89,6 +108,14 @@ private extension DTCResultView {
         view.setAttributedTitle("DTCResult.Action.Clear".localized.attributed(with: attrs), for: .normal)
         view.layer.cornerRadius = 12.scale
         view.backgroundColor = Appearance.color_F5B239
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptyView() -> DTCResultEmptyView {
+        let view = DTCResultEmptyView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

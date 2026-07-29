@@ -13,6 +13,7 @@ protocol OBDServiceProtocol: AnyObject {
     var currentState: DiagnosticsState { get }
     var traffic: Signal<String> { get }
     var liveReport: Signal<LiveSessionReport> { get }
+    var connection: OBDConnectionInfo? { get }
 
     func connect(vehicle: Vehicle?, method: OBDConnectionMethod)
     func disconnect()
@@ -25,6 +26,14 @@ protocol OBDServiceProtocol: AnyObject {
     func readVIN() -> Single<String>
     func sendRawCommand(_ command: String) -> Single<[String]>
     func readVoltage() -> Single<String>
+}
+
+/// Чем подключились к машине — для экранов, показывающих источник данных.
+struct OBDConnectionInfo {
+    /// Строка идентификации адаптера из `ATI`, напр. `"ELM327 v1.5"`.
+    /// `nil`, пока адаптер не прошёл init-последовательность.
+    let adapter: String?
+    let method: OBDConnectionMethod
 }
 
 enum OBDServiceProvider {

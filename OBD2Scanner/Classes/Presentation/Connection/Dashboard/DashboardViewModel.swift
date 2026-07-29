@@ -21,6 +21,7 @@ final class DashboardViewModel {
         case errorNeedConnect
         case errorNeedMakeActiveVehicle
         case openDTCLog(String)
+        case openLiveData
     }
     
     private lazy var vehicleManager = VehicleManager()
@@ -67,7 +68,8 @@ extension DashboardViewModel {
                 didTapConnect: input.didTapConnect,
                 didTapDisconnect: input.didTapDisconnect,
                 didTapOption: input.didTapOption,
-                didTapDTCLog: input.didTapDTCLog
+                didTapDTCLog: input.didTapDTCLog,
+                didTapLiveData: input.didTapLiveData
             ),
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
@@ -128,7 +130,8 @@ private extension DashboardViewModel {
         didTapConnect: Signal<Void>,
         didTapDisconnect: Signal<Void>,
         didTapOption: Signal<DashboardOptionButton.Option>,
-        didTapDTCLog: Signal<Void>
+        didTapDTCLog: Signal<Void>,
+        didTapLiveData: Signal<Void>
     ) -> Driver<Action> {
         let changeActiveCar = didTapChangeActiveCar
             .map { Action.changeActiveCar }
@@ -183,8 +186,12 @@ private extension DashboardViewModel {
             .map { Action.openDTCLog($0) }
             .asDriver(onErrorDriveWith: .never())
         
+        let openLiveData = didTapLiveData
+            .map { Action.openLiveData }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(changeActiveCar, connect, disconnect, optionAction, openDTCLog)
+            .merge(changeActiveCar, connect, disconnect, optionAction, openDTCLog, openLiveData)
     }
     
     func makeDashboardState(demoMode: Driver<Bool>) -> Driver<DashboardActiveVehicleView.State> {

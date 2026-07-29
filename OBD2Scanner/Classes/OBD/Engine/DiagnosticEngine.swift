@@ -23,6 +23,9 @@ final class DiagnosticEngine {
     /// Отчёт самопроверки live-сессии — приходит после `stopLiveData()`.
     /// Доставляется на `callbackQueue`.
     var onLiveReport: ((LiveSessionReport) -> Void)?
+    /// Строка идентификации адаптера (`ATI`) — приходит один раз, когда
+    /// адаптер прошёл init-последовательность. Доставляется на `callbackQueue`.
+    var onAdapterIdentified: ((String) -> Void)?
 
     private(set) var state: DiagnosticsState = .idle
 
@@ -76,6 +79,9 @@ final class DiagnosticEngine {
             guard let self else { return }
             switch result {
             case .success:
+                if let identification = session.adapterIdentification, let handler = self.onAdapterIdentified {
+                    self.callbackQueue.async { handler(identification) }
+                }
                 self.setState(.connectingVehicle)
                 self.negotiateProtocol(vehicle: vehicle)
             case let .failure(error):

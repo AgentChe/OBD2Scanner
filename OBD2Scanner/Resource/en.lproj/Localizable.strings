@@ -404,3 +404,16 @@ and smart monitoring";
 "DTCCodeFixInfo.Vehicle.Title" = "HOW TO FIX IT";
 "DTCCodeFixInfo.Instruction.Trim" = "Trim";
 "DTCCodeFixInfo.Instruction.Disclaimer" = "Guidance based on common causes for this engine, not a guaranteed diagnosis. When unsure, consult a mechanic.";
+
+// MARK: LiveData
+"LiveData.Title" = "Live data";
+"LiveData.Connection" = "%@ • %@";
+"LiveData.Connection.Bluetooth" = "Bluetooth";
+"LiveData.Connection.WiFi" = "Wi-Fi";
+"LiveData.Connection.MFi" = "Bluetooth MFi";
+"LiveData.DemoMode" = "Demo mode • sample data";
+"LiveData.Dashboard.Title" = "Dashboard";
+"LiveData.Gauge.RPM" = "Engine RPM";
+"LiveData.Gauge.Speed" = "Vehicle speed";
+"LiveData.Gauge.Coolant" = "Coolant temp.";
+"LiveData.Upgrade" = "UPGRADE";

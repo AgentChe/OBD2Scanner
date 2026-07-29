@@ -18,9 +18,21 @@ final class OBDService {
     private lazy var trafficRelay = PublishRelay<String>()
     private lazy var liveReportRelay = PublishRelay<LiveSessionReport>()
 
+    /// Чем и через что подключились — заполняется по ходу `connect`.
+    private(set) var connection: OBDConnectionInfo?
+
     private init() {
         engine.onStateChange = { [weak self] state in
+            if case .failed = state {
+                self?.connection = nil
+            }
+
             self?.stateRelay.accept(state)
+        }
+        engine.onAdapterIdentified = { [weak self] adapter in
+            guard let method = self?.connection?.method else { return }
+
+            self?.connection = OBDConnectionInfo(adapter: adapter, method: method)
         }
         engine.onTraffic = { [weak self] line in
             self?.trafficRelay.accept(line)
@@ -41,6 +53,8 @@ final class OBDService {
     ///     подключён к сети адаптера (стандартно 192.168.0.10:35000),
     ///     для `.mfi` — адаптер спарен в Настройках → Bluetooth.
     func connect(vehicle: Vehicle?, method: OBDConnectionMethod = .bluetooth) {
+        connection = OBDConnectionInfo(adapter: nil, method: method)
+
         let descriptor = vehicle.map {
             VehicleDescriptor(brand: $0.brand, model: $0.model, vin: $0.vin, year: $0.year, fuelType: nil)
         }
@@ -57,6 +71,8 @@ final class OBDService {
     }
 
     func disconnect() {
+        connection = nil
+
         engine.disconnect()
     }
 

@@ -8,20 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */; };
+		075A80EB870A5C79932F9509 /* LiveDataGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88ECE8BDD35EB5BEBCD6EC /* LiveDataGauge.swift */; };
 		0BDB0000000000000000BF01 /* toyota-prius-zw30.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE01 /* toyota-prius-zw30.json */; };
 		0BDB0000000000000000BF02 /* honda-civic-typer.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE02 /* honda-civic-typer.json */; };
 		0BDB0000000000000000BF03 /* honda-s2000.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE03 /* honda-s2000.json */; };
 		0BDB0000000000000000BF04 /* vw-transporter-t5.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE04 /* vw-transporter-t5.json */; };
 		0BDB0000000000000000BF05 /* peugeot-407.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB0000000000000000FE05 /* peugeot-407.json */; };
+		0F27A64EF30C805167FB8812 /* LiveDataUpgradeBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */; };
 		12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */; };
 		17EDDE539A624B289A92EB19 /* LiveSessionAuditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */; };
 		1960E062F5F6BBD650921F9A /* Pods_OBD2Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */; };
 		21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */ = {isa = PBXBuildFile; fileRef = EB65549DC99D42ADF3C03946 /* obd2-standard.json */; };
 		245B1550870FDD935A921E72 /* vag-mqb.json in Resources */ = {isa = PBXBuildFile; fileRef = AB67790B6A8F5495B31AEC9F /* vag-mqb.json */; };
 		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
+		306621564DE4A899A48DD220 /* LiveDataGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */; };
 		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
 		385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */; };
+		3CBE527CB4B6CE75E0DFE47E /* LiveDataTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */; };
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
+		51B5D1A424A535C841D59249 /* LiveDataReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
 		56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */; };
@@ -33,13 +38,19 @@
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
 		7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */; };
+		958CD685999D7D5E28E59CB2 /* LiveDataTableGaugesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */; };
+		9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
+		B55245E98BBD42E30FD669AE /* LiveDataValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8C6A1C92112EF403F1228 /* LiveDataValue.swift */; };
+		B601AA141AFBE26184D56886 /* LiveDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ECAED237EB6EF980917C6 /* LiveDataItem.swift */; };
 		BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E599C4FFC96757C382E2F8 /* gm.json */; };
 		C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */; };
 		C7A1FD4E96AB9A30F2D36D69 /* OBDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CD11EDD2616D50EC7C1FF /* OBDValue.swift */; };
+		C827DE6C0626C80ADCC754AF /* LiveDataTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */; };
 		CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */ = {isa = PBXBuildFile; fileRef = CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */; };
+		CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */; };
 		D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B781E75DE91D333084F2F /* BLETransport.swift */; };
 		DE0A5C6F2FF29BDE003D95B0 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */; };
 		DE0A5C712FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C702FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf */; };
@@ -255,6 +266,9 @@
 		DEB51F7F301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */; };
 		DEB51F82301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */; };
 		DEB51F84301A52020098A5A5 /* DashboardTableLiveDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F83301A52020098A5A5 /* DashboardTableLiveDataCell.swift */; };
+		DEB51F87301A5A520098A5A5 /* LiveDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F86301A5A520098A5A5 /* LiveDataViewController.swift */; };
+		DEB51F89301A5A580098A5A5 /* LiveDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F88301A5A580098A5A5 /* LiveDataViewModel.swift */; };
+		DEB51F8B301A5A5C0098A5A5 /* LiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F8A301A5A5C0098A5A5 /* LiveDataView.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -304,7 +318,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableParameterCell.swift; sourceTree = "<group>"; };
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableElement.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
 		0BDB0000000000000000FE01 /* toyota-prius-zw30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius-zw30.json"; sourceTree = "<group>"; };
@@ -313,18 +329,26 @@
 		0BDB0000000000000000FE04 /* vw-transporter-t5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vw-transporter-t5.json"; sourceTree = "<group>"; };
 		0BDB0000000000000000FE05 /* peugeot-407.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "peugeot-407.json"; sourceTree = "<group>"; };
 		1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.release.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.release.xcconfig"; sourceTree = "<group>"; };
+		17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableGaugesCell.swift; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
+		1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataReadings.swift; sourceTree = "<group>"; };
 		284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticTroubleCode.swift; sourceTree = "<group>"; };
+		35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataGaugeView.swift; sourceTree = "<group>"; };
 		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
 		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
+		5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataUpgradeBadgeView.swift; sourceTree = "<group>"; };
+		65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTitleView.swift; sourceTree = "<group>"; };
+		6AA8C6A1C92112EF403F1228 /* LiveDataValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataValue.swift; sourceTree = "<group>"; };
 		6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParameter.swift; sourceTree = "<group>"; };
 		749CD11EDD2616D50EC7C1FF /* OBDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDValue.swift; sourceTree = "<group>"; };
+		787ECAED237EB6EF980917C6 /* LiveDataItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataItem.swift; sourceTree = "<group>"; };
 		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
 		82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANResponseAssembler.swift; sourceTree = "<group>"; };
 		841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatcher.swift; sourceTree = "<group>"; };
 		8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8ECA93F529B9078CBBA1327E /* OBDProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDProfile.swift; sourceTree = "<group>"; };
 		90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.debug.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.debug.xcconfig"; sourceTree = "<group>"; };
+		9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableView.swift; sourceTree = "<group>"; };
 		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
 		A06B781E75DE91D333084F2F /* BLETransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETransport.swift; sourceTree = "<group>"; };
 		A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsModels.swift; sourceTree = "<group>"; };
@@ -555,6 +579,9 @@
 		DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoInstructionCell.swift; sourceTree = "<group>"; };
 		DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoStatsItemView.swift; sourceTree = "<group>"; };
 		DEB51F83301A52020098A5A5 /* DashboardTableLiveDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableLiveDataCell.swift; sourceTree = "<group>"; };
+		DEB51F86301A5A520098A5A5 /* LiveDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataViewController.swift; sourceTree = "<group>"; };
+		DEB51F88301A5A580098A5A5 /* LiveDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataViewModel.swift; sourceTree = "<group>"; };
+		DEB51F8A301A5A5C0098A5A5 /* LiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataView.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -601,6 +628,7 @@
 		F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDServiceProtocol.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E599C4FFC96757C382E2F8 /* gm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gm.json; sourceTree = "<group>"; };
+		FA88ECE8BDD35EB5BEBCD6EC /* LiveDataGauge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataGauge.swift; sourceTree = "<group>"; };
 		FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -625,6 +653,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		051EE6197EB2AC66C8C17355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA88ECE8BDD35EB5BEBCD6EC /* LiveDataGauge.swift */,
+				6AA8C6A1C92112EF403F1228 /* LiveDataValue.swift */,
+				1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */,
+				787ECAED237EB6EF980917C6 /* LiveDataItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0BBC635D12BADAA516738EDD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +683,17 @@
 			path = Matcher;
 			sourceTree = "<group>";
 		};
+		4C33614A812F50E3471D6500 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */,
+				17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */,
+				5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */,
+				01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4E418207F93A8D2621D23D90 /* Codec */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +708,16 @@
 				EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */,
 			);
 			path = Codec;
+			sourceTree = "<group>";
+		};
+		58D6C3E2837461FE36CA7896 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				4C33614A812F50E3471D6500 /* Cell */,
+				03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */,
+				9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		5F2E60D092A7FF4E763837CA /* Engine */ = {
@@ -1772,6 +1832,18 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
+		DEB51F85301A5A430098A5A5 /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				F421751ECAA376AE1DEB9602 /* View */,
+				051EE6197EB2AC66C8C17355 /* Model */,
+				DEB51F86301A5A520098A5A5 /* LiveDataViewController.swift */,
+				DEB51F88301A5A580098A5A5 /* LiveDataViewModel.swift */,
+				DEB51F8A301A5A5C0098A5A5 /* LiveDataView.swift */,
+			);
+			path = LiveData;
+			sourceTree = "<group>";
+		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1880,6 +1952,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F85301A5A430098A5A5 /* LiveData */,
 				DEB51F50301A167E0098A5A5 /* Connecting */,
 				DE9C13CC30171BFB0095E927 /* DTC */,
 				DE7029B53008E83400203CFF /* FreezeFrame */,
@@ -2006,6 +2079,15 @@
 				A06B781E75DE91D333084F2F /* BLETransport.swift */,
 			);
 			path = Transport;
+			sourceTree = "<group>";
+		};
+		F421751ECAA376AE1DEB9602 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				58D6C3E2837461FE36CA7896 /* TableView */,
+				65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2333,6 +2415,7 @@
 				DEFF200430091111000000B4 /* FreezeFrameViewController.swift in Sources */,
 				DEFF200530091111000000B5 /* FreezeFrameView.swift in Sources */,
 				DEFF200630091111000000B6 /* FreezeFrameTableView.swift in Sources */,
+				DEB51F87301A5A520098A5A5 /* LiveDataViewController.swift in Sources */,
 				DEFF200730091111000000B7 /* FreezeFrameTableCell.swift in Sources */,
 				DEFF200830091111000000B8 /* FreezeFrameDetailsViewController.swift in Sources */,
 				DEFF200930091111000000B9 /* FreezeFrameDetailsView.swift in Sources */,
@@ -2411,6 +2494,8 @@
 				DE2240102FF40B7C0023E94C /* PaygateCellWithTitles.swift in Sources */,
 				DE2240632FF64D390023E94C /* AddVehicleResultViewController.swift in Sources */,
 				DEB51F79301A38EE0098A5A5 /* DTCCodeFixInfoStatsCell.swift in Sources */,
+				DEB51F89301A5A580098A5A5 /* LiveDataViewModel.swift in Sources */,
+				DEB51F8B301A5A5C0098A5A5 /* LiveDataView.swift in Sources */,
 				DEB51F55301A16AC0098A5A5 /* DTCLogViewController.swift in Sources */,
 				DE2240932FF6CA170023E94C /* AddVINToVehicleRequest.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
@@ -2418,6 +2503,17 @@
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,
 				DE2F0ABD2A698E0B00471667 /* Fonts.swift in Sources */,
 				DE2F0AAF2A698E0B00471667 /* Collection+Extension.swift in Sources */,
+				075A80EB870A5C79932F9509 /* LiveDataGauge.swift in Sources */,
+				B55245E98BBD42E30FD669AE /* LiveDataValue.swift in Sources */,
+				51B5D1A424A535C841D59249 /* LiveDataReadings.swift in Sources */,
+				B601AA141AFBE26184D56886 /* LiveDataItem.swift in Sources */,
+				3CBE527CB4B6CE75E0DFE47E /* LiveDataTitleView.swift in Sources */,
+				C827DE6C0626C80ADCC754AF /* LiveDataTableElement.swift in Sources */,
+				CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */,
+				306621564DE4A899A48DD220 /* LiveDataGaugeView.swift in Sources */,
+				958CD685999D7D5E28E59CB2 /* LiveDataTableGaugesCell.swift in Sources */,
+				0F27A64EF30C805167FB8812 /* LiveDataUpgradeBadgeView.swift in Sources */,
+				9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

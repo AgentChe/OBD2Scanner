@@ -148,6 +148,9 @@ private extension DashboardViewController {
         case .openDTCLog(let vehicleId):
             let vc = DTCLogViewController.make(vehicleId: vehicleId)
             navigationController?.pushViewController(vc, animated: true)
+        case .openLiveData:
+            let vc = LiveDataViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

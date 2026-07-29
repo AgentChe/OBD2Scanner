@@ -105,6 +105,11 @@ extension DemoOBDService {
     var liveReport: Signal<LiveSessionReport> {
         liveReportRelay.asSignal()
     }
+
+    /// Адаптера нет — UI показывает, что данные симулированные.
+    var connection: OBDConnectionInfo? {
+        nil
+    }
 }
 
 // MARK: - Данные

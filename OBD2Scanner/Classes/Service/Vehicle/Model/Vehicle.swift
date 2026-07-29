@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: проверить trim из ответа
 struct Vehicle: Codable {
     let id: String
     let vin: String?

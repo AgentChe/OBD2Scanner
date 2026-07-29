@@ -6,7 +6,12 @@
 //
 
 enum DashboardTableElement {
-    case options 
+    case liveData(DashboardTableLiveDataElement)
+    case options
     case demoMode(Bool)
     case dtcLog(count: Int)
+}
+
+enum DashboardTableLiveDataElement {
+    case notConnect, demoMode, connected
 }

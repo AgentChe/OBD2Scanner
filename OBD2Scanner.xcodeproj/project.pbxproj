@@ -254,6 +254,7 @@
 		DEB51F7D301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7C301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift */; };
 		DEB51F7F301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */; };
 		DEB51F82301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */; };
+		DEB51F84301A52020098A5A5 /* DashboardTableLiveDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F83301A52020098A5A5 /* DashboardTableLiveDataCell.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -553,6 +554,7 @@
 		DEB51F7C301A38FB0098A5A5 /* DTCCodeFixInfoVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoVehicleCell.swift; sourceTree = "<group>"; };
 		DEB51F7E301A39050098A5A5 /* DTCCodeFixInfoInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoInstructionCell.swift; sourceTree = "<group>"; };
 		DEB51F81301A40400098A5A5 /* DTCCodeFixInfoStatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCCodeFixInfoStatsItemView.swift; sourceTree = "<group>"; };
+		DEB51F83301A52020098A5A5 /* DashboardTableLiveDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableLiveDataCell.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -1553,6 +1555,7 @@
 				DE9C13B93010E4340095E927 /* Options */,
 				DE9C13B53010CFF90095E927 /* DashboardTableDemoModeCell.swift */,
 				DE9C13E630176DA70095E927 /* DashboardTableDTCLogsCell.swift */,
+				DEB51F83301A52020098A5A5 /* DashboardTableLiveDataCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2217,6 +2220,7 @@
 				DE223FE42FF3E0280023E94C /* UnlimitedPlanCellWithTitlesView.swift in Sources */,
 				DE9C13E130172CF00095E927 /* DTCResultTableView.swift in Sources */,
 				DE2F0AB12A698E0B00471667 /* String+Extension.swift in Sources */,
+				DEB51F84301A52020098A5A5 /* DashboardTableLiveDataCell.swift in Sources */,
 				DE2F0AC42A698E0B00471667 /* RxActivityIndicator.swift in Sources */,
 				DE2240472FF563E90023E94C /* SelectBrandViewModel.swift in Sources */,
 				DE2240862FF6A5190023E94C /* AddVINViewModel.swift in Sources */,

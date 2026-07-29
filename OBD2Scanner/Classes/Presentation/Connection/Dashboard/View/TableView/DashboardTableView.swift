@@ -12,6 +12,7 @@ import RxCocoa
 final class DashboardTableView: UITableView {
     private lazy var elements = [DashboardTableElement]()
     
+    private lazy var didTapLiveDataTrigger = PublishRelay<Void>()
     private lazy var didTapOptionTrigger = PublishRelay<DashboardOptionButton.Option>()
     private lazy var didTapTryDemoTrigger = PublishRelay<Void>()
     private lazy var didTapDTCLogTrigger = PublishRelay<Void>()
@@ -35,6 +36,10 @@ extension DashboardTableView {
         reloadData()
     }
     
+    var didTapLiveData: Signal<Void> {
+        didTapLiveDataTrigger.asSignal()
+    }
+    
     var didTapOption: Signal<DashboardOptionButton.Option> {
         didTapOptionTrigger.asSignal()
     }
@@ -56,6 +61,13 @@ extension DashboardTableView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch elements[indexPath.row] {
+        case .liveData(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableLiveDataCell.self)) as! DashboardTableLiveDataCell
+            cell.setup(element: element)
+            cell.didTap = { [weak self] in
+                self?.didTapLiveDataTrigger.accept(Void())
+            }
+            return cell
         case .options:
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableOptionsCell.self)) as! DashboardTableOptionsCell
             cell.didTapOption = { [weak self] option in
@@ -84,6 +96,8 @@ extension DashboardTableView: UITableViewDataSource {
 extension DashboardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch elements[indexPath.row] {
+        case .liveData:
+            return DashboardTableLiveDataCell.Constants.topInset + DashboardTableLiveDataCell.Constants.containerHeight
         case .options:
             return DashboardTableOptionsCell.Constants.topInset + DashboardTableOptionsCell.Constants.containerHeight
         case .demoMode:
@@ -97,6 +111,7 @@ extension DashboardTableView: UITableViewDelegate {
 // MARK: Private
 private extension DashboardTableView {
     func initialize() {
+        register(DashboardTableLiveDataCell.self, forCellReuseIdentifier: String(describing: DashboardTableLiveDataCell.self))
         register(DashboardTableOptionsCell.self, forCellReuseIdentifier: String(describing: DashboardTableOptionsCell.self))
         register(DashboardTableDemoModeCell.self, forCellReuseIdentifier: String(describing: DashboardTableDemoModeCell.self))
         register(DashboardTableDTCLogsCell.self, forCellReuseIdentifier: String(describing: DashboardTableDTCLogsCell.self))

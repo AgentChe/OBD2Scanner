@@ -43,7 +43,8 @@ final class DashboardViewController: UIViewController {
             ),
             didTapDisconnect: mainView.activeVehicleView.didTapDisconnect,
             didTapOption: mainView.tableView.didTapOption,
-            didTapDTCLog: mainView.tableView.didTapDTCLog
+            didTapDTCLog: mainView.tableView.didTapDTCLog,
+            didTapLiveData: mainView.tableView.didTapLiveData
         ))
         
         output.activeVehicle

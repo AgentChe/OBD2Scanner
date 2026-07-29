@@ -46,8 +46,8 @@ private extension DashboardOptionButton {
 private extension DashboardOptionButton {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            iconView.widthAnchor.constraint(equalToConstant: 44.scale),
-            iconView.heightAnchor.constraint(equalToConstant: 44.scale),
+            iconView.widthAnchor.constraint(equalToConstant: 48.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 48.scale),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             iconView.topAnchor.constraint(equalTo: topAnchor, constant: 16.scale)
         ])

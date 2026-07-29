@@ -36,6 +36,7 @@ extension DashboardViewModel {
         let didTapDisconnect: Signal<Void>
         let didTapOption: Signal<DashboardOptionButton.Option>
         let didTapDTCLog: Signal<Void>
+        let didTapLiveData: Signal<Void>
     }
 
     struct Output {
@@ -54,6 +55,7 @@ extension DashboardViewModel {
         let garage = makeGarage()
         let activeVehicle = makeActiveVehicle(garage: garage)
         let dtcLog = makeDTCLog(activeVehicle: activeVehicle)
+        let liveDataElement = makeLiveDataElement(demoMode: demoMode)
         
         return Output(
             activeVehicle: activeVehicle,
@@ -70,7 +72,8 @@ extension DashboardViewModel {
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
                 demoMode: demoMode,
-                dtcLog: dtcLog
+                dtcLog: dtcLog,
+                liveDataElement: liveDataElement
             )
         )
     }
@@ -80,17 +83,41 @@ extension DashboardViewModel {
 private extension DashboardViewModel {
     func makeElements(
         demoMode: Driver<Bool>,
-        dtcLog: Driver<DTCLog?>
+        dtcLog: Driver<DTCLog?>,
+        liveDataElement: Driver<DashboardTableLiveDataElement>
     ) -> Driver<[DashboardTableElement]> {
         Driver
-            .combineLatest(demoMode, dtcLog)
-            .map { demoMode, dtcLog -> [DashboardTableElement] in
+            .combineLatest(demoMode, dtcLog, liveDataElement)
+            .map { demoMode, dtcLog, liveDataElement -> [DashboardTableElement] in
                 [
+                    .liveData(liveDataElement),
                     .options,
                     .demoMode(demoMode),
                     .dtcLog(count: dtcLog?.codes.count ?? 0)
                 ]
             }
+    }
+    
+    func makeLiveDataElement(demoMode: Driver<Bool>) -> Driver<DashboardTableLiveDataElement> {
+        let state = OBDService.shared.state
+            .asDriver(onErrorDriveWith: .never())
+            .startWith(OBDService.shared.currentState)
+
+        return Driver
+            .combineLatest(demoMode, state)
+            .map { demoMode, state -> DashboardTableLiveDataElement in
+                if demoMode {
+                    return .demoMode
+                }
+
+                switch state {
+                case .ready:
+                    return .connected
+                default:
+                    return .notConnect
+                }
+            }
+            .distinctUntilChanged()
     }
     
     func makeAction(

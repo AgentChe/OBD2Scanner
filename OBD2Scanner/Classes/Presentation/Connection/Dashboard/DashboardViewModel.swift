@@ -20,6 +20,7 @@ final class DashboardViewModel {
         case clearDTC
         case errorNeedConnect
         case errorNeedMakeActiveVehicle
+        case openDTCLog(String)
     }
     
     private lazy var vehicleManager = VehicleManager()
@@ -34,6 +35,7 @@ extension DashboardViewModel {
         let didTapConnect: Signal<Void>
         let didTapDisconnect: Signal<Void>
         let didTapOption: Signal<DashboardOptionButton.Option>
+        let didTapDTCLog: Signal<Void>
     }
 
     struct Output {
@@ -62,7 +64,8 @@ extension DashboardViewModel {
                 didTapChangeActiveCar: input.didTapChangeActiveCar,
                 didTapConnect: input.didTapConnect,
                 didTapDisconnect: input.didTapDisconnect,
-                didTapOption: input.didTapOption
+                didTapOption: input.didTapOption,
+                didTapDTCLog: input.didTapDTCLog
             ),
             dashboardState: makeDashboardState(demoMode: demoMode),
             elements: makeElements(
@@ -85,7 +88,7 @@ private extension DashboardViewModel {
                 [
                     .options,
                     .demoMode(demoMode),
-                    .dtcLogs(count: dtcLog?.codes.count ?? 0)
+                    .dtcLog(count: dtcLog?.codes.count ?? 0)
                 ]
             }
     }
@@ -97,7 +100,8 @@ private extension DashboardViewModel {
         didTapChangeActiveCar: Signal<Void>,
         didTapConnect: Signal<Void>,
         didTapDisconnect: Signal<Void>,
-        didTapOption: Signal<DashboardOptionButton.Option>
+        didTapOption: Signal<DashboardOptionButton.Option>,
+        didTapDTCLog: Signal<Void>
     ) -> Driver<Action> {
         let changeActiveCar = didTapChangeActiveCar
             .map { Action.changeActiveCar }
@@ -146,8 +150,14 @@ private extension DashboardViewModel {
                 }
             }
         
+        let openDTCLog = didTapDTCLog
+            .withLatestFrom(activeVehicle)
+            .compactMap { $0?.id }
+            .map { Action.openDTCLog($0) }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(changeActiveCar, connect, disconnect, optionAction)
+            .merge(changeActiveCar, connect, disconnect, optionAction, openDTCLog)
     }
     
     func makeDashboardState(demoMode: Driver<Bool>) -> Driver<DashboardActiveVehicleView.State> {
@@ -279,7 +289,7 @@ private extension DashboardViewModel {
             .asDriver(onErrorDriveWith: .never())
 
         let stored = vehicleManager
-            .obtainDTCLog()
+            .obtainDTCLogs()
             .asDriver(onErrorJustReturn: [])
 
         let dtcLogs = stored

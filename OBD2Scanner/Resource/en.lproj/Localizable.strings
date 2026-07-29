@@ -373,3 +373,10 @@ and smart monitoring";
 "DTCResult.Empty.Cell1" = "No stored or pending trouble codes";
 "DTCResult.Empty.Cell2" = "Check-engine light (MIL) is off";
 "DTCResult.Empty.Cell3" = "All readiness monitors passed";
+
+// MARK: DTCLog
+"DTCLog.Title" = "Error log";
+"DTCLog.Delete" = "Delete";
+"DTCLog.DeleteAlert.Title" = "Delete error log?";
+"DTCLog.DeleteAlert.Message" = "All saved trouble codes for this vehicle will be removed";
+"DTCLog.DeleteAlert.Delete" = "Delete";

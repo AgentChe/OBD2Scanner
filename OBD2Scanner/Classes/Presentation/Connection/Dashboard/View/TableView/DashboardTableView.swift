@@ -14,6 +14,7 @@ final class DashboardTableView: UITableView {
     
     private lazy var didTapOptionTrigger = PublishRelay<DashboardOptionButton.Option>()
     private lazy var didTapTryDemoTrigger = PublishRelay<Void>()
+    private lazy var didTapDTCLogTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -41,6 +42,10 @@ extension DashboardTableView {
     var didTapTryDemo: Signal<Void> {
         didTapTryDemoTrigger.asSignal()
     }
+    
+    var didTapDTCLog: Signal<Void> {
+        didTapDTCLogTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -64,9 +69,12 @@ extension DashboardTableView: UITableViewDataSource {
                 self?.didTapTryDemoTrigger.accept(Void())
             }
             return cell
-        case .dtcLogs(let count):
+        case .dtcLog(let count):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DashboardTableDTCLogsCell.self), for: indexPath) as! DashboardTableDTCLogsCell
             cell.setup(count: count)
+            cell.didTap = { [weak self] in
+                self?.didTapDTCLogTrigger.accept(Void())
+            }
             return cell
         }
     }
@@ -80,7 +88,7 @@ extension DashboardTableView: UITableViewDelegate {
             return DashboardTableOptionsCell.Constants.topInset + DashboardTableOptionsCell.Constants.containerHeight
         case .demoMode:
             return DashboardTableDemoModeCell.Constants.topInset + DashboardTableDemoModeCell.Constants.containerHeight
-        case .dtcLogs:
+        case .dtcLog:
             return DashboardTableDTCLogsCell.Constants.topInset + DashboardTableDTCLogsCell.Constants.containerHeight
         }
     }

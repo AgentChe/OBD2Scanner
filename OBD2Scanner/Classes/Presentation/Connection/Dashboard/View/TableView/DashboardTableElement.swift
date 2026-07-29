@@ -8,5 +8,5 @@
 enum DashboardTableElement {
     case options 
     case demoMode(Bool)
-    case dtcLogs(count: Int)
+    case dtcLog(count: Int)
 }

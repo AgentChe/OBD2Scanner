@@ -31,7 +31,7 @@ protocol VehicleManagerProtocol {
     
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
-    func obtainDTCLog() -> Single<[DTCLog]>
+    func obtainDTCLogs() -> Single<[DTCLog]>
 }
 
 final class VehicleManager {
@@ -237,7 +237,7 @@ extension VehicleManager: VehicleManagerProtocol {
         }
     }
 
-    func obtainDTCLog() -> Single<[DTCLog]> {
+    func obtainDTCLogs() -> Single<[DTCLog]> {
         Single<[DTCLog]>.create { [self] single in
             let dtcLogs = storedDTCLogs().sorted { $0.date > $1.date }
 

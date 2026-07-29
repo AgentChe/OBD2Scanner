@@ -235,6 +235,12 @@
 		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
 		DEB51F4C3019CB780098A5A5 /* DTCResultEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F4B3019CB780098A5A5 /* DTCResultEmptyView.swift */; };
 		DEB51F4F3019CC380098A5A5 /* DTCResultEmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F4E3019CC380098A5A5 /* DTCResultEmptyItemView.swift */; };
+		DEB51F55301A16AC0098A5A5 /* DTCLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F54301A16AC0098A5A5 /* DTCLogViewController.swift */; };
+		DEB51F57301A16B20098A5A5 /* DTCLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F56301A16B20098A5A5 /* DTCLogViewModel.swift */; };
+		DEB51F59301A16B70098A5A5 /* DTCLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F58301A16B70098A5A5 /* DTCLogView.swift */; };
+		DEB51F5E301A1ACE0098A5A5 /* DTCLogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F5D301A1ACE0098A5A5 /* DTCLogTableView.swift */; };
+		DEB51F60301A1AD70098A5A5 /* DTCLogTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F5F301A1AD70098A5A5 /* DTCLogTableElement.swift */; };
+		DEB51F62301A1B680098A5A5 /* DTCLogTableVehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -515,6 +521,12 @@
 		DEA1000000000000000000D1 /* UnitsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsSectionView.swift; sourceTree = "<group>"; };
 		DEB51F4B3019CB780098A5A5 /* DTCResultEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultEmptyView.swift; sourceTree = "<group>"; };
 		DEB51F4E3019CC380098A5A5 /* DTCResultEmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultEmptyItemView.swift; sourceTree = "<group>"; };
+		DEB51F54301A16AC0098A5A5 /* DTCLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogViewController.swift; sourceTree = "<group>"; };
+		DEB51F56301A16B20098A5A5 /* DTCLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogViewModel.swift; sourceTree = "<group>"; };
+		DEB51F58301A16B70098A5A5 /* DTCLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogView.swift; sourceTree = "<group>"; };
+		DEB51F5D301A1ACE0098A5A5 /* DTCLogTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableView.swift; sourceTree = "<group>"; };
+		DEB51F5F301A1AD70098A5A5 /* DTCLogTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableElement.swift; sourceTree = "<group>"; };
+		DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogTableVehicleCell.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -1566,6 +1578,8 @@
 		DE9C13CC30171BFB0095E927 /* DTC */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F51301A168F0098A5A5 /* DTCLog */,
+				DE9C13BC3010F7CF0095E927 /* DTCClear */,
 				DE9C13D730172AF20095E927 /* Result */,
 				DE9C13D2301726F20095E927 /* Reading */,
 				DE9C13CD30171C7F0095E927 /* Info */,
@@ -1636,6 +1650,44 @@
 				DEB51F4E3019CC380098A5A5 /* DTCResultEmptyItemView.swift */,
 			);
 			path = Empty;
+			sourceTree = "<group>";
+		};
+		DEB51F50301A167E0098A5A5 /* Connecting */ = {
+			isa = PBXGroup;
+			children = (
+				DE5547273003D32A00D577B0 /* Connecting */,
+				DE947E3D30039DF1004271C3 /* ConnectingType */,
+			);
+			path = Connecting;
+			sourceTree = "<group>";
+		};
+		DEB51F51301A168F0098A5A5 /* DTCLog */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F5A301A1AB10098A5A5 /* View */,
+				DEB51F54301A16AC0098A5A5 /* DTCLogViewController.swift */,
+				DEB51F56301A16B20098A5A5 /* DTCLogViewModel.swift */,
+				DEB51F58301A16B70098A5A5 /* DTCLogView.swift */,
+			);
+			path = DTCLog;
+			sourceTree = "<group>";
+		};
+		DEB51F5A301A1AB10098A5A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F5C301A1AC30098A5A5 /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEB51F5C301A1AC30098A5A5 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F5D301A1ACE0098A5A5 /* DTCLogTableView.swift */,
+				DEB51F5F301A1AD70098A5A5 /* DTCLogTableElement.swift */,
+				DEB51F61301A1B680098A5A5 /* DTCLogTableVehicleCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -1746,11 +1798,9 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F50301A167E0098A5A5 /* Connecting */,
 				DE9C13CC30171BFB0095E927 /* DTC */,
-				DE9C13BC3010F7CF0095E927 /* DTCClear */,
 				DE7029B53008E83400203CFF /* FreezeFrame */,
-				DE5547273003D32A00D577B0 /* Connecting */,
-				DE947E3D30039DF1004271C3 /* ConnectingType */,
 				DED81C262FFC113A0044284D /* Dashboard */,
 			);
 			path = Connection;
@@ -2028,6 +2078,7 @@
 				3408346C720747739902B049 /* MFiTransport.swift in Sources */,
 				FC432CF1EBDC2B84FA49130D /* OBDTransport.swift in Sources */,
 				D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */,
+				DEB51F62301A1B680098A5A5 /* DTCLogTableVehicleCell.swift in Sources */,
 				F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */,
 				A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */,
 				DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */,
@@ -2152,6 +2203,7 @@
 				DE2240A42FF79D030023E94C /* VehicleReferefence.swift in Sources */,
 				DED81C282FFC11450044284D /* DashboardViewController.swift in Sources */,
 				DE2240172FF416990023E94C /* VehicleYear.swift in Sources */,
+				DEB51F59301A16B70098A5A5 /* DTCLogView.swift in Sources */,
 				DED81C132FFBF48D0044284D /* SettingsView.swift in Sources */,
 				DE22403B2FF555010023E94C /* SelectYearCollectionCell.swift in Sources */,
 				DE22402B2FF50C4F0023E94C /* ChooseMethodAddCarItemView.swift in Sources */,
@@ -2224,6 +2276,7 @@
 				DE2F0AC72A698E0B00471667 /* NavigationController.swift in Sources */,
 				DE7029B43008CE7600203CFF /* ChooseMethodAddCarFindVINInfoView.swift in Sources */,
 				DE2F0ABF2A698E0B00471667 /* NetworkError.swift in Sources */,
+				DEB51F60301A1AD70098A5A5 /* DTCLogTableElement.swift in Sources */,
 				DE223FFC2FF3F22C0023E94C /* PaygateProductButton.swift in Sources */,
 				DE223FFD2FF3F22C0023E94C /* PaygateSubscriptionButton.swift in Sources */,
 				DE223FFE2FF3F22C0023E94C /* PaygateActionsView.swift in Sources */,
@@ -2235,6 +2288,7 @@
 				DED81C232FFC05660044284D /* UnitsView.swift in Sources */,
 				DE2240052FF3F22C0023E94C /* Currency.swift in Sources */,
 				DED81C172FFBF4C70044284D /* SettingsTableView.swift in Sources */,
+				DEB51F5E301A1ACE0098A5A5 /* DTCLogTableView.swift in Sources */,
 				DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */,
 				DE2F0AB92A698E0B00471667 /* TextAttributes.swift in Sources */,
 				DEC61E9A2A812667008F9C97 /* Session.swift in Sources */,
@@ -2245,6 +2299,7 @@
 				DE9C13DB30172B050095E927 /* DTCResultViewModel.swift in Sources */,
 				DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */,
 				DE2240272FF50AB00023E94C /* SelectYearViewModel.swift in Sources */,
+				DEB51F57301A16B20098A5A5 /* DTCLogViewModel.swift in Sources */,
 				DE2240072FF402BD0023E94C /* PaygateHeaderView.swift in Sources */,
 				DE2240D42FF92D410023E94C /* VehicleDetailsVINView.swift in Sources */,
 				DE9C13D130171CA00095E927 /* DTCInfoView.swift in Sources */,
@@ -2260,6 +2315,7 @@
 				DE2240D62FF92D940023E94C /* VehicleDetailsItemView.swift in Sources */,
 				DE2240102FF40B7C0023E94C /* PaygateCellWithTitles.swift in Sources */,
 				DE2240632FF64D390023E94C /* AddVehicleResultViewController.swift in Sources */,
+				DEB51F55301A16AC0098A5A5 /* DTCLogViewController.swift in Sources */,
 				DE2240932FF6CA170023E94C /* AddVINToVehicleRequest.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,

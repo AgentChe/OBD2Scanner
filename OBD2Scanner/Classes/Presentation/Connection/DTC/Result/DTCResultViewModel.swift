@@ -13,7 +13,7 @@ final class DTCResultViewModel {
         case openPaygate
         case close
         case clearCodes
-        case openHowToFix(DiagnosticTroubleCode)
+        case openHowToFix(String, DiagnosticTroubleCode)
         case savedPIDs
     }
 
@@ -76,7 +76,13 @@ private extension DTCResultViewModel {
             .asDriver(onErrorDriveWith: .never())
 
         let howToFix = didTapHowToFix
-            .map { Action.openHowToFix($0) }
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(vehicleId) { ($0, $1) }
+            .compactMap { code, vehicleId -> Action? in
+                guard let vehicleId else { return nil }
+                
+                return Action.openHowToFix(vehicleId, code)
+            }
             .asDriver(onErrorDriveWith: .never())
 
         let savePIDs = didTapSavePIDs

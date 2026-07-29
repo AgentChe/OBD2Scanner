@@ -42,7 +42,8 @@ final class DashboardViewController: UIViewController {
                 didTapConnectTrigger.asSignal()
             ),
             didTapDisconnect: mainView.activeVehicleView.didTapDisconnect,
-            didTapOption: mainView.tableView.didTapOption
+            didTapOption: mainView.tableView.didTapOption,
+            didTapDTCLog: mainView.tableView.didTapDTCLog
         ))
         
         output.activeVehicle
@@ -143,6 +144,9 @@ private extension DashboardViewController {
             errorNeedConnect()
         case .errorNeedMakeActiveVehicle:
             errorNeedMakeActiveVehicle()
+        case .openDTCLog(let vehicleId):
+            let vc = DTCLogViewController.make(vehicleId: vehicleId)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

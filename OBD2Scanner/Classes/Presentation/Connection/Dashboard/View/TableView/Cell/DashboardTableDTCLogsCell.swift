@@ -12,6 +12,8 @@ final class DashboardTableDTCLogsCell: UITableViewCell {
         static let topInset = 8.scale
         static let containerHeight = 76.scale
     }
+    
+    var didTap: (() -> Void)?
 
     lazy var container = makeContainer()
     lazy var countView = makeCountView()
@@ -38,6 +40,8 @@ final class DashboardTableDTCLogsCell: UITableViewCell {
         .textColor(Appearance.color_F5403A)
         .font(Fonts.NotoSans.medium(size: 14.scale))
         .textAlignment(.left)
+    
+    private var count = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -54,6 +58,8 @@ final class DashboardTableDTCLogsCell: UITableViewCell {
 // MARK: Public
 extension DashboardTableDTCLogsCell {
     func setup(count: Int) {
+        self.count = count
+        
         let isEmpty = count <= 0
 
         countLabel.attributedText = String(count)
@@ -82,6 +88,17 @@ private extension DashboardTableDTCLogsCell {
         contentView.backgroundColor = UIColor.clear
 
         selectionStyle = .none
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        container.isUserInteractionEnabled = true
+        container.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func tapped() {
+        guard count > 0 else { return }
+        
+        didTap?()
     }
 }
 

@@ -94,8 +94,8 @@ private extension DTCResultViewController {
                 self?.present(vc, animated: false)
             }
             present(vc, animated: false)
-        case .openHowToFix:
-            break // TODO:
+        case let .openHowToFix(vehicleId, code):
+            break // TODO: 
         case .savedPIDs:
             showSavedPIDsAlert()
         }

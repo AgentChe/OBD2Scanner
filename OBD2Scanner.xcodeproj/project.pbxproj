@@ -269,6 +269,12 @@
 		DEB51F87301A5A520098A5A5 /* LiveDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F86301A5A520098A5A5 /* LiveDataViewController.swift */; };
 		DEB51F89301A5A580098A5A5 /* LiveDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F88301A5A580098A5A5 /* LiveDataViewModel.swift */; };
 		DEB51F8B301A5A5C0098A5A5 /* LiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F8A301A5A5C0098A5A5 /* LiveDataView.swift */; };
+		DEB51F8E301B45C40098A5A5 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F8D301B45C40098A5A5 /* HUDViewController.swift */; };
+		DEB51F90301B45CA0098A5A5 /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */; };
+		DEB51F92301B45D00098A5A5 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F91301B45D00098A5A5 /* HUDView.swift */; };
+		DEB51F95301B4A070098A5A5 /* HUDStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F94301B4A070098A5A5 /* HUDStartView.swift */; };
+		DEB51F98301B4B720098A5A5 /* HUDStarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */; };
+		DEB51F9A301B4FE60098A5A5 /* HUDTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -582,6 +588,12 @@
 		DEB51F86301A5A520098A5A5 /* LiveDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataViewController.swift; sourceTree = "<group>"; };
 		DEB51F88301A5A580098A5A5 /* LiveDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataViewModel.swift; sourceTree = "<group>"; };
 		DEB51F8A301A5A5C0098A5A5 /* LiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataView.swift; sourceTree = "<group>"; };
+		DEB51F8D301B45C40098A5A5 /* HUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
+		DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
+		DEB51F91301B45D00098A5A5 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		DEB51F94301B4A070098A5A5 /* HUDStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStartView.swift; sourceTree = "<group>"; };
+		DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStarCellView.swift; sourceTree = "<group>"; };
+		DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTitleView.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -1844,6 +1856,43 @@
 			path = LiveData;
 			sourceTree = "<group>";
 		};
+		DEB51F8C301B45BA0098A5A5 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F9D301B552D0098A5A5 /* HUD */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		DEB51F93301B49F20098A5A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F96301B4B630098A5A5 /* Start */,
+				DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEB51F96301B4B630098A5A5 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F94301B4A070098A5A5 /* HUDStartView.swift */,
+				DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		DEB51F9D301B552D0098A5A5 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51F93301B49F20098A5A5 /* View */,
+				DEB51F8D301B45C40098A5A5 /* HUDViewController.swift */,
+				DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */,
+				DEB51F91301B45D00098A5A5 /* HUDView.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -1952,6 +2001,7 @@
 		DED81C252FFC11150044284D /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F8C301B45BA0098A5A5 /* HUD */,
 				DEB51F85301A5A430098A5A5 /* LiveData */,
 				DEB51F50301A167E0098A5A5 /* Connecting */,
 				DE9C13CC30171BFB0095E927 /* DTC */,
@@ -2250,6 +2300,7 @@
 				DE5547393003E3BF00D577B0 /* ConnectingItemView.swift in Sources */,
 				C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */,
 				57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */,
+				DEB51F90301B45CA0098A5A5 /* HUDViewModel.swift in Sources */,
 				604A073C9366247228F4CAC6 /* OBDService.swift in Sources */,
 				385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */,
 				FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */,
@@ -2274,6 +2325,7 @@
 				7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */,
 				7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */,
 				DED81C0B2FFAC95A0044284D /* ObtainRecallHistoryRequest.swift in Sources */,
+				DEB51F9A301B4FE60098A5A5 /* HUDTitleView.swift in Sources */,
 				DE2240A02FF6CDE70023E94C /* RemoveVehicleRequest.swift in Sources */,
 				DED81C192FFBF4CE0044284D /* SettingsTableElement.swift in Sources */,
 				DED81C1C2FFBF5010044284D /* SettingsTableCell.swift in Sources */,
@@ -2348,10 +2400,12 @@
 				DE2240422FF561CE0023E94C /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
+				DEB51F95301B4A070098A5A5 /* HUDStartView.swift in Sources */,
 				DEB51F7B301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
 				DE9C13E730176DA70095E927 /* DashboardTableDTCLogsCell.swift in Sources */,
 				DE2240B42FF7C3550023E94C /* MainViewController.swift in Sources */,
+				DEB51F98301B4B720098A5A5 /* HUDStarCellView.swift in Sources */,
 				DE2240AB2FF7AACE0023E94C /* DecodeVINViewModel.swift in Sources */,
 				DEB51F4F3019CC380098A5A5 /* DTCResultEmptyItemView.swift in Sources */,
 				DEDF4E0A2FF2C8D70001160D /* IAPError.swift in Sources */,
@@ -2435,6 +2489,7 @@
 				DE2240DD2FFAC4C30023E94C /* RecallHistoryView.swift in Sources */,
 				DE2F0AB72A698E0B00471667 /* Scalable.swift in Sources */,
 				DE223FE92FF3E7BB0023E94C /* UnlimitedPlanCellView.swift in Sources */,
+				DEB51F92301B45D00098A5A5 /* HUDView.swift in Sources */,
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,
 				DE22400C2FF405440023E94C /* PaygateCell.swift in Sources */,
 				DE2240452FF563DF0023E94C /* SelectBrandViewController.swift in Sources */,
@@ -2454,6 +2509,7 @@
 				DE223FFC2FF3F22C0023E94C /* PaygateProductButton.swift in Sources */,
 				DE223FFD2FF3F22C0023E94C /* PaygateSubscriptionButton.swift in Sources */,
 				DE223FFE2FF3F22C0023E94C /* PaygateActionsView.swift in Sources */,
+				DEB51F8E301B45C40098A5A5 /* HUDViewController.swift in Sources */,
 				DE2240002FF3F22C0023E94C /* PaygateView.swift in Sources */,
 				DE2240012FF3F22C0023E94C /* PaygateLifetimeButton.swift in Sources */,
 				DE2240022FF3F22C0023E94C /* PaygateViewController.swift in Sources */,

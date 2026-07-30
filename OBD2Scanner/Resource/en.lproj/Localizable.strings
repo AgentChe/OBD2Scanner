@@ -149,6 +149,7 @@ and smart monitoring";
 
 // MARK: Main
 "Main.Tab.Dashboard" = "Dashboard";
+"Main.Tab.HUD" = "HUD";
 "Main.Tab.Garage" = "My garage";
 "Main.Tab.Settings" = "Settings";
 
@@ -417,3 +418,14 @@ and smart monitoring";
 "LiveData.Gauge.Speed" = "Vehicle speed";
 "LiveData.Gauge.Coolant" = "Coolant temp.";
 "LiveData.Upgrade" = "UPGRADE";
+
+// MARK: HUD
+"HUD.Title" = "HUD";
+"HUD.Connected" = "Connected";
+"HUD.DemoMode" = "Demo mode";
+"HUD.Start.Title" = "HEAD-UP DISPLAY";
+"HUD.Start.SubTitle" = "Project driving data onto your windshield\nfor safer, distraction free driving";
+"HUD.Start.Cell1" = "Place phone near windshield";
+"HUD.Start.Cell2" = "Increase screen brightness";
+"HUD.Start.Cell3" = "Enable mirror mode for reflection";
+"HUD.Start.Action" = "Start HUD";

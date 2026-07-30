@@ -9,7 +9,7 @@ import UIKit
 
 final class MainViewController: UITabBarController {
     enum Tab: Int {
-        case dashboard, garage, settings
+        case dashboard, hud, garage, settings
     }
 
     override func viewDidLoad() {
@@ -44,6 +44,7 @@ private extension MainViewController {
         viewControllers = [
             makeTab(root: DashboardViewController.make(), title: "Main.Tab.Dashboard".localized, icon: "square.grid.2x2.fill"),
             makeTab(root: GarageViewController.make(), title: "Main.Tab.Garage".localized, icon: "car.fill"),
+            makeTab(root: HUDViewController.make(), title: "Main.Tab.HUD".localized, icon: "waveform"),
             makeTab(root: SettingsViewController.make(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill")
         ]
         selectedIndex = Tab.dashboard.rawValue

@@ -16,16 +16,16 @@ final class HUDViewController: UIViewController {
 
     private lazy var settingsBarButtonItem = makeSettingsBarButtonItem()
 
-    private lazy var didTapSettingsTrigger = PublishRelay<Void>()
+    private lazy var didChangeSettingsTrigger = PublishRelay<HUDSettings>()
 
     private lazy var viewModel = HUDViewModel()
 
     private lazy var disposeBag = DisposeBag()
-    
+
     override func loadView() {
         view = mainView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +33,15 @@ final class HUDViewController: UIViewController {
 
         let output = viewModel.configure(input: HUDViewModel.Input(
             didTapStart: mainView.startView.startButton.rx.tap.asSignal(),
-            didTapSettings: didTapSettingsTrigger.asSignal()
+            didTapSettings: settingsBarButtonItem.rx.tap.asSignal(),
+            didChangeSettings: didChangeSettingsTrigger.asSignal()
         ))
+
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -58,9 +65,14 @@ private extension HUDViewController {
         }
     }
 
-    @objc
-    func didTapSettings() {
-        didTapSettingsTrigger.accept(Void())
+    func action(_ action: HUDViewModel.Action) {
+        switch action {
+        case .openSettings(let settings):
+            let vc = HUDSettingsViewController.make(settings: settings) { [weak self] settings in
+                self?.didChangeSettingsTrigger.accept(settings)
+            }
+            present(vc, animated: false)
+        }
     }
 }
 
@@ -72,8 +84,8 @@ private extension HUDViewController {
         let item = UIBarButtonItem(
             image: UIImage(systemName: "gearshape.fill", withConfiguration: configuration),
             style: .plain,
-            target: self,
-            action: #selector(didTapSettings)
+            target: nil,
+            action: nil
         )
         item.tintColor = Appearance.color_FFFFFF
         return item

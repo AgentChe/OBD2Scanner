@@ -275,6 +275,10 @@
 		DEB51F95301B4A070098A5A5 /* HUDStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F94301B4A070098A5A5 /* HUDStartView.swift */; };
 		DEB51F98301B4B720098A5A5 /* HUDStarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */; };
 		DEB51F9A301B4FE60098A5A5 /* HUDTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */; };
+		DEB51FA0301B55590098A5A5 /* HUDSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F9F301B55590098A5A5 /* HUDSettingsViewController.swift */; };
+		DEB51FA2301B555E0098A5A5 /* HUDSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FA1301B555E0098A5A5 /* HUDSettingsView.swift */; };
+		DEB51FB0301B56000098A5A5 /* HUDSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FB1301B56000098A5A5 /* HUDSettings.swift */; };
+		DEB51FB2301B56000098A5A5 /* HUDSettingsLayoutItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FB3301B56000098A5A5 /* HUDSettingsLayoutItemView.swift */; };
 		DEB56EE5300538BF001A9E4E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB56EE4300538BF001A9E4E /* GradientButton.swift */; };
 		DEBDCC323003AF33005498EB /* BluetoothAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */; };
 		DEBDCC343003AF39005498EB /* BluetoothAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */; };
@@ -594,6 +598,10 @@
 		DEB51F94301B4A070098A5A5 /* HUDStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStartView.swift; sourceTree = "<group>"; };
 		DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStarCellView.swift; sourceTree = "<group>"; };
 		DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTitleView.swift; sourceTree = "<group>"; };
+		DEB51F9F301B55590098A5A5 /* HUDSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSettingsViewController.swift; sourceTree = "<group>"; };
+		DEB51FA1301B555E0098A5A5 /* HUDSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSettingsView.swift; sourceTree = "<group>"; };
+		DEB51FB1301B56000098A5A5 /* HUDSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSettings.swift; sourceTree = "<group>"; };
+		DEB51FB3301B56000098A5A5 /* HUDSettingsLayoutItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSettingsLayoutItemView.swift; sourceTree = "<group>"; };
 		DEB56EE4300538BF001A9E4E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DEBDCC313003AF33005498EB /* BluetoothAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessViewController.swift; sourceTree = "<group>"; };
 		DEBDCC333003AF39005498EB /* BluetoothAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothAccessView.swift; sourceTree = "<group>"; };
@@ -1859,6 +1867,7 @@
 		DEB51F8C301B45BA0098A5A5 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51F9E301B554D0098A5A5 /* HUDSettings */,
 				DEB51F9D301B552D0098A5A5 /* HUD */,
 			);
 			path = HUD;
@@ -1891,6 +1900,33 @@
 				DEB51F91301B45D00098A5A5 /* HUDView.swift */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		DEB51F9E301B554D0098A5A5 /* HUDSettings */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51FB4301B56000098A5A5 /* Model */,
+				DEB51FB5301B56000098A5A5 /* View */,
+				DEB51F9F301B55590098A5A5 /* HUDSettingsViewController.swift */,
+				DEB51FA1301B555E0098A5A5 /* HUDSettingsView.swift */,
+			);
+			path = HUDSettings;
+			sourceTree = "<group>";
+		};
+		DEB51FB4301B56000098A5A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51FB1301B56000098A5A5 /* HUDSettings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEB51FB5301B56000098A5A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51FB3301B56000098A5A5 /* HUDSettingsLayoutItemView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DEBDCC2F3003AE97005498EB /* ConnectingType */ = {
@@ -2368,6 +2404,7 @@
 				DE2240652FF64D420023E94C /* AddVehicleResultViewModel.swift in Sources */,
 				DE2240E12FFAC4DE0023E94C /* RecallHistoryTableView.swift in Sources */,
 				DE55472A3003D35300D577B0 /* ConnectingFailureViewController.swift in Sources */,
+				DEB51FA0301B55590098A5A5 /* HUDSettingsViewController.swift in Sources */,
 				DED81C092FFAC7300044284D /* RecallHistory.swift in Sources */,
 				DE2240602FF570200023E94C /* SelectModelTableCell.swift in Sources */,
 				DE9C13B33010CF360095E927 /* DashboardTableElement.swift in Sources */,
@@ -2556,6 +2593,9 @@
 				DE2240932FF6CA170023E94C /* AddVINToVehicleRequest.swift in Sources */,
 				DE2F0AD32A698E0B00471667 /* SceneDelegate.swift in Sources */,
 				DE2F0ACD2A698E0B00471667 /* GradientView.swift in Sources */,
+				DEB51FA2301B555E0098A5A5 /* HUDSettingsView.swift in Sources */,
+				DEB51FB0301B56000098A5A5 /* HUDSettings.swift in Sources */,
+				DEB51FB2301B56000098A5A5 /* HUDSettingsLayoutItemView.swift in Sources */,
 				DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */,
 				DE2F0ABD2A698E0B00471667 /* Fonts.swift in Sources */,
 				DE2F0AAF2A698E0B00471667 /* Collection+Extension.swift in Sources */,

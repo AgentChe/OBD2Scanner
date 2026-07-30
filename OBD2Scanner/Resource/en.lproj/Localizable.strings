@@ -429,3 +429,14 @@ and smart monitoring";
 "HUD.Start.Cell2" = "Increase screen brightness";
 "HUD.Start.Cell3" = "Enable mirror mode for reflection";
 "HUD.Start.Action" = "Start HUD";
+
+// MARK: HUDSettings
+"HUDSettings.Brightness" = "Brightness";
+"HUDSettings.MirrorMode" = "Mirror mode";
+"HUDSettings.Units" = "Units";
+"HUDSettings.Units.Metric" = "km/h";
+"HUDSettings.Units.Imperial" = "mph";
+"HUDSettings.Layout" = "Layout";
+"HUDSettings.Layout.Minimal" = "Minimal";
+"HUDSettings.Layout.Classic" = "Classic";
+"HUDSettings.Layout.Custom" = "Custom";

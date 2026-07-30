@@ -8,17 +8,35 @@
 import UIKit
 
 final class HUDView: UIView {
+    enum State {
+        case start
+        case connected
+        case demoMode
+    }
+
     lazy var startView = makeStartView()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         makeConstraints()
         initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension HUDView {
+    func setup(state: State) {
+        switch state {
+        case .start:
+            startView.isHidden = false
+        case .connected, .demoMode:
+            startView.isHidden = true
+        }
     }
 }
 

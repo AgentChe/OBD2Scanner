@@ -16,6 +16,7 @@ final class HUDViewController: UIViewController {
 
     private lazy var settingsBarButtonItem = makeSettingsBarButtonItem()
 
+    private lazy var didTapDemoModeTrigger = PublishRelay<Void>()
     private lazy var didChangeSettingsTrigger = PublishRelay<HUDSettings>()
 
     private lazy var viewModel = HUDViewModel()
@@ -33,9 +34,16 @@ final class HUDViewController: UIViewController {
 
         let output = viewModel.configure(input: HUDViewModel.Input(
             didTapStart: mainView.startView.startButton.rx.tap.asSignal(),
+            didTapDemoMode: didTapDemoModeTrigger.asSignal(),
             didTapSettings: settingsBarButtonItem.rx.tap.asSignal(),
             didChangeSettings: didChangeSettingsTrigger.asSignal()
         ))
+
+        output.state
+            .drive(Binder(self) { base, state in
+                base.setup(state: state)
+            })
+            .disposed(by: disposeBag)
 
         output.action
             .drive(Binder(self) { base, action in
@@ -54,25 +62,58 @@ extension HUDViewController {
 
 // MARK: Private
 private extension HUDViewController {
-    func setup(state: HUDTitleView.State) {
-        titleView.setup(state: state)
+    func setup(state: HUDView.State) {
+        mainView.setup(state: state)
 
         switch state {
-        case .title:
+        case .start:
+            titleView.setup(state: .title)
             navigationItem.rightBarButtonItem = nil
-        case .connected, .demoMode:
+        case .connected:
+            titleView.setup(state: .connected)
+            navigationItem.rightBarButtonItem = settingsBarButtonItem
+        case .demoMode:
+            titleView.setup(state: .demoMode)
             navigationItem.rightBarButtonItem = settingsBarButtonItem
         }
     }
 
     func action(_ action: HUDViewModel.Action) {
         switch action {
+        case .openPaygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
+        case .startConnectProcess(let vehicle):
+            startConnectProcess(vehicle: vehicle)
         case .openSettings(let settings):
             let vc = HUDSettingsViewController.make(settings: settings) { [weak self] settings in
                 self?.didChangeSettingsTrigger.accept(settings)
             }
             present(vc, animated: false)
         }
+    }
+
+    func startConnectProcess(vehicle: Vehicle?) {
+        let vc = ConnectingTypeViewController.make { [weak self] connectingType in
+            let method: OBDConnectionMethod = {
+                switch connectingType {
+                case .bluetooth:
+                    return .bluetooth
+                case .wifi:
+                    return .wifi
+                case .mfi:
+                    return .mfi
+                }
+            }()
+
+            let vc = ConnectingViewController.make(vehicle: vehicle, method: method) { [weak self] outcome in
+                guard case .demoMode = outcome else { return }
+
+                self?.didTapDemoModeTrigger.accept(Void())
+            }
+            self?.present(vc, animated: false)
+        }
+        present(vc, animated: true)
     }
 }
 

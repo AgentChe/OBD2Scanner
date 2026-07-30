@@ -236,9 +236,14 @@ private extension DashboardViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let changed = manager
+            .didChangeActive
+            .asDriver(onErrorDriveWith: .never())
+
         return Driver
-            .merge(enable, turnOff)
+            .merge(enable, turnOff, changed)
             .startWith(manager.isActive)
+            .distinctUntilChanged()
     }
     
     func makeActiveVehicle(garage: Driver<[Vehicle]>) -> Driver<Vehicle?> {

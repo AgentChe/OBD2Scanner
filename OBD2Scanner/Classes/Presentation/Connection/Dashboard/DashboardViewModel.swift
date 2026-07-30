@@ -152,10 +152,6 @@ private extension DashboardViewModel {
             .withLatestFrom(activeSubscription) { ($0.0, $0.1, $1) }
             .withLatestFrom(demoMode) { ($0.0, $0.1, $0.2, $1) }
             .map { option, activeVehicle, activeSubscription, demoMode -> Action in
-                if !demoMode && !activeSubscription {
-                    return .openPaygate
-                }
-                
                 let connected: Bool = {
                     switch OBDService.shared.currentState {
                     case .ready:
@@ -164,19 +160,31 @@ private extension DashboardViewModel {
                         return false
                     }
                 }()
-                
+
+                let hasSource = demoMode || connected
+                let locked = !demoMode && !activeSubscription
+
                 switch option {
                 case .dtc:
-                    return demoMode ? .openDTC(activeVehicle?.id) : (connected ? .openDTC(activeVehicle?.id) : .errorNeedConnect)
+                    return hasSource ? .openDTC(activeVehicle?.id) : .errorNeedConnect
                 case .recallHistory:
+                    if locked {
+                        return .openPaygate
+                    }
                     if let activeVehicle {
                         return .openRecallHistory(activeVehicle)
                     }
                     return .errorNeedMakeActiveVehicle
                 case .freezeFrame:
-                    return demoMode ? .openFreezeFrame : (connected ? .openFreezeFrame : .errorNeedConnect)
+                    if locked {
+                        return .openPaygate
+                    }
+                    return hasSource ? .openFreezeFrame : .errorNeedConnect
                 case .dtcClear:
-                    return demoMode ? .clearDTC : (connected ? .clearDTC : .errorNeedConnect)
+                    if locked {
+                        return .openPaygate
+                    }
+                    return hasSource ? .clearDTC : .errorNeedConnect
                 }
             }
         

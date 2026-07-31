@@ -18,6 +18,7 @@ final class HUDViewController: UIViewController {
 
     private lazy var didTapDemoModeTrigger = PublishRelay<Void>()
     private lazy var didChangeSettingsTrigger = PublishRelay<HUDSettings>()
+    private lazy var isVisibleTrigger = BehaviorRelay<Bool>(value: false)
 
     private lazy var viewModel = HUDViewModel()
 
@@ -36,7 +37,8 @@ final class HUDViewController: UIViewController {
             didTapStart: mainView.startView.startButton.rx.tap.asSignal(),
             didTapDemoMode: didTapDemoModeTrigger.asSignal(),
             didTapSettings: settingsBarButtonItem.rx.tap.asSignal(),
-            didChangeSettings: didChangeSettingsTrigger.asSignal()
+            didChangeSettings: didChangeSettingsTrigger.asSignal(),
+            isVisible: isVisibleTrigger.asDriver()
         ))
 
         output.state
@@ -45,11 +47,35 @@ final class HUDViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        output.settings
+            .drive(Binder(mainView) { base, settings in
+                base.setup(settings: settings)
+            })
+            .disposed(by: disposeBag)
+
+        output.readings
+            .drive(Binder(mainView) { base, readings in
+                base.setup(readings: readings)
+            })
+            .disposed(by: disposeBag)
+
         output.action
             .drive(Binder(self) { base, action in
                 base.action(action)
             })
             .disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        isVisibleTrigger.accept(true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        isVisibleTrigger.accept(false)
     }
 }
 
@@ -115,10 +141,7 @@ private extension HUDViewController {
         }
         present(vc, animated: true)
     }
-}
-
-// MARK: Lazy initialization
-private extension HUDViewController {
+    
     func makeSettingsBarButtonItem() -> UIBarButtonItem {
         let configuration = UIImage.SymbolConfiguration(pointSize: 18.scale, weight: .medium)
 

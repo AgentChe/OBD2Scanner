@@ -32,6 +32,15 @@ extension HUDSettings {
             layout: .minimal
         )
     }
+    
+    var speedUnit: String {
+        switch speedDistance {
+        case .metric:
+            return "HUDSettings.Units.Metric".localized
+        case .imperial:
+            return "HUDSettings.Units.Imperial".localized
+        }
+    }
 }
 
 // MARK: Layout

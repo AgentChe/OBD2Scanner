@@ -273,6 +273,12 @@
 		DEB51F90301B45CA0098A5A5 /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */; };
 		DEB51F92301B45D00098A5A5 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F91301B45D00098A5A5 /* HUDView.swift */; };
 		DEB51F95301B4A070098A5A5 /* HUDStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F94301B4A070098A5A5 /* HUDStartView.swift */; };
+		DEB51FD0301B58000098A5A5 /* HUDClassicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FD1301B58000098A5A5 /* HUDClassicItemView.swift */; };
+		DEB51FD2301B58000098A5A5 /* HUDReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FD3301B58000098A5A5 /* HUDReadings.swift */; };
+		DEB51FC0301B57000098A5A5 /* HUDLayoutViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FC1301B57000098A5A5 /* HUDLayoutViewProtocol.swift */; };
+		DEB51FC2301B57000098A5A5 /* HUDMinimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FC3301B57000098A5A5 /* HUDMinimalView.swift */; };
+		DEB51FC4301B57000098A5A5 /* HUDClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FC5301B57000098A5A5 /* HUDClassicView.swift */; };
+		DEB51FC6301B57000098A5A5 /* HUDCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51FC7301B57000098A5A5 /* HUDCustomView.swift */; };
 		DEB51F98301B4B720098A5A5 /* HUDStarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */; };
 		DEB51F9A301B4FE60098A5A5 /* HUDTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */; };
 		DEB51FA0301B55590098A5A5 /* HUDSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F9F301B55590098A5A5 /* HUDSettingsViewController.swift */; };
@@ -596,6 +602,12 @@
 		DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
 		DEB51F91301B45D00098A5A5 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		DEB51F94301B4A070098A5A5 /* HUDStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStartView.swift; sourceTree = "<group>"; };
+		DEB51FD1301B58000098A5A5 /* HUDClassicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDClassicItemView.swift; sourceTree = "<group>"; };
+		DEB51FD3301B58000098A5A5 /* HUDReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDReadings.swift; sourceTree = "<group>"; };
+		DEB51FC1301B57000098A5A5 /* HUDLayoutViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDLayoutViewProtocol.swift; sourceTree = "<group>"; };
+		DEB51FC3301B57000098A5A5 /* HUDMinimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMinimalView.swift; sourceTree = "<group>"; };
+		DEB51FC5301B57000098A5A5 /* HUDClassicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDClassicView.swift; sourceTree = "<group>"; };
+		DEB51FC7301B57000098A5A5 /* HUDCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDCustomView.swift; sourceTree = "<group>"; };
 		DEB51F97301B4B720098A5A5 /* HUDStarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStarCellView.swift; sourceTree = "<group>"; };
 		DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTitleView.swift; sourceTree = "<group>"; };
 		DEB51F9F301B55590098A5A5 /* HUDSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSettingsViewController.swift; sourceTree = "<group>"; };
@@ -1873,13 +1885,34 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		DEB51FD4301B58000098A5A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51FD3301B58000098A5A5 /* HUDReadings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DEB51F93301B49F20098A5A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51FC8301B57000098A5A5 /* Layout */,
 				DEB51F96301B4B630098A5A5 /* Start */,
 				DEB51F99301B4FE60098A5A5 /* HUDTitleView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DEB51FC8301B57000098A5A5 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				DEB51FC1301B57000098A5A5 /* HUDLayoutViewProtocol.swift */,
+				DEB51FC3301B57000098A5A5 /* HUDMinimalView.swift */,
+				DEB51FC5301B57000098A5A5 /* HUDClassicView.swift */,
+				DEB51FD1301B58000098A5A5 /* HUDClassicItemView.swift */,
+				DEB51FC7301B57000098A5A5 /* HUDCustomView.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		DEB51F96301B4B630098A5A5 /* Start */ = {
@@ -1894,6 +1927,7 @@
 		DEB51F9D301B552D0098A5A5 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				DEB51FD4301B58000098A5A5 /* Model */,
 				DEB51F93301B49F20098A5A5 /* View */,
 				DEB51F8D301B45C40098A5A5 /* HUDViewController.swift */,
 				DEB51F8F301B45CA0098A5A5 /* HUDViewModel.swift */,
@@ -2438,6 +2472,12 @@
 				DE22402E2FF50C580023E94C /* ChooseMethodAddCarView.swift in Sources */,
 				DE22402F2FF50C580023E94C /* ChooseMethodAddCarViewController.swift in Sources */,
 				DEB51F95301B4A070098A5A5 /* HUDStartView.swift in Sources */,
+				DEB51FD0301B58000098A5A5 /* HUDClassicItemView.swift in Sources */,
+				DEB51FD2301B58000098A5A5 /* HUDReadings.swift in Sources */,
+				DEB51FC0301B57000098A5A5 /* HUDLayoutViewProtocol.swift in Sources */,
+				DEB51FC2301B57000098A5A5 /* HUDMinimalView.swift in Sources */,
+				DEB51FC4301B57000098A5A5 /* HUDClassicView.swift in Sources */,
+				DEB51FC6301B57000098A5A5 /* HUDCustomView.swift in Sources */,
 				DEB51F7B301A38F50098A5A5 /* DTCCodeFixInfoMeansCell.swift in Sources */,
 				DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */,
 				DE9C13E730176DA70095E927 /* DashboardTableDTCLogsCell.swift in Sources */,

@@ -15,6 +15,10 @@ final class HUDViewModel {
         case openSettings(HUDSettings)
     }
 
+    private enum Constants {
+        static let refreshMs = 200
+    }
+
     private lazy var profileManager = ProfileManager()
 
     private lazy var vehicleManager = VehicleManager()
@@ -27,28 +31,39 @@ extension HUDViewModel {
         let didTapDemoMode: Signal<Void>
         let didTapSettings: Signal<Void>
         let didChangeSettings: Signal<HUDSettings>
+        let isVisible: Driver<Bool>
     }
 
     struct Output {
         let state: Driver<HUDView.State>
+        let settings: Driver<HUDSettings>
+        let readings: Driver<HUDReadings>
         let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
         let source = makeSource(didTapDemoMode: input.didTapDemoMode)
+        let settings = makeSettings(didChangeSettings: input.didChangeSettings)
         let startAttempt = makeStartAttempt(
             didTapStart: input.didTapStart,
             activeSubscription: makeActiveSubscription(),
             activeVehicle: makeActiveVehicle(),
             source: source
         )
+        let state = makeState(startAttempt: startAttempt, source: source)
 
         return Output(
-            state: makeState(startAttempt: startAttempt, source: source),
+            state: state,
+            settings: settings,
+            readings: makeReadings(
+                state: state,
+                settings: settings,
+                isVisible: input.isVisible
+            ),
             action: makeAction(
                 startAttempt: startAttempt,
                 didTapSettings: input.didTapSettings,
-                settings: makeSettings(didChangeSettings: input.didChangeSettings)
+                settings: settings
             )
         )
     }
@@ -119,6 +134,76 @@ private extension HUDViewModel {
                 return source
             }
             .distinctUntilChanged()
+    }
+
+    func makeReadings(
+        state: Driver<HUDView.State>,
+        settings: Driver<HUDSettings>,
+        isVisible: Driver<Bool>
+    ) -> Driver<HUDReadings> {
+        let gauges = Driver
+            .combineLatest(state, isVisible)
+            .flatMapLatest { [weak self] state, isVisible -> Driver<[LiveDataGauge: ParameterReading]> in
+                switch state {
+                case .start:
+                    return Driver.just([:])
+                case .connected, .demoMode:
+                    guard isVisible, let self else {
+                        return Driver.empty()
+                    }
+
+                    return self.makeGauges(demo: state == .demoMode)
+                }
+            }
+
+        return Driver
+            .combineLatest(gauges, makeUnits(settings: settings))
+            .map { gauges, units -> HUDReadings in
+                HUDReadings(
+                    speed: gauges[.speed].flatMap { HUDViewModel.rounded(reading: $0, units: units) },
+                    rpm: gauges[.rpm].map { LiveDataValue(reading: $0, units: units).value },
+                    temperature: gauges[.coolant].map { LiveDataValue(reading: $0, units: units).text }
+                )
+            }
+    }
+
+    func makeGauges(demo: Bool) -> Driver<[LiveDataGauge: ParameterReading]> {
+        let service = OBDServiceProvider.service(demo: demo)
+
+        return service.state
+            .asDriver(onErrorDriveWith: .never())
+            .startWith(service.currentState)
+            .flatMapLatest { state -> Driver<[LiveDataGauge: ParameterReading]> in
+                guard case .ready = state else {
+                    return Driver.empty()
+                }
+
+                return service
+                    .liveData(categories: nil)
+                    .scan(into: [LiveDataGauge: ParameterReading]()) { gauges, reading in
+                        guard let gauge = LiveDataGauge.allCases
+                            .first(where: { $0.matches(reading.parameter) })
+                        else { return }
+
+                        gauges[gauge] = reading
+                    }
+                    .throttle(.milliseconds(Constants.refreshMs), latest: true, scheduler: MainScheduler.instance)
+                    .asDriver(onErrorDriveWith: .never())
+            }
+    }
+    
+    func makeUnits(settings: Driver<HUDSettings>) -> Driver<Units> {
+        let profile = profileManager
+            .obtainUnits()
+            .asDriver(onErrorJustReturn: .default)
+
+        return Driver
+            .combineLatest(profile, settings)
+            .map { units, settings -> Units in
+                var result = units
+                result.speedDistance = settings.speedDistance
+                return result
+            }
     }
 
     func makeSource(didTapDemoMode: Signal<Void>) -> Driver<HUDView.State?> {
@@ -225,21 +310,17 @@ private extension HUDViewModel {
             .flatMapLatest { [weak self] _ -> Driver<Vehicle?> in
                 guard let self else { return .just(nil) }
 
-                return obtainActiveVehicle()
+                return Single
+                    .zip(
+                        vehicleManager.obtainCurrentVehicleID(),
+                        vehicleManager.obtainMyGarage()
+                    )
+                    .map { vehicleID, garage -> Vehicle? in
+                        garage.first(where: { $0.id == vehicleID })
+                    }
                     .asDriver(onErrorJustReturn: nil)
             }
             .startWith(nil)
-    }
-
-    func obtainActiveVehicle() -> Single<Vehicle?> {
-        Single
-            .zip(
-                vehicleManager.obtainCurrentVehicleID(),
-                vehicleManager.obtainMyGarage()
-            )
-            .map { vehicleID, garage -> Vehicle? in
-                garage.first(where: { $0.id == vehicleID })
-            }
     }
 
     func makeActiveSubscription() -> Driver<Bool> {
@@ -249,4 +330,22 @@ private extension HUDViewModel {
             .map { SessionManager().hasActiveSubscriptions() }
             .asDriver(onErrorDriveWith: .never())
     }
+}
+
+// MARK: Additional
+private extension HUDViewModel {
+    static func rounded(reading: ParameterReading, units: Units) -> String? {
+        guard case let .number(number) = reading.value, number.isFinite else {
+            return nil
+        }
+
+        let converted = units.convert(value: number, unit: reading.parameter.unit)
+
+        guard converted.value.isFinite else {
+            return nil
+        }
+
+        return String(Int(converted.value.rounded()))
+    }
+
 }

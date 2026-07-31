@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: проверить trim из ответа
 struct Vehicle: Codable {
     let id: String
     let vin: String?
@@ -15,6 +14,7 @@ struct Vehicle: Codable {
     let model: String?
     let year: Int?
     let preview: URL?
+    let trim: String?
     
     init?(json: [String: Any]) {
         guard let id = json["vehicle_id"] as? String else { return nil }
@@ -28,6 +28,7 @@ struct Vehicle: Codable {
             guard let string = json["preview"] as? String else { return nil }
             return URL(string: string)
         }()
+        self.trim = json["trim"] as? String
     }
     
     init?(response: Any) {

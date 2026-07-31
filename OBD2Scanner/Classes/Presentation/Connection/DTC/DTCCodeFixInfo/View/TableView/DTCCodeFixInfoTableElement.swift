@@ -20,6 +20,6 @@ struct DTCCodeFixInfoTableStatsElement {
 }
 
 struct DTCCodeFixInfoTableInstuctionElement {
-    let trim: DTCCodeFixInfo.FixTrim
+    let trim: String?
     let steps: [DTCCodeFixInfo.FixStep]
 }

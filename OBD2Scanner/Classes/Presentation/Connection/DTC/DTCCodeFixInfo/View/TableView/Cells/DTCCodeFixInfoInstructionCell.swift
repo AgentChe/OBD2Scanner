@@ -28,7 +28,9 @@ extension DTCCodeFixInfoInstructionCell {
     func setup(element: DTCCodeFixInfoTableInstuctionElement) {
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-        stackView.addArrangedSubview(makeTrimView(trim: element.trim))
+        if let trim = element.trim {
+            stackView.addArrangedSubview(makeTrimView(trim: trim))
+        }
 
         element.steps
             .enumerated()
@@ -92,7 +94,7 @@ private extension DTCCodeFixInfoInstructionCell {
         return view
     }
 
-    func makeTrimView(trim: DTCCodeFixInfo.FixTrim) -> UIView {
+    func makeTrimView(trim: String) -> UIView {
         let view = UIView()
         view.backgroundColor = Appearance.color_1E2635
         view.layer.cornerRadius = 16.scale
@@ -103,23 +105,11 @@ private extension DTCCodeFixInfoInstructionCell {
             .textAlignment(.left)
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
-        titleLabel.attributedText = trim.title.attributed(with: titleAttrs)
+        titleLabel.attributedText = trim.attributed(with: titleAttrs)
         titleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
-
-        let subTitleAttrs = TextAttributes()
-            .textColor(Appearance.color_526387)
-            .font(Fonts.NotoSans.regular(size: 14.scale))
-            .textAlignment(.left)
-        let subTitleLabel = UILabel()
-        subTitleLabel.numberOfLines = 0
-        subTitleLabel.attributedText = trim.subTitle.attributed(with: subTitleAttrs)
-        subTitleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        subTitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(subTitleLabel)
 
         let badgeView = makeTrimBadgeView()
         view.addSubview(badgeView)
@@ -127,14 +117,8 @@ private extension DTCCodeFixInfoInstructionCell {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: badgeView.leadingAnchor, constant: -12.scale),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.scale)
-        ])
-
-        NSLayoutConstraint.activate([
-            subTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.scale),
-            subTitleLabel.trailingAnchor.constraint(equalTo: badgeView.leadingAnchor, constant: -12.scale),
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2.scale),
-            subTitleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16.scale)
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.scale),
+            titleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16.scale)
         ])
 
         NSLayoutConstraint.activate([

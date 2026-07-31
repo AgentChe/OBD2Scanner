@@ -15,11 +15,6 @@ struct DTCCodeFixInfo {
         let to: Int
     }
     
-    struct FixTrim {
-        let title: String
-        let subTitle: String
-    }
-    
     struct FixStep {
         let title: String
         let subTitle: String
@@ -29,7 +24,6 @@ struct DTCCodeFixInfo {
     let typicalFix: TypicalFix
     let drivable: Bool
     let means: String
-    let trim: FixTrim
     let steps: [FixStep]
     
     // TODO: удалить после реализации запроса
@@ -38,7 +32,6 @@ struct DTCCodeFixInfo {
         self.typicalFix = TypicalFix(from: 40, to: 650)
         self.drivable = Bool.random()
         self.means = "Your catalytic converter isn't cleaning exhaust gases as well as it should. The engine's downstream oxygen sensor sees readings too similar to the upstream sensor, so the car flags reduced converter efficiency. The car still drives, but emissions rise and it will fail an inspection."
-        self.trim = FixTrim(title: "2.5 LE 4dr Sedan FWD", subTitle: "2.5L 4 cyl 8A")
         self.steps = [
             FixStep(title: "Check for exhaust leaks near the sensors", subTitle: "On the 2AR-FE, a leaking gasket at the front exhaust pipe throws false P0420. Inspect the flange between the manifold and the front pipe."),
             FixStep(title: "Replace the downstream O₂ sensor (Bank 1, Sensor 2)", subTitle: "A lazy rear oxygen sensor mimics a bad converter. Toyota part 89465-06280 fits the 2019 Camry. Clear the code and drive a full cycle to confirm."),
@@ -86,18 +79,6 @@ struct DTCCodeFixInfo {
         
         guard let means = body["means"] as? String else { return nil }
         self.means = means
-        
-        let trim: FixTrim? = {
-            guard
-                let json = body["fix_trim"] as? [String: Any],
-                let title = json["title"] as? String,
-                let subTitle = json["subtitle"] as? String
-            else { return nil }
-            
-            return FixTrim(title: title, subTitle: subTitle)
-        }()
-        guard let trim else { return nil }
-        self.trim = trim
         
         let steps: [FixStep]? = {
             guard let array = body["steps"] as? [[String: Any]] else { return nil }

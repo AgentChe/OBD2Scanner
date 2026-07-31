@@ -70,7 +70,7 @@ private extension DTCCodeFixInfoViewModel {
                     .means(fixInfo.means),
                     .vehicle(vehicle),
                     .instruction(DTCCodeFixInfoTableInstuctionElement(
-                        trim: fixInfo.trim,
+                        trim: vehicle.trim,
                         steps: fixInfo.steps
                     ))
                 ]

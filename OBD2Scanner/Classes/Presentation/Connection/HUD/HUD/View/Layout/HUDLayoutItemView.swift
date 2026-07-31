@@ -1,5 +1,5 @@
 //
-//  HUDClassicItemView.swift
+//  HUDLayoutItemView.swift
 //  OBD2Scanner
 //
 //  Created by Андрей Чернышев on 30.07.2026.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HUDClassicItemView: UIView {
+final class HUDLayoutItemView: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var valueLabel = makeValueLabel()
 
@@ -17,9 +17,11 @@ final class HUDClassicItemView: UIView {
         .textAlignment(.center)
 
     private let title: String
+    private let titleColor: UIColor
 
-    init(title: String) {
+    init(title: String, titleColor: UIColor = Appearance.color_28D799) {
         self.title = title
+        self.titleColor = titleColor
 
         super.init(frame: .zero)
 
@@ -34,21 +36,21 @@ final class HUDClassicItemView: UIView {
 }
 
 // MARK: Public
-extension HUDClassicItemView {
+extension HUDLayoutItemView {
     func setup(value: String?) {
         valueLabel.attributedText = (value ?? HUDReadings.placeholder).attributed(with: valueAttrs)
     }
 }
 
 // MARK: Private
-private extension HUDClassicItemView {
+private extension HUDLayoutItemView {
     func initialize() {
         backgroundColor = UIColor.clear
     }
 }
 
 // MARK: Make constraints
-private extension HUDClassicItemView {
+private extension HUDLayoutItemView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -66,10 +68,10 @@ private extension HUDClassicItemView {
 }
 
 // MARK: Lazy initialization
-private extension HUDClassicItemView {
+private extension HUDLayoutItemView {
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_28D799)
+            .textColor(titleColor)
             .font(Fonts.NotoSans.regular(size: 16.scale))
             .textAlignment(.center)
 

@@ -17,6 +17,7 @@ final class HUDViewModel {
 
     private enum Constants {
         static let refreshMs = 200
+        static let voltageSec = 5
     }
 
     private lazy var profileManager = ProfileManager()
@@ -141,41 +142,63 @@ private extension HUDViewModel {
         settings: Driver<HUDSettings>,
         isVisible: Driver<Bool>
     ) -> Driver<HUDReadings> {
-        let gauges = Driver
-            .combineLatest(state, isVisible)
-            .flatMapLatest { [weak self] state, isVisible -> Driver<[LiveDataGauge: ParameterReading]> in
-                switch state {
-                case .start:
-                    return Driver.just([:])
-                case .connected, .demoMode:
-                    guard isVisible, let self else {
-                        return Driver.empty()
-                    }
-
-                    return self.makeGauges(demo: state == .demoMode)
-                }
-            }
+        let service = makeService(state: state, isVisible: isVisible)
 
         return Driver
-            .combineLatest(gauges, makeUnits(settings: settings))
-            .map { gauges, units -> HUDReadings in
-                HUDReadings(
-                    speed: gauges[.speed].flatMap { HUDViewModel.rounded(reading: $0, units: units) },
+            .combineLatest(
+                makeGauges(service: service),
+                makeVoltage(service: service),
+                makeUnits(settings: settings)
+            )
+            .map { gauges, voltage, units -> HUDReadings in
+                let speed = gauges[.speed].flatMap { HUDViewModel.converted(reading: $0, units: units) }
+
+                return HUDReadings(
+                    speed: speed.map { String(Int($0.rounded())) },
+                    speedValue: speed,
                     rpm: gauges[.rpm].map { LiveDataValue(reading: $0, units: units).value },
-                    temperature: gauges[.coolant].map { LiveDataValue(reading: $0, units: units).text }
+                    temperature: gauges[.coolant].map { LiveDataValue(reading: $0, units: units).text },
+                    voltage: voltage
                 )
             }
     }
 
-    func makeGauges(demo: Bool) -> Driver<[LiveDataGauge: ParameterReading]> {
-        let service = OBDServiceProvider.service(demo: demo)
+    func makeService(
+        state: Driver<HUDView.State>,
+        isVisible: Driver<Bool>
+    ) -> Driver<OBDServiceProtocol?> {
+        Driver
+            .combineLatest(state, isVisible)
+            .flatMapLatest { state, isVisible -> Driver<OBDServiceProtocol?> in
+                switch state {
+                case .start:
+                    return Driver.just(nil)
+                case .connected, .demoMode:
+                    guard isVisible else {
+                        return Driver.empty()
+                    }
 
-        return service.state
-            .asDriver(onErrorDriveWith: .never())
-            .startWith(service.currentState)
-            .flatMapLatest { state -> Driver<[LiveDataGauge: ParameterReading]> in
-                guard case .ready = state else {
-                    return Driver.empty()
+                    let service = OBDServiceProvider.service(demo: state == .demoMode)
+
+                    return service.state
+                        .asDriver(onErrorDriveWith: .never())
+                        .startWith(service.currentState)
+                        .map { state -> OBDServiceProtocol? in
+                            guard case .ready = state else {
+                                return nil
+                            }
+
+                            return service
+                        }
+                }
+            }
+    }
+
+    func makeGauges(service: Driver<OBDServiceProtocol?>) -> Driver<[LiveDataGauge: ParameterReading]> {
+        service
+            .flatMapLatest { service -> Driver<[LiveDataGauge: ParameterReading]> in
+                guard let service else {
+                    return Driver.just([:])
                 }
 
                 return service
@@ -191,7 +214,29 @@ private extension HUDViewModel {
                     .asDriver(onErrorDriveWith: .never())
             }
     }
-    
+
+    func makeVoltage(service: Driver<OBDServiceProtocol?>) -> Driver<String?> {
+        service
+            .flatMapLatest { service -> Driver<String?> in
+                guard let service else {
+                    return Driver.just(nil)
+                }
+
+                return Observable<Int>
+                    .interval(.seconds(Constants.voltageSec), scheduler: MainScheduler.instance)
+                    .startWith(0)
+                    .flatMapLatest { _ in
+                        service
+                            .readVoltage()
+                            .asObservable()
+                            .map { $0 as String? }
+                            .catchAndReturn(nil)
+                    }
+                    .asDriver(onErrorJustReturn: nil)
+            }
+    }
+
+
     func makeUnits(settings: Driver<HUDSettings>) -> Driver<Units> {
         let profile = profileManager
             .obtainUnits()
@@ -334,18 +379,14 @@ private extension HUDViewModel {
 
 // MARK: Additional
 private extension HUDViewModel {
-    static func rounded(reading: ParameterReading, units: Units) -> String? {
+    static func converted(reading: ParameterReading, units: Units) -> Double? {
         guard case let .number(number) = reading.value, number.isFinite else {
             return nil
         }
 
         let converted = units.convert(value: number, unit: reading.parameter.unit)
 
-        guard converted.value.isFinite else {
-            return nil
-        }
-
-        return String(Int(converted.value.rounded()))
+        return converted.value.isFinite ? converted.value : nil
     }
 
 }

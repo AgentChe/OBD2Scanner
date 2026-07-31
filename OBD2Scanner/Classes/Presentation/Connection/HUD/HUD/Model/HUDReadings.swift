@@ -7,13 +7,21 @@
 
 struct HUDReadings {
     let speed: String?
+    let speedValue: Double?
     let rpm: String?
     let temperature: String?
+    let voltage: String?
 }
 
 // MARK: Public
 extension HUDReadings {
-    static let empty = HUDReadings(speed: nil, rpm: nil, temperature: nil)
+    static let empty = HUDReadings(
+        speed: nil,
+        speedValue: nil,
+        rpm: nil,
+        temperature: nil,
+        voltage: nil
+    )
 
     static let placeholder = "—"
 }

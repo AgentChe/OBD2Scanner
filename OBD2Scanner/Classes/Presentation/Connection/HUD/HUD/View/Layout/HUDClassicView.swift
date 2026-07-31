@@ -107,8 +107,8 @@ private extension HUDClassicView {
         return view
     }
 
-    func makeItemView(title: String) -> HUDClassicItemView {
-        let view = HUDClassicItemView(title: title)
+    func makeItemView(title: String) -> HUDLayoutItemView {
+        let view = HUDLayoutItemView(title: title)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

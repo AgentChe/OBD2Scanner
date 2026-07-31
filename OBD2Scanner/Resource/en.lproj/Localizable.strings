@@ -431,6 +431,7 @@ and smart monitoring";
 "HUD.Start.Action" = "Start HUD";
 "HUD.RPM" = "RPM";
 "HUD.Temp" = "Temp";
+"HUD.Voltage" = "Voltage";
 
 // MARK: HUDSettings
 "HUDSettings.Brightness" = "Brightness";

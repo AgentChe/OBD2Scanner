@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// TODO: проверить после реализации запроса
 final class RecallHistoryViewController: UIViewController {
     private lazy var mainView = RecallHistoryView()
 

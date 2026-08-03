@@ -13,7 +13,6 @@ struct RecallHistory {
     }
     
     let id: String
-    let date: String
     let marked: Bool
     let level: Level
     let link: URL
@@ -25,7 +24,6 @@ struct RecallHistory {
     init?(json: [String: Any]) {
         guard
             let id = json["recall_id"] as? String,
-            let date = json["date"] as? String,
             let marked = json["is_marked"] as? Bool,
             let level: Level = {
                 guard let rawValue = json["level"] as? String else { return nil }
@@ -38,7 +36,6 @@ struct RecallHistory {
         else { return nil }
         
         self.id = id
-        self.date = date
         self.marked = marked
         self.level = level
         self.link = link

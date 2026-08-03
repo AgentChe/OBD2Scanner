@@ -15,11 +15,12 @@ final class RecallHistoryViewModel {
 
     var tryAgain: ((Error) -> (Observable<Void>))?
 
-    private lazy var activity = RxActivityIndicator()
-
     private lazy var vehicleManager = VehicleManager()
 
     private lazy var observableRetrySingle = ObservableRetrySingle()
+    
+    private lazy var firstPageActivity = RxActivityIndicator()
+    private lazy var paginationActivity = RxActivityIndicator()
 
     private let vehicle: Vehicle
 
@@ -32,20 +33,25 @@ final class RecallHistoryViewModel {
 extension RecallHistoryViewModel {
     struct Input {
         let didTapLink: Signal<URL>
+        let didScrollToBottom: Signal<Void>
     }
 
     struct Output {
         let vehicle: Driver<Vehicle>
         let recalls: Driver<[RecallHistory]>
-        let activity: Driver<Bool>
+        let firstPageActivity: Driver<Bool>
+        let paginationActivity: Driver<Bool>
         let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
-        Output(
+        let fetchPageRecalls = makePageRecalls(didScrollToBottom: input.didScrollToBottom)
+        
+        return Output(
             vehicle: .just(vehicle),
-            recalls: makeRecalls(),
-            activity: activity.asDriver(),
+            recalls: makeRecalls(fetchPageRecalls: fetchPageRecalls),
+            firstPageActivity: firstPageActivity.asDriver(),
+            paginationActivity: paginationActivity.asDriver(),
             action: makeAction(didTapLink: input.didTapLink)
         )
     }
@@ -53,23 +59,57 @@ extension RecallHistoryViewModel {
 
 // MARK: Private
 private extension RecallHistoryViewModel {
-    func makeRecalls() -> Driver<[RecallHistory]> {
-        func source() -> Single<[RecallHistory]> {
-            vehicleManager
-                .obtainRecallHistory(vehicleId: vehicle.id)
-        }
+    func makeRecalls(fetchPageRecalls: Driver<Page<[RecallHistory]>>) -> Driver<[RecallHistory]> {
+        fetchPageRecalls
+            .scan([]) { allRecalls, page -> [RecallHistory] in
+                allRecalls + page.elements
+            }
+    }
+    
+    func makePageRecalls(didScrollToBottom: Signal<Void>) -> Driver<Page<[RecallHistory]>> {
+        var lastPageInfo: PageInfo?
+        
+        func fetch(page: Int) -> Driver<Page<[RecallHistory]>> {
+            func source() -> Single<Page<[RecallHistory]>?> {
+                vehicleManager
+                    .obtainRecallHistory(vehicleId: vehicle.id, page: page)
+            }
 
-        func trigger(error: Error) -> Observable<Void> {
-            tryAgain?(error) ?? .empty()
-        }
+            func trigger(error: Error) -> Observable<Void> {
+                tryAgain?(error) ?? .empty()
+            }
 
-        return observableRetrySingle
-            .retry(
-                source: { source() },
-                trigger: { trigger(error: $0) }
-            )
-            .trackActivity(activity)
-            .asDriver(onErrorDriveWith: .empty())
+            return observableRetrySingle
+                .retry(
+                    source: { source() },
+                    trigger: { trigger(error: $0) }
+                )
+                .trackActivity(page == 1 ? firstPageActivity : paginationActivity)
+                .asDriver(onErrorDriveWith: .empty())
+                .compactMap { $0 }
+                .do(onNext: { page in
+                    lastPageInfo = page.info
+                })
+        }
+        
+        let firstPage = fetch(page: 1)
+        
+        let downloadedPage = firstPage
+            .flatMapLatest { firstPage -> Driver<Page<[RecallHistory]>> in
+                didScrollToBottom
+                    .asDriver(onErrorDriveWith: .never())
+                    .compactMap { lastPageInfo }
+                    .filter { lastPageInfo -> Bool in
+                        let nextPageNotTotal = lastPageInfo.next <= lastPageInfo.total
+                        let currentNotTotal = lastPageInfo.current != lastPageInfo.total
+                        return nextPageNotTotal && currentNotTotal
+                    }
+                    .flatMapFirst { lastPageInfo -> Driver<Page<[RecallHistory]>> in
+                        fetch(page: lastPageInfo.next)
+                    }
+                    .startWith(firstPage)
+            }
+        return downloadedPage
     }
 
     func makeAction(didTapLink: Signal<URL>) -> Driver<Action> {

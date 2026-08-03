@@ -16,7 +16,8 @@ final class RecallHistoryView: UIView {
     lazy var arrowView = makeArrowView()
     lazy var countLabel = makeCountLabel()
     lazy var tableView = makeTableView()
-    lazy var preloader = makePreloader()
+    lazy var centerPreloader = makePreloader(style: .large)
+    lazy var bottomPreloader = makePreloader(style: .medium)
 
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
@@ -71,6 +72,22 @@ extension RecallHistoryView {
         countLabel.attributedText = count.attributed(with: countAttrs)
 
         tableView.setup(elements: recalls)
+    }
+
+    func setup(firstPageActivity: Bool) {
+        firstPageActivity ? centerPreloader.startAnimating() : centerPreloader.stopAnimating()
+
+        countLabel.isHidden = firstPageActivity
+        tableView.isHidden = firstPageActivity
+    }
+
+    func setup(paginationActivity: Bool) {
+        paginationActivity ? bottomPreloader.startAnimating() : bottomPreloader.stopAnimating()
+
+        tableView.contentInset = UIEdgeInsets(
+            t: 8.scale,
+            b: paginationActivity ? 56.scale : 16.scale
+        )
     }
 }
 
@@ -131,8 +148,13 @@ private extension RecallHistoryView {
         ])
 
         NSLayoutConstraint.activate([
-            preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            preloader.centerYAnchor.constraint(equalTo: centerYAnchor)
+            centerPreloader.centerXAnchor.constraint(equalTo: centerXAnchor),
+            centerPreloader.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bottomPreloader.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bottomPreloader.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
         ])
     }
 }
@@ -197,8 +219,8 @@ private extension RecallHistoryView {
         return view
     }
 
-    func makePreloader() -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: .large)
+    func makePreloader(style: UIActivityIndicatorView.Style) -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView(style: style)
         view.color = Appearance.color_28D799
         view.hidesWhenStopped = true
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -58,6 +58,7 @@
 		DE0A5C752FF29BEC003D95B0 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C742FF29BEC003D95B0 /* NotoSans-Regular.ttf */; };
 		DE0A5C772FF29BEF003D95B0 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C762FF29BEF003D95B0 /* NotoSans-SemiBold.ttf */; };
 		DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A5C782FF29E20003D95B0 /* Appearance.swift */; };
+		DE0B5291302072660030821C /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B5290302072660030821C /* Pagination.swift */; };
 		DE223FDD2FF3D9260023E94C /* UnlimitedPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FDC2FF3D9260023E94C /* UnlimitedPlanViewController.swift */; };
 		DE223FDF2FF3D92C0023E94C /* UnlimitedPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FDE2FF3D92C0023E94C /* UnlimitedPlanView.swift */; };
 		DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE223FE12FF3DC610023E94C /* UnlimitedPlanHeaderView.swift */; };
@@ -386,6 +387,7 @@
 		DE0A5C742FF29BEC003D95B0 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		DE0A5C762FF29BEF003D95B0 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE0A5C782FF29E20003D95B0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		DE0B5290302072660030821C /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		DE223FDC2FF3D9260023E94C /* UnlimitedPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanViewController.swift; sourceTree = "<group>"; };
 		DE223FDE2FF3D92C0023E94C /* UnlimitedPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanView.swift; sourceTree = "<group>"; };
 		DE223FE12FF3DC610023E94C /* UnlimitedPlanHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedPlanHeaderView.swift; sourceTree = "<group>"; };
@@ -1395,6 +1397,7 @@
 				DEDF4E062FF2C8D70001160D /* Purchase */,
 				DEC61E952A812651008F9C97 /* Session */,
 				DE2F0B332A6AC5B500471667 /* Vehicle */,
+				DE0B5290302072660030821C /* Pagination.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2574,6 +2577,7 @@
 				DE0A5C792FF29E20003D95B0 /* Appearance.swift in Sources */,
 				DE22400C2FF405440023E94C /* PaygateCell.swift in Sources */,
 				DE2240452FF563DF0023E94C /* SelectBrandViewController.swift in Sources */,
+				DE0B5291302072660030821C /* Pagination.swift in Sources */,
 				DE223FE22FF3DC610023E94C /* UnlimitedPlanHeaderView.swift in Sources */,
 				DE2240712FF653380023E94C /* TryAgainViewController.swift in Sources */,
 				DE2240C32FF7D1E60023E94C /* GarageTableCell.swift in Sources */,

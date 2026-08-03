@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// TODO: проверить после реализации запроса
 final class RecallHistoryViewController: UIViewController {
     private lazy var mainView = RecallHistoryView()
 
@@ -38,7 +39,8 @@ final class RecallHistoryViewController: UIViewController {
         }
 
         let output = viewModel.configure(input: RecallHistoryViewModel.Input(
-            didTapLink: mainView.tableView.didTapLink
+            didTapLink: mainView.tableView.didTapLink,
+            didScrollToBottom: mainView.tableView.didScrollToBottom
         ))
 
         output.vehicle
@@ -47,15 +49,21 @@ final class RecallHistoryViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        output.recalls
-            .drive(Binder(mainView) { base, recalls in
-                base.setup(recalls: recalls)
+        output.firstPageActivity
+            .drive(Binder(mainView) { base, isActive in
+                base.setup(firstPageActivity: isActive)
             })
             .disposed(by: disposeBag)
 
-        output.activity
-            .drive(Binder(mainView.preloader) { base, activity in
-                activity ? base.startAnimating() : base.stopAnimating()
+        output.paginationActivity
+            .drive(Binder(mainView) { base, isActive in
+                base.setup(paginationActivity: isActive)
+            })
+            .disposed(by: disposeBag)
+
+        output.recalls
+            .drive(Binder(mainView) { base, recalls in
+                base.setup(recalls: recalls)
             })
             .disposed(by: disposeBag)
 

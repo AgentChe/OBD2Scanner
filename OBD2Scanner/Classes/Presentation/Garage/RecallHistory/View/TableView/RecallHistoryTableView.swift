@@ -13,6 +13,7 @@ final class RecallHistoryTableView: UITableView {
     private lazy var elements = [RecallHistory]()
 
     private lazy var didTapLinkTrigger = PublishRelay<URL>()
+    private lazy var didScrollToBottomTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -36,6 +37,10 @@ extension RecallHistoryTableView {
     var didTapLink: Signal<URL> {
         didTapLinkTrigger.asSignal()
     }
+    
+    var didScrollToBottom: Signal<Void> {
+        didScrollToBottomTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -58,6 +63,12 @@ extension RecallHistoryTableView: UITableViewDataSource {
 extension RecallHistoryTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard (elements.count - 1) == indexPath.row else { return }
+        
+        didScrollToBottomTrigger.accept(Void())
     }
 }
 

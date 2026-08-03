@@ -27,7 +27,7 @@ protocol VehicleManagerProtocol {
     func obtainMyGarage() -> Single<[Vehicle]>
     func obtainCurrentVehicleID() -> Single<String?>
     func setupCurrent(vehicleID: String) -> Single<Void>
-    func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]>
+    func obtainRecallHistory(vehicleId: String, page: Int) -> Single<Page<[RecallHistory]>?>
     
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
@@ -192,11 +192,12 @@ extension VehicleManager: VehicleManagerProtocol {
         }
     }
     
-    func obtainRecallHistory(vehicleId: String) -> Single<[RecallHistory]> {
+    func obtainRecallHistory(vehicleId: String, page: Int) -> Single<Page<[RecallHistory]>?> {
         let requestBody = ObtainRecallHistoryRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId,
-            vehicleId: vehicleId
+            vehicleId: vehicleId,
+            page: page
         )
         
         return restAPITransport

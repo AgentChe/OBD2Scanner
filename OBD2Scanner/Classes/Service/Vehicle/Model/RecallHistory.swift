@@ -51,12 +51,17 @@ struct RecallHistory {
 
 // MARK: Public
 extension RecallHistory {
-    static func make(response: Any) -> [RecallHistory] {
+    static func make(response: Any) -> Page<[RecallHistory]>? {
         guard
             let json = response as? [String: Any],
-            let body = json["body"] as? [[String: Any]]
-        else { return [] }
+            let body = json["body"] as? [String: Any],
+            let items = body["items"] as? [[String: Any]],
+            let pageInfoJSON = body["pagination"] as? [String: Any],
+            let pageInfo = PageInfo(json: pageInfoJSON)
+        else { return nil }
         
-        return body.compactMap { RecallHistory(json: $0) }
+        let recallHistory = items.compactMap { RecallHistory(json: $0) }
+        
+        return Page(info: pageInfo, elements: recallHistory)
     }
 }

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "toyota-tnga",
+  "name": "Toyota / Lexus TNGA (Denso, service 21)",
+  "priority": 100,
+  "match": {
+    "brands": ["toyota", "lexus"],
+    "years": { "from": 2017 }
+  },
+  "bus": { "elmProtocol": "6" },
+  "ecus": [
+    {
+      "id": "engine",
+      "name": "Engine (Denso)",
+      "addressing": { "request": "7E0", "response": "7E8" },
+      "session": { "kind": "none" },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "toyota.rpm_2101",
+          "name": "Engine RPM (block 2101, calibration)",
+          "request": "2101", "responsePrefix": "6101",
+          "extract": { "start": 9, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.25, "offset": 0 },
+          "unit": "rpm", "range": { "min": 0, "max": 8000 },
+          "group": "live-fast", "categories": ["engine"]
+        },
+        {
+          "id": "toyota.coolant_2101",
+          "name": "Coolant temperature (block 2101, calibration)",
+          "request": "2101", "responsePrefix": "6101",
+          "extract": { "start": 8, "length": 1 },
+          "decode": { "kind": "linear", "scale": 1, "offset": -40 },
+          "unit": "°C", "range": { "min": -40, "max": 215 },
+          "group": "live-slow", "categories": ["engine"]
+        },
+        {
+          "id": "toyota.temp82",
+          "name": "Temperature (block 82, oil — TBD)",
+          "request": "2182", "responsePrefix": "6182",
+          "extract": { "start": 0, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.00390625, "offset": -40 },
+          "unit": "°C", "range": { "min": -40, "max": 215 },
+          "group": "live-slow", "categories": ["transmission", "engine"]
+        }
+      ]
+    }
+  ]
+}

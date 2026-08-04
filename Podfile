@@ -5,7 +5,6 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'OBD2Scanner' do
-  pod 'NotificationBannerSwift'
   pod 'Kingfisher'
   
   pod 'RxSwift'
@@ -16,10 +15,6 @@ target 'OBD2Scanner' do
   pod 'SwiftyStoreKit'
 
   pod 'OtterScaleiOS', :git => "https://github.com/AgentChe/OtterScaleiOS.git"
-  
-  pod 'FBSDKCoreKit'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
 end
 
 post_install do |installer|

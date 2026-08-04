@@ -1,0 +1,893 @@
+{
+  "schemaVersion": 1,
+  "id": "honda-civic-typer",
+  "name": "Honda Civic Type R FK2 (OBDb, candidate)",
+  "priority": 100,
+  "match": {
+    "brands": [
+      "honda"
+    ],
+    "models": [
+      "civic type r",
+      "civic"
+    ],
+    "years": {
+      "from": 2015,
+      "to": 2017
+    }
+  },
+  "bus": {
+    "elmProtocol": "7"
+  },
+  "ecus": [
+    {
+      "id": "ecu_da01",
+      "name": "ECU DA01",
+      "addressing": {
+        "request": "18DA01F1",
+        "response": "18DAF101"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_aat_cab",
+          "name": "Ambient air temperature, cabin",
+          "request": "22202A",
+          "responsePrefix": "62202A",
+          "group": "live-slow",
+          "extract": {
+            "start": 104,
+            "length": 1,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 127
+          }
+        },
+        {
+          "id": "civic_aat_out",
+          "name": "Ambient air temperature, outside",
+          "request": "22202A",
+          "responsePrefix": "62202A",
+          "group": "live-slow",
+          "extract": {
+            "start": 105,
+            "length": 1,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 127
+          }
+        },
+        {
+          "id": "civic_ect_1",
+          "name": "Engine coolant temperature sensor 1",
+          "request": "22202C",
+          "responsePrefix": "62202C",
+          "group": "live-slow",
+          "extract": {
+            "start": 201,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "civic_ect_2",
+          "name": "Engine coolant temperature sensor 2",
+          "request": "22202C",
+          "responsePrefix": "62202C",
+          "group": "live-slow",
+          "extract": {
+            "start": 203,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "civic_ect_3",
+          "name": "Engine coolant temperature sensor 3",
+          "request": "22202C",
+          "responsePrefix": "62202C",
+          "group": "live-slow",
+          "extract": {
+            "start": 205,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "civic_ect_4",
+          "name": "Engine coolant temperature sensor 4",
+          "request": "22202C",
+          "responsePrefix": "62202C",
+          "group": "live-slow",
+          "extract": {
+            "start": 207,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_da0e",
+      "name": "ECU DA0E",
+      "addressing": {
+        "request": "18DA0EF1",
+        "response": "18DAF10E"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_ac_p",
+          "name": "A/C pressure",
+          "request": "222613",
+          "responsePrefix": "622613",
+          "group": "live-slow",
+          "extract": {
+            "start": 15,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "kPa",
+          "range": {
+            "max": 1000
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_da10",
+      "name": "ECU DA10",
+      "addressing": {
+        "request": "18DA10F1",
+        "response": "18DAF110"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_generator",
+          "name": "Generator",
+          "request": "222610",
+          "responsePrefix": "622610",
+          "group": "live-slow",
+          "extract": {
+            "start": 23,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "civic_ac_clutch",
+          "name": "A/C clutch",
+          "request": "222610",
+          "responsePrefix": "622610",
+          "group": "live-slow",
+          "extract": {
+            "start": 32,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "A/C clutch"
+              }
+            ]
+          }
+        },
+        {
+          "id": "civic_fuel_air_ratio",
+          "name": "Fuel/air commanded equivalence ratio",
+          "request": "222611",
+          "responsePrefix": "622611",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "civic_airgas_ratio",
+          "name": "Air/gas ratio",
+          "request": "222611",
+          "responsePrefix": "622611",
+          "group": "live-slow",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00044861524376287477,
+            "offset": 0
+          },
+          "range": {
+            "max": 29.4
+          }
+        },
+        {
+          "id": "civic_active_cyl",
+          "name": "Active cylinders",
+          "request": "222615",
+          "responsePrefix": "622615",
+          "group": "live-slow",
+          "extract": {
+            "start": 50,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 6
+          }
+        },
+        {
+          "id": "civic_odo",
+          "name": "Odometer",
+          "request": "222660",
+          "responsePrefix": "622660",
+          "group": "live-slow",
+          "extract": {
+            "start": 43,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          }
+        },
+        {
+          "id": "civic_runtm",
+          "name": "Time since engine start",
+          "request": "222660",
+          "responsePrefix": "622660",
+          "group": "live-slow",
+          "extract": {
+            "start": 46,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "s",
+          "range": {
+            "max": 65535
+          }
+        },
+        {
+          "id": "civic_fuelair_car",
+          "name": "Fuel/air commanded equivalence ratio",
+          "request": "222661",
+          "responsePrefix": "622661",
+          "group": "live-fast",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0004486152437634909,
+            "offset": 0
+          },
+          "range": {
+            "max": 29.4
+          }
+        },
+        {
+          "id": "civic_knock_control",
+          "name": "Knock control",
+          "request": "222662",
+          "responsePrefix": "622662",
+          "group": "live-fast",
+          "extract": {
+            "start": 10,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00784313725490196,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 2
+          }
+        },
+        {
+          "id": "civic_vtc_duty",
+          "name": "Variable timing control duty",
+          "request": "222662",
+          "responsePrefix": "622662",
+          "group": "live-fast",
+          "extract": {
+            "start": 28,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        },
+        {
+          "id": "civic_mis_1",
+          "name": "Misfire count #1",
+          "request": "222663",
+          "responsePrefix": "622663",
+          "group": "live-slow",
+          "extract": {
+            "start": 34,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 65535
+          }
+        },
+        {
+          "id": "civic_mis_2",
+          "name": "Misfire count #2",
+          "request": "222663",
+          "responsePrefix": "622663",
+          "group": "live-slow",
+          "extract": {
+            "start": 36,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 65535
+          }
+        },
+        {
+          "id": "civic_mis_3",
+          "name": "Misfire count #3",
+          "request": "222663",
+          "responsePrefix": "622663",
+          "group": "live-slow",
+          "extract": {
+            "start": 38,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 65535
+          }
+        },
+        {
+          "id": "civic_mis_4",
+          "name": "Misfire count #4",
+          "request": "222663",
+          "responsePrefix": "622663",
+          "group": "live-slow",
+          "extract": {
+            "start": 40,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 65535
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_da28",
+      "name": "ECU DA28",
+      "addressing": {
+        "request": "18DA28F1",
+        "response": "18DAF128"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_brk_sw",
+          "name": "Brake switch",
+          "request": "224004",
+          "responsePrefix": "624004",
+          "group": "live-slow",
+          "extract": {
+            "start": 15,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Brake switch"
+              }
+            ]
+          }
+        },
+        {
+          "id": "civic_brk_p",
+          "name": "Brake pressure",
+          "request": "224005",
+          "responsePrefix": "624005",
+          "group": "live-slow",
+          "extract": {
+            "start": 7,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -25
+          },
+          "unit": "bar",
+          "range": {
+            "max": 120
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_da2a",
+      "name": "ECU DA2A",
+      "addressing": {
+        "request": "18DA2AF1",
+        "response": "18DAF12A"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_brk_ped_stk",
+          "name": "Brake pedal stroke",
+          "request": "224201",
+          "responsePrefix": "624201",
+          "group": "live-slow",
+          "extract": {
+            "start": 11,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "millimeters",
+          "range": {
+            "max": 50
+          }
+        },
+        {
+          "id": "civic_brk_fld_p",
+          "name": "Brake fluid pressure",
+          "request": "224201",
+          "responsePrefix": "624201",
+          "group": "live-slow",
+          "extract": {
+            "start": 21,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 5
+          }
+        },
+        {
+          "id": "civic_mstr_cyl_stk",
+          "name": "Master cylinder stroke",
+          "request": "224201",
+          "responsePrefix": "624201",
+          "group": "live-slow",
+          "extract": {
+            "start": 29,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "millimeters",
+          "range": {
+            "max": 6553.5
+          }
+        },
+        {
+          "id": "civic_slv_cyl_stk",
+          "name": "Slave cylinder stroke",
+          "request": "224201",
+          "responsePrefix": "624201",
+          "group": "live-slow",
+          "extract": {
+            "start": 31,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "millimeters",
+          "range": {
+            "max": 6553.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_da60",
+      "name": "ECU DA60",
+      "addressing": {
+        "request": "18DA60F1",
+        "response": "18DAF160"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "civic_odo_v3",
+          "name": "Odometer, variation 3",
+          "request": "227022",
+          "responsePrefix": "627022",
+          "group": "live-slow",
+          "extract": {
+            "start": 6,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mi",
+          "range": {
+            "max": 200000
+          }
+        },
+        {
+          "id": "civic_aat",
+          "name": "Outside air temperature",
+          "request": "227028",
+          "responsePrefix": "627028",
+          "group": "live-slow",
+          "extract": {
+            "start": 17,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "civic_flv",
+          "name": "Fuel level",
+          "request": "227029",
+          "responsePrefix": "627029",
+          "group": "live-slow",
+          "extract": {
+            "start": 12,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "L",
+          "range": {
+            "max": 655
+          }
+        },
+        {
+          "id": "civic_maint_oil_flt",
+          "name": "Maintenance, oil & filter",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 14,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_spark",
+          "name": "Maintenance, spark plugs & valves",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 16,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_insp",
+          "name": "Maintenance, general inspection",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 26,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_tire",
+          "name": "Maintenance, tire rotation",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 28,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_cabin_flt",
+          "name": "Maintenance, cabin filter",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 30,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_trans_fld",
+          "name": "Maintenance, transmission fluid",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 32,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_cool",
+          "name": "Maintenance, engine coolant",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 36,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_brk_fld",
+          "name": "Maintenance, rake fluid",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 40,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        },
+        {
+          "id": "civic_maint_air_cln",
+          "name": "Maintenance, air cleaner",
+          "request": "227060",
+          "responsePrefix": "627060",
+          "group": "live-slow",
+          "extract": {
+            "start": 42,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "unknown",
+          "range": {
+            "max": 9999
+          }
+        }
+      ]
+    }
+  ]
+}

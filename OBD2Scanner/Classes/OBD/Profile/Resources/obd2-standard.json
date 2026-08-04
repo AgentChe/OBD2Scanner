@@ -1,0 +1,2563 @@
+{
+  "schemaVersion": 1,
+  "id": "obd2-standard",
+  "name": "OBD-II (SAE J1979)",
+  "priority": 0,
+  "match": {},
+  "bus": {
+    "elmProtocol": "0"
+  },
+  "ecus": [
+    {
+      "id": "broadcast",
+      "name": "Emission ECUs",
+      "addressing": {
+        "request": "7DF"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "j1979Bitmap",
+      "dtc": {
+        "read": {
+          "request": "03",
+          "format": "j1979"
+        },
+        "pending": {
+          "request": "07",
+          "format": "j1979"
+        },
+        "permanent": {
+          "request": "0A",
+          "format": "j1979"
+        },
+        "clear": {
+          "request": "04"
+        },
+        "freezeFrame": {
+          "request": "02{pid}{frame}",
+          "format": "j1979FreezeFrame"
+        }
+      },
+      "parameters": [
+        {
+          "id": "std.fuel_system_status",
+          "name": "Fuel system status",
+          "request": "0103",
+          "responsePrefix": "4103",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Open loop (warm-up)",
+              "2": "Closed loop",
+              "4": "Open loop (load/decel)",
+              "8": "Open loop (system fault)",
+              "16": "Closed loop (with fault)"
+            }
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.engine_load",
+          "name": "Engine load",
+          "request": "0104",
+          "responsePrefix": "4104",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          },
+          "categories": [
+            "engine",
+            "hud"
+          ]
+        },
+        {
+          "id": "std.coolant_temp",
+          "name": "Coolant temperature",
+          "request": "0105",
+          "responsePrefix": "4105",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "categories": [
+            "engine",
+            "hud"
+          ]
+        },
+        {
+          "id": "std.stft_1",
+          "name": "Short term fuel trim (bank 1)",
+          "request": "0106",
+          "responsePrefix": "4106",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.ltft_1",
+          "name": "Long term fuel trim (bank 1)",
+          "request": "0107",
+          "responsePrefix": "4107",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.stft_2",
+          "name": "Short term fuel trim (bank 2)",
+          "request": "0108",
+          "responsePrefix": "4108",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.ltft_2",
+          "name": "Long term fuel trim (bank 2)",
+          "request": "0109",
+          "responsePrefix": "4109",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.fuel_pressure",
+          "name": "Fuel pressure",
+          "request": "010A",
+          "responsePrefix": "410A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa",
+          "range": {
+            "min": 0,
+            "max": 765
+          }
+        },
+        {
+          "id": "std.intake_map",
+          "name": "Intake manifold pressure (MAP)",
+          "request": "010B",
+          "responsePrefix": "410B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "kPa",
+          "range": {
+            "min": 0,
+            "max": 255
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.rpm",
+          "name": "Engine RPM",
+          "request": "010C",
+          "responsePrefix": "410C",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.25,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "rpm",
+          "range": {
+            "min": 0,
+            "max": 8000
+          },
+          "categories": [
+            "engine",
+            "hud"
+          ]
+        },
+        {
+          "id": "std.speed",
+          "name": "Vehicle speed",
+          "request": "010D",
+          "responsePrefix": "410D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "km/h",
+          "range": {
+            "min": 0,
+            "max": 255
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.timing_advance",
+          "name": "Ignition timing advance",
+          "request": "010E",
+          "responsePrefix": "410E",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.5,
+            "offset": -64
+          },
+          "group": "live-fast",
+          "unit": "°",
+          "range": {
+            "min": -64,
+            "max": 63.5
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.intake_temp",
+          "name": "Intake air temperature",
+          "request": "010F",
+          "responsePrefix": "410F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          }
+        },
+        {
+          "id": "std.maf",
+          "name": "Mass air flow (MAF)",
+          "request": "0110",
+          "responsePrefix": "4110",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "g/s",
+          "range": {
+            "min": 0,
+            "max": 655
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.throttle",
+          "name": "Throttle position",
+          "request": "0111",
+          "responsePrefix": "4111",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          },
+          "categories": [
+            "engine",
+            "hud"
+          ]
+        },
+        {
+          "id": "std.o2_b1s1_v",
+          "name": "O2 sensor B1S1: voltage",
+          "request": "0114",
+          "responsePrefix": "4114",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s1_trim",
+          "name": "O2 sensor B1S1: fuel trim",
+          "request": "0114",
+          "responsePrefix": "4114",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s2_v",
+          "name": "O2 sensor B1S2: voltage",
+          "request": "0115",
+          "responsePrefix": "4115",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s2_trim",
+          "name": "O2 sensor B1S2: fuel trim",
+          "request": "0115",
+          "responsePrefix": "4115",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s3_v",
+          "name": "O2 sensor B1S3: voltage",
+          "request": "0116",
+          "responsePrefix": "4116",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s3_trim",
+          "name": "O2 sensor B1S3: fuel trim",
+          "request": "0116",
+          "responsePrefix": "4116",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s4_v",
+          "name": "O2 sensor B1S4: voltage",
+          "request": "0117",
+          "responsePrefix": "4117",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b1s4_trim",
+          "name": "O2 sensor B1S4: fuel trim",
+          "request": "0117",
+          "responsePrefix": "4117",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s1_v",
+          "name": "O2 sensor B2S1: voltage",
+          "request": "0118",
+          "responsePrefix": "4118",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s1_trim",
+          "name": "O2 sensor B2S1: fuel trim",
+          "request": "0118",
+          "responsePrefix": "4118",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s2_v",
+          "name": "O2 sensor B2S2: voltage",
+          "request": "0119",
+          "responsePrefix": "4119",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s2_trim",
+          "name": "O2 sensor B2S2: fuel trim",
+          "request": "0119",
+          "responsePrefix": "4119",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s3_v",
+          "name": "O2 sensor B2S3: voltage",
+          "request": "011A",
+          "responsePrefix": "411A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s3_trim",
+          "name": "O2 sensor B2S3: fuel trim",
+          "request": "011A",
+          "responsePrefix": "411A",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s4_v",
+          "name": "O2 sensor B2S4: voltage",
+          "request": "011B",
+          "responsePrefix": "411B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 1.275
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2_b2s4_trim",
+          "name": "O2 sensor B2S4: fuel trim",
+          "request": "011B",
+          "responsePrefix": "411B",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.obd_standard",
+          "name": "OBD standard",
+          "request": "011C",
+          "responsePrefix": "411C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "OBD-II (CARB)",
+              "2": "OBD (EPA)",
+              "3": "OBD and OBD-II",
+              "4": "OBD-I",
+              "5": "No OBD",
+              "6": "EOBD",
+              "7": "EOBD and OBD-II",
+              "8": "EOBD and OBD",
+              "9": "EOBD, OBD, OBD-II",
+              "10": "JOBD",
+              "11": "JOBD and OBD-II",
+              "12": "JOBD and EOBD",
+              "13": "JOBD, EOBD, OBD-II"
+            }
+          },
+          "group": "once",
+          "categories": [
+            "info"
+          ]
+        },
+        {
+          "id": "std.runtime",
+          "name": "Engine run time",
+          "request": "011F",
+          "responsePrefix": "411F",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "s",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.distance_mil",
+          "name": "Distance with MIL on",
+          "request": "0121",
+          "responsePrefix": "4121",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "km",
+          "categories": [
+            "diagnostics"
+          ]
+        },
+        {
+          "id": "std.fuel_rail_pressure",
+          "name": "Fuel rail pressure (rel. to vacuum)",
+          "request": "0122",
+          "responsePrefix": "4122",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.079,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa"
+        },
+        {
+          "id": "std.fuel_rail_gauge",
+          "name": "Fuel rail pressure (direct injection)",
+          "request": "0123",
+          "responsePrefix": "4123",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 10,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa"
+        },
+        {
+          "id": "std.o2wr_b1s1_lambda",
+          "name": "Wideband O2 B1S1: lambda",
+          "request": "0124",
+          "responsePrefix": "4124",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s1_v",
+          "name": "Wideband O2 B1S1: voltage",
+          "request": "0124",
+          "responsePrefix": "4124",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s2_lambda",
+          "name": "Wideband O2 B1S2: lambda",
+          "request": "0125",
+          "responsePrefix": "4125",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s2_v",
+          "name": "Wideband O2 B1S2: voltage",
+          "request": "0125",
+          "responsePrefix": "4125",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s3_lambda",
+          "name": "Wideband O2 B1S3: lambda",
+          "request": "0126",
+          "responsePrefix": "4126",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s3_v",
+          "name": "Wideband O2 B1S3: voltage",
+          "request": "0126",
+          "responsePrefix": "4126",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s4_lambda",
+          "name": "Wideband O2 B1S4: lambda",
+          "request": "0127",
+          "responsePrefix": "4127",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b1s4_v",
+          "name": "Wideband O2 B1S4: voltage",
+          "request": "0127",
+          "responsePrefix": "4127",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s1_lambda",
+          "name": "Wideband O2 B2S1: lambda",
+          "request": "0128",
+          "responsePrefix": "4128",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s1_v",
+          "name": "Wideband O2 B2S1: voltage",
+          "request": "0128",
+          "responsePrefix": "4128",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s2_lambda",
+          "name": "Wideband O2 B2S2: lambda",
+          "request": "0129",
+          "responsePrefix": "4129",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s2_v",
+          "name": "Wideband O2 B2S2: voltage",
+          "request": "0129",
+          "responsePrefix": "4129",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s3_lambda",
+          "name": "Wideband O2 B2S3: lambda",
+          "request": "012A",
+          "responsePrefix": "412A",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s3_v",
+          "name": "Wideband O2 B2S3: voltage",
+          "request": "012A",
+          "responsePrefix": "412A",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s4_lambda",
+          "name": "Wideband O2 B2S4: lambda",
+          "request": "012B",
+          "responsePrefix": "412B",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wr_b2s4_v",
+          "name": "Wideband O2 B2S4: voltage",
+          "request": "012B",
+          "responsePrefix": "412B",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0001220703125,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.commanded_egr",
+          "name": "Commanded EGR",
+          "request": "012C",
+          "responsePrefix": "412C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.egr_error",
+          "name": "EGR error",
+          "request": "012D",
+          "responsePrefix": "412D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          }
+        },
+        {
+          "id": "std.evap_purge",
+          "name": "Commanded EVAP purge",
+          "request": "012E",
+          "responsePrefix": "412E",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.fuel_level",
+          "name": "Fuel level",
+          "request": "012F",
+          "responsePrefix": "412F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.warmups_cleared",
+          "name": "Warm-ups since DTC clear",
+          "request": "0130",
+          "responsePrefix": "4130",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "categories": [
+            "diagnostics"
+          ]
+        },
+        {
+          "id": "std.distance_cleared",
+          "name": "Distance since DTC clear",
+          "request": "0131",
+          "responsePrefix": "4131",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "km",
+          "categories": [
+            "diagnostics"
+          ]
+        },
+        {
+          "id": "std.evap_pressure",
+          "name": "EVAP vapor pressure",
+          "request": "0132",
+          "responsePrefix": "4132",
+          "extract": {
+            "start": 0,
+            "length": 2,
+            "signed": true
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.25,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "Pa"
+        },
+        {
+          "id": "std.baro",
+          "name": "Barometric pressure",
+          "request": "0133",
+          "responsePrefix": "4133",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa",
+          "range": {
+            "min": 0,
+            "max": 255
+          }
+        },
+        {
+          "id": "std.o2wc_b1s1_lambda",
+          "name": "Wideband O2 B1S1: lambda (current)",
+          "request": "0134",
+          "responsePrefix": "4134",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s1_ma",
+          "name": "Wideband O2 B1S1: current",
+          "request": "0134",
+          "responsePrefix": "4134",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s2_lambda",
+          "name": "Wideband O2 B1S2: lambda (current)",
+          "request": "0135",
+          "responsePrefix": "4135",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s2_ma",
+          "name": "Wideband O2 B1S2: current",
+          "request": "0135",
+          "responsePrefix": "4135",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s3_lambda",
+          "name": "Wideband O2 B1S3: lambda (current)",
+          "request": "0136",
+          "responsePrefix": "4136",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s3_ma",
+          "name": "Wideband O2 B1S3: current",
+          "request": "0136",
+          "responsePrefix": "4136",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s4_lambda",
+          "name": "Wideband O2 B1S4: lambda (current)",
+          "request": "0137",
+          "responsePrefix": "4137",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b1s4_ma",
+          "name": "Wideband O2 B1S4: current",
+          "request": "0137",
+          "responsePrefix": "4137",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s1_lambda",
+          "name": "Wideband O2 B2S1: lambda (current)",
+          "request": "0138",
+          "responsePrefix": "4138",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s1_ma",
+          "name": "Wideband O2 B2S1: current",
+          "request": "0138",
+          "responsePrefix": "4138",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s2_lambda",
+          "name": "Wideband O2 B2S2: lambda (current)",
+          "request": "0139",
+          "responsePrefix": "4139",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s2_ma",
+          "name": "Wideband O2 B2S2: current",
+          "request": "0139",
+          "responsePrefix": "4139",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s3_lambda",
+          "name": "Wideband O2 B2S3: lambda (current)",
+          "request": "013A",
+          "responsePrefix": "413A",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s3_ma",
+          "name": "Wideband O2 B2S3: current",
+          "request": "013A",
+          "responsePrefix": "413A",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s4_lambda",
+          "name": "Wideband O2 B2S4: lambda (current)",
+          "request": "013B",
+          "responsePrefix": "413B",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.o2wc_b2s4_ma",
+          "name": "Wideband O2 B2S4: current",
+          "request": "013B",
+          "responsePrefix": "413B",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "group": "live-slow",
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 128
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.cat_temp_b1s1",
+          "name": "Catalyst temperature B1S1",
+          "request": "013C",
+          "responsePrefix": "413C",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.cat_temp_b2s1",
+          "name": "Catalyst temperature B2S1",
+          "request": "013D",
+          "responsePrefix": "413D",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.cat_temp_b1s2",
+          "name": "Catalyst temperature B1S2",
+          "request": "013E",
+          "responsePrefix": "413E",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.cat_temp_b2s2",
+          "name": "Catalyst temperature B2S2",
+          "request": "013F",
+          "responsePrefix": "413F",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.control_module_voltage",
+          "name": "Control module voltage",
+          "request": "0142",
+          "responsePrefix": "4142",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "V",
+          "range": {
+            "min": 0,
+            "max": 65
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.abs_load",
+          "name": "Absolute load",
+          "request": "0143",
+          "responsePrefix": "4143",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%"
+        },
+        {
+          "id": "std.commanded_lambda",
+          "name": "Commanded equivalence ratio",
+          "request": "0144",
+          "responsePrefix": "4144",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.0517578125e-05,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "λ",
+          "range": {
+            "min": 0,
+            "max": 2
+          }
+        },
+        {
+          "id": "std.rel_throttle",
+          "name": "Relative throttle position",
+          "request": "0145",
+          "responsePrefix": "4145",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.ambient_temp",
+          "name": "Ambient air temperature",
+          "request": "0146",
+          "responsePrefix": "4146",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.abs_throttle_b",
+          "name": "Absolute throttle position B",
+          "request": "0147",
+          "responsePrefix": "4147",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.abs_throttle_c",
+          "name": "Absolute throttle position C",
+          "request": "0148",
+          "responsePrefix": "4148",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.pedal_d",
+          "name": "Accelerator pedal position D",
+          "request": "0149",
+          "responsePrefix": "4149",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.pedal_e",
+          "name": "Accelerator pedal position E",
+          "request": "014A",
+          "responsePrefix": "414A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.pedal_f",
+          "name": "Accelerator pedal position F",
+          "request": "014B",
+          "responsePrefix": "414B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.throttle_actuator",
+          "name": "Commanded throttle actuator",
+          "request": "014C",
+          "responsePrefix": "414C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.time_mil",
+          "name": "Time with MIL on",
+          "request": "014D",
+          "responsePrefix": "414D",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "min",
+          "categories": [
+            "diagnostics"
+          ]
+        },
+        {
+          "id": "std.time_cleared",
+          "name": "Time since DTC clear",
+          "request": "014E",
+          "responsePrefix": "414E",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "min",
+          "categories": [
+            "diagnostics"
+          ]
+        },
+        {
+          "id": "std.fuel_type",
+          "name": "Fuel type",
+          "request": "0151",
+          "responsePrefix": "4151",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "enum",
+            "map": {
+              "1": "Gasoline",
+              "2": "Methanol",
+              "3": "Ethanol",
+              "4": "Diesel",
+              "5": "LPG",
+              "6": "CNG",
+              "7": "Propane",
+              "8": "Electric",
+              "17": "Hybrid (gasoline)",
+              "18": "Hybrid (diesel)",
+              "19": "Hybrid (electric)"
+            }
+          },
+          "group": "once",
+          "categories": [
+            "info"
+          ]
+        },
+        {
+          "id": "std.ethanol",
+          "name": "Ethanol content",
+          "request": "0152",
+          "responsePrefix": "4152",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "once",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          },
+          "categories": [
+            "info"
+          ]
+        },
+        {
+          "id": "std.evap_pressure_abs",
+          "name": "EVAP vapor pressure (abs.)",
+          "request": "0153",
+          "responsePrefix": "4153",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa"
+        },
+        {
+          "id": "std.evap_pressure_alt",
+          "name": "EVAP vapor pressure (alt.)",
+          "request": "0154",
+          "responsePrefix": "4154",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -32767
+          },
+          "group": "live-slow",
+          "unit": "Pa"
+        },
+        {
+          "id": "std.stft_o2_b1",
+          "name": "Short term O2 trim (bank 1)",
+          "request": "0155",
+          "responsePrefix": "4155",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          }
+        },
+        {
+          "id": "std.ltft_o2_b1",
+          "name": "Long term O2 trim (bank 1)",
+          "request": "0156",
+          "responsePrefix": "4156",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          }
+        },
+        {
+          "id": "std.stft_o2_b2",
+          "name": "Short term O2 trim (bank 2)",
+          "request": "0157",
+          "responsePrefix": "4157",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          }
+        },
+        {
+          "id": "std.ltft_o2_b2",
+          "name": "Long term O2 trim (bank 2)",
+          "request": "0158",
+          "responsePrefix": "4158",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.2
+          }
+        },
+        {
+          "id": "std.fuel_rail_abs",
+          "name": "Fuel rail pressure (abs.)",
+          "request": "0159",
+          "responsePrefix": "4159",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 10,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "kPa"
+        },
+        {
+          "id": "std.rel_pedal",
+          "name": "Relative pedal position",
+          "request": "015A",
+          "responsePrefix": "415A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "std.hybrid_battery",
+          "name": "Hybrid battery charge",
+          "request": "015B",
+          "responsePrefix": "415B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.3921568627,
+            "offset": 0
+          },
+          "group": "live-slow",
+          "unit": "%",
+          "range": {
+            "min": 0,
+            "max": 100
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.oil_temp",
+          "name": "Engine oil temperature",
+          "request": "015C",
+          "responsePrefix": "415C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "group": "live-slow",
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.injection_timing",
+          "name": "Fuel injection timing",
+          "request": "015D",
+          "responsePrefix": "415D",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0078125,
+            "offset": -210
+          },
+          "group": "live-slow",
+          "unit": "°"
+        },
+        {
+          "id": "std.fuel_rate",
+          "name": "Fuel rate (ECU)",
+          "request": "015E",
+          "responsePrefix": "415E",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.05,
+            "offset": 0
+          },
+          "group": "live-fast",
+          "unit": "L/h",
+          "range": {
+            "min": 0,
+            "max": 3276
+          },
+          "categories": [
+            "hud"
+          ]
+        },
+        {
+          "id": "std.torque_demanded",
+          "name": "Demanded torque",
+          "request": "0161",
+          "responsePrefix": "4161",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -125
+          },
+          "group": "live-fast",
+          "unit": "%",
+          "range": {
+            "min": -125,
+            "max": 130
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.torque_actual",
+          "name": "Actual torque",
+          "request": "0162",
+          "responsePrefix": "4162",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -125
+          },
+          "group": "live-fast",
+          "unit": "%",
+          "range": {
+            "min": -125,
+            "max": 130
+          },
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "std.torque_reference",
+          "name": "Reference torque",
+          "request": "0163",
+          "responsePrefix": "4163",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": 0
+          },
+          "group": "once",
+          "unit": "Nm",
+          "categories": [
+            "info"
+          ]
+        }
+      ]
+    }
+  ]
+}

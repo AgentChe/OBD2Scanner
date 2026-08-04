@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "honda-s2000",
+  "name": "Honda S2000 (ISO 9141-2, K-line)",
+  "priority": 100,
+  "match": {
+    "brands": [
+      "honda"
+    ],
+    "models": [
+      "s2000"
+    ],
+    "years": {
+      "from": 1999,
+      "to": 2009
+    }
+  },
+  "bus": {
+    "elmProtocol": "3"
+  },
+  "ecus": []
+}

@@ -1,0 +1,4670 @@
+{
+  "schemaVersion": 1,
+  "id": "toyota-camry",
+  "name": "Toyota Camry (OBDb, 2018+)",
+  "priority": 110,
+  "match": {
+    "brands": [
+      "toyota"
+    ],
+    "models": [
+      "camry"
+    ],
+    "years": {
+      "from": 2018
+    }
+  },
+  "bus": {
+    "elmProtocol": "6"
+  },
+  "ecus": [
+    {
+      "id": "engine",
+      "name": "Engine (service 21)",
+      "addressing": {
+        "request": "7E0",
+        "response": "7E8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "toyota.rpm_2101",
+          "name": "Engine RPM (2101, verified on XV70)",
+          "request": "2101",
+          "responsePrefix": "6101",
+          "extract": {
+            "start": 9,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.25,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "min": 0,
+            "max": 8000
+          },
+          "crossCheck": {
+            "reference": "std.rpm",
+            "absolute": 100
+          },
+          "group": "live-fast",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "toyota.coolant_2101",
+          "name": "Coolant temperature (2101, verified on XV70)",
+          "request": "2101",
+          "responsePrefix": "6101",
+          "extract": {
+            "start": 8,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_atf_t",
+          "name": "Automatic transmission fluid temperature",
+          "request": "01B4",
+          "responsePrefix": "41B4",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_short_ft_b1s1",
+          "name": "Short FT B1S1",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.218
+          },
+          "crossCheck": {
+            "reference": "std.stft_1",
+            "absolute": 5
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_long_ft_b1s1",
+          "name": "Long FT B1S1",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": -100
+          },
+          "unit": "%",
+          "range": {
+            "min": -100,
+            "max": 99.218
+          },
+          "crossCheck": {
+            "reference": "std.ltft_1",
+            "absolute": 5
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_ign_advance",
+          "name": "Ignition advance",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.5,
+            "offset": -64
+          },
+          "unit": "°",
+          "range": {
+            "min": -64,
+            "max": 63.5
+          },
+          "crossCheck": {
+            "reference": "std.timing_advance",
+            "absolute": 10
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_evap_purge_duty",
+          "name": "EVAP purge duty",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.39215686274509803,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_target_air_fuel_ratio",
+          "name": "Target air-fuel ratio",
+          "request": "2104",
+          "responsePrefix": "6104",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.036545357442588e-05,
+            "offset": 0
+          },
+          "range": {
+            "max": 1.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_af_lambda_b1s1",
+          "name": "AF lambda, bank 1 sensor 1",
+          "request": "2104",
+          "responsePrefix": "6104",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 3.036545357442588e-05,
+            "offset": 0
+          },
+          "range": {
+            "max": 1.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_afs_voltage_b1s1",
+          "name": "Air fuel sensor voltage, bank 1 sensor 1",
+          "request": "2104",
+          "responsePrefix": "6104",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00012191958495460442,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 7.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_afs_current_b1s1",
+          "name": "Air fuel sensor current, bank 1 sensor 1",
+          "request": "2104",
+          "responsePrefix": "6104",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -128
+          },
+          "unit": "mA",
+          "range": {
+            "min": -128,
+            "max": 127.99
+          },
+          "crossCheck": {
+            "reference": "std.o2wc_b1s1_ma",
+            "absolute": 5
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_o2s_b1s2",
+          "name": "O2S, bank 1 sensor 2",
+          "request": "2104",
+          "responsePrefix": "6104",
+          "extract": {
+            "start": 10,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.005,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 1.275
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_catalyst_t_b1s1",
+          "name": "Catalyst temperature B1S1",
+          "request": "2105",
+          "responsePrefix": "6105",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513.5
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_catalyst_t_b1s2",
+          "name": "Catalyst temperature B1S2",
+          "request": "2105",
+          "responsePrefix": "6105",
+          "extract": {
+            "start": 4,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 6513.5
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_mil",
+          "name": "MIL",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "MIL"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_complete_parts_monitor_avail",
+          "name": "Complete parts monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Complete parts monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_fuel_system_monitor_avail",
+          "name": "Fuel system monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Fuel system monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_misfire_monitor_avail",
+          "name": "Misfire monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Misfire monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_egr_vvt_monitor_avail",
+          "name": "EGR/VVT monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "EGR/VVT monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_o2s_a_fs_heater_monitor_avail",
+          "name": "O2S heater monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "O2S heater monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_o2s_a_fs_monitor_avail",
+          "name": "O2S monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "O2S monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_a_c_monitor_avail",
+          "name": "A/C monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "A/C monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_2nd_air_monitor_avail",
+          "name": "2nd air monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "2nd air monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_evap_monitor_avail",
+          "name": "EVAP monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "EVAP monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_heated_catalyst_monitor_avail",
+          "name": "Heated catalyst monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Heated catalyst monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_catalyst_monitor_avail",
+          "name": "Catalyst monitor_avail",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Catalyst monitor_avail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_egr_vvt_monitor_incmpl",
+          "name": "EGR/VVT monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "EGR/VVT monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_o2s_a_fs_heater_monitor_incmpl",
+          "name": "O2S heater monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "O2S heater monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_o2s_a_fs_monitor_incmpl",
+          "name": "O2S monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "O2S monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_a_c_monitor_incmpl",
+          "name": "A/C monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "A/C monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_2nd_air_monitor_incmpl",
+          "name": "2nd air monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "2nd air monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_evap_monitor_icmpl",
+          "name": "EVAP monitor_icmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "EVAP monitor_icmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_heated_catalyst_monitor_incmpl",
+          "name": "Heated catalyst monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Heated catalyst monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_catalyst_monitor_incmpl",
+          "name": "Catalyst monitor_incmpl",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Catalyst monitor_incmpl"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_milon_run_distance",
+          "name": "MIL ON run distance",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 6,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 65535
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_running_time_from_mil_on",
+          "name": "Running time from MIL ON",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "min",
+          "range": {
+            "max": 65535
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cc_s",
+          "name": "Cruise control speed",
+          "request": "2121",
+          "responsePrefix": "6121",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_communication_with_hv",
+          "name": "Communication with HV",
+          "request": "2124",
+          "responsePrefix": "6124",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Communication with HV"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_communication_with_brake",
+          "name": "Communication with brake",
+          "request": "2124",
+          "responsePrefix": "6124",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Communication with brake"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_comm_with_air_conditioner",
+          "name": "Communication with air conditioner",
+          "request": "2124",
+          "responsePrefix": "6124",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Communication with air conditioner"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_comm_with_valvematic_comm",
+          "name": "Communication with valvematic",
+          "request": "2124",
+          "responsePrefix": "6124",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Communication with valvematic"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_power_steering_signal",
+          "name": "Power steering",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Power steering"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_stop_light_switch",
+          "name": "Stop light",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Stop light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cruise_control_live_brake_cancel_switch",
+          "name": "Cruise control live brake cancel",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Cruise control live brake cancel"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_starter_signal",
+          "name": "Starter signal",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Starter signal"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_starter_control",
+          "name": "Starter control",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Starter control"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_electrical_load_signal_1",
+          "name": "Electrical load signal 1",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Electrical load signal 1"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_electrical_load_signal_2",
+          "name": "Electrical load signal 2",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Electrical load signal 2"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_shift_sw_status_p_range",
+          "name": "Shift SW status, parking",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Shift SW status, parking"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_shift_sw_status_r_range",
+          "name": "Shift SW status, reverse",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Shift SW status, reverse"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_shift_sw_status_n_range",
+          "name": "Shift SW status, neutral",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Shift SW status, neutral"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_shift_sw_status_d_range",
+          "name": "Shift SW status, drive",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Shift SW status, drive"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_sports_mode_selection_sw",
+          "name": "Sports mode selection",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Sports mode selection"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_sports_shift_up_sw",
+          "name": "Sports shift up",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Sports shift up"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_sports_shift_down_sw",
+          "name": "Sports shift down",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Sports shift down"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_pattern_switch_pwr_m",
+          "name": "Pattern switch",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Pattern switch"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_neutral_position_sw_signal",
+          "name": "Neutral position",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 6,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Neutral position"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_tc_terminal",
+          "name": "TC",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "TC"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_a_c_compressor",
+          "name": "A/C compressor",
+          "request": "2125",
+          "responsePrefix": "6125",
+          "extract": {
+            "start": 8,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "A/C compressor"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_odo_7e0",
+          "name": "Odometer",
+          "request": "2128",
+          "responsePrefix": "6128",
+          "extract": {
+            "start": 0,
+            "length": 3
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 16777215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_misfire_rpm_v2",
+          "name": "Misfire RPM",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 25.0,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "max": 6375
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_misfire_load_v2",
+          "name": "Misfire load",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.015625,
+            "offset": 0
+          },
+          "range": {
+            "max": 3.98
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cyl1_misfire_cnt",
+          "name": "Cylinder #1 misfire count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cyl2_misfire_cnt",
+          "name": "Cylinder #2 misfire count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cyl3_misfire_cnt",
+          "name": "Cylinder #3 misfire count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_cyl4_misfire_cnt",
+          "name": "Cylinder #4 misfire count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 6,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_all_cylinders_misfire_cnt",
+          "name": "All cylinders misfire count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_ignition_trig_cnt",
+          "name": "Ignition trigger count",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 8,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 65535
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_misfire_margin_v2",
+          "name": "Misfire margin",
+          "request": "2145",
+          "responsePrefix": "6145",
+          "extract": {
+            "start": 10,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "unit": "%",
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_eng_start_t",
+          "name": "Engine starting time",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 10.0,
+            "offset": 0
+          },
+          "unit": "ms",
+          "range": {
+            "max": 655350
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_eng_spd_start_off",
+          "name": "Engine speed, starter off",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.78125,
+            "offset": 0
+          },
+          "unit": "rpm",
+          "range": {
+            "max": 51199
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_immob_fuel_cut",
+          "name": "Immobilizer fuel cut",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Immobilizer fuel cut"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_prev_trip_dst",
+          "name": "Previous trip distance",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 5,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 655.35
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_vvtot",
+          "name": "Variable valve timing oil temperature",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_prev_trip_iat",
+          "name": "Intake air temperature, previous trip",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 8,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_eot_v3",
+          "name": "Engine oil temperature",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 9,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "crossCheck": {
+            "reference": "std.oil_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_prev_trip_eot",
+          "name": "Engine oil temperature, previous trip",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 10,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_ac_amb_t",
+          "name": "Ambient temperature for A/C",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 11,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_prev_trip_amb_t",
+          "name": "Ambient temperature, previous trip",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 12,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_tps",
+          "name": "Throttle position",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 13,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00762939453125,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 499.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_isc_flow",
+          "name": "Idle speed control flow",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 15,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001220703125,
+            "offset": 0
+          },
+          "range": {
+            "max": 79.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_isc_pos",
+          "name": "Idle speed control position",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 17,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00762939453125,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 499.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_isc_fb",
+          "name": "Idle speed control feedback",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 21,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001220703125,
+            "offset": -40
+          },
+          "range": {
+            "min": -40,
+            "max": 39.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_isc_learn",
+          "name": "Idle speed control learning value",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 23,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001220703125,
+            "offset": -40
+          },
+          "range": {
+            "min": -40,
+            "max": 39.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_elec_load_fb",
+          "name": "Electric load feedback",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 25,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001220703125,
+            "offset": -40
+          },
+          "range": {
+            "min": -40,
+            "max": 39.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_ac_fb",
+          "name": "Air conditioner feedback",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 27,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001220703125,
+            "offset": -40
+          },
+          "range": {
+            "min": -40,
+            "max": 39.99
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_n_range_sts",
+          "name": "Neutral range status",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Neutral range status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_neutral_ctrl",
+          "name": "Neutral control",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Neutral control"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_low_rpm_ctrl",
+          "name": "Low revolution control",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Low revolution control"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_vvt_adv_fail",
+          "name": "Variable valve timing advance fail",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Variable valve timing advance fail"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_low_rpm_start",
+          "name": "Low revolution for engine start",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Low revolution for engine start"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_eng_start_hesit",
+          "name": "Engine start hesitation",
+          "request": "2151",
+          "responsePrefix": "6151",
+          "extract": {
+            "start": 29,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Engine start hesitation"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_atf_pan_t",
+          "name": "Transmission temperature, pan",
+          "request": "2182",
+          "responsePrefix": "6182",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_atf_tqc_t",
+          "name": "Transmission temperature, torque converter",
+          "request": "2182",
+          "responsePrefix": "6182",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.00390625,
+            "offset": -40
+          },
+          "unit": "°C",
+          "range": {
+            "min": -40,
+            "max": 215
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_gear_v2",
+          "name": "Gear, variant",
+          "request": "2185",
+          "responsePrefix": "6185",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_torque_converter_lockup",
+          "name": "Torque converter lockup",
+          "request": "2185",
+          "responsePrefix": "6185",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Torque converter lockup"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        },
+        {
+          "id": "camry_gear_v3",
+          "name": "Current gear",
+          "request": "21DA",
+          "responsePrefix": "61DA",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "engine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brake",
+      "name": "Brakes / ABS / ESP",
+      "addressing": {
+        "request": "7B0",
+        "response": "7B8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "dtc": {
+        "read": {
+          "request": "03",
+          "format": "j1979"
+        },
+        "clear": {
+          "request": "04"
+        }
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "camry_hazard_switch_history",
+          "name": "Hazard switch history",
+          "request": "21BC",
+          "responsePrefix": "61BC",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Hazard switch history"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_tire_fr_spd",
+          "name": "Front right wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_tire_fl_spd",
+          "name": "Front left wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_tire_rr_spd",
+          "name": "Rear right wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_tire_rl_spd",
+          "name": "Rear left wheel speed",
+          "request": "2103",
+          "responsePrefix": "6103",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.28,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_decel",
+          "name": "Deceleration",
+          "request": "2105",
+          "responsePrefix": "6105",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.14258823529411765,
+            "offset": -18.18
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -18.18,
+            "max": 18.18
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_decel_2",
+          "name": "Deceleration 2",
+          "request": "2105",
+          "responsePrefix": "6105",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.14258823529411765,
+            "offset": -18.18
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -18.18,
+            "max": 18.18
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_yaw_1",
+          "name": "Yaw rate, sensor 1",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_yaw_2",
+          "name": "Yaw rate, sensor 2",
+          "request": "2106",
+          "responsePrefix": "6106",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_wheel_cylinder_pressure",
+          "name": "Wheel cylinder pressure",
+          "request": "2107",
+          "responsePrefix": "6107",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.0196078431372549,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 5
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_reservoir_warning_sw",
+          "name": "Reservoir warning",
+          "request": "211D",
+          "responsePrefix": "611D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Reservoir warning"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_main_idle_sw",
+          "name": "Main idle",
+          "request": "211D",
+          "responsePrefix": "611D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Main idle"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_stop_light_sw",
+          "name": "Stop light",
+          "request": "211F",
+          "responsePrefix": "611F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Stop light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_parking_brake_sw",
+          "name": "Parking brake",
+          "request": "211F",
+          "responsePrefix": "611F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Parking brake"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_vehicle_speed_7b0",
+          "name": "Vehicle speed, 7B0",
+          "request": "2121",
+          "responsePrefix": "6121",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.2799999999999998,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 326.4
+          },
+          "crossCheck": {
+            "reference": "std.speed"
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_stop_light_relay",
+          "name": "Stop light relay",
+          "request": "213C",
+          "responsePrefix": "613C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Stop light relay"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_abs_warn",
+          "name": "Anti-lock braking system warning light",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Anti-lock braking system warning light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_brake_warn",
+          "name": "Brake warning light",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Brake warning light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_slip_warn",
+          "name": "Slip indicator light",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Slip indicator light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_buzzer",
+          "name": "Buzzer",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Buzzer"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_ecb_warn",
+          "name": "Electronic control brake warning light",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Electronic control brake warning light"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_wheel_acceleration",
+          "name": "Front right wheel acceleration",
+          "request": "2142",
+          "responsePrefix": "6142",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "m/s²",
+          "range": {
+            "max": 255
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fl_wheel_acceleration",
+          "name": "Front left wheel acceleration",
+          "request": "2142",
+          "responsePrefix": "6142",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "m/s²",
+          "range": {
+            "max": 255
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rr_wheel_acceleration",
+          "name": "Rear right wheel acceleration",
+          "request": "2142",
+          "responsePrefix": "6142",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "m/s²",
+          "range": {
+            "max": 255
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rl_wheel_acceleration",
+          "name": "Rear left wheel acceleration",
+          "request": "2142",
+          "responsePrefix": "6142",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "m/s²",
+          "range": {
+            "max": 255
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_zp_dec",
+          "name": "Zero point of deceleration",
+          "request": "2146",
+          "responsePrefix": "6146",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1961568627,
+            "offset": -25.11
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -25.11,
+            "max": 24
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_zp_dec2",
+          "name": "Zero point of deceleration 2",
+          "request": "2146",
+          "responsePrefix": "6146",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1961568627,
+            "offset": -25.11
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -25.11,
+            "max": 24
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_zp_yaw",
+          "name": "Zero point of yaw rate",
+          "request": "2146",
+          "responsePrefix": "6146",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_lat_g",
+          "name": "Lateral g",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1961568627,
+            "offset": -25.11
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -25.11,
+            "max": 24
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_lng_g",
+          "name": "Forward and rearward g",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1961568627,
+            "offset": -25.11
+          },
+          "unit": "m/s²",
+          "range": {
+            "min": -25.11,
+            "max": 24
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_yaw",
+          "name": "Yaw rate value",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_steering_angle",
+          "name": "Steering angle value",
+          "request": "2147",
+          "responsePrefix": "6147",
+          "extract": {
+            "start": 3,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": -3276.8
+          },
+          "unit": "°",
+          "range": {
+            "min": -3276.8,
+            "max": 3276.7
+          },
+          "group": "live-fast",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_regen_request",
+          "name": "Regenerative request",
+          "request": "2148",
+          "responsePrefix": "6148",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "Nm",
+          "range": {
+            "max": 65535
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_regen_operation",
+          "name": "Regenerative operation",
+          "request": "2148",
+          "responsePrefix": "6148",
+          "extract": {
+            "start": 2,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "Nm",
+          "range": {
+            "max": 65535
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_regen_cooperation",
+          "name": "Regen cooperation",
+          "request": "2158",
+          "responsePrefix": "6158",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Regen cooperation"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_trc_trac_ctrl",
+          "name": "Traction control, status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Traction control, status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_trc_trac_engine_ctrl",
+          "name": "Traction control, engine status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Traction control, engine status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_trc_trac_brake_ctrl",
+          "name": "Traction control, brake status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Traction control, brake status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_wheel_vsc_ctrl",
+          "name": "Front right wheel vehicle stability control status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Front right wheel vehicle stability control status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fl_wheel_vsc_ctrl",
+          "name": "Front left wheel vehicle stability control status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Front left wheel vehicle stability control status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rr_wheel_vsc_ctrl",
+          "name": "Rear right wheel vehicle stability control status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Rear right wheel vehicle stability control status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rl_wheel_vsc_ctrl",
+          "name": "Rear left wheel vehicle stability control status",
+          "request": "215A",
+          "responsePrefix": "615A",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Rear left wheel vehicle stability control status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_wheel_abs_ctrl",
+          "name": "Front right wheel ABS status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Front right wheel ABS status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fl_wheel_abs_ctrl",
+          "name": "Front left wheel ABS status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Front left wheel ABS status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rr_wheel_abs_ctrl",
+          "name": "Rear right wheel ABS status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Rear right wheel ABS status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rl_wheel_abs_ctrl",
+          "name": "Rear left wheel ABS status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Rear left wheel ABS status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rr_wheel_ebd_ctrl",
+          "name": "Rear right wheel electronic brake force distribution status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Rear right wheel electronic brake force distribution status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rl_wheel_ebd_ctrl",
+          "name": "Rear left wheel electronic brake force distribution status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Rear left wheel electronic brake force distribution status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_ba_ctrl",
+          "name": "Brake assist status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Brake assist status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_pba_ctrl",
+          "name": "Predictive brake assist status",
+          "request": "215F",
+          "responsePrefix": "615F",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Predictive brake assist status"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_zero_point_of_yaw_rate",
+          "name": "Zero point of yaw rate",
+          "request": "21A1",
+          "responsePrefix": "61A1",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -128
+          },
+          "range": {
+            "min": -128,
+            "max": 127
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_sla_solenoid_current",
+          "name": "Main relay a, solenoid current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_slr_solenoid_current",
+          "name": "Main relay r solenoid current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_ssc_solenoid_current",
+          "name": "Service contactor solenoid current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_scc_solenoid_current",
+          "name": "Charge contactor current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_smc_solenoid_current",
+          "name": "Main connector solenoid current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_src_solenoid_current",
+          "name": "Relay control solenoid current",
+          "request": "21A3",
+          "responsePrefix": "61A3",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "mA",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_inspection_mode",
+          "name": "Inspection mode",
+          "request": "21A6",
+          "responsePrefix": "61A6",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Inspection mode"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_wheel_speed_open",
+          "name": "Front right wheel speed open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Front right wheel speed open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fl_wheel_speed_open",
+          "name": "Front left wheel speed open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Front left wheel speed open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rr_wheel_speed_open",
+          "name": "Rear right wheel speed open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Rear right wheel speed open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_rl_wheel_speed_open",
+          "name": "Rear left wheel speed open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Rear left wheel speed open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_yaw_rate_open",
+          "name": "Yaw rate open error?",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Yaw rate open error?"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_deceleration_open",
+          "name": "Deceleration open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Deceleration open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_master_cylinder_open",
+          "name": "Master cylinder open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Master cylinder open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_stroke_open",
+          "name": "Stroke open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Stroke open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_fr_wheel_cylinder_open",
+          "name": "Front right wheel cylinder open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Front right wheel cylinder open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_accumulator_open",
+          "name": "Accumulator open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Accumulator open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        },
+        {
+          "id": "camry_hv_communication_open",
+          "name": "HV communication open",
+          "request": "21BE",
+          "responsePrefix": "61BE",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "HV communication open"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "brake"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meter",
+      "name": "Instrument cluster",
+      "addressing": {
+        "request": "7C0",
+        "response": "7C8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "camry_tail_cancel_light",
+          "name": "Tail cancel SW",
+          "request": "2112",
+          "responsePrefix": "6112",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Tail cancel SW"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_p_seatbelt_buckle_light",
+          "name": "P-seatbelt buckle SW",
+          "request": "2112",
+          "responsePrefix": "6112",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "P-seatbelt buckle SW"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_check_engine_light",
+          "name": "Check engine SW",
+          "request": "2112",
+          "responsePrefix": "6112",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Check engine SW"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_eop_light",
+          "name": "Oil pressure switch",
+          "request": "2112",
+          "responsePrefix": "6112",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "Oil pressure switch"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_bat_v",
+          "name": "Battery voltage",
+          "request": "2113",
+          "responsePrefix": "6113",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.1,
+            "offset": 0
+          },
+          "unit": "V",
+          "range": {
+            "max": 25.5
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_vss",
+          "name": "Speed",
+          "request": "2121",
+          "responsePrefix": "6121",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "km/h",
+          "range": {
+            "max": 255
+          },
+          "crossCheck": {
+            "reference": "std.speed"
+          },
+          "group": "live-fast",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_ect_7c0",
+          "name": "Engine coolant temperature",
+          "request": "2123",
+          "responsePrefix": "6123",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.5,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "max": 127.5
+          },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_oil_change_odo",
+          "name": "Distance since oil change",
+          "request": "2141",
+          "responsePrefix": "6141",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 160.9344,
+            "offset": 0
+          },
+          "unit": "km",
+          "range": {
+            "max": 41038.272
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_rheostat",
+          "name": "Rheostat",
+          "request": "2168",
+          "responsePrefix": "6168",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_key_remind_sound",
+          "name": "Key remind sound",
+          "request": "21A1",
+          "responsePrefix": "61A1",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_seat_belt_beep_driver",
+          "name": "Seat belt beep, driver",
+          "request": "21A7",
+          "responsePrefix": "61A7",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 7,
+                "name": "Seat belt beep, driver"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_seat_belt_beep_passenger",
+          "name": "Seat belt beep, passenger",
+          "request": "21A7",
+          "responsePrefix": "61A7",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Seat belt beep, passenger"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_seat_belt_beep_reminder",
+          "name": "Seat belt beep, reminder",
+          "request": "21A7",
+          "responsePrefix": "61A7",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 5,
+                "name": "Seat belt beep, reminder"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_reverse_beep",
+          "name": "Reverse beep",
+          "request": "21AC",
+          "responsePrefix": "61AC",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 6,
+                "name": "Reverse beep"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        },
+        {
+          "id": "camry_fuel_level",
+          "name": "Fuel level",
+          "request": "221022",
+          "responsePrefix": "621022",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": 0
+          },
+          "unit": "L",
+          "range": {
+            "max": 655.35
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hvac",
+      "name": "Climate control",
+      "addressing": {
+        "request": "7C4",
+        "response": "7CC"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "camry_cabin_t",
+          "name": "Cabin temperature",
+          "request": "2121",
+          "responsePrefix": "6121",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.25,
+            "offset": -6.5
+          },
+          "unit": "°C",
+          "range": {
+            "min": -6.5,
+            "max": 57.25
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_aat_7c4",
+          "name": "Ambient air temperature",
+          "request": "2122",
+          "responsePrefix": "6122",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.35,
+            "offset": -23.3
+          },
+          "unit": "°C",
+          "range": {
+            "min": -23.3,
+            "max": 65.95
+          },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_solar_driver",
+          "name": "Solar sensor, driver side",
+          "request": "2124",
+          "responsePrefix": "6124",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_ect",
+          "name": "Engine coolant temperature",
+          "request": "2126",
+          "responsePrefix": "6126",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.35,
+            "offset": 1.3
+          },
+          "unit": "°C",
+          "range": {
+            "min": 1.3,
+            "max": 90.55
+          },
+          "crossCheck": {
+            "reference": "std.coolant_temp"
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_t_driver",
+          "name": "Set temperature, driver side",
+          "request": "2129",
+          "responsePrefix": "6129",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "°C",
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_blower_motor_speed_level",
+          "name": "Blower motor speed level",
+          "request": "213C",
+          "responsePrefix": "613C",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_adjusted_ambient_t",
+          "name": "Adjusted ambient temperature",
+          "request": "213D",
+          "responsePrefix": "613D",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.31999999999999995,
+            "offset": -30.8
+          },
+          "unit": "°C",
+          "range": {
+            "min": -30.8,
+            "max": 50.8
+          },
+          "crossCheck": {
+            "reference": "std.ambient_temp",
+            "absolute": 8
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_air_outlet_servo_pulse_d",
+          "name": "Air outlet servo pulse, driver",
+          "request": "2143",
+          "responsePrefix": "6143",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_air_outlet_servo_actu_pulse_d",
+          "name": "Air outlet servo actual pulse, driver",
+          "request": "2143",
+          "responsePrefix": "6143",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_air_inlet_damper_target_pulse",
+          "name": "Air inlet damper target pulse",
+          "request": "2144",
+          "responsePrefix": "6144",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_air_inlet_damper_actual_pulse",
+          "name": "Air inlet damper actual pulse",
+          "request": "2144",
+          "responsePrefix": "6144",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "range": {
+            "max": 255
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_evap_fin_thermistor",
+          "name": "Evaporator fin thermistor",
+          "request": "214B",
+          "responsePrefix": "614B",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.35,
+            "offset": -29.7
+          },
+          "unit": "°C",
+          "range": {
+            "min": -29.7,
+            "max": 59.55
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_evaporator_target_temp",
+          "name": "Evaporator target temperature",
+          "request": "214C",
+          "responsePrefix": "614C",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01,
+            "offset": -327.68
+          },
+          "range": {
+            "min": -327.68,
+            "max": 327.67
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        },
+        {
+          "id": "camry_regulator_p",
+          "name": "Regulator pressure sensor",
+          "request": "2153",
+          "responsePrefix": "6153",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.01471,
+            "offset": -0.45668
+          },
+          "range": {
+            "min": -0.45668,
+            "max": 3.29437
+          },
+          "group": "live-slow",
+          "categories": [
+            "climate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epb",
+      "name": "Module 0x7D0 (parking brake)",
+      "addressing": {
+        "request": "7D0",
+        "response": "7D8"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "camry_parking_brake_2",
+          "name": "Parking brake",
+          "request": "2162",
+          "responsePrefix": "6162",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Parking brake"
+              }
+            ]
+          },
+          "group": "live-slow",
+          "categories": [
+            "body"
+          ]
+        }
+      ]
+    }
+  ]
+}

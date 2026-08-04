@@ -2,7 +2,7 @@
 //  GradientButton.swift
 //  OBD2Scanner
 //
-//  Created by Андрей Чернышев on 24.07.2023.
+//  Created by Андрей Чернышев on 13.07.2026.
 //
 
 import UIKit

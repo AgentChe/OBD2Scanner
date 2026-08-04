@@ -16,20 +16,28 @@ final class RestAPITransport {
             
             let encodedUrl = requestBody.url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             
-            let request = manager.request(encodedUrl,
-                                          method: requestBody.method,
-                                          parameters: requestBody.parameters,
-                                          encoding: requestBody.encoding,
-                                          headers: requestBody.headers)
-                .validate(statusCode: [200, 201])
-                .responseJSON(completionHandler: { response in
-                    switch response.result {
-                    case .success(let json):
+            let request = manager.request(
+                encodedUrl,
+                method: requestBody.method,
+                parameters: requestBody.parameters,
+                encoding: requestBody.encoding,
+                headers: requestBody.headers
+            )
+            .validate(statusCode: requestBody.validStatusCodes)
+            .response { response in
+                if let error = response.error {
+                    single(.failure(NetworkError(.serverNotAvailable, underlyingError: error)))
+                } else if let data = response.data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
                         single(.success(json))
-                    case .failure(let error):
+                    } catch let error {
                         single(.failure(NetworkError(.serverNotAvailable, underlyingError: error)))
                     }
-                })
+                } else {
+                    single(.failure(NetworkError(.serverNotAvailable)))
+                }
+            }
             
             return Disposables.create {
                 request.cancel()

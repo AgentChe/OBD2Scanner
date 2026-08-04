@@ -21,12 +21,17 @@
 			</array>
 		</dict>
 	</array>
-	<key>FacebookAppID</key>
-	<string>1031358788239845</string>
-	<key>FacebookClientToken</key>
-	<string>76e5da9894582f4756129bf83e63940e</string>
-	<key>FacebookDisplayName</key>
-	<string>OBD-2 Scanner</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth is used to connect to your OBD2 adapter.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Local network access is used to connect to Wi-Fi OBD2 adapters.</string>
+	<!-- Протокольные строки MFi-адаптеров. iOS открывает EASession только
+	     для строк из этого списка. Строку нового адаптера печатает
+	     MFiTransport в консоль при несовпадении — добавить её сюда. -->
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.obdlink.mfi</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Medium.ttf</string>
@@ -34,6 +39,17 @@
 		<string>Inter-Italic.otf</string>
 		<string>Inter-Regular.ttf</string>
 		<string>Inter-SemiBold.ttf</string>
+		<string>NotoSans-ExtraBold.ttf</string>
+		<string>NotoSans-Medium.ttf</string>
+		<string>NotoSans-SemiBold.ttf</string>
+		<string>NotoSans-Regular.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
+		<string>PlusJakartaSans-Regular.ttf</string>
+		<string>PlusJakartaSans-SemiBold.ttf</string>
+		<string>PlusJakartaSans-Medium.ttf</string>
+		<string>PlusJakartaSans-Bold.ttf</string>
+		<string>PlusJakartaSans-ExtraBold.ttf</string>
+		<string>PlusJakartaSans-Light.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

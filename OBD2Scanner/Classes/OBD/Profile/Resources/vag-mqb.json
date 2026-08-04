@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "vag-mqb",
+  "name": "VW Group MQB (candidate)",
+  "priority": 100,
+  "match": {
+    "brands": ["volkswagen", "audi", "skoda", "seat", "cupra"],
+    "years": { "from": 2013 }
+  },
+  "bus": { "elmProtocol": "6" },
+  "ecus": [
+    {
+      "id": "engine",
+      "name": "Engine",
+      "addressing": { "request": "7E0", "response": "7E8" },
+      "session": { "kind": "none" },
+      "supportedParametersProbe": "udsProbe",
+      "dtc": {
+        "read":        { "request": "1902AF", "format": "uds" },
+        "clear":       { "request": "14FFFFFF" },
+        "clearSingle": { "request": "14{dtc}" },
+        "freezeFrame": { "request": "1904{dtc}FF", "format": "udsSnapshot" }
+      },
+      "parameters": [
+        {
+          "id": "vag.vin",
+          "name": "VIN (from ECU)",
+          "request": "22F190",
+          "responsePrefix": "62F190",
+          "extract": { "start": 0, "length": 17 },
+          "decode": { "kind": "ascii" },
+          "group": "once",
+          "categories": ["info"]
+        },
+        {
+          "id": "vag.map",
+          "name": "Intake manifold pressure (abs.)",
+          "request": "22202A",
+          "responsePrefix": "62202A",
+          "extract": { "start": 0, "length": 2 },
+          "decode": { "kind": "linear", "scale": 0.1, "offset": 0 },
+          "unit": "kPa",
+          "range": { "min": 0, "max": 400 },
+          "group": "live-fast",
+          "categories": ["engine"]
+        }
+      ]
+    }
+  ]
+}

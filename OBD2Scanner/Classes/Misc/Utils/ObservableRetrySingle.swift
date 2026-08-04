@@ -10,8 +10,10 @@ import RxSwift
 final class ObservableRetrySingle {
     private lazy var disposeBag = DisposeBag()
     
-    func retry<SourceType, TriggerType>(source: @escaping () -> (PrimitiveSequence<SingleTrait, SourceType>),
-                                        trigger: @escaping (Error) -> (Observable<TriggerType>)) -> Observable<SourceType> {
+    func retry<SourceType, TriggerType>(
+        source: @escaping () -> (PrimitiveSequence<SingleTrait, SourceType>),
+        trigger: @escaping (Error) -> (Observable<TriggerType>)) -> Observable<SourceType>
+    {
         Observable<SourceType>
             .create { [weak self] observe in
                 guard let self = self else {

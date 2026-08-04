@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 1,
+  "id": "peugeot-407",
+  "name": "Peugeot 407 (OBDb brand — candidate, data from newer Peugeots)",
+  "priority": 100,
+  "match": {
+    "brands": [
+      "peugeot"
+    ],
+    "models": [
+      "407"
+    ],
+    "years": {
+      "from": 2004,
+      "to": 2011
+    }
+  },
+  "bus": {
+    "elmProtocol": "6"
+  },
+  "ecus": [
+    {
+      "id": "ecu_6b4",
+      "name": "ECU 6B4",
+      "addressing": {
+        "request": "6B4",
+        "response": "694"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_hvbat_soc",
+          "name": "HV battery charge",
+          "request": "22D410",
+          "responsePrefix": "62D410",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.001953125,
+            "offset": 0
+          },
+          "unit": "%",
+          "range": {
+            "max": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_740",
+      "name": "ECU 740",
+      "addressing": {
+        "request": "740",
+        "response": "4C0"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_tp_fl_ac",
+          "name": "Front left tire pressure, altitude compensated",
+          "request": "22A0A1",
+          "responsePrefix": "62A0A1",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_fr_ac",
+          "name": "Front right tire pressure, altitude compensated",
+          "request": "22A0A1",
+          "responsePrefix": "62A0A1",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_rr_ac",
+          "name": "Rear right tire pressure, altitude compensated",
+          "request": "22A0A1",
+          "responsePrefix": "62A0A1",
+          "group": "live-slow",
+          "extract": {
+            "start": 2,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_rl_ac",
+          "name": "Rear left tire pressure, altitude compensated",
+          "request": "22A0A1",
+          "responsePrefix": "62A0A1",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_rl_valid",
+          "name": "Rear left tire pressure, valid?",
+          "request": "22A0A5",
+          "responsePrefix": "62A0A5",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 3,
+                "name": "Rear left tire pressure, valid?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "peugeot_tp_rr_valid",
+          "name": "Rear right tire pressure, valid?",
+          "request": "22A0A5",
+          "responsePrefix": "62A0A5",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 2,
+                "name": "Rear right tire pressure, valid?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "peugeot_tp_fr_valid",
+          "name": "Front right tire pressure, valid?",
+          "request": "22A0A5",
+          "responsePrefix": "62A0A5",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 1,
+                "name": "Front right tire pressure, valid?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "peugeot_tp_fl_valid",
+          "name": "Front left tire pressure, valid?",
+          "request": "22A0A5",
+          "responsePrefix": "62A0A5",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 0,
+                "name": "Front left tire pressure, valid?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "peugeot_tp_fl_v2",
+          "name": "Front left tire pressure",
+          "request": "22A0F1",
+          "responsePrefix": "62A0F1",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.398,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 101.49
+          }
+        },
+        {
+          "id": "peugeot_tt_fl_v2",
+          "name": "Front left tire temperature",
+          "request": "22A0F1",
+          "responsePrefix": "62A0F1",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -50
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50,
+            "max": 205
+          }
+        },
+        {
+          "id": "peugeot_tp_fr_v2",
+          "name": "Front right tire pressure",
+          "request": "22A0F2",
+          "responsePrefix": "62A0F2",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.398,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 101.49
+          }
+        },
+        {
+          "id": "peugeot_tt_fr_v2",
+          "name": "Front right tire temperature",
+          "request": "22A0F2",
+          "responsePrefix": "62A0F2",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -50
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50,
+            "max": 205
+          }
+        },
+        {
+          "id": "peugeot_tp_rr_v2",
+          "name": "Rear right tire pressure",
+          "request": "22A0F3",
+          "responsePrefix": "62A0F3",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.398,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 101.49
+          }
+        },
+        {
+          "id": "peugeot_tt_rr_v2",
+          "name": "Rear right tire temperature",
+          "request": "22A0F3",
+          "responsePrefix": "62A0F3",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -50
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50,
+            "max": 205
+          }
+        },
+        {
+          "id": "peugeot_tp_rl_v2",
+          "name": "Rear left tire pressure",
+          "request": "22A0F4",
+          "responsePrefix": "62A0F4",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 0.398,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 101.49
+          }
+        },
+        {
+          "id": "peugeot_tt_rl_v2",
+          "name": "Rear left tire temperature",
+          "request": "22A0F4",
+          "responsePrefix": "62A0F4",
+          "group": "live-slow",
+          "extract": {
+            "start": 1,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": -50
+          },
+          "unit": "°C",
+          "range": {
+            "min": -50,
+            "max": 205
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_742",
+      "name": "ECU 742",
+      "addressing": {
+        "request": "742",
+        "response": "74A"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_tp_fl_v3",
+          "name": "Front left tire pressure",
+          "request": "22A022",
+          "responsePrefix": "62A022",
+          "group": "live-slow",
+          "extract": {
+            "start": 3,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_fr_v3",
+          "name": "Front right tire pressure",
+          "request": "22A022",
+          "responsePrefix": "62A022",
+          "group": "live-slow",
+          "extract": {
+            "start": 4,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_rl_v3",
+          "name": "Rear left tire pressure",
+          "request": "22A022",
+          "responsePrefix": "62A022",
+          "group": "live-slow",
+          "extract": {
+            "start": 5,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_rr_v3",
+          "name": "Rear right tire pressure",
+          "request": "22A022",
+          "responsePrefix": "62A022",
+          "group": "live-slow",
+          "extract": {
+            "start": 6,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        },
+        {
+          "id": "peugeot_tp_spare",
+          "name": "Spare tire pressure",
+          "request": "22A022",
+          "responsePrefix": "62A022",
+          "group": "live-slow",
+          "extract": {
+            "start": 7,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "psi",
+          "range": {
+            "max": 255
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_763",
+      "name": "ECU 763",
+      "addressing": {
+        "request": "763",
+        "response": "4E3"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_highbeams_on",
+          "name": "High beams",
+          "request": "22032D",
+          "responsePrefix": "62032D",
+          "group": "live-fast",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "bitfield",
+            "flags": [
+              {
+                "bit": 4,
+                "name": "High beams"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7ab",
+      "name": "ECU 7AB",
+      "addressing": {
+        "request": "7AB",
+        "response": "52B"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_gps_heading",
+          "name": "Heading",
+          "request": "222802",
+          "responsePrefix": "622802",
+          "group": "live-fast",
+          "extract": {
+            "start": 19,
+            "length": 2
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.0,
+            "offset": 0
+          },
+          "unit": "°",
+          "range": {
+            "max": 65535
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecu_7e1",
+      "name": "ECU 7E1",
+      "addressing": {
+        "request": "7E1",
+        "response": "7E9"
+      },
+      "session": {
+        "kind": "none"
+      },
+      "supportedParametersProbe": "udsProbe",
+      "parameters": [
+        {
+          "id": "peugeot_atf_t",
+          "name": "Transmission temperature",
+          "request": "2204FE",
+          "responsePrefix": "6204FE",
+          "group": "live-slow",
+          "extract": {
+            "start": 0,
+            "length": 1
+          },
+          "decode": {
+            "kind": "linear",
+            "scale": 1.8,
+            "offset": -40
+          },
+          "unit": "°F",
+          "range": {
+            "min": -30,
+            "max": 300
+          }
+        }
+      ]
+    }
+  ]
+}

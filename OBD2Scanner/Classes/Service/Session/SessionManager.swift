@@ -5,59 +5,45 @@
 //  Created by Андрей Чернышев on 07.08.2023.
 //
 
-import RxCocoa
 import OtterScaleiOS
 
 protocol SessionManagerProtocol {
-    func store(session: Session)
-    func getSession() -> Session?
+    var anonymousId: String { get }
+    var internalId: String { get }
     func hasActiveSubscriptions() -> Bool
 }
 
-final class SessionManager: SessionManagerProtocol {
-    struct Constants {
-        static let sessionCacheKey = "session_manage_session_cache_key"
-    }
-}
+final class SessionManager {}
 
-// MARK: API
-extension SessionManager {
-    func store(session: Session) {
-        guard let data = try? JSONEncoder().encode(session) else {
-            return
-        }
-        
-        UserDefaults.standard.setValue(data, forKey: Constants.sessionCacheKey)
+// MARK: SessionManagerProtocol
+extension SessionManager: SessionManagerProtocol {
+    var anonymousId: String {
+        OtterScale.shared.getAnonymousID()
     }
     
-    func getSession() -> Session? {
-        guard
-            let data = UserDefaults.standard.data(forKey: Constants.sessionCacheKey),
-            let session = try? JSONDecoder().decode(Session.self, from: data)
-        else {
-            return nil
-        }
-
-        return session
+    var internalId: String {
+        OtterScale.shared.getInternalID()
     }
     
+    // TODO:
     func hasActiveSubscriptions() -> Bool {
-        guard let paymentData = OtterScale.shared.getPaymentData() else {
-            return false
-        }
-
-        let subscriptions = paymentData.subscriptions.appleAppStore
-            + paymentData.subscriptions.googlePlay
-            + paymentData.subscriptions.stripe
-            + paymentData.subscriptions.paypal
-        let nonConsumables = paymentData.nonConsumables.appleAppStore
-            + paymentData.nonConsumables.googlePlay
-            + paymentData.nonConsumables.stripe
-            + paymentData.nonConsumables.paypal
-
-        let hasValidSubscription = subscriptions.contains(where: { $0.valid })
-        let hasValidNonConsumable = nonConsumables.contains(where: { $0.valid })
-
-        return hasValidSubscription || hasValidNonConsumable
+        true
+//        guard let paymentData = OtterScale.shared.getPaymentData() else {
+//            return false
+//        }
+//
+//        let subscriptions = paymentData.subscriptions.appleAppStore
+//            + paymentData.subscriptions.googlePlay
+//            + paymentData.subscriptions.stripe
+//            + paymentData.subscriptions.paypal
+//        let nonConsumables = paymentData.nonConsumables.appleAppStore
+//            + paymentData.nonConsumables.googlePlay
+//            + paymentData.nonConsumables.stripe
+//            + paymentData.nonConsumables.paypal
+//
+//        let hasValidSubscription = subscriptions.contains(where: { $0.valid })
+//        let hasValidNonConsumable = nonConsumables.contains(where: { $0.valid })
+//
+//        return hasValidSubscription || hasValidNonConsumable
     }
 }

@@ -1,6 +1,6 @@
 //
 //  PurchaseValidationObserver.swift
-//  Soccer
+//  NCLEX
 //
 //  Created by Андрей Чернышев on 03.02.2022.
 //

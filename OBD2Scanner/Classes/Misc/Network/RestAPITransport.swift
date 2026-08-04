@@ -23,7 +23,7 @@ final class RestAPITransport {
                 encoding: requestBody.encoding,
                 headers: requestBody.headers
             )
-            .validate(statusCode: [200, 201])
+            .validate(statusCode: requestBody.validStatusCodes)
             .response { response in
                 if let error = response.error {
                     single(.failure(NetworkError(.serverNotAvailable, underlyingError: error)))

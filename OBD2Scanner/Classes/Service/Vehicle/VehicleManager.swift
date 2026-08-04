@@ -32,13 +32,15 @@ protocol VehicleManagerProtocol {
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
     func obtainDTCLogs() -> Single<[DTCLog]>
-    func obtainDTCCodeFixInfo(vehicle: Vehicle, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?>
+    func obtainDTCCodeFixInfo(vehicleId: String, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?>
 }
 
 final class VehicleManager {
     enum Constants {
         static let currentVehicleKey = "vehicle_manager_current_vehicle"
         static let dtcLogsKey = "vehicle_manager_dtc_logs"
+        static let codeFixPollingIntervalSec = 3
+        static let codeFixPollingAttempts = 40
     }
     
     private lazy var sessionManager = SessionManager()
@@ -249,14 +251,54 @@ extension VehicleManager: VehicleManagerProtocol {
         }
     }
     
-    // TODO:
-    func obtainDTCCodeFixInfo(vehicle: Vehicle, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?> {
-        .just(DTCCodeFixInfo())
+    func obtainDTCCodeFixInfo(vehicleId: String, code: DiagnosticTroubleCode) -> Single<DTCCodeFixInfo?> {
+        let request = ObtainDTCCodeFixInfoRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vehicleId: vehicleId,
+            code: code.code
+        )
+
+        return obtainDTCCodeFixInfo(request: request, attempt: 0)
     }
 }
 
 // MARK: Private
 private extension VehicleManager {
+    func obtainDTCCodeFixInfo(request: ObtainDTCCodeFixInfoRequest, attempt: Int) -> Single<DTCCodeFixInfo?> {
+        restAPITransport
+            .callServerApi(requestBody: request)
+            .flatMap { [weak self] response -> Single<DTCCodeFixInfo?> in
+                guard let self else {
+                    return .just(nil)
+                }
+
+                switch DTCCodeFixInfo.status(response: response) {
+                case .completed(let info):
+                    return .just(info)
+                case .inProcessing:
+                    guard attempt + 1 < Constants.codeFixPollingAttempts else {
+                        return .error(NetworkError(.serverNotAvailable))
+                    }
+
+                    return Single<Int>
+                        .timer(
+                            .seconds(Constants.codeFixPollingIntervalSec),
+                            scheduler: MainScheduler.instance
+                        )
+                        .flatMap { [weak self] _ -> Single<DTCCodeFixInfo?> in
+                            guard let self else {
+                                return .just(nil)
+                            }
+
+                            return obtainDTCCodeFixInfo(request: request, attempt: attempt + 1)
+                        }
+                case nil:
+                    return .just(nil)
+                }
+            }
+    }
+
     func removeDTCLogs(vehicleId: String) {
         let dtcLogs = storedDTCLogs()
 

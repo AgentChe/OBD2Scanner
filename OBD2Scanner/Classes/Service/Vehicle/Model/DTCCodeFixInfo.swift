@@ -6,6 +6,11 @@
 //
 
 struct DTCCodeFixInfo {
+    enum Status {
+        case inProcessing
+        case completed(DTCCodeFixInfo)
+    }
+
     enum Urgency {
         case low, medium, high
     }
@@ -26,25 +31,7 @@ struct DTCCodeFixInfo {
     let means: String
     let steps: [FixStep]
     
-    // TODO: удалить после реализации запроса
-    init() {
-        self.urgency = .high
-        self.typicalFix = TypicalFix(from: 40, to: 650)
-        self.drivable = Bool.random()
-        self.means = "Your catalytic converter isn't cleaning exhaust gases as well as it should. The engine's downstream oxygen sensor sees readings too similar to the upstream sensor, so the car flags reduced converter efficiency. The car still drives, but emissions rise and it will fail an inspection."
-        self.steps = [
-            FixStep(title: "Check for exhaust leaks near the sensors", subTitle: "On the 2AR-FE, a leaking gasket at the front exhaust pipe throws false P0420. Inspect the flange between the manifold and the front pipe."),
-            FixStep(title: "Replace the downstream O₂ sensor (Bank 1, Sensor 2)", subTitle: "A lazy rear oxygen sensor mimics a bad converter. Toyota part 89465-06280 fits the 2019 Camry. Clear the code and drive a full cycle to confirm."),
-            FixStep(title: "Inspect the catalytic converter", subTitle: "If steps 1–2 don't clear it, the converter itself is likely worn. On the 2019 Camry it's covered by the 8-year / 80,000-mi federal emissions warranty — check before paying out of pocket.")
-        ]
-    }
-    
-    init?(response: Any) {
-        guard
-            let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any]
-        else { return nil }
-        
+    init?(json body: [String: Any]) {
         let urgency: Urgency? = {
             guard let rawValue = body["urgency"] as? String else { return nil }
             
@@ -94,5 +81,37 @@ struct DTCCodeFixInfo {
         }()
         guard let steps else { return nil }
         self.steps = steps
+    }
+}
+
+// MARK: Public
+extension DTCCodeFixInfo {
+    static func status(response: Any) -> Status? {
+        guard let json = response as? [String: Any] else { return nil }
+
+        let errorCode: Int? = {
+            guard let errorJSON = json["error"] as? [String: Any] else { return nil }
+
+            return errorJSON["code"] as? Int
+        }()
+        if errorCode == 409 {
+            return .inProcessing
+        }
+
+        guard let body = json["body"] as? [String: Any] else { return nil }
+
+        switch body["status"] as? String {
+        case "in_processing":
+            return .inProcessing
+        case "completed":
+            guard
+                let result = body["result"] as? [String: Any],
+                let info = DTCCodeFixInfo(json: result)
+            else { return nil }
+
+            return .completed(info)
+        default:
+            return nil
+        }
     }
 }

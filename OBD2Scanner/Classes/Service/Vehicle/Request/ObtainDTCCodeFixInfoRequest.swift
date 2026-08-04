@@ -10,9 +10,11 @@ import Alamofire
 struct ObtainDTCCodeFixInfoRequest: APIRequestBody {
     let anonymousId: String
     let internalId: String
+    let vehicleId: String
+    let code: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/v1/vehicle/recall"
+        GlobalDefinitions.domain + "/api/v1/ai/codefix"
     }
     
     var method: HTTPMethod {
@@ -28,7 +30,13 @@ struct ObtainDTCCodeFixInfoRequest: APIRequestBody {
     var parameters: Parameters? {
         [
             "anonymous_id": anonymousId,
-            "internal_id": internalId
+            "internal_id": internalId,
+            "id": vehicleId,
+            "code": code
         ]
+    }
+
+    var validStatusCodes: [Int] {
+        [200, 201, 500]
     }
 }

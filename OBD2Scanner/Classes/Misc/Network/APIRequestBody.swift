@@ -14,6 +14,7 @@ protocol APIRequestBody {
     var headers: HTTPHeaders? { get }
     var encoding: ParameterEncoding { get }
     var cookies: [HTTPCookie] { get }
+    var validStatusCodes: [Int] { get }
 }
 
 // MARK: Default
@@ -40,5 +41,9 @@ extension APIRequestBody {
     
     var cookies: [HTTPCookie] {
         []
+    }
+
+    var validStatusCodes: [Int] {
+        [200, 201]
     }
 }

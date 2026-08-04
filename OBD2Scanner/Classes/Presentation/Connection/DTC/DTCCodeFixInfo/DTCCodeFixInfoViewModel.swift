@@ -89,7 +89,7 @@ private extension DTCCodeFixInfoViewModel {
                 func source() -> Single<DTCCodeFixInfo> {
                     vehicleManager
                         .obtainDTCCodeFixInfo(
-                            vehicle: vehicle,
+                            vehicleId: vehicle.id,
                             code: code
                         )
                         .map { info -> DTCCodeFixInfo in

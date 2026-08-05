@@ -30,7 +30,7 @@
 "Onboarding.Info.RecallHistory.SubTitle" = "See all active recalls, stay up to date with the new ones";
 "Onboarding.Info.Garage.Title" = "AS MANY CARS AS YOU WANT";
 "Onboarding.Info.Garage.SubTitle" = "All of the features are available for the unlimited amount of your cars";
-"Onboarding.Slider.Diagnostic.Title" = "DecodeVIN.EnterNotFoundaRead, fix, reset";
+"Onboarding.Slider.Diagnostic.Title" = "Read, fix, reset";
 "Onboarding.Slider.Diagnostic.SubTitle" = "See the exact trouble codes\nand learn how to fix them";
 "Onboarding.Slider.HUD.Title" = "HUD";
 "Onboarding.Slider.HUD.SubTitle" = "Head-up display";
@@ -124,8 +124,8 @@
 "SelectModel.TextFieldPlaceholder" = "Enter model";
 
 // MARK: AddVehicleResult
-"AddVehicleResult.Title" = "YOR CAR ADDED";
-"AddVehicleResult.SubTitle" = "Сar has driven into the garage";
+"AddVehicleResult.Title" = "YOUR CAR ADDED";
+"AddVehicleResult.SubTitle" = "Car has driven into the garage";
 "AddVehicleResult.VIN.Title" = "VIN";
 "AddVehicleResult.VIN.Add" = "Add VIN";
 "AddVehicleResult.VIN.NotAvailable" = "Not added";

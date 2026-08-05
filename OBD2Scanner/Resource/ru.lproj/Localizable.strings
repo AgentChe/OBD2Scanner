@@ -1,0 +1,448 @@
+/*
+  Localizable.strings
+  OBD2Scanner
+
+  Russian
+
+*/
+
+// MARK: General
+"Cancel" = "Отмена";
+"Continue" = "Продолжить";
+"Next" = "Далее";
+"Skip" = "Пропустить";
+
+// MARK: Splash
+"Splash.Title.1" = "OBD2";
+"Splash.Title.2" = " SCANNER";
+"Splash.SubTitle" = "УМНАЯ ДИАГНОСТИКА";
+
+// MARK: Onboarding
+"Onboarding.Title.1" = "OBD2";
+"Onboarding.Title.2" = " SCANNER";
+"Onboarding.SubTitle" = "УМНАЯ ДИАГНОСТИКА";
+"Onboarding.ContinueButton" = "Продолжить";
+"Onboarding.Info.Diagnostic.Title" = "ЧИТАЙТЕ, ИСПРАВЛЯЙТЕ И СБРАСЫВАЙТЕ ОШИБКИ";
+"Onboarding.Info.Diagnostic.SubTitle" = "Получите полный список сохранённых ошибок, узнайте, как устранить неисправность, и сбросьте коды.";
+"Onboarding.Info.HUD.Title" = "СКОРОСТЬ, ОБОРОТЫ И ТЕМПЕРАТУРА ОЖ";
+"Onboarding.Info.HUD.SubTitle" = "Только самое важное. Помогает не отвлекаться от дороги.";
+"Onboarding.Info.RecallHistory.Title" = "БОЛЬШЕ НИ ОДНОГО ПРОПУЩЕННОГО ОТЗЫВА";
+"Onboarding.Info.RecallHistory.SubTitle" = "Смотрите все активные отзывные кампании и узнавайте о новых";
+"Onboarding.Info.Garage.Title" = "СКОЛЬКО УГОДНО АВТОМОБИЛЕЙ";
+"Onboarding.Info.Garage.SubTitle" = "Все функции доступны для неограниченного количества ваших машин";
+"Onboarding.Slider.Diagnostic.Title" = "Читай, исправляй, сбрасывай";
+"Onboarding.Slider.Diagnostic.SubTitle" = "Точные коды ошибок\nи способы их устранения";
+"Onboarding.Slider.HUD.Title" = "HUD";
+"Onboarding.Slider.HUD.SubTitle" = "Проекционный дисплей";
+"Onboarding.Slider.RecallHistory.Title" = "Отзывные кампании";
+"Onboarding.Slider.RecallHistory.SubTitle" = "Полный список отзывных кампаний\nдля вашего автомобиля";
+"Onboarding.Slider.Garage.Title" = "Безлимитный гараж";
+"Onboarding.Slider.Garage.SubTitle" = "Для большой коллекции\nили автопарка";
+
+// MARK: UnlimitedPlan
+"UnlimitedPlan.Title" = "Специальное предложение";
+"UnlimitedPlan.Header.Text" = "Безлимит";
+"UnlimitedPlan.SubTitle" = "Экономьте 67% с годовым планом";
+"UnlimitedPlan.GetPlan" = "Получить безлимит";
+"UnlimitedPlan.Item.Diagnostics.Name" = "Диагностика";
+"UnlimitedPlan.Item.Diagnostics.Text" = "Проверьте состояние авто";
+"UnlimitedPlan.Item.FreezeFrame.Name" = "Стоп-кадр";
+"UnlimitedPlan.Item.FreezeFrame.Text" = "Снимок в момент ошибки";
+"UnlimitedPlan.Item.HUD.Name" = "HUD";
+"UnlimitedPlan.Item.HUD.Text" = "Проекционный дисплей";
+"UnlimitedPlan.Item.RecallHistory.Name" = "Отзывные кампании";
+"UnlimitedPlan.Item.RecallHistory.Text" = "Проверьте состояние авто";
+"UnlimitedPlan.Item.UnlimitedGarage.Name" = "Безлимитный гараж";
+"UnlimitedPlan.Item.UnlimitedGarage.Text" = "Добавляйте любые авто";
+"UnlimitedPlan.ItemTitle" = "Выберите подходящий план";
+"UnlimitedPlan.ItemFree" = "Бесплатно";
+"UnlimitedPlan.ItemUnlimited" = "Безлимит";
+"UnlimitedPlan.Unlimited" = "БЕЗЛИМИТ";
+
+// MARK: Paygate
+"Paygate.Error.Title" = "Ошибка";
+"Paygate.Error.Text" = "При выполнении произошла ошибка. Попробуйте позже.";
+"Paygate.Error.Button" = "ОК";
+"Paygate.Lifetime.Title" = "Навсегда";
+"Paygate.Lifetime.Period" = "неделя";
+"Paygate.Lifetime.InTerms" = "В пересчёте на  1  год";
+"Paygate.Lifetime.Discount" = "СКИДКА %i%%";
+"Paygate.Lifetime.Once" = "разово";
+"Paygate.Subscription.Name1" = "3 дня бесплатно";
+"Paygate.Subscription.Name2" = "Быстрый старт";
+"Paygate.Subscription.Bottom1" = "После 3 дней пробного периода";
+"Paygate.Subscription.Bottom2" = "Пробный период закончился";
+"Paygate.Subscription.Period" = "месяц";
+"Paygate.CancelAnytime" = "Защищено App Store. Отмена в любой момент.";
+"Paygate.TermsOfUse" = "Условия использования";
+"Paygate.PrivacyPolicy" = "Политика конфиденциальности";
+"Paygate.RestorePurchases" = "Восстановить покупку";
+"Paygate.Title" = "Специальное предложение";
+"Paygate.Header.Text" = "Безлимит";
+"Paygate.SubTitle" = "Экономьте 67% с годовым планом";
+"Paygate.Cell.Diagnostics.Name" = "Диагностика";
+"Paygate.Cell.Diagnostics.Text" = "Проверьте состояние авто";
+"Paygate.Cell.FreezeFrame.Name" = "Стоп-кадр";
+"Paygate.Cell.FreezeFrame.Text" = "Снимок в момент ошибки";
+"Paygate.Cell.HUD.Name" = "HUD";
+"Paygate.Cell.HUD.Text" = "Проекционный дисплей";
+"Paygate.Cell.RecallHistory.Name" = "Отзывные кампании";
+"Paygate.Cell.RecallHistory.Text" = "Проверьте состояние авто";
+"Paygate.Cell.UnlimitedGarage.Name" = "Безлимитный гараж";
+"Paygate.Cell.UnlimitedGarage.Text" = "Добавляйте любые авто";
+"Paygate.ItemTitle" = "Выберите подходящий план";
+"Paygate.ItemFree" = "Бесплатно";
+"Paygate.ItemUnlimited" = "Безлимит";
+"Paygate.Unlimited" = "БЕЗЛИМИТ";
+
+// MARK: ChooseMethodAddCar
+"ChooseMethodAddCar.Title" = "Добавьте автомобиль";
+"ChooseMethodAddCar.Manually.Title" = "ВЫБРАТЬ ИЗ КАТАЛОГА";
+"ChooseMethodAddCar.Manually.SubTitle" = "Укажите марку, модель\nи год выпуска";
+"ChooseMethodAddCar.Manually.Action" = "Выбрать авто";
+"ChooseMethodAddCar.DecodeVIN.Title" = "НАЙТИ АВТО ПО VIN";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Введите VIN — остальное заполним мы";
+"ChooseMethodAddCar.DecodeVIN.Action" = "Ввести VIN";
+"ChooseMethodAddCar.FindVIN.Title" = "Где найти VIN?";
+"ChooseMethodAddCar.FindVIN.Info" = "VIN указан в регистрационных\nдокументах и на кузове автомобиля";
+"ChooseMethodAddCar.ContactUs.Title" = "Связаться с нами";
+"ChooseMethodAddCar.ContactUs.Text" = "Наша поддержка всегда на связи";
+
+// MARK: SelectYear
+"SelectYear.Title" = "Выберите год выпуска";
+"SelectYear.Description" = "Укажите точный год для наиболее точной диагностики";
+
+// MARK: SelectBrand
+"SelectBrand.Title" = "Выберите марку";
+"SelectBrand.SubTitle" = "Введите название марки или выберите из списка";
+"SelectBrand.TextFieldPlaceholder" = "Введите марку";
+
+// MARK: SelectModel
+"SelectModel.Title" = "Выберите модель";
+"SelectModel.Brand" = "Марка:";
+"SelectModel.AllModels" = "Все модели";
+"SelectModel.TextFieldPlaceholder" = "Введите модель";
+
+// MARK: AddVehicleResult
+"AddVehicleResult.Title" = "АВТОМОБИЛЬ ДОБАВЛЕН";
+"AddVehicleResult.SubTitle" = "Машина заехала в гараж";
+"AddVehicleResult.VIN.Title" = "VIN";
+"AddVehicleResult.VIN.Add" = "Добавить VIN";
+"AddVehicleResult.VIN.NotAvailable" = "Не добавлен";
+"AddVehicleResult.Item.Brand" = "Марка:";
+"AddVehicleResult.Item.Model" = "Модель:";
+"AddVehicleResult.Item.Year" = "Год:";
+"AddVehicleResult.AddAnotherCar" = "Добавить ещё авто";
+"AddVehicleResult.CompleteButton" = "Перейти к панели";
+
+// MARK: AddVIN
+"AddVIN.Title" = "ВВЕДИТЕ VIN";
+"AddVIN.SubTitle" = "Он есть на передней панели,\nстойке водительской двери или в документах";
+"AddVIN.EnterPlaceholder" = "Введите VIN";
+"AddVIN.EnterNotFound" = "Не удалось найти ваш VIN";
+"AddVIN.Example" = "Пример VIN: 1HGCM82633A004352";
+"AddVIN.DecodeVIN" = "Расшифровать VIN";
+
+// MARK: DecodeVIN
+"DecodeVIN.Title" = "Ввести VIN";
+"DecodeVIN.Header" = "ВВЕДИТЕ VIN";
+"DecodeVIN.SubTitle" = "Посмотрите у основания лобового стекла со стороны водителя, на стойке водительской двери или в регистрационных документах.";
+"DecodeVIN.EnterPlaceholder" = "Введите VIN";
+"DecodeVIN.EnterNotFound" = "Не удалось найти этот VIN.\nПроверьте символы или добавьте авто вручную.";
+"DecodeVIN.Example" = "Пример VIN: 1HGCM82633A004352";
+"DecodeVIN.DecodeVIN" = "Расшифровать VIN";
+
+// MARK: Main
+"Main.Tab.Dashboard" = "Панель";
+"Main.Tab.HUD" = "HUD";
+"Main.Tab.Garage" = "Гараж";
+"Main.Tab.Settings" = "Настройки";
+
+// MARK: Garage
+"Garage.Title" = "Мой гараж";
+"Garage.AddCar" = "+ Добавить авто";
+"Garage.VehiclesCount" = "Автомобилей: %i";
+"Garage.Active" = "Активный";
+"Garage.LastSyncNone" = "Синхронизация: не выполнялась";
+"Garage.VIN.NotAvailable" = "VIN: не добавлен";
+"Garage.RemoveAlert.Message" = "Автомобиль будет удалён из гаража";
+"Garage.RemoveAlert.Remove" = "Удалить";
+
+// MARK: VehicleDetails
+"VehicleDetails.Active" = "Активный";
+"VehicleDetails.VIN.Title" = "VIN";
+"VehicleDetails.VIN.Add" = "Добавить VIN";
+"VehicleDetails.VIN.NotAvailable" = "Не добавлен";
+"VehicleDetails.Item.Brand" = "Марка:";
+"VehicleDetails.Item.Model" = "Модель:";
+"VehicleDetails.Item.Year" = "Год:";
+"VehicleDetails.RecallHistory.Title" = "Отзывные кампании";
+"VehicleDetails.RecallHistory.SubTitle" = "Отзывы по безопасности автомобиля";
+"VehicleDetails.RecallHistory.VINRequired" = "Нужен VIN";
+"VehicleDetails.MakeActive" = "Сделать активным";
+
+// MARK: RecallHistory
+"RecallHistory.Title" = "Отзывные кампании";
+"RecallHistory.VIN" = "VIN: %@";
+"RecallHistory.RecallsCount" = "Найдено в базе: %i";
+"RecallHistory.ID" = "NHTSA №%@";
+"RecallHistory.Level.Critical" = "Критический";
+"RecallHistory.Level.Moderate" = "Средний";
+"RecallHistory.Level.Low" = "Низкий";
+"RecallHistory.ViewOnNHTSA" = "Открыть на NHTSA";
+"RecallHistory.Remedy" = "УСТРАНЕНИЕ";
+"RecallHistory.Notes" = "ПРИМЕЧАНИЯ";
+"RecallHistory.MarkAsCompleted" = "Отметить выполненным";
+"RecallHistory.Completed" = "Выполнено";
+
+// MARK: Settings
+"Settings.Title" = "Настройки";
+"Settings.Units.Title" = "Единицы измерения";
+"Settings.Units.SubTitle" = "Система единиц";
+"Settings.Subscription.Title" = "Подписка";
+"Settings.Subscription.SubTitle" = "Детали оплаты...";
+"Settings.PrivacyPolicy" = "Политика конфиденциальности";
+"Settings.TermsOfUse" = "Условия использования";
+
+// MARK: Dashboard
+"Dashboard.Vehicle.Title" = "Панель";
+"Dashboard.Vehicle.Connect" = "Подключить";
+"Dashboard.Vehicle.DemoModeTurnOff" = "Выключить демо-режим";
+"Dashboard.Vehicle.Disconnect" = "Отключить";
+"Dashboard.Vehicle.ChangeCar" = "Сменить авто";
+"Dashboard.LiveData.Title" = "Данные в реальном времени";
+"Dashboard.LiveData.Connected" = "Обновляются в реальном времени";
+"Dashboard.LiveData.DemoMode" = "Демонстрационные данные";
+"Dashboard.LiveData.NotConnect" = "Подключитесь, чтобы читать параметры двигателя";
+"Dashboard.DemoMode.Title" = "Демо-режим";
+"Dashboard.DemoMode.SubTitle" = "Демо-данные — не с вашего автомобиля";
+"Dashboard.DemoMode.Try" = "Попробовать демо";
+"Dashboard.DemoMode.Active" = "Включён";
+"Dashboard.DTCLogs.Title" = "Сохранённые ошибки";
+"Dashboard.DTCLogs.Active" = "активных: %d";
+"Dashboard.DTCLogs.Empty.Title" = "Ошибок пока нет";
+"Dashboard.DTCLogs.Empty.SubTitle" = "Запустите сканирование, чтобы начать историю";
+"Dashboard.Options.Title" = "ВОЗМОЖНОСТИ";
+"Dashboard.Options.DTC" = "Диагностика DTC";
+"Dashboard.Options.FreezeFrame" = "Стоп-кадр";
+"Dashboard.Options.RecallHistory" = "Отзывные кампании";
+"Dashboard.Options.DTCClear" = "Сбросить ошибки";
+"Dashboard.ErrorNeedConnect.Title" = "Нет подключения";
+"Dashboard.ErrorNeedConnect.Message" = "Подключитесь к адаптеру OBD2, чтобы использовать эту функцию";
+"Dashboard.ErrorNeedConnect.TryConnect" = "Подключить";
+"Dashboard.ErrorNeedMakeActiveVehicle.Title" = "Нет активного автомобиля";
+"Dashboard.ErrorNeedMakeActiveVehicle.Message" = "Выберите активный автомобиль в гараже, чтобы продолжить";
+"Dashboard.ErrorNeedMakeActiveVehicle.ChangeCar" = "Сменить авто";
+
+// MARK: Units
+"Units.Title" = "ЕДИНИЦЫ ИЗМЕРЕНИЯ";
+"Units.Torque" = "Крутящий момент";
+"Units.Torque.NewtonMeter" = "N·m";
+"Units.Torque.PoundFoot" = "lbf·ft";
+"Units.SpeedDistance" = "Скорость и расстояние";
+"Units.SpeedDistance.Metric" = "km/h + km";
+"Units.SpeedDistance.Imperial" = "mph + miles";
+"Units.FuelConsumption" = "Расход топлива";
+"Units.FuelConsumption.LitersPer100km" = "L/100km";
+"Units.FuelConsumption.LitersPerHour" = "L/h";
+"Units.FuelConsumption.MPG" = "mpg";
+"Units.FuelConsumption.GPM" = "GPM";
+"Units.Pressure" = "Давление";
+"Units.Pressure.KPA" = "kPa";
+"Units.Pressure.PSI" = "psi";
+"Units.Pressure.Bar" = "bar";
+"Units.Temperature" = "Температура";
+"Units.Temperature.Celsius" = "°C";
+"Units.Temperature.Fahrenheit" = "°F";
+
+// MARK: TryAgain
+"TryAgain.Title" = "НЕ УДАЛОСЬ ВЫПОЛНИТЬ ЗАПРОС";
+"TryAgain.SubTitle" = "Что-то пошло не так при загрузке данных. Попробуйте ещё раз — обычно это помогает. Если ошибка повторяется, сообщите нам.";
+"TryAgain.Action" = "Повторить";
+"TryAgain.ContactSupport" = "Написать в поддержку";
+
+// MARK: ConnectingType
+"ConnectingType.Title" = "Подключение";
+"ConnectingType.Text1" = "КАК ПОДКЛЮЧАЕТСЯ ВАШ АДАПТЕР?";
+"ConnectingType.Text2" = "Если не уверены, посмотрите упаковку или инструкцию адаптера.";
+"ConnectingType.WiFi" = "Wi-Fi";
+"ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
+"ConnectingType.BluetoothMFi" = "Bluetooth MFi";
+
+// MARK: BluetoothAccess
+"BluetoothAccess.Title" = "ДОСТУП К УСТРОЙСТВАМ\nПОБЛИЗОСТИ";
+"BluetoothAccess.SubTitle" = "Чтобы найти адаптер OBD2 по Bluetooth, разрешите приложению видеть устройства поблизости. Мы не используем это для определения вашего местоположения.";
+"BluetoothAccess.AllowAccess" = "Разрешить доступ";
+"BluetoothAccess.NotNow" = "Не сейчас";
+
+// MARK: Connecting
+"Connecting.Title.Connecting" = "Подключение...";
+"Connecting.Title.Connected" = "Подключено!";
+"Connecting.SubTitle" = "Это займёт несколько секунд";
+"Connecting.ProtocolDefinition" = "Определяем протокол";
+"Connecting.ReadingVehicleData" = "Читаем данные автомобиля";
+
+// MARK: ConnectingFailure
+"ConnectingFailure.Title" = "Не удалось подключиться";
+"ConnectingFailure.SubTitle" = "Мы не нашли ваш адаптер. Давайте это исправим.";
+"ConnectingFailure.Steps.Title" = "ПОПРОБУЙТЕ СДЕЛАТЬ ТАК";
+"ConnectingFailure.Steps.Step1" = "Убедитесь, что индикатор адаптера горит";
+"ConnectingFailure.Steps.Step2" = "Переведите зажигание в положение ON или ACC";
+"ConnectingFailure.Steps.Step3" = "Заново сопрягите Bluetooth или переподключите Wi-Fi";
+"ConnectingFailure.Steps.Step4" = "Отсоедините адаптер, подождите 5 секунд и вставьте обратно";
+"ConnectingFailure.DemoMode" = "Демо-режим";
+"ConnectingFailure.TryAgain" = "Повторить";
+
+// MARK: FreezeFrame
+"FreezeFrame.Title" = "Стоп-кадр";
+"FreezeFrame.Status.Confirmed" = "ПОДТВЕРЖДЁН";
+"FreezeFrame.Status.Pending" = "ОЖИДАЕТ";
+"FreezeFrame.Status.Permanent" = "ПОСТОЯННЫЙ";
+"FreezeFrame.Captured" = "Записано %@";
+"FreezeFrame.JustNow" = "только что";
+"FreezeFrame.Empty.Title" = "ДАННЫХ СТОП-КАДРА\nПОКА НЕТ";
+"FreezeFrame.Empty.SubTitle" = "Стоп-кадр сохраняет параметры автомобиля в момент возникновения неисправности. Это помогает точнее поставить диагноз";
+"FreezeFrame.Empty.Back" = "Назад";
+"FreezeFrame.EmptyItem.1" = "ЭБУ фиксирует код неисправности";
+"FreezeFrame.EmptyItem.2" = "Данные автомобиля сохраняются автоматически";
+"FreezeFrame.EmptyItem.3" = "Вы можете просмотреть и разобрать снимок";
+
+// MARK: FreezeFrame Details
+"FreezeFrameDetails.Title" = "Детали стоп-кадра";
+"FreezeFrameDetails.CapturedCaption" = "Записано в момент обнаружения ошибки";
+"FreezeFrameDetails.VehicleState" = "Ваш автомобиль в этот момент";
+
+// MARK: DTCClearInfo
+"DTCClearInfo.Title" = "СБРОСИТЬ ВСЕ ОШИБКИ?";
+"DTCClearInfo.SubTitle" = "Одно нажатие — сканирование не нужно. Команда сброса уйдёт в ЭБУ. Это:";
+"DTCClearInfo.Cell1" = "Погасит лампу Check Engine (MIL)";
+"DTCClearInfo.Cell2" = "Удалит подтверждённые и ожидающие коды";
+"DTCClearInfo.Cell3" = "Очистит стоп-кадр и сбросит мониторы готовности";
+"DTCClearInfo.Warning" = "Это не устранит причину — если неисправность осталась, коды вернутся.";
+"DTCClearInfo.ClearAllCodes" = "Сбросить все коды";
+
+// MARK: DTCClearing
+"DTCClearing.Clearing" = "Сбрасываем коды";
+"DTCClearing.Cleared" = "ВСЕ КОДЫ СБРОШЕНЫ";
+"DTCClearing.Failed" = "Не удалось сбросить коды";
+
+// MARK: DTCInfo
+"DTCInfo.Title" = "Диагностика";
+"DTCInfo.Caption" = "Коды неисправностей (DTC)";
+"DTCInfo.Confirmed.Title" = "1. ПОДТВЕРЖДЁННЫЕ КОДЫ:";
+"DTCInfo.Confirmed.Item" = "Автомобиль подтвердил неисправность и сохранил её в памяти — она повторилась в другом цикле поездки.";
+"DTCInfo.Pending.Title" = "2. ОЖИДАЮЩИЕ КОДЫ:";
+"DTCInfo.Pending.Item" = "Возможная неисправность из текущего цикла поездки. Если она не повторится, автомобиль удалит код через несколько поездок.";
+"DTCInfo.Permanent.Title" = "3. ПОСТОЯННЫЕ КОДЫ:";
+"DTCInfo.Permanent.Item" = "Нельзя сбросить вручную. Автомобиль удалит их сам, когда убедится в ремонте.";
+"DTCInfo.Action.Read" = "Считать";
+"DTCInfo.Action.Clear" = "Сбросить";
+
+// MARK: DTCReading
+"DTCReading.Clearing" = "Читаем коды...";
+"DTCReading.Failed" = "Не удалось считать коды";
+
+// MARK: DTCResult
+"DTCResult.Title" = "Результат DTC";
+"DTCResult.Action.Close" = "Закрыть";
+"DTCResult.Action.Clear" = "Сбросить";
+"DTCResult.Action.SavePIDs" = "Сохранить";
+"DTCResult.SavedPIDs.Title" = "Сохранено";
+"DTCResult.SavedPIDs.Message" = "Коды неисправностей сохранены в истории.";
+"DTCResult.SavedPIDs.Button" = "ОК";
+"DTCResult.HowToFix" = "Как исправить";
+"DTCResult.UnknownCode" = "Неизвестный код неисправности";
+"DTCResult.Unknown" = "Неизвестно";
+"DTCResult.InfoKey" = "%@: ";
+"DTCResult.Status.Confirmed" = "Подтверждён";
+"DTCResult.Status.Pending" = "Ожидает";
+"DTCResult.Status.Permanent" = "Постоянный";
+"DTCResult.System" = "Система";
+"DTCResult.Type" = "Тип";
+"DTCResult.AffectedSystem" = "Затронутая система";
+"DTCResult.System.Powertrain" = "Силовой агрегат";
+"DTCResult.System.Body" = "Кузов";
+"DTCResult.System.Chassis" = "Шасси";
+"DTCResult.System.Network" = "Сеть";
+"DTCResult.Type.Generic" = "Универсальный (SAE)";
+"DTCResult.Type.Manufacturer" = "Производителя";
+"DTCResult.Affected.FuelAir" = "Подача топлива и воздуха";
+"DTCResult.Affected.FuelAirInjector" = "Подача топлива и воздуха (цепь форсунок)";
+"DTCResult.Affected.Ignition" = "Система зажигания / пропуски";
+"DTCResult.Affected.Emission" = "Дополнительный контроль выбросов";
+"DTCResult.Affected.SpeedIdle" = "Управление скоростью и холостым ходом";
+"DTCResult.Affected.Computer" = "Блок управления и выходные цепи";
+"DTCResult.Affected.Transmission" = "Трансмиссия";
+"DTCResult.Affected.Hybrid" = "Гибридная силовая установка";
+"DTCResult.Affected.BodyElectronics" = "Электроника кузова";
+"DTCResult.Affected.Chassis" = "Шасси / тормоза и подвеска";
+"DTCResult.Affected.Network" = "Шина CAN / связь с ЭБУ";
+"DTCResult.Empty.Title" = "ОШИБОК НЕ НАЙДЕНО";
+"DTCResult.Empty.Cell1" = "Нет сохранённых и ожидающих кодов";
+"DTCResult.Empty.Cell2" = "Лампа Check Engine (MIL) не горит";
+"DTCResult.Empty.Cell3" = "Все мониторы готовности пройдены";
+
+// MARK: DTCLog
+"DTCLog.Title" = "Журнал ошибок";
+"DTCLog.Delete" = "Удалить";
+"DTCLog.DeleteAlert.Title" = "Удалить журнал ошибок?";
+"DTCLog.DeleteAlert.Message" = "Все сохранённые коды неисправностей для этого автомобиля будут удалены";
+"DTCLog.DeleteAlert.Delete" = "Удалить";
+
+// MARK: DTCCodeFixInfo
+"DTCCodeFixInfo.Title" = "Как исправить";
+"DTCCodeFixInfo.UnknownCode" = "Неизвестный код неисправности";
+"DTCCodeFixInfo.Status.Confirmed" = "Подтверждён";
+"DTCCodeFixInfo.Status.Pending" = "Ожидает";
+"DTCCodeFixInfo.Status.Permanent" = "Постоянный";
+"DTCCodeFixInfo.Stats.Urgency" = "Срочность";
+"DTCCodeFixInfo.Stats.Urgency.Low" = "Низкая";
+"DTCCodeFixInfo.Stats.Urgency.Medium" = "Средняя";
+"DTCCodeFixInfo.Stats.Urgency.High" = "Высокая";
+"DTCCodeFixInfo.Stats.TypicalFix" = "Обычный ремонт";
+"DTCCodeFixInfo.Stats.TypicalFix.Value" = "$%d–%d";
+"DTCCodeFixInfo.Stats.Drivable" = "Можно ехать";
+"DTCCodeFixInfo.Stats.Drivable.Yes" = "Да";
+"DTCCodeFixInfo.Stats.Drivable.No" = "Нет";
+"DTCCodeFixInfo.Means.Title" = "ЧТО ЭТО ЗНАЧИТ";
+"DTCCodeFixInfo.Vehicle.Title" = "КАК ЭТО ИСПРАВИТЬ";
+"DTCCodeFixInfo.Instruction.Trim" = "Комплектация";
+"DTCCodeFixInfo.Instruction.Disclaimer" = "Рекомендации основаны на типичных причинах для этого двигателя и не являются гарантированным диагнозом. Если сомневаетесь — обратитесь к механику.";
+
+// MARK: LiveData
+"LiveData.Title" = "Данные в реальном времени";
+"LiveData.Connection" = "%@ • %@";
+"LiveData.Connection.Bluetooth" = "Bluetooth";
+"LiveData.Connection.WiFi" = "Wi-Fi";
+"LiveData.Connection.MFi" = "Bluetooth MFi";
+"LiveData.DemoMode" = "Демо-режим • демо-данные";
+"LiveData.Dashboard.Title" = "Панель";
+"LiveData.Gauge.RPM" = "Обороты двигателя";
+"LiveData.Gauge.Speed" = "Скорость";
+"LiveData.Gauge.Coolant" = "Темп. ОЖ";
+"LiveData.Upgrade" = "УЛУЧШИТЬ";
+
+// MARK: HUD
+"HUD.Title" = "HUD";
+"HUD.Connected" = "Подключено";
+"HUD.DemoMode" = "Демо-режим";
+"HUD.Start.Title" = "ПРОЕКЦИОННЫЙ ДИСПЛЕЙ";
+"HUD.Start.SubTitle" = "Проецируйте данные поездки на лобовое стекло, чтобы не отвлекаться от дороги";
+"HUD.Start.Cell1" = "Положите телефон у основания лобового стекла";
+"HUD.Start.Cell2" = "Выкрутите яркость на максимум";
+"HUD.Start.Cell3" = "Включите зеркальный режим для отражения";
+"HUD.Start.Action" = "Запустить HUD";
+"HUD.RPM" = "Об/мин";
+"HUD.Temp" = "Темп.";
+"HUD.Voltage" = "Напряж.";
+
+// MARK: HUDSettings
+"HUDSettings.Brightness" = "Яркость";
+"HUDSettings.MirrorMode" = "Зеркальный режим";
+"HUDSettings.Units" = "Единицы";
+"HUDSettings.Units.Metric" = "km/h";
+"HUDSettings.Units.Imperial" = "mph";
+"HUDSettings.Layout" = "Макет";
+"HUDSettings.Layout.Minimal" = "Минимальный";
+"HUDSettings.Layout.Classic" = "Классический";
+"HUDSettings.Layout.Custom" = "Свой";

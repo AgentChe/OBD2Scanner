@@ -1,0 +1,448 @@
+/*
+  Localizable.strings
+  OBD2Scanner
+
+  Simplified Chinese
+
+*/
+
+// MARK: General
+"Cancel" = "取消";
+"Continue" = "继续";
+"Next" = "下一步";
+"Skip" = "跳过";
+
+// MARK: Splash
+"Splash.Title.1" = "OBD2";
+"Splash.Title.2" = " SCANNER";
+"Splash.SubTitle" = "智能诊断";
+
+// MARK: Onboarding
+"Onboarding.Title.1" = "OBD2";
+"Onboarding.Title.2" = " SCANNER";
+"Onboarding.SubTitle" = "智能诊断";
+"Onboarding.ContinueButton" = "继续";
+"Onboarding.Info.Diagnostic.Title" = "读取、修复并清除故障码";
+"Onboarding.Info.Diagnostic.SubTitle" = "获取所有已存故障的完整列表，了解如何解决问题，然后清除故障码。";
+"Onboarding.Info.HUD.Title" = "车速、转速与冷却液温度";
+"Onboarding.Info.HUD.SubTitle" = "只显示关键信息，让你专注驾驶。";
+"Onboarding.Info.RecallHistory.Title" = "不再错过任何召回";
+"Onboarding.Info.RecallHistory.SubTitle" = "查看所有生效中的召回，并及时了解新的召回";
+"Onboarding.Info.Garage.Title" = "想加多少车都可以";
+"Onboarding.Info.Garage.SubTitle" = "所有功能对你的车辆数量没有限制";
+"Onboarding.Slider.Diagnostic.Title" = "读取、修复、清除";
+"Onboarding.Slider.Diagnostic.SubTitle" = "查看确切的故障码\n并了解如何解决";
+"Onboarding.Slider.HUD.Title" = "HUD";
+"Onboarding.Slider.HUD.SubTitle" = "抬头显示";
+"Onboarding.Slider.RecallHistory.Title" = "召回记录";
+"Onboarding.Slider.RecallHistory.SubTitle" = "你的车辆对应的\n完整召回列表";
+"Onboarding.Slider.Garage.Title" = "无限车库";
+"Onboarding.Slider.Garage.SubTitle" = "适合大量收藏\n或车队管理";
+
+// MARK: UnlimitedPlan
+"UnlimitedPlan.Title" = "特别优惠";
+"UnlimitedPlan.Header.Text" = "无限版";
+"UnlimitedPlan.SubTitle" = "选择年度方案可省 67%";
+"UnlimitedPlan.GetPlan" = "获取无限方案";
+"UnlimitedPlan.Item.Diagnostics.Name" = "诊断";
+"UnlimitedPlan.Item.Diagnostics.Text" = "检查爱车状况";
+"UnlimitedPlan.Item.FreezeFrame.Name" = "冻结帧";
+"UnlimitedPlan.Item.FreezeFrame.Text" = "故障瞬间快照";
+"UnlimitedPlan.Item.HUD.Name" = "HUD";
+"UnlimitedPlan.Item.HUD.Text" = "抬头显示";
+"UnlimitedPlan.Item.RecallHistory.Name" = "召回记录";
+"UnlimitedPlan.Item.RecallHistory.Text" = "检查爱车状况";
+"UnlimitedPlan.Item.UnlimitedGarage.Name" = "无限车库";
+"UnlimitedPlan.Item.UnlimitedGarage.Text" = "添加任意车辆";
+"UnlimitedPlan.ItemTitle" = "选择适合你的方案";
+"UnlimitedPlan.ItemFree" = "免费";
+"UnlimitedPlan.ItemUnlimited" = "无限版";
+"UnlimitedPlan.Unlimited" = "无限版";
+
+// MARK: Paygate
+"Paygate.Error.Title" = "错误";
+"Paygate.Error.Text" = "执行过程中出现错误，请稍后再试。";
+"Paygate.Error.Button" = "好";
+"Paygate.Lifetime.Title" = "终身";
+"Paygate.Lifetime.Period" = "周";
+"Paygate.Lifetime.InTerms" = "相当于  1  年";
+"Paygate.Lifetime.Discount" = "省 %i%%";
+"Paygate.Lifetime.Once" = "一次性";
+"Paygate.Subscription.Name1" = "免费试用 3 天";
+"Paygate.Subscription.Name2" = "快速上手";
+"Paygate.Subscription.Bottom1" = "3 天试用结束后";
+"Paygate.Subscription.Bottom2" = "试用已结束";
+"Paygate.Subscription.Period" = "月";
+"Paygate.CancelAnytime" = "由 App Store 提供保障，可随时取消。";
+"Paygate.TermsOfUse" = "使用条款";
+"Paygate.PrivacyPolicy" = "隐私政策";
+"Paygate.RestorePurchases" = "恢复购买";
+"Paygate.Title" = "特别优惠";
+"Paygate.Header.Text" = "无限版";
+"Paygate.SubTitle" = "选择年度方案可省 67%";
+"Paygate.Cell.Diagnostics.Name" = "诊断";
+"Paygate.Cell.Diagnostics.Text" = "检查爱车状况";
+"Paygate.Cell.FreezeFrame.Name" = "冻结帧";
+"Paygate.Cell.FreezeFrame.Text" = "故障瞬间快照";
+"Paygate.Cell.HUD.Name" = "HUD";
+"Paygate.Cell.HUD.Text" = "抬头显示";
+"Paygate.Cell.RecallHistory.Name" = "召回记录";
+"Paygate.Cell.RecallHistory.Text" = "检查爱车状况";
+"Paygate.Cell.UnlimitedGarage.Name" = "无限车库";
+"Paygate.Cell.UnlimitedGarage.Text" = "添加任意车辆";
+"Paygate.ItemTitle" = "选择适合你的方案";
+"Paygate.ItemFree" = "免费";
+"Paygate.ItemUnlimited" = "无限版";
+"Paygate.Unlimited" = "无限版";
+
+// MARK: ChooseMethodAddCar
+"ChooseMethodAddCar.Title" = "添加你的车辆";
+"ChooseMethodAddCar.Manually.Title" = "浏览车型库";
+"ChooseMethodAddCar.Manually.SubTitle" = "选择车辆的品牌、\n车型和年款";
+"ChooseMethodAddCar.Manually.Action" = "选择我的车";
+"ChooseMethodAddCar.DecodeVIN.Title" = "通过 VIN 查找车辆";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "输入 VIN，其余信息由我们补全";
+"ChooseMethodAddCar.DecodeVIN.Action" = "输入 VIN";
+"ChooseMethodAddCar.FindVIN.Title" = "在哪里能找到 VIN？";
+"ChooseMethodAddCar.FindVIN.Info" = "VIN 位于行驶证等登记文件\n以及车身上";
+"ChooseMethodAddCar.ContactUs.Title" = "联系我们";
+"ChooseMethodAddCar.ContactUs.Text" = "我们的支持团队随时为你服务";
+
+// MARK: SelectYear
+"SelectYear.Title" = "选择出厂年份";
+"SelectYear.Description" = "选择准确的年份，诊断结果更精准";
+
+// MARK: SelectBrand
+"SelectBrand.Title" = "选择品牌";
+"SelectBrand.SubTitle" = "输入汽车品牌名称，或从列表中选择";
+"SelectBrand.TextFieldPlaceholder" = "输入品牌";
+
+// MARK: SelectModel
+"SelectModel.Title" = "选择车型";
+"SelectModel.Brand" = "品牌：";
+"SelectModel.AllModels" = "全部车型";
+"SelectModel.TextFieldPlaceholder" = "输入车型";
+
+// MARK: AddVehicleResult
+"AddVehicleResult.Title" = "车辆已添加";
+"AddVehicleResult.SubTitle" = "爱车已开进车库";
+"AddVehicleResult.VIN.Title" = "VIN";
+"AddVehicleResult.VIN.Add" = "添加 VIN";
+"AddVehicleResult.VIN.NotAvailable" = "未添加";
+"AddVehicleResult.Item.Brand" = "品牌：";
+"AddVehicleResult.Item.Model" = "车型：";
+"AddVehicleResult.Item.Year" = "年款：";
+"AddVehicleResult.AddAnotherCar" = "再添加一辆车";
+"AddVehicleResult.CompleteButton" = "前往仪表盘";
+
+// MARK: AddVIN
+"AddVIN.Title" = "输入你的 VIN";
+"AddVIN.SubTitle" = "可在仪表台、驾驶员侧车门\n或车辆证件上找到";
+"AddVIN.EnterPlaceholder" = "输入 VIN";
+"AddVIN.EnterNotFound" = "未能找到你的 VIN";
+"AddVIN.Example" = "VIN 示例：1HGCM82633A004352";
+"AddVIN.DecodeVIN" = "解析 VIN";
+
+// MARK: DecodeVIN
+"DecodeVIN.Title" = "输入 VIN";
+"DecodeVIN.Header" = "输入你的 VIN";
+"DecodeVIN.SubTitle" = "请查看驾驶员一侧挡风玻璃下沿、驾驶员车门内侧，或车辆登记证件。";
+"DecodeVIN.EnterPlaceholder" = "输入 VIN";
+"DecodeVIN.EnterNotFound" = "未能找到该 VIN。\n请检查字符，或手动添加车辆。";
+"DecodeVIN.Example" = "VIN 示例：1HGCM82633A004352";
+"DecodeVIN.DecodeVIN" = "解析 VIN";
+
+// MARK: Main
+"Main.Tab.Dashboard" = "仪表盘";
+"Main.Tab.HUD" = "HUD";
+"Main.Tab.Garage" = "我的车库";
+"Main.Tab.Settings" = "设置";
+
+// MARK: Garage
+"Garage.Title" = "我的车库";
+"Garage.AddCar" = "+ 添加车辆";
+"Garage.VehiclesCount" = "车辆：%i";
+"Garage.Active" = "当前车辆";
+"Garage.LastSyncNone" = "上次同步：无";
+"Garage.VIN.NotAvailable" = "VIN：未添加";
+"Garage.RemoveAlert.Message" = "该车辆将从你的车库中移除";
+"Garage.RemoveAlert.Remove" = "移除";
+
+// MARK: VehicleDetails
+"VehicleDetails.Active" = "当前车辆";
+"VehicleDetails.VIN.Title" = "VIN";
+"VehicleDetails.VIN.Add" = "添加 VIN";
+"VehicleDetails.VIN.NotAvailable" = "未添加";
+"VehicleDetails.Item.Brand" = "品牌：";
+"VehicleDetails.Item.Model" = "车型：";
+"VehicleDetails.Item.Year" = "年款：";
+"VehicleDetails.RecallHistory.Title" = "召回记录";
+"VehicleDetails.RecallHistory.SubTitle" = "车辆安全召回";
+"VehicleDetails.RecallHistory.VINRequired" = "需要 VIN";
+"VehicleDetails.MakeActive" = "设为当前车辆";
+
+// MARK: RecallHistory
+"RecallHistory.Title" = "召回记录";
+"RecallHistory.VIN" = "VIN：%@";
+"RecallHistory.RecallsCount" = "数据库中找到：%i";
+"RecallHistory.ID" = "NHTSA 编号 %@";
+"RecallHistory.Level.Critical" = "严重";
+"RecallHistory.Level.Moderate" = "中等";
+"RecallHistory.Level.Low" = "较低";
+"RecallHistory.ViewOnNHTSA" = "在 NHTSA 上查看";
+"RecallHistory.Remedy" = "解决方案";
+"RecallHistory.Notes" = "备注";
+"RecallHistory.MarkAsCompleted" = "标记为已完成";
+"RecallHistory.Completed" = "已完成";
+
+// MARK: Settings
+"Settings.Title" = "设置";
+"Settings.Units.Title" = "单位";
+"Settings.Units.SubTitle" = "计量单位";
+"Settings.Subscription.Title" = "订阅";
+"Settings.Subscription.SubTitle" = "账单详情...";
+"Settings.PrivacyPolicy" = "隐私政策";
+"Settings.TermsOfUse" = "使用条款";
+
+// MARK: Dashboard
+"Dashboard.Vehicle.Title" = "仪表盘";
+"Dashboard.Vehicle.Connect" = "连接";
+"Dashboard.Vehicle.DemoModeTurnOff" = "关闭演示模式";
+"Dashboard.Vehicle.Disconnect" = "断开连接";
+"Dashboard.Vehicle.ChangeCar" = "切换车辆";
+"Dashboard.LiveData.Title" = "实时数据";
+"Dashboard.LiveData.Connected" = "正在实时更新";
+"Dashboard.LiveData.DemoMode" = "示例数据";
+"Dashboard.LiveData.NotConnect" = "连接后即可读取发动机参数";
+"Dashboard.DemoMode.Title" = "演示模式";
+"Dashboard.DemoMode.SubTitle" = "示例数据，并非来自你的车辆";
+"Dashboard.DemoMode.Try" = "试用演示";
+"Dashboard.DemoMode.Active" = "已开启";
+"Dashboard.DTCLogs.Title" = "已保存的故障";
+"Dashboard.DTCLogs.Active" = "%d 个未解决";
+"Dashboard.DTCLogs.Empty.Title" = "暂无故障码";
+"Dashboard.DTCLogs.Empty.SubTitle" = "运行一次扫描，开始记录历史";
+"Dashboard.Options.Title" = "功能";
+"Dashboard.Options.DTC" = "DTC 诊断";
+"Dashboard.Options.FreezeFrame" = "冻结帧";
+"Dashboard.Options.RecallHistory" = "召回记录";
+"Dashboard.Options.DTCClear" = "清除故障码";
+"Dashboard.ErrorNeedConnect.Title" = "未连接";
+"Dashboard.ErrorNeedConnect.Message" = "请先连接 OBD2 适配器再使用此功能";
+"Dashboard.ErrorNeedConnect.TryConnect" = "连接";
+"Dashboard.ErrorNeedMakeActiveVehicle.Title" = "没有当前车辆";
+"Dashboard.ErrorNeedMakeActiveVehicle.Message" = "请在车库中选择一辆当前车辆后继续";
+"Dashboard.ErrorNeedMakeActiveVehicle.ChangeCar" = "切换车辆";
+
+// MARK: Units
+"Units.Title" = "单位";
+"Units.Torque" = "扭矩";
+"Units.Torque.NewtonMeter" = "N·m";
+"Units.Torque.PoundFoot" = "lbf·ft";
+"Units.SpeedDistance" = "速度与距离";
+"Units.SpeedDistance.Metric" = "km/h + km";
+"Units.SpeedDistance.Imperial" = "mph + miles";
+"Units.FuelConsumption" = "油耗";
+"Units.FuelConsumption.LitersPer100km" = "L/100km";
+"Units.FuelConsumption.LitersPerHour" = "L/h";
+"Units.FuelConsumption.MPG" = "mpg";
+"Units.FuelConsumption.GPM" = "GPM";
+"Units.Pressure" = "压力";
+"Units.Pressure.KPA" = "kPa";
+"Units.Pressure.PSI" = "psi";
+"Units.Pressure.Bar" = "bar";
+"Units.Temperature" = "温度";
+"Units.Temperature.Celsius" = "°C";
+"Units.Temperature.Fahrenheit" = "°F";
+
+// MARK: TryAgain
+"TryAgain.Title" = "无法完成你的请求";
+"TryAgain.SubTitle" = "加载数据时出了点问题。请重试，通常都能解决。如果错误持续出现，请告诉我们。";
+"TryAgain.Action" = "重试";
+"TryAgain.ContactSupport" = "联系客服";
+
+// MARK: ConnectingType
+"ConnectingType.Title" = "连接";
+"ConnectingType.Text1" = "你的适配器通过什么方式连接？";
+"ConnectingType.Text2" = "如不确定，请查看适配器的包装或说明书。";
+"ConnectingType.WiFi" = "Wi-Fi";
+"ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
+"ConnectingType.BluetoothMFi" = "Bluetooth MFi";
+
+// MARK: BluetoothAccess
+"BluetoothAccess.Title" = "访问\n附近的设备";
+"BluetoothAccess.SubTitle" = "为了通过蓝牙找到你的 OBD2 适配器，请允许 App 查看附近的设备。我们不会用它来确定你的位置。";
+"BluetoothAccess.AllowAccess" = "允许访问";
+"BluetoothAccess.NotNow" = "暂不";
+
+// MARK: Connecting
+"Connecting.Title.Connecting" = "正在连接...";
+"Connecting.Title.Connected" = "已连接！";
+"Connecting.SubTitle" = "只需几秒钟";
+"Connecting.ProtocolDefinition" = "正在检测协议";
+"Connecting.ReadingVehicleData" = "正在读取车辆数据";
+
+// MARK: ConnectingFailure
+"ConnectingFailure.Title" = "无法连接";
+"ConnectingFailure.SubTitle" = "我们没有找到你的适配器，一起来解决吧。";
+"ConnectingFailure.Steps.Title" = "试试这些步骤";
+"ConnectingFailure.Steps.Step1" = "确认适配器指示灯已亮起";
+"ConnectingFailure.Steps.Step2" = "将点火开关转到 ON 或 ACC 档";
+"ConnectingFailure.Steps.Step3" = "重新配对蓝牙或重新连接 Wi-Fi";
+"ConnectingFailure.Steps.Step4" = "拔下适配器，等待 5 秒后重新插上";
+"ConnectingFailure.DemoMode" = "演示模式";
+"ConnectingFailure.TryAgain" = "重试";
+
+// MARK: FreezeFrame
+"FreezeFrame.Title" = "冻结帧";
+"FreezeFrame.Status.Confirmed" = "已确认";
+"FreezeFrame.Status.Pending" = "待定";
+"FreezeFrame.Status.Permanent" = "永久";
+"FreezeFrame.Captured" = "记录于 %@";
+"FreezeFrame.JustNow" = "刚刚";
+"FreezeFrame.Empty.Title" = "暂无冻结帧\n数据";
+"FreezeFrame.Empty.SubTitle" = "冻结帧会记录故障发生瞬间的车辆参数，有助于更准确地判断问题";
+"FreezeFrame.Empty.Back" = "返回";
+"FreezeFrame.EmptyItem.1" = "ECU 检测到故障码";
+"FreezeFrame.EmptyItem.2" = "车辆数据被自动记录";
+"FreezeFrame.EmptyItem.3" = "你可以查看并分析这份快照";
+
+// MARK: FreezeFrame Details
+"FreezeFrameDetails.Title" = "冻结帧详情";
+"FreezeFrameDetails.CapturedCaption" = "在检测到故障时记录";
+"FreezeFrameDetails.VehicleState" = "当时你的车辆状态";
+
+// MARK: DTCClearInfo
+"DTCClearInfo.Title" = "清除全部故障码？";
+"DTCClearInfo.SubTitle" = "一键完成，无需扫描。这会向 ECU 发送复位指令，并且会：";
+"DTCClearInfo.Cell1" = "熄灭发动机故障灯（MIL）";
+"DTCClearInfo.Cell2" = "清除已确认和待定的故障码";
+"DTCClearInfo.Cell3" = "清空冻结帧数据并重置就绪监测项";
+"DTCClearInfo.Warning" = "这不会解决根本原因——如果故障仍在，故障码还会再次出现。";
+"DTCClearInfo.ClearAllCodes" = "清除全部故障码";
+
+// MARK: DTCClearing
+"DTCClearing.Clearing" = "正在清除故障码";
+"DTCClearing.Cleared" = "全部故障码已清除";
+"DTCClearing.Failed" = "清除故障码失败";
+
+// MARK: DTCInfo
+"DTCInfo.Title" = "诊断";
+"DTCInfo.Caption" = "诊断故障码（DTC）";
+"DTCInfo.Confirmed.Title" = "1. 已确认故障码：";
+"DTCInfo.Confirmed.Item" = "车辆已核实该故障并存入内存——它在另一个行驶循环中再次出现。";
+"DTCInfo.Pending.Title" = "2. 待定故障码：";
+"DTCInfo.Pending.Item" = "本次行驶循环中可能出现的故障。若不再出现，车辆会在几次行程后将其清除。";
+"DTCInfo.Permanent.Title" = "3. 永久故障码：";
+"DTCInfo.Permanent.Item" = "无法手动清除。车辆确认修复完成后会自行删除。";
+"DTCInfo.Action.Read" = "读取";
+"DTCInfo.Action.Clear" = "清除";
+
+// MARK: DTCReading
+"DTCReading.Clearing" = "正在读取故障码...";
+"DTCReading.Failed" = "读取故障码失败";
+
+// MARK: DTCResult
+"DTCResult.Title" = "DTC 结果";
+"DTCResult.Action.Close" = "关闭";
+"DTCResult.Action.Clear" = "清除";
+"DTCResult.Action.SavePIDs" = "保存";
+"DTCResult.SavedPIDs.Title" = "已保存";
+"DTCResult.SavedPIDs.Message" = "故障码已保存到你的历史记录中。";
+"DTCResult.SavedPIDs.Button" = "好";
+"DTCResult.HowToFix" = "如何解决";
+"DTCResult.UnknownCode" = "未知故障码";
+"DTCResult.Unknown" = "未知";
+"DTCResult.InfoKey" = "%@：";
+"DTCResult.Status.Confirmed" = "已确认";
+"DTCResult.Status.Pending" = "待定";
+"DTCResult.Status.Permanent" = "永久";
+"DTCResult.System" = "系统";
+"DTCResult.Type" = "类型";
+"DTCResult.AffectedSystem" = "受影响的系统";
+"DTCResult.System.Powertrain" = "动力总成";
+"DTCResult.System.Body" = "车身";
+"DTCResult.System.Chassis" = "底盘";
+"DTCResult.System.Network" = "网络";
+"DTCResult.Type.Generic" = "通用（SAE）";
+"DTCResult.Type.Manufacturer" = "厂商自定义";
+"DTCResult.Affected.FuelAir" = "燃油与空气计量";
+"DTCResult.Affected.FuelAirInjector" = "燃油与空气计量（喷油器回路）";
+"DTCResult.Affected.Ignition" = "点火系统 / 失火";
+"DTCResult.Affected.Emission" = "辅助排放控制";
+"DTCResult.Affected.SpeedIdle" = "车速与怠速控制";
+"DTCResult.Affected.Computer" = "控制单元与输出回路";
+"DTCResult.Affected.Transmission" = "变速箱";
+"DTCResult.Affected.Hybrid" = "混合动力系统";
+"DTCResult.Affected.BodyElectronics" = "车身电子";
+"DTCResult.Affected.Chassis" = "底盘 / 制动与悬架";
+"DTCResult.Affected.Network" = "CAN 总线 / ECU 通信";
+"DTCResult.Empty.Title" = "未发现故障码";
+"DTCResult.Empty.Cell1" = "没有已存储或待定的故障码";
+"DTCResult.Empty.Cell2" = "发动机故障灯（MIL）已熄灭";
+"DTCResult.Empty.Cell3" = "所有就绪监测项均已通过";
+
+// MARK: DTCLog
+"DTCLog.Title" = "故障日志";
+"DTCLog.Delete" = "删除";
+"DTCLog.DeleteAlert.Title" = "删除故障日志？";
+"DTCLog.DeleteAlert.Message" = "该车辆所有已保存的故障码都将被移除";
+"DTCLog.DeleteAlert.Delete" = "删除";
+
+// MARK: DTCCodeFixInfo
+"DTCCodeFixInfo.Title" = "如何解决";
+"DTCCodeFixInfo.UnknownCode" = "未知故障码";
+"DTCCodeFixInfo.Status.Confirmed" = "已确认";
+"DTCCodeFixInfo.Status.Pending" = "待定";
+"DTCCodeFixInfo.Status.Permanent" = "永久";
+"DTCCodeFixInfo.Stats.Urgency" = "紧急程度";
+"DTCCodeFixInfo.Stats.Urgency.Low" = "低";
+"DTCCodeFixInfo.Stats.Urgency.Medium" = "中";
+"DTCCodeFixInfo.Stats.Urgency.High" = "高";
+"DTCCodeFixInfo.Stats.TypicalFix" = "常见维修费用";
+"DTCCodeFixInfo.Stats.TypicalFix.Value" = "$%d–%d";
+"DTCCodeFixInfo.Stats.Drivable" = "可继续行驶";
+"DTCCodeFixInfo.Stats.Drivable.Yes" = "是";
+"DTCCodeFixInfo.Stats.Drivable.No" = "否";
+"DTCCodeFixInfo.Means.Title" = "这意味着什么";
+"DTCCodeFixInfo.Vehicle.Title" = "如何解决";
+"DTCCodeFixInfo.Instruction.Trim" = "配置";
+"DTCCodeFixInfo.Instruction.Disclaimer" = "以上建议基于该发动机的常见故障原因，并非确定诊断结论。如不确定，请咨询维修技师。";
+
+// MARK: LiveData
+"LiveData.Title" = "实时数据";
+"LiveData.Connection" = "%@ • %@";
+"LiveData.Connection.Bluetooth" = "Bluetooth";
+"LiveData.Connection.WiFi" = "Wi-Fi";
+"LiveData.Connection.MFi" = "Bluetooth MFi";
+"LiveData.DemoMode" = "演示模式 • 示例数据";
+"LiveData.Dashboard.Title" = "仪表盘";
+"LiveData.Gauge.RPM" = "发动机转速";
+"LiveData.Gauge.Speed" = "车速";
+"LiveData.Gauge.Coolant" = "冷却液温度";
+"LiveData.Upgrade" = "升级";
+
+// MARK: HUD
+"HUD.Title" = "HUD";
+"HUD.Connected" = "已连接";
+"HUD.DemoMode" = "演示模式";
+"HUD.Start.Title" = "抬头显示";
+"HUD.Start.SubTitle" = "将驾驶数据投射到挡风玻璃上，让驾驶更安全、更专注";
+"HUD.Start.Cell1" = "把手机放在挡风玻璃根部";
+"HUD.Start.Cell2" = "将屏幕亮度调到最高";
+"HUD.Start.Cell3" = "开启镜像模式以便反射";
+"HUD.Start.Action" = "启动 HUD";
+"HUD.RPM" = "转速";
+"HUD.Temp" = "水温";
+"HUD.Voltage" = "电压";
+
+// MARK: HUDSettings
+"HUDSettings.Brightness" = "亮度";
+"HUDSettings.MirrorMode" = "镜像模式";
+"HUDSettings.Units" = "单位";
+"HUDSettings.Units.Metric" = "km/h";
+"HUDSettings.Units.Imperial" = "mph";
+"HUDSettings.Layout" = "布局";
+"HUDSettings.Layout.Minimal" = "极简";
+"HUDSettings.Layout.Classic" = "经典";
+"HUDSettings.Layout.Custom" = "自定义";

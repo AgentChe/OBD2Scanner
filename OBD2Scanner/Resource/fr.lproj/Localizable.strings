@@ -1,0 +1,448 @@
+/*
+  Localizable.strings
+  OBD2Scanner
+
+  French
+
+*/
+
+// MARK: General
+"Cancel" = "Annuler";
+"Continue" = "Continuer";
+"Next" = "Suivant";
+"Skip" = "Passer";
+
+// MARK: Splash
+"Splash.Title.1" = "OBD2";
+"Splash.Title.2" = " SCANNER";
+"Splash.SubTitle" = "DIAGNOSTIC INTELLIGENT";
+
+// MARK: Onboarding
+"Onboarding.Title.1" = "OBD2";
+"Onboarding.Title.2" = " SCANNER";
+"Onboarding.SubTitle" = "DIAGNOSTIC INTELLIGENT";
+"Onboarding.ContinueButton" = "Continuer";
+"Onboarding.Info.Diagnostic.Title" = "LIRE, CORRIGER ET EFFACER LES CODES DÉFAUT";
+"Onboarding.Info.Diagnostic.SubTitle" = "Obtenez la liste complète des défauts enregistrés, découvrez comment les résoudre, puis effacez les codes.";
+"Onboarding.Info.HUD.Title" = "VITESSE, RÉGIME ET TEMP. DU LIQUIDE DE REFROIDISSEMENT";
+"Onboarding.Info.HUD.SubTitle" = "Uniquement l'essentiel. Pour rester concentré sur la route.";
+"Onboarding.Info.RecallHistory.Title" = "PLUS AUCUN RAPPEL MANQUÉ";
+"Onboarding.Info.RecallHistory.SubTitle" = "Consultez tous les rappels actifs et soyez informé des nouveaux";
+"Onboarding.Info.Garage.Title" = "AUTANT DE VOITURES QUE VOUS VOULEZ";
+"Onboarding.Info.Garage.SubTitle" = "Toutes les fonctions sont disponibles pour un nombre illimité de véhicules";
+"Onboarding.Slider.Diagnostic.Title" = "Lire, corriger, effacer";
+"Onboarding.Slider.Diagnostic.SubTitle" = "Les codes défaut exacts\net comment les résoudre";
+"Onboarding.Slider.HUD.Title" = "HUD";
+"Onboarding.Slider.HUD.SubTitle" = "Affichage tête haute";
+"Onboarding.Slider.RecallHistory.Title" = "Historique des rappels";
+"Onboarding.Slider.RecallHistory.SubTitle" = "La liste complète des rappels\npour votre véhicule";
+"Onboarding.Slider.Garage.Title" = "Garage illimité";
+"Onboarding.Slider.Garage.SubTitle" = "Pour une grande collection\nou une gestion de flotte";
+
+// MARK: UnlimitedPlan
+"UnlimitedPlan.Title" = "Offre spéciale";
+"UnlimitedPlan.Header.Text" = "Illimité";
+"UnlimitedPlan.SubTitle" = "Économisez 67 % avec l'offre annuelle";
+"UnlimitedPlan.GetPlan" = "Passer à l'illimité";
+"UnlimitedPlan.Item.Diagnostics.Name" = "Diagnostic";
+"UnlimitedPlan.Item.Diagnostics.Text" = "Vérifiez l'état de votre voiture";
+"UnlimitedPlan.Item.FreezeFrame.Name" = "Image figée";
+"UnlimitedPlan.Item.FreezeFrame.Text" = "Instantané du défaut";
+"UnlimitedPlan.Item.HUD.Name" = "HUD";
+"UnlimitedPlan.Item.HUD.Text" = "Affichage tête haute";
+"UnlimitedPlan.Item.RecallHistory.Name" = "Historique des rappels";
+"UnlimitedPlan.Item.RecallHistory.Text" = "Vérifiez l'état de votre voiture";
+"UnlimitedPlan.Item.UnlimitedGarage.Name" = "Garage illimité";
+"UnlimitedPlan.Item.UnlimitedGarage.Text" = "Ajoutez autant de voitures que vous voulez";
+"UnlimitedPlan.ItemTitle" = "Choisissez l'offre qui vous convient";
+"UnlimitedPlan.ItemFree" = "Gratuit";
+"UnlimitedPlan.ItemUnlimited" = "Illimité";
+"UnlimitedPlan.Unlimited" = "ILLIMITÉ";
+
+// MARK: Paygate
+"Paygate.Error.Title" = "Erreur";
+"Paygate.Error.Text" = "Une erreur s'est produite pendant l'opération. Réessayez plus tard.";
+"Paygate.Error.Button" = "OK";
+"Paygate.Lifetime.Title" = "À vie";
+"Paygate.Lifetime.Period" = "semaine";
+"Paygate.Lifetime.InTerms" = "Soit l'équivalent d'  1  an";
+"Paygate.Lifetime.Discount" = "−%i%%";
+"Paygate.Lifetime.Once" = "une fois";
+"Paygate.Subscription.Name1" = "3 jours gratuits";
+"Paygate.Subscription.Name2" = "Démarrage rapide";
+"Paygate.Subscription.Bottom1" = "Après 3 jours d'essai";
+"Paygate.Subscription.Bottom2" = "Essai terminé";
+"Paygate.Subscription.Period" = "mois";
+"Paygate.CancelAnytime" = "Sécurisé par l'App Store. Annulable à tout moment.";
+"Paygate.TermsOfUse" = "Conditions d'utilisation";
+"Paygate.PrivacyPolicy" = "Politique de confidentialité";
+"Paygate.RestorePurchases" = "Restaurer l'achat";
+"Paygate.Title" = "Offre spéciale";
+"Paygate.Header.Text" = "Illimité";
+"Paygate.SubTitle" = "Économisez 67 % avec l'offre annuelle";
+"Paygate.Cell.Diagnostics.Name" = "Diagnostic";
+"Paygate.Cell.Diagnostics.Text" = "Vérifiez l'état de votre voiture";
+"Paygate.Cell.FreezeFrame.Name" = "Image figée";
+"Paygate.Cell.FreezeFrame.Text" = "Instantané du défaut";
+"Paygate.Cell.HUD.Name" = "HUD";
+"Paygate.Cell.HUD.Text" = "Affichage tête haute";
+"Paygate.Cell.RecallHistory.Name" = "Historique des rappels";
+"Paygate.Cell.RecallHistory.Text" = "Vérifiez l'état de votre voiture";
+"Paygate.Cell.UnlimitedGarage.Name" = "Garage illimité";
+"Paygate.Cell.UnlimitedGarage.Text" = "Ajoutez autant de voitures que vous voulez";
+"Paygate.ItemTitle" = "Choisissez l'offre qui vous convient";
+"Paygate.ItemFree" = "Gratuit";
+"Paygate.ItemUnlimited" = "Illimité";
+"Paygate.Unlimited" = "ILLIMITÉ";
+
+// MARK: ChooseMethodAddCar
+"ChooseMethodAddCar.Title" = "Ajoutez votre voiture";
+"ChooseMethodAddCar.Manually.Title" = "PARCOURIR LE CATALOGUE";
+"ChooseMethodAddCar.Manually.SubTitle" = "Choisissez la marque, le modèle\net l'année de votre voiture";
+"ChooseMethodAddCar.Manually.Action" = "Choisir ma voiture";
+"ChooseMethodAddCar.DecodeVIN.Title" = "TROUVER VOTRE VOITURE PAR LE VIN";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Saisissez votre VIN, on s'occupe du reste";
+"ChooseMethodAddCar.DecodeVIN.Action" = "Saisir le VIN";
+"ChooseMethodAddCar.FindVIN.Title" = "Où trouver le VIN ?";
+"ChooseMethodAddCar.FindVIN.Info" = "Le VIN figure sur la carte grise\net sur la carrosserie du véhicule";
+"ChooseMethodAddCar.ContactUs.Title" = "Nous contacter";
+"ChooseMethodAddCar.ContactUs.Text" = "Notre équipe d'assistance est là pour vous";
+
+// MARK: SelectYear
+"SelectYear.Title" = "Sélectionnez l'année de fabrication";
+"SelectYear.Description" = "Indiquez l'année exacte pour un diagnostic le plus précis possible";
+
+// MARK: SelectBrand
+"SelectBrand.Title" = "Sélectionnez une marque";
+"SelectBrand.SubTitle" = "Saisissez le nom de la marque ou choisissez-la dans la liste";
+"SelectBrand.TextFieldPlaceholder" = "Saisir la marque";
+
+// MARK: SelectModel
+"SelectModel.Title" = "Sélectionnez un modèle";
+"SelectModel.Brand" = "Marque :";
+"SelectModel.AllModels" = "Tous les modèles";
+"SelectModel.TextFieldPlaceholder" = "Saisir le modèle";
+
+// MARK: AddVehicleResult
+"AddVehicleResult.Title" = "VOITURE AJOUTÉE";
+"AddVehicleResult.SubTitle" = "La voiture est entrée au garage";
+"AddVehicleResult.VIN.Title" = "VIN";
+"AddVehicleResult.VIN.Add" = "Ajouter le VIN";
+"AddVehicleResult.VIN.NotAvailable" = "Non renseigné";
+"AddVehicleResult.Item.Brand" = "Marque :";
+"AddVehicleResult.Item.Model" = "Modèle :";
+"AddVehicleResult.Item.Year" = "Année :";
+"AddVehicleResult.AddAnotherCar" = "Ajouter une autre voiture";
+"AddVehicleResult.CompleteButton" = "Aller au tableau de bord";
+
+// MARK: AddVIN
+"AddVIN.Title" = "SAISISSEZ VOTRE VIN";
+"AddVIN.SubTitle" = "Vous le trouverez sur le tableau de bord,\nla portière conducteur ou vos papiers";
+"AddVIN.EnterPlaceholder" = "Saisir le VIN";
+"AddVIN.EnterNotFound" = "Nous n'avons pas trouvé votre VIN";
+"AddVIN.Example" = "Exemple de VIN : 1HGCM82633A004352";
+"AddVIN.DecodeVIN" = "Décoder le VIN";
+
+// MARK: DecodeVIN
+"DecodeVIN.Title" = "Saisir le VIN";
+"DecodeVIN.Header" = "SAISISSEZ VOTRE VIN";
+"DecodeVIN.SubTitle" = "Regardez au bas du pare-brise côté conducteur, à l'intérieur de la portière conducteur ou sur votre carte grise.";
+"DecodeVIN.EnterPlaceholder" = "Saisir le VIN";
+"DecodeVIN.EnterNotFound" = "Nous n'avons pas trouvé ce VIN.\nVérifiez les caractères ou ajoutez votre voiture manuellement.";
+"DecodeVIN.Example" = "Exemple de VIN : 1HGCM82633A004352";
+"DecodeVIN.DecodeVIN" = "Décoder le VIN";
+
+// MARK: Main
+"Main.Tab.Dashboard" = "Tableau de bord";
+"Main.Tab.HUD" = "HUD";
+"Main.Tab.Garage" = "Mon garage";
+"Main.Tab.Settings" = "Réglages";
+
+// MARK: Garage
+"Garage.Title" = "Mon garage";
+"Garage.AddCar" = "+ Ajouter une voiture";
+"Garage.VehiclesCount" = "Véhicules : %i";
+"Garage.Active" = "Actif";
+"Garage.LastSyncNone" = "Dernière synchro : aucune";
+"Garage.VIN.NotAvailable" = "VIN : non renseigné";
+"Garage.RemoveAlert.Message" = "Le véhicule sera retiré de votre garage";
+"Garage.RemoveAlert.Remove" = "Supprimer";
+
+// MARK: VehicleDetails
+"VehicleDetails.Active" = "Actif";
+"VehicleDetails.VIN.Title" = "VIN";
+"VehicleDetails.VIN.Add" = "Ajouter le VIN";
+"VehicleDetails.VIN.NotAvailable" = "Non renseigné";
+"VehicleDetails.Item.Brand" = "Marque :";
+"VehicleDetails.Item.Model" = "Modèle :";
+"VehicleDetails.Item.Year" = "Année :";
+"VehicleDetails.RecallHistory.Title" = "Historique des rappels";
+"VehicleDetails.RecallHistory.SubTitle" = "Rappels de sécurité du véhicule";
+"VehicleDetails.RecallHistory.VINRequired" = "VIN requis";
+"VehicleDetails.MakeActive" = "Définir comme actif";
+
+// MARK: RecallHistory
+"RecallHistory.Title" = "Historique des rappels";
+"RecallHistory.VIN" = "VIN : %@";
+"RecallHistory.RecallsCount" = "Trouvés dans la base : %i";
+"RecallHistory.ID" = "NHTSA n° %@";
+"RecallHistory.Level.Critical" = "Critique";
+"RecallHistory.Level.Moderate" = "Modéré";
+"RecallHistory.Level.Low" = "Faible";
+"RecallHistory.ViewOnNHTSA" = "Voir sur NHTSA";
+"RecallHistory.Remedy" = "SOLUTION";
+"RecallHistory.Notes" = "REMARQUES";
+"RecallHistory.MarkAsCompleted" = "Marquer comme traité";
+"RecallHistory.Completed" = "Traité";
+
+// MARK: Settings
+"Settings.Title" = "Réglages";
+"Settings.Units.Title" = "Unités";
+"Settings.Units.SubTitle" = "Unités de mesure";
+"Settings.Subscription.Title" = "Abonnement";
+"Settings.Subscription.SubTitle" = "Détails de facturation...";
+"Settings.PrivacyPolicy" = "Politique de confidentialité";
+"Settings.TermsOfUse" = "Conditions d'utilisation";
+
+// MARK: Dashboard
+"Dashboard.Vehicle.Title" = "Tableau de bord";
+"Dashboard.Vehicle.Connect" = "Connecter";
+"Dashboard.Vehicle.DemoModeTurnOff" = "Désactiver le mode démo";
+"Dashboard.Vehicle.Disconnect" = "Déconnecter";
+"Dashboard.Vehicle.ChangeCar" = "Changer de voiture";
+"Dashboard.LiveData.Title" = "Données en direct";
+"Dashboard.LiveData.Connected" = "Mise à jour en temps réel";
+"Dashboard.LiveData.DemoMode" = "Données d'exemple";
+"Dashboard.LiveData.NotConnect" = "Connectez-vous pour lire les paramètres moteur";
+"Dashboard.DemoMode.Title" = "Mode démo";
+"Dashboard.DemoMode.SubTitle" = "Données d'exemple — pas celles de votre voiture";
+"Dashboard.DemoMode.Try" = "Essayer la démo";
+"Dashboard.DemoMode.Active" = "Actif";
+"Dashboard.DTCLogs.Title" = "Défauts enregistrés";
+"Dashboard.DTCLogs.Active" = "actifs : %d";
+"Dashboard.DTCLogs.Empty.Title" = "Aucun code défaut pour l'instant";
+"Dashboard.DTCLogs.Empty.SubTitle" = "Lancez une analyse pour démarrer votre historique";
+"Dashboard.Options.Title" = "OPTIONS";
+"Dashboard.Options.DTC" = "Diagnostic DTC";
+"Dashboard.Options.FreezeFrame" = "Image figée";
+"Dashboard.Options.RecallHistory" = "Historique des rappels";
+"Dashboard.Options.DTCClear" = "Effacer les codes défaut";
+"Dashboard.ErrorNeedConnect.Title" = "Non connecté";
+"Dashboard.ErrorNeedConnect.Message" = "Connectez-vous à votre adaptateur OBD2 pour utiliser cette fonction";
+"Dashboard.ErrorNeedConnect.TryConnect" = "Connecter";
+"Dashboard.ErrorNeedMakeActiveVehicle.Title" = "Aucun véhicule actif";
+"Dashboard.ErrorNeedMakeActiveVehicle.Message" = "Choisissez un véhicule actif dans votre garage pour continuer";
+"Dashboard.ErrorNeedMakeActiveVehicle.ChangeCar" = "Changer de voiture";
+
+// MARK: Units
+"Units.Title" = "UNITÉS";
+"Units.Torque" = "Couple";
+"Units.Torque.NewtonMeter" = "N·m";
+"Units.Torque.PoundFoot" = "lbf·ft";
+"Units.SpeedDistance" = "Vitesse et distance";
+"Units.SpeedDistance.Metric" = "km/h + km";
+"Units.SpeedDistance.Imperial" = "mph + miles";
+"Units.FuelConsumption" = "Consommation";
+"Units.FuelConsumption.LitersPer100km" = "L/100km";
+"Units.FuelConsumption.LitersPerHour" = "L/h";
+"Units.FuelConsumption.MPG" = "mpg";
+"Units.FuelConsumption.GPM" = "GPM";
+"Units.Pressure" = "Pression";
+"Units.Pressure.KPA" = "kPa";
+"Units.Pressure.PSI" = "psi";
+"Units.Pressure.Bar" = "bar";
+"Units.Temperature" = "Température";
+"Units.Temperature.Celsius" = "°C";
+"Units.Temperature.Fahrenheit" = "°F";
+
+// MARK: TryAgain
+"TryAgain.Title" = "IMPOSSIBLE DE TRAITER VOTRE DEMANDE";
+"TryAgain.SubTitle" = "Un problème est survenu lors du chargement des données. Réessayez, cela suffit généralement. Si l'erreur persiste, faites-le-nous savoir.";
+"TryAgain.Action" = "Réessayer";
+"TryAgain.ContactSupport" = "Contacter l'assistance";
+
+// MARK: ConnectingType
+"ConnectingType.Title" = "Connexion";
+"ConnectingType.Text1" = "COMMENT VOTRE ADAPTATEUR SE CONNECTE-T-IL ?";
+"ConnectingType.Text2" = "En cas de doute, consultez l'emballage ou la notice de votre adaptateur.";
+"ConnectingType.WiFi" = "Wi-Fi";
+"ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
+"ConnectingType.BluetoothMFi" = "Bluetooth MFi";
+
+// MARK: BluetoothAccess
+"BluetoothAccess.Title" = "ACCÈS AUX APPAREILS\nÀ PROXIMITÉ";
+"BluetoothAccess.SubTitle" = "Pour trouver votre adaptateur OBD2 via Bluetooth, autorisez l'app à voir les appareils à proximité. Nous ne l'utilisons pas pour déterminer votre position.";
+"BluetoothAccess.AllowAccess" = "Autoriser l'accès";
+"BluetoothAccess.NotNow" = "Plus tard";
+
+// MARK: Connecting
+"Connecting.Title.Connecting" = "Connexion...";
+"Connecting.Title.Connected" = "Connecté !";
+"Connecting.SubTitle" = "Cela prend quelques secondes";
+"Connecting.ProtocolDefinition" = "Détection du protocole";
+"Connecting.ReadingVehicleData" = "Lecture des données du véhicule";
+
+// MARK: ConnectingFailure
+"ConnectingFailure.Title" = "Connexion impossible";
+"ConnectingFailure.SubTitle" = "Nous n'avons pas trouvé votre adaptateur. Réglons ça.";
+"ConnectingFailure.Steps.Title" = "ESSAYEZ CES ÉTAPES";
+"ConnectingFailure.Steps.Step1" = "Vérifiez que le voyant de l'adaptateur est allumé";
+"ConnectingFailure.Steps.Step2" = "Mettez le contact sur ON ou ACC";
+"ConnectingFailure.Steps.Step3" = "Réassociez le Bluetooth ou reconnectez le Wi-Fi";
+"ConnectingFailure.Steps.Step4" = "Débranchez l'adaptateur, attendez 5 secondes, rebranchez-le";
+"ConnectingFailure.DemoMode" = "Mode démo";
+"ConnectingFailure.TryAgain" = "Réessayer";
+
+// MARK: FreezeFrame
+"FreezeFrame.Title" = "Image figée";
+"FreezeFrame.Status.Confirmed" = "CONFIRMÉ";
+"FreezeFrame.Status.Pending" = "EN ATTENTE";
+"FreezeFrame.Status.Permanent" = "PERMANENT";
+"FreezeFrame.Captured" = "Capturé %@";
+"FreezeFrame.JustNow" = "à l'instant";
+"FreezeFrame.Empty.Title" = "AUCUNE DONNÉE\nD'IMAGE FIGÉE";
+"FreezeFrame.Empty.SubTitle" = "L'image figée enregistre les paramètres du véhicule au moment où le défaut survient. Elle aide à diagnostiquer plus précisément";
+"FreezeFrame.Empty.Back" = "Retour";
+"FreezeFrame.EmptyItem.1" = "Le calculateur détecte un code défaut";
+"FreezeFrame.EmptyItem.2" = "Les données du véhicule sont enregistrées automatiquement";
+"FreezeFrame.EmptyItem.3" = "Vous pouvez consulter et analyser l'instantané";
+
+// MARK: FreezeFrame Details
+"FreezeFrameDetails.Title" = "Détails de l'image figée";
+"FreezeFrameDetails.CapturedCaption" = "Capturé à la détection du défaut";
+"FreezeFrameDetails.VehicleState" = "Votre voiture à cet instant";
+
+// MARK: DTCClearInfo
+"DTCClearInfo.Title" = "EFFACER TOUS LES CODES DÉFAUT ?";
+"DTCClearInfo.SubTitle" = "Un seul appui, sans analyse. Une commande de réinitialisation est envoyée au calculateur. Cela va :";
+"DTCClearInfo.Cell1" = "Éteindre le voyant moteur (MIL)";
+"DTCClearInfo.Cell2" = "Effacer les codes confirmés et en attente";
+"DTCClearInfo.Cell3" = "Effacer l'image figée et réinitialiser les moniteurs de disponibilité";
+"DTCClearInfo.Warning" = "Cela ne corrige pas la cause : si le défaut persiste, les codes reviendront.";
+"DTCClearInfo.ClearAllCodes" = "Effacer tous les codes";
+
+// MARK: DTCClearing
+"DTCClearing.Clearing" = "Effacement des codes";
+"DTCClearing.Cleared" = "TOUS LES CODES EFFACÉS";
+"DTCClearing.Failed" = "Échec de l'effacement des codes";
+
+// MARK: DTCInfo
+"DTCInfo.Title" = "Diagnostic";
+"DTCInfo.Caption" = "Codes défaut de diagnostic (DTC)";
+"DTCInfo.Confirmed.Title" = "1. CODES CONFIRMÉS :";
+"DTCInfo.Confirmed.Item" = "La voiture a vérifié le défaut et l'a enregistré en mémoire : il est réapparu lors d'un autre cycle de conduite.";
+"DTCInfo.Pending.Title" = "2. CODES EN ATTENTE :";
+"DTCInfo.Pending.Item" = "Un défaut possible du cycle de conduite en cours. S'il ne réapparaît pas, la voiture l'efface après quelques trajets.";
+"DTCInfo.Permanent.Title" = "3. CODES PERMANENTS :";
+"DTCInfo.Permanent.Item" = "Impossibles à effacer manuellement. La voiture les supprime elle-même une fois la réparation confirmée.";
+"DTCInfo.Action.Read" = "Lire";
+"DTCInfo.Action.Clear" = "Effacer";
+
+// MARK: DTCReading
+"DTCReading.Clearing" = "Lecture des codes...";
+"DTCReading.Failed" = "Échec de la lecture des codes";
+
+// MARK: DTCResult
+"DTCResult.Title" = "Résultat DTC";
+"DTCResult.Action.Close" = "Fermer";
+"DTCResult.Action.Clear" = "Effacer";
+"DTCResult.Action.SavePIDs" = "Enregistrer";
+"DTCResult.SavedPIDs.Title" = "Enregistré";
+"DTCResult.SavedPIDs.Message" = "Les codes défaut ont été enregistrés dans votre historique.";
+"DTCResult.SavedPIDs.Button" = "OK";
+"DTCResult.HowToFix" = "Comment réparer";
+"DTCResult.UnknownCode" = "Code défaut inconnu";
+"DTCResult.Unknown" = "Inconnu";
+"DTCResult.InfoKey" = "%@ : ";
+"DTCResult.Status.Confirmed" = "Confirmé";
+"DTCResult.Status.Pending" = "En attente";
+"DTCResult.Status.Permanent" = "Permanent";
+"DTCResult.System" = "Système";
+"DTCResult.Type" = "Type";
+"DTCResult.AffectedSystem" = "Système concerné";
+"DTCResult.System.Powertrain" = "Groupe motopropulseur";
+"DTCResult.System.Body" = "Carrosserie";
+"DTCResult.System.Chassis" = "Châssis";
+"DTCResult.System.Network" = "Réseau";
+"DTCResult.Type.Generic" = "Générique (SAE)";
+"DTCResult.Type.Manufacturer" = "Constructeur";
+"DTCResult.Affected.FuelAir" = "Dosage carburant et air";
+"DTCResult.Affected.FuelAirInjector" = "Dosage carburant et air (circuit d'injection)";
+"DTCResult.Affected.Ignition" = "Allumage / ratés";
+"DTCResult.Affected.Emission" = "Contrôle auxiliaire des émissions";
+"DTCResult.Affected.SpeedIdle" = "Régulation de vitesse et de ralenti";
+"DTCResult.Affected.Computer" = "Calculateur et circuits de sortie";
+"DTCResult.Affected.Transmission" = "Transmission";
+"DTCResult.Affected.Hybrid" = "Motorisation hybride";
+"DTCResult.Affected.BodyElectronics" = "Électronique de carrosserie";
+"DTCResult.Affected.Chassis" = "Châssis / freins et suspension";
+"DTCResult.Affected.Network" = "Bus CAN / communication calculateurs";
+"DTCResult.Empty.Title" = "AUCUN CODE DÉFAUT TROUVÉ";
+"DTCResult.Empty.Cell1" = "Aucun code défaut enregistré ni en attente";
+"DTCResult.Empty.Cell2" = "Le voyant moteur (MIL) est éteint";
+"DTCResult.Empty.Cell3" = "Tous les moniteurs de disponibilité sont validés";
+
+// MARK: DTCLog
+"DTCLog.Title" = "Journal des défauts";
+"DTCLog.Delete" = "Supprimer";
+"DTCLog.DeleteAlert.Title" = "Supprimer le journal des défauts ?";
+"DTCLog.DeleteAlert.Message" = "Tous les codes défaut enregistrés pour ce véhicule seront supprimés";
+"DTCLog.DeleteAlert.Delete" = "Supprimer";
+
+// MARK: DTCCodeFixInfo
+"DTCCodeFixInfo.Title" = "Comment réparer";
+"DTCCodeFixInfo.UnknownCode" = "Code défaut inconnu";
+"DTCCodeFixInfo.Status.Confirmed" = "Confirmé";
+"DTCCodeFixInfo.Status.Pending" = "En attente";
+"DTCCodeFixInfo.Status.Permanent" = "Permanent";
+"DTCCodeFixInfo.Stats.Urgency" = "Urgence";
+"DTCCodeFixInfo.Stats.Urgency.Low" = "Faible";
+"DTCCodeFixInfo.Stats.Urgency.Medium" = "Moyenne";
+"DTCCodeFixInfo.Stats.Urgency.High" = "Élevée";
+"DTCCodeFixInfo.Stats.TypicalFix" = "Réparation type";
+"DTCCodeFixInfo.Stats.TypicalFix.Value" = "$%d–%d";
+"DTCCodeFixInfo.Stats.Drivable" = "Conduite possible";
+"DTCCodeFixInfo.Stats.Drivable.Yes" = "Oui";
+"DTCCodeFixInfo.Stats.Drivable.No" = "Non";
+"DTCCodeFixInfo.Means.Title" = "CE QUE CELA SIGNIFIE";
+"DTCCodeFixInfo.Vehicle.Title" = "COMMENT LE RÉPARER";
+"DTCCodeFixInfo.Instruction.Trim" = "Finition";
+"DTCCodeFixInfo.Instruction.Disclaimer" = "Conseils basés sur les causes courantes pour ce moteur, ils ne constituent pas un diagnostic garanti. En cas de doute, consultez un mécanicien.";
+
+// MARK: LiveData
+"LiveData.Title" = "Données en direct";
+"LiveData.Connection" = "%@ • %@";
+"LiveData.Connection.Bluetooth" = "Bluetooth";
+"LiveData.Connection.WiFi" = "Wi-Fi";
+"LiveData.Connection.MFi" = "Bluetooth MFi";
+"LiveData.DemoMode" = "Mode démo • données d'exemple";
+"LiveData.Dashboard.Title" = "Tableau de bord";
+"LiveData.Gauge.RPM" = "Régime moteur";
+"LiveData.Gauge.Speed" = "Vitesse du véhicule";
+"LiveData.Gauge.Coolant" = "Temp. liquide refr.";
+"LiveData.Upgrade" = "PASSER À LA VERSION SUP.";
+
+// MARK: HUD
+"HUD.Title" = "HUD";
+"HUD.Connected" = "Connecté";
+"HUD.DemoMode" = "Mode démo";
+"HUD.Start.Title" = "AFFICHAGE TÊTE HAUTE";
+"HUD.Start.SubTitle" = "Projetez les données de conduite sur votre pare-brise pour conduire plus sûrement, sans distraction";
+"HUD.Start.Cell1" = "Placez votre téléphone au bas du pare-brise";
+"HUD.Start.Cell2" = "Réglez la luminosité au maximum";
+"HUD.Start.Cell3" = "Activez le mode miroir pour le reflet";
+"HUD.Start.Action" = "Démarrer le HUD";
+"HUD.RPM" = "tr/min";
+"HUD.Temp" = "Temp.";
+"HUD.Voltage" = "Tension";
+
+// MARK: HUDSettings
+"HUDSettings.Brightness" = "Luminosité";
+"HUDSettings.MirrorMode" = "Mode miroir";
+"HUDSettings.Units" = "Unités";
+"HUDSettings.Units.Metric" = "km/h";
+"HUDSettings.Units.Imperial" = "mph";
+"HUDSettings.Layout" = "Disposition";
+"HUDSettings.Layout.Minimal" = "Minimale";
+"HUDSettings.Layout.Classic" = "Classique";
+"HUDSettings.Layout.Custom" = "Personnalisée";

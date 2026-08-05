@@ -210,6 +210,8 @@
 "Dashboard.Vehicle.DemoModeTurnOff" = "关闭演示模式";
 "Dashboard.Vehicle.Disconnect" = "断开连接";
 "Dashboard.Vehicle.ChangeCar" = "切换车辆";
+"Dashboard.Vehicle.Empty.Title" = "未选择车辆";
+"Dashboard.Vehicle.Empty.SubTitle" = "添加车辆以读取数据";
 "Dashboard.LiveData.Title" = "实时数据";
 "Dashboard.LiveData.Connected" = "正在实时更新";
 "Dashboard.LiveData.DemoMode" = "示例数据";

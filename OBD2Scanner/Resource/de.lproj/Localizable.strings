@@ -210,6 +210,8 @@
 "Dashboard.Vehicle.DemoModeTurnOff" = "Demomodus beenden";
 "Dashboard.Vehicle.Disconnect" = "Trennen";
 "Dashboard.Vehicle.ChangeCar" = "Auto wechseln";
+"Dashboard.Vehicle.Empty.Title" = "Kein Auto ausgewählt";
+"Dashboard.Vehicle.Empty.SubTitle" = "Fügen Sie Ihr Auto hinzu, um Daten zu lesen";
 "Dashboard.LiveData.Title" = "Echtzeitdaten";
 "Dashboard.LiveData.Connected" = "Wird in Echtzeit aktualisiert";
 "Dashboard.LiveData.DemoMode" = "Beispieldaten";

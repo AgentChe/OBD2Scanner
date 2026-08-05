@@ -50,17 +50,25 @@ final class DashboardActiveVehicleView: GradientView {
 extension DashboardActiveVehicleView {
     func setup(vehicle: Vehicle?) {
         previewView.kf.cancelDownloadTask()
+
+        guard let vehicle else {
+            previewView.image = UIImage(named: "Vehicle.EmptyPreview")
+            nameLabel.attributedText = "Dashboard.Vehicle.Empty.Title".localized.attributed(with: nameAttrs)
+            yearLabel.attributedText = "Dashboard.Vehicle.Empty.SubTitle".localized.attributed(with: yearAttrs)
+            return
+        }
+
         previewView.kf.setImage(
-            with: vehicle?.preview,
+            with: vehicle.preview,
             options: [.onFailureImage(UIImage(named: "Vehicle.EmptyPreview"))]
         )
 
-        let name = [vehicle?.brand, vehicle?.model]
+        let name = [vehicle.brand, vehicle.model]
             .compactMap { $0 }
             .joined(separator: " ")
         nameLabel.attributedText = (name.isEmpty ? "—" : name).attributed(with: nameAttrs)
 
-        let year = vehicle?.year.map { String($0) } ?? "—"
+        let year = vehicle.year.map { String($0) } ?? "—"
         yearLabel.attributedText = year.attributed(with: yearAttrs)
     }
     
@@ -195,7 +203,7 @@ private extension DashboardActiveVehicleView {
     func makeLabel() -> UILabel {
         let view = UILabel()
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.8
+        view.minimumScaleFactor = 0.5
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

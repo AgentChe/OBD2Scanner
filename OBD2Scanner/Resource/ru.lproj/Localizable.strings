@@ -210,6 +210,8 @@
 "Dashboard.Vehicle.DemoModeTurnOff" = "Выключить демо-режим";
 "Dashboard.Vehicle.Disconnect" = "Отключить";
 "Dashboard.Vehicle.ChangeCar" = "Сменить авто";
+"Dashboard.Vehicle.Empty.Title" = "Авто не выбрано";
+"Dashboard.Vehicle.Empty.SubTitle" = "Добавьте авто, чтобы читать данные";
 "Dashboard.LiveData.Title" = "Данные в реальном времени";
 "Dashboard.LiveData.Connected" = "Обновляются в реальном времени";
 "Dashboard.LiveData.DemoMode" = "Демонстрационные данные";

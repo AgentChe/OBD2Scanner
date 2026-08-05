@@ -42,6 +42,7 @@
 		9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
+		AC10C0DE0000000000000021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC10C0DE0000000000000020 /* InfoPlist.strings */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
 		B55245E98BBD42E30FD669AE /* LiveDataValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8C6A1C92112EF403F1228 /* LiveDataValue.swift */; };
 		B601AA141AFBE26184D56886 /* LiveDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ECAED237EB6EF980917C6 /* LiveDataItem.swift */; };
@@ -185,7 +186,6 @@
 		DE2F0AFF2A69911E00471667 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AFA2A69911E00471667 /* Inter-Italic.otf */; };
 		DE2F0B002A69911E00471667 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0AFB2A69911E00471667 /* Inter-SemiBold.ttf */; };
 		DE2F0B032A69937200471667 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE2F0B052A69937200471667 /* Localizable.strings */; };
-		AC10C0DE0000000000000021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC10C0DE0000000000000020 /* InfoPlist.strings */; };
 		DE2F0B082A69944100471667 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B072A69944100471667 /* SplashViewController.swift */; };
 		DE2F0B0A2A69944500471667 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B092A69944500471667 /* SplashViewModel.swift */; };
 		DE2F0B0C2A69944A00471667 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B0B2A69944A00471667 /* SplashView.swift */; };
@@ -375,6 +375,17 @@
 		A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEngine.swift; sourceTree = "<group>"; };
 		A8B34A3CE94448A9B76FAFF4 /* LiveSessionAuditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSessionAuditor.swift; sourceTree = "<group>"; };
 		AB67790B6A8F5495B31AEC9F /* vag-mqb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vag-mqb.json"; sourceTree = "<group>"; };
+		AC10C0DE0000000000000001 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000002 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000003 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000004 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000005 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AC10C0DE0000000000000011 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000012 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000013 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000014 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000015 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC10C0DE0000000000000016 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
 		B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
@@ -517,17 +528,6 @@
 		DE2F0AFA2A69911E00471667 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
 		DE2F0AFB2A69911E00471667 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE2F0B042A69937200471667 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000001 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000002 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000003 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000004 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000005 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		AC10C0DE0000000000000011 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000012 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000013 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000014 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000015 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC10C0DE0000000000000016 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DE2F0B072A69944100471667 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		DE2F0B092A69944500471667 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		DE2F0B0B2A69944A00471667 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -2683,6 +2683,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AC10C0DE0000000000000020 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC10C0DE0000000000000011 /* en */,
+				AC10C0DE0000000000000012 /* ru */,
+				AC10C0DE0000000000000013 /* de */,
+				AC10C0DE0000000000000014 /* fr */,
+				AC10C0DE0000000000000015 /* es */,
+				AC10C0DE0000000000000016 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2702,19 +2715,6 @@
 				AC10C0DE0000000000000005 /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		AC10C0DE0000000000000020 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC10C0DE0000000000000011 /* en */,
-				AC10C0DE0000000000000012 /* ru */,
-				AC10C0DE0000000000000013 /* de */,
-				AC10C0DE0000000000000014 /* fr */,
-				AC10C0DE0000000000000015 /* es */,
-				AC10C0DE0000000000000016 /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2844,7 +2844,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2885,7 +2885,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;

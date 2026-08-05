@@ -20,7 +20,7 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.addCarButton.rx.tap
+        mainView.continueButton.rx.tap
             .bind(to: Binder(self) { base, void in
                 base.addCar()
             })

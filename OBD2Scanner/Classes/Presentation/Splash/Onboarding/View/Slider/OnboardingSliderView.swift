@@ -8,6 +8,8 @@
 import UIKit
 
 final class OnboardingSliderView: UIView {
+    var onItemChanged: ((OnboardingSliderItemView.Item) -> Void)?
+
     lazy var scrollView = makeScrollView()
     lazy var contentStackView = makeContentStackView()
     lazy var pageControl = makePageControl()
@@ -18,6 +20,8 @@ final class OnboardingSliderView: UIView {
         .recallHistory,
         .garage
     ]
+
+    private var currentIndex = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +36,13 @@ final class OnboardingSliderView: UIView {
     }
 }
 
+// MARK: Public
+extension OnboardingSliderView {
+    var currentItem: OnboardingSliderItemView.Item {
+        items[currentIndex]
+    }
+}
+
 // MARK: UIScrollViewDelegate
 extension OnboardingSliderView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -41,7 +52,15 @@ extension OnboardingSliderView: UIScrollViewDelegate {
             return
         }
 
-        pageControl.currentPage = Int((scrollView.contentOffset.x + width / 2) / width)
+        let index = Int((scrollView.contentOffset.x + width / 2) / width)
+
+        guard index != currentIndex, items.indices.contains(index) else {
+            return
+        }
+
+        currentIndex = index
+        pageControl.currentPage = index
+        onItemChanged?(items[index])
     }
 }
 

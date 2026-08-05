@@ -70,6 +70,7 @@ private extension HUDStarCellView {
             .textAlignment(.left)
 
         let view = UILabel()
+        view.numberOfLines = 2
         view.attributedText = "HUD.Start.Cell\(number)".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

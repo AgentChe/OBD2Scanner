@@ -21,18 +21,23 @@
 "Onboarding.Title.1" = "OBD2";
 "Onboarding.Title.2" = " SCANNER";
 "Onboarding.SubTitle" = "SMART DIAGNOSTICS";
-"Onboarding.AddCarButton" = "Add My Car";
-"Onboarding.Info.Title" = "MEET YOUR CAR DIGITAL SIDE";
-"Onboarding.Info.SubTitle" = "Set up your vehicle to unlock diagnostics, live data
-and smart monitoring";
-"Onboarding.Slider.Diagnostic.Title" = "Diagnostics";
-"Onboarding.Slider.Diagnostic.SubTitle" = "Check your car health";
+"Onboarding.ContinueButton" = "Continue";
+"Onboarding.Info.Diagnostic.Title" = "READ, FIX AND RESET TROUBLE CODES";
+"Onboarding.Info.Diagnostic.SubTitle" = "Get a comprehensive list of all stored errors, learn how to fix the problem and reset the codes after.";
+"Onboarding.Info.HUD.Title" = "SPEED, RPMS & COOLANT TEMP";
+"Onboarding.Info.HUD.SubTitle" = "Only crucial info. Helps to focus on your drive.";
+"Onboarding.Info.RecallHistory.Title" = "NO MORE MISSED RECALLS";
+"Onboarding.Info.RecallHistory.SubTitle" = "See all active recalls, stay up to date with the new ones";
+"Onboarding.Info.Garage.Title" = "AS MANY CARS AS YOU WANT";
+"Onboarding.Info.Garage.SubTitle" = "All of the features are available for the unlimited amount of your cars";
+"Onboarding.Slider.Diagnostic.Title" = "DecodeVIN.EnterNotFoundaRead, fix, reset";
+"Onboarding.Slider.Diagnostic.SubTitle" = "See the exact trouble codes\nand learn how to fix them";
 "Onboarding.Slider.HUD.Title" = "HUD";
 "Onboarding.Slider.HUD.SubTitle" = "Head-up display";
 "Onboarding.Slider.RecallHistory.Title" = "Recall History";
-"Onboarding.Slider.RecallHistory.SubTitle" = "Check your car health";
+"Onboarding.Slider.RecallHistory.SubTitle" = "A comprehensive list of recalls\nfor your vehicle";
 "Onboarding.Slider.Garage.Title" = "Unlimited garage";
-"Onboarding.Slider.Garage.SubTitle" = "Add any cars";
+"Onboarding.Slider.Garage.SubTitle" = "For a big collection or\nfleet management";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Special offer";
@@ -92,11 +97,11 @@ and smart monitoring";
 
 // MARK: ChooseMethodAddCar
 "ChooseMethodAddCar.Title" = "Add your car";
-"ChooseMethodAddCar.Manually.Title" = "SELECT BY CATALOG";
-"ChooseMethodAddCar.Manually.SubTitle" = "Choose your car brand, model\nand year manually";
-"ChooseMethodAddCar.Manually.Action" = "Select vehicle";
-"ChooseMethodAddCar.DecodeVIN.Title" = "SEARCH CAR BY VIN";
-"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Enter your vehicle VIN to\nautomatically decode details";
+"ChooseMethodAddCar.Manually.Title" = "BROWSE THE CATALOG";
+"ChooseMethodAddCar.Manually.SubTitle" = "Pick your car's brand,\nmodel and year";
+"ChooseMethodAddCar.Manually.Action" = "Pick my car";
+"ChooseMethodAddCar.DecodeVIN.Title" = "FIND YOUR CAR BY VIN";
+"ChooseMethodAddCar.DecodeVIN.SubTitle" = "Enter your VIN and we'll fill in the rest";
 "ChooseMethodAddCar.DecodeVIN.Action" = "Enter VIN";
 "ChooseMethodAddCar.FindVIN.Title" = "Where I can find VIN?";
 "ChooseMethodAddCar.FindVIN.Info" = "The VIN is located in the registration\ndocument and on the car body";
@@ -123,7 +128,7 @@ and smart monitoring";
 "AddVehicleResult.SubTitle" = "Сar has driven into the garage";
 "AddVehicleResult.VIN.Title" = "VIN";
 "AddVehicleResult.VIN.Add" = "Add VIN";
-"AddVehicleResult.VIN.NotAvailable" = "Not available";
+"AddVehicleResult.VIN.NotAvailable" = "Not added";
 "AddVehicleResult.Item.Brand" = "Brand:";
 "AddVehicleResult.Item.Model" = "Model:";
 "AddVehicleResult.Item.Year" = "Year:";
@@ -141,9 +146,9 @@ and smart monitoring";
 // MARK: DecodeVIN
 "DecodeVIN.Title" = "Enter VIN";
 "DecodeVIN.Header" = "ENTER YOUR VIN";
-"DecodeVIN.SubTitle" = "You can find it on your dashboard,\ndriver side door or documents";
+"DecodeVIN.SubTitle" = "Look at the base of the windshield on the driver's side, inside the driver's door, or in your registration papers.";
 "DecodeVIN.EnterPlaceholder" = "Enter VIN";
-"DecodeVIN.EnterNotFound" = "We couldn’t find your VIN";
+"DecodeVIN.EnterNotFound" = "We couldn't find this VIN.\nCheck the characters or add your car manually.";
 "DecodeVIN.Example" = "Example VIN: 1HGCM82633A004352";
 "DecodeVIN.DecodeVIN" = "Decode VIN";
 
@@ -159,7 +164,7 @@ and smart monitoring";
 "Garage.VehiclesCount" = "%i vehicles";
 "Garage.Active" = "Active";
 "Garage.LastSyncNone" = "Last sync: none";
-"Garage.VIN.NotAvailable" = "VIN: Not available";
+"Garage.VIN.NotAvailable" = "VIN: Not added";
 "Garage.RemoveAlert.Message" = "Vehicle will be removed from your garage";
 "Garage.RemoveAlert.Remove" = "Remove";
 
@@ -167,7 +172,7 @@ and smart monitoring";
 "VehicleDetails.Active" = "Active";
 "VehicleDetails.VIN.Title" = "VIN";
 "VehicleDetails.VIN.Add" = "Add VIN";
-"VehicleDetails.VIN.NotAvailable" = "Not available";
+"VehicleDetails.VIN.NotAvailable" = "Not added";
 "VehicleDetails.Item.Brand" = "Brand:";
 "VehicleDetails.Item.Model" = "Model:";
 "VehicleDetails.Item.Year" = "Year:";
@@ -215,13 +220,13 @@ and smart monitoring";
 "Dashboard.DemoMode.Active" = "Active";
 "Dashboard.DTCLogs.Title" = "Saved errors";
 "Dashboard.DTCLogs.Active" = "%d active";
-"Dashboard.DTCLogs.Empty.Title" = "No saved errors";
-"Dashboard.DTCLogs.Empty.SubTitle" = "Scan to start the log";
+"Dashboard.DTCLogs.Empty.Title" = "No fault codes yet";
+"Dashboard.DTCLogs.Empty.SubTitle" = "Run a scan to start your history";
 "Dashboard.Options.Title" = "OPTIONS";
-"Dashboard.Options.DTC" = "PIDs diagnostic";
+"Dashboard.Options.DTC" = "DTC diagnostic";
 "Dashboard.Options.FreezeFrame" = "Freeze frame";
 "Dashboard.Options.RecallHistory" = "Recall history";
-"Dashboard.Options.DTCClear" = "DTC clear";
+"Dashboard.Options.DTCClear" = "Clear fault codes";
 "Dashboard.ErrorNeedConnect.Title" = "Not connected";
 "Dashboard.ErrorNeedConnect.Message" = "Connect to your OBD2 adapter to use this feature";
 "Dashboard.ErrorNeedConnect.TryConnect" = "Connect";
@@ -262,7 +267,7 @@ and smart monitoring";
 "ConnectingType.Text2" = "Check your adapter's packaging or manual if unsure.";
 "ConnectingType.WiFi" = "Wi-Fi";
 "ConnectingType.Bluetooth" = "Bluetooth LE (4.0+)";
-"ConnectingType.BluetoothMFi" = "Bluetooth MFI";
+"ConnectingType.BluetoothMFi" = "Bluetooth MFi";
 
 // MARK: BluetoothAccess
 "BluetoothAccess.Title" = "ACCESS TO\nNEARBY DEVICES";
@@ -273,18 +278,18 @@ and smart monitoring";
 // MARK: Connecting
 "Connecting.Title.Connecting" = "Connecting...";
 "Connecting.Title.Connected" = "Connected!";
-"Connecting.SubTitle" = "Detecting protocol";
-"Connecting.ProtocolDefinition" = "Protocol Definition";
+"Connecting.SubTitle" = "This takes a few seconds";
+"Connecting.ProtocolDefinition" = "Detecting protocol";
 "Connecting.ReadingVehicleData" = "Reading vehicle data";
 
 // MARK: ConnectingFailure
 "ConnectingFailure.Title" = "Couldn’t connect";
-"ConnectingFailure.SubTitle" = "We couldn't find or reach your adapter. Let's fix it.";
-"ConnectingFailure.Steps.Title" = "Try these steps";
+"ConnectingFailure.SubTitle" = "We couldn't find your adapter. Let's fix it.";
+"ConnectingFailure.Steps.Title" = "TRY THESE STEPS";
 "ConnectingFailure.Steps.Step1" = "Make sure the adapter LED is on";
-"ConnectingFailure.Steps.Step2" = "Turn ignition to ON or accessories mode";
+"ConnectingFailure.Steps.Step2" = "Turn the ignition to ON or ACC";
 "ConnectingFailure.Steps.Step3" = "Re-pair Bluetooth or reconnect Wi-Fi";
-"ConnectingFailure.Steps.Step4" = "Unplug adapter, wait 5 sec, replug";
+"ConnectingFailure.Steps.Step4" = "Unplug the adapter, wait 5 seconds, plug it back in";
 "ConnectingFailure.DemoMode" = "Demo mode";
 "ConnectingFailure.TryAgain" = "Try again";
 
@@ -305,15 +310,15 @@ and smart monitoring";
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "Freeze frame details";
 "FreezeFrameDetails.CapturedCaption" = "Captured at fault detection";
-"FreezeFrameDetails.VehicleState" = "Vehicle state at the time";
+"FreezeFrameDetails.VehicleState" = "Your car at that moment";
 
 // MARK: DTCClearInfo
-"DTCClearInfo.Title" = "CLEAR ALL ERROR CODES?";
-"DTCClearInfo.SubTitle" = "One tap — no scan needed. This sends a reset to the ECU and will:";
+"DTCClearInfo.Title" = "CLEAR ALL FAULT CODES?";
+"DTCClearInfo.SubTitle" = "One tap — no scan needed. This sends a reset command to the ECU. It will:";
 "DTCClearInfo.Cell1" = "Turn off the check-engine light (MIL)";
-"DTCClearInfo.Cell2" = "Erase stored & pending trouble codes";
-"DTCClearInfo.Cell3" = "Clear freeze-frame data & reset readiness monitors";
-"DTCClearInfo.Warning" = "This won't fix the cause — if the fault is still present, codes may come back.";
+"DTCClearInfo.Cell2" = "Erase confirmed and pending codes";
+"DTCClearInfo.Cell3" = "Clear freeze-frame data and reset readiness monitors";
+"DTCClearInfo.Warning" = "This won't fix the cause — if the fault is still there, codes will come back.";
 "DTCClearInfo.ClearAllCodes" = "Clear all codes";
 
 // MARK: DTCClearing
@@ -322,16 +327,14 @@ and smart monitoring";
 "DTCClearing.Failed" = "Failed to clear codes";
 
 // MARK: DTCInfo
-"DTCInfo.TItle" = "Diagnostics";
+"DTCInfo.Title" = "Diagnostics";
 "DTCInfo.Caption" = "Diagnostics Trouble Codes (DTC)";
 "DTCInfo.Confirmed.Title" = "1. CONFIRMED CODES:";
-"DTCInfo.Confirmed.Item1" = "Saved to the car's memory with a confirmed malfunction.";
-"DTCInfo.Confirmed.Item2" = "Confirmed means the issue happened multiple times during one drive cycle.";
+"DTCInfo.Confirmed.Item" = "The car has verified the fault and stored it in memory — it came back on another drive cycle.";
 "DTCInfo.Pending.Title" = "2. PENDING CODES:";
-"DTCInfo.Pending.Item1" = "Indicate a potential malfunction in the current drive cycle.";
-"DTCInfo.Pending.Item2" = "If the issue repeats, it becomes a Confirmed Code and is saved; otherwise it disappears when you turn the engine off or clear it.";
+"DTCInfo.Pending.Item" = "A possible fault from the current drive cycle. If it doesn't come back, the car drops it after a few trips.";
 "DTCInfo.Permanent.Title" = "3. PERMANENT CODES:";
-"DTCInfo.Permanent.Item1" = "Confirmed and saved malfunctions that cannot be erased.";
+"DTCInfo.Permanent.Item" = "Can't be cleared manually. The car erases them itself once it confirms the repair.";
 "DTCInfo.Action.Read" = "Read";
 "DTCInfo.Action.Clear" = "Clear";
 
@@ -347,7 +350,7 @@ and smart monitoring";
 "DTCResult.SavedPIDs.Title" = "Saved";
 "DTCResult.SavedPIDs.Message" = "Trouble codes have been saved to your history.";
 "DTCResult.SavedPIDs.Button" = "OK";
-"DTCResult.HowToFix" = "How to fix?";
+"DTCResult.HowToFix" = "How to fix";
 "DTCResult.UnknownCode" = "Unknown trouble code";
 "DTCResult.Unknown" = "Unknown";
 "DTCResult.InfoKey" = "%@: ";
@@ -374,7 +377,7 @@ and smart monitoring";
 "DTCResult.Affected.BodyElectronics" = "Body Electronics";
 "DTCResult.Affected.Chassis" = "Chassis / Brakes & Suspension";
 "DTCResult.Affected.Network" = "CAN Bus / ECU Communication";
-"DTCResult.Empty.Title" = "NO ERRORS FOUND";
+"DTCResult.Empty.Title" = "NO FAULT CODES FOUND";
 "DTCResult.Empty.Cell1" = "No stored or pending trouble codes";
 "DTCResult.Empty.Cell2" = "Check-engine light (MIL) is off";
 "DTCResult.Empty.Cell3" = "All readiness monitors passed";
@@ -424,9 +427,9 @@ and smart monitoring";
 "HUD.Connected" = "Connected";
 "HUD.DemoMode" = "Demo mode";
 "HUD.Start.Title" = "HEAD-UP DISPLAY";
-"HUD.Start.SubTitle" = "Project driving data onto your windshield\nfor safer, distraction free driving";
-"HUD.Start.Cell1" = "Place phone near windshield";
-"HUD.Start.Cell2" = "Increase screen brightness";
+"HUD.Start.SubTitle" = "Project driving data onto your windshield for safer, distraction-free driving";
+"HUD.Start.Cell1" = "Place your phone at the base of the windshield";
+"HUD.Start.Cell2" = "Turn brightness up to max";
 "HUD.Start.Cell3" = "Enable mirror mode for reflection";
 "HUD.Start.Action" = "Start HUD";
 "HUD.RPM" = "RPM";

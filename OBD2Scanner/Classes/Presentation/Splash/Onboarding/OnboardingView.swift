@@ -17,7 +17,7 @@ final class OnboardingView: UIView {
     lazy var infoSlider = makeInfoSlider()
     lazy var infoTitleLabel = makeInfoTitleLabel()
     lazy var infoSubTitleLabel = makeInfoSubTitleLabel()
-    lazy var addCarButton = makeAddCarButton()
+    lazy var continueButton = makeContinueButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +35,45 @@ final class OnboardingView: UIView {
 private extension OnboardingView {
     func initialize() {
         backgroundColor = Appearance.color_1A2231
+
+        infoSlider.onItemChanged = { [weak self] item in
+            self?.update(item: item)
+        }
+
+        update(item: infoSlider.currentItem)
+    }
+
+    func update(item: OnboardingSliderItemView.Item) {
+        let title: String
+        let subTitle: String
+
+        switch item {
+        case .diagnostic:
+            title = "Onboarding.Info.Diagnostic.Title".localized
+            subTitle = "Onboarding.Info.Diagnostic.SubTitle".localized
+        case .hud:
+            title = "Onboarding.Info.HUD.Title".localized
+            subTitle = "Onboarding.Info.HUD.SubTitle".localized
+        case .recallHistory:
+            title = "Onboarding.Info.RecallHistory.Title".localized
+            subTitle = "Onboarding.Info.RecallHistory.SubTitle".localized
+        case .garage:
+            title = "Onboarding.Info.Garage.Title".localized
+            subTitle = "Onboarding.Info.Garage.SubTitle".localized
+        }
+
+        let titleAttrs = TextAttributes()
+            .textColor(Appearance.color_FFFFFF)
+            .font(Fonts.PlusJakartaSans.extraBold(size: 32.scale))
+            .textAlignment(.left)
+
+        let subTitleAttrs = TextAttributes()
+            .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
+            .font(Fonts.NotoSans.regular(size: 14.scale))
+            .textAlignment(.left)
+
+        infoTitleLabel.attributedText = title.attributed(with: titleAttrs)
+        infoSubTitleLabel.attributedText = subTitle.attributed(with: subTitleAttrs)
     }
 }
 
@@ -99,10 +138,10 @@ private extension OnboardingView {
         ])
         
         NSLayoutConstraint.activate([
-            addCarButton.leadingAnchor.constraint(equalTo: infoContainer.leadingAnchor, constant: 16.scale),
-            addCarButton.trailingAnchor.constraint(equalTo: infoContainer.trailingAnchor, constant: -16.scale),
-            addCarButton.heightAnchor.constraint(equalToConstant: 52.scale),
-            addCarButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24.scale)
+            continueButton.leadingAnchor.constraint(equalTo: infoContainer.leadingAnchor, constant: 16.scale),
+            continueButton.trailingAnchor.constraint(equalTo: infoContainer.trailingAnchor, constant: -16.scale),
+            continueButton.heightAnchor.constraint(equalToConstant: 52.scale),
+            continueButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24.scale)
         ])
     }
 }
@@ -199,40 +238,28 @@ private extension OnboardingView {
     }
     
     func makeInfoTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF)
-            .font(Fonts.PlusJakartaSans.extraBold(size: 32.scale))
-            .textAlignment(.left)
-        
         let view = UILabel()
-        view.attributedText = "Onboarding.Info.Title".localized.attributed(with: attrs)
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         infoContainer.contentView.addSubview(view)
         return view
     }
-    
+
     func makeInfoSubTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
-            .font(Fonts.NotoSans.regular(size: 14.scale))
-            .textAlignment(.left)
-        
         let view = UILabel()
-        view.attributedText = "Onboarding.Info.SubTitle".localized.attributed(with: attrs)
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         infoContainer.contentView.addSubview(view)
         return view
     }
-    
-    func makeAddCarButton() -> UIButton {
+
+    func makeContinueButton() -> UIButton {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
             .font(Fonts.NotoSans.semiBold(size: 16.scale))
-        
+
         let view = UIButton()
-        view.setAttributedTitle("Onboarding.AddCarButton".localized.attributed(with: attrs), for: .normal)
+        view.setAttributedTitle("Onboarding.ContinueButton".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = Appearance.color_28D799
         view.layer.cornerRadius = 12.scale
         view.translatesAutoresizingMaskIntoConstraints = false

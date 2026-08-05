@@ -37,7 +37,7 @@ private extension DTCInfoSectionView {
         backgroundColor = UIColor.clear
 
         items
-            .map { makeItemView(text: $0) }
+            .map { makeTextLabel(text: $0) }
             .forEach { itemsView.addArrangedSubview($0) }
     }
 }
@@ -84,28 +84,6 @@ private extension DTCInfoSectionView {
         view.spacing = 10.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
-        return view
-    }
-
-    func makeItemView(text: String) -> UIView {
-        let view = UIStackView(arrangedSubviews: [makeBulletLabel(), makeTextLabel(text: text)])
-        view.axis = .horizontal
-        view.alignment = .top
-        view.spacing = 8.scale
-        return view
-    }
-
-    func makeBulletLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_DCDDDC)
-            .font(Fonts.NotoSans.regular(size: 14.scale))
-            .textAlignment(.left)
-
-        let view = UILabel()
-        view.attributedText = "•".attributed(with: attrs)
-        view.setContentHuggingPriority(.required, for: .horizontal)
-        view.setContentCompressionResistancePriority(.required, for: .horizontal)
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
 

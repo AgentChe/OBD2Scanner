@@ -36,23 +36,21 @@ private extension DTCInfoView {
             DTCInfoSectionView(
                 title: "DTCInfo.Confirmed.Title".localized,
                 items: [
-                    "DTCInfo.Confirmed.Item1".localized,
-                    "DTCInfo.Confirmed.Item2".localized
+                    "DTCInfo.Confirmed.Item".localized
                 ],
                 color: Appearance.color_F5B239
             ),
             DTCInfoSectionView(
                 title: "DTCInfo.Pending.Title".localized,
                 items: [
-                    "DTCInfo.Pending.Item1".localized,
-                    "DTCInfo.Pending.Item2".localized
+                    "DTCInfo.Pending.Item".localized
                 ],
                 color: Appearance.color_FF6B35
             ),
             DTCInfoSectionView(
                 title: "DTCInfo.Permanent.Title".localized,
                 items: [
-                    "DTCInfo.Permanent.Item1".localized
+                    "DTCInfo.Permanent.Item".localized
                 ],
                 color: Appearance.color_F5403A
             )

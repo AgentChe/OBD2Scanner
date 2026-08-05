@@ -183,6 +183,7 @@ private extension ChooseMethodAddCarItemView {
         }()
         
         let view = UILabel()
+        view.numberOfLines = 2
         view.attributedText = title.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)

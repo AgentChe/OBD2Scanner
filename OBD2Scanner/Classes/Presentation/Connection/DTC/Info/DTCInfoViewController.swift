@@ -51,7 +51,7 @@ extension DTCInfoViewController {
     static func make(vehicleId: String?) -> DTCInfoViewController {
         let vc = DTCInfoViewController(vehicleId: vehicleId)
         vc.navigationItem.backButtonTitle = " "
-        vc.navigationItem.title = "DTCInfo.TItle".localized
+        vc.navigationItem.title = "DTCInfo.Title".localized
         return vc
     }
 }

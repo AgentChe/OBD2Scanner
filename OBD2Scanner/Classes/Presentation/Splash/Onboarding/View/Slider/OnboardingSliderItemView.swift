@@ -163,6 +163,7 @@ private extension OnboardingSliderItemView {
         
         let view = UILabel()
         view.attributedText = subTitle.attributed(with: attrs)
+        view.numberOfLines = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

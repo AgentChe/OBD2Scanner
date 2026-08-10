@@ -41,6 +41,26 @@ extension OnboardingSliderView {
     var currentItem: OnboardingSliderItemView.Item {
         items[currentIndex]
     }
+
+    var isLastItem: Bool {
+        currentIndex == items.count - 1
+    }
+
+    func scrollToNextItem() {
+        let nextIndex = currentIndex + 1
+
+        guard items.indices.contains(nextIndex) else {
+            return
+        }
+
+        let width = scrollView.bounds.width
+
+        guard width > 0 else {
+            return
+        }
+
+        scrollView.setContentOffset(CGPoint(x: width * CGFloat(nextIndex), y: 0), animated: true)
+    }
 }
 
 // MARK: UIScrollViewDelegate

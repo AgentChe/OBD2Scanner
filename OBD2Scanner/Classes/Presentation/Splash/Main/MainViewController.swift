@@ -8,8 +8,8 @@
 import UIKit
 
 final class MainViewController: UITabBarController {
-    enum Tab: Int {
-        case dashboard, hud, garage, settings
+    enum Tab: Int, CaseIterable {
+        case dashboard, garage, hud, settings
     }
 
     override func viewDidLoad() {
@@ -41,16 +41,34 @@ private extension MainViewController {
     }
     
     func makeTabs() {
-        viewControllers = [
-            makeTab(root: DashboardViewController.make(), title: "Main.Tab.Dashboard".localized, icon: "square.grid.2x2.fill"),
-            makeTab(root: GarageViewController.make(), title: "Main.Tab.Garage".localized, icon: "car.fill"),
-            makeTab(root: HUDViewController.make(), title: "Main.Tab.HUD".localized, icon: "waveform"),
-            makeTab(root: SettingsViewController.make(), title: "Main.Tab.Settings".localized, icon: "gearshape.fill")
-        ]
+        viewControllers = Tab.allCases.map { makeTab(tab: $0) }
         selectedIndex = Tab.dashboard.rawValue
     }
 
-    func makeTab(root: UIViewController, title: String, icon: String) -> NavigationController {
+    func makeTab(tab: Tab) -> NavigationController {
+        let root: UIViewController
+        let title: String
+        let icon: String
+
+        switch tab {
+        case .dashboard:
+            root = DashboardViewController.make()
+            title = "Main.Tab.Dashboard".localized
+            icon = "square.grid.2x2.fill"
+        case .garage:
+            root = GarageViewController.make()
+            title = "Main.Tab.Garage".localized
+            icon = "car.fill"
+        case .hud:
+            root = HUDViewController.make()
+            title = "Main.Tab.HUD".localized
+            icon = "waveform"
+        case .settings:
+            root = SettingsViewController.make()
+            title = "Main.Tab.Settings".localized
+            icon = "gearshape.fill"
+        }
+
         let nc = NavigationController(rootViewController: root)
         nc.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: icon), selectedImage: nil)
         return nc

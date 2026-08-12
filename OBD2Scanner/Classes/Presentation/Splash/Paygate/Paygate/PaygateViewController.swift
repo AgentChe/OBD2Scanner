@@ -86,6 +86,7 @@ final class PaygateViewController: UIViewController {
             .drive(Binder(mainView) { base, products in
                 base.lifetimeButton.setup(product: products.lifetime)
                 base.subscriptionButton.setup(product: products.subscription)
+                base.setup(discount: products.lifetime.discount)
             })
             .disposed(by: disposeBag)
     }

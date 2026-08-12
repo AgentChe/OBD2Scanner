@@ -79,7 +79,7 @@
 "Paygate.RestorePurchases" = "Kauf wiederherstellen";
 "Paygate.Title" = "Sonderangebot";
 "Paygate.Header.Text" = "Unbegrenzt";
-"Paygate.SubTitle" = "Spare 67 % mit dem Jahresabo";
+"Paygate.SubTitle" = "Spare %i %% mit dem Lebenslang-Tarif";
 "Paygate.Cell.Diagnostics.Name" = "Diagnose";
 "Paygate.Cell.Diagnostics.Text" = "Prüfe den Zustand deines Autos";
 "Paygate.Cell.FreezeFrame.Name" = "Freeze Frame";

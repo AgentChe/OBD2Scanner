@@ -79,7 +79,7 @@
 "Paygate.RestorePurchases" = "Restaurar compra";
 "Paygate.Title" = "Oferta especial";
 "Paygate.Header.Text" = "Ilimitado";
-"Paygate.SubTitle" = "Ahorra un 67 % con el plan anual";
+"Paygate.SubTitle" = "Ahorra un %i %% con el plan de por vida";
 "Paygate.Cell.Diagnostics.Name" = "Diagnóstico";
 "Paygate.Cell.Diagnostics.Text" = "Comprueba el estado de tu coche";
 "Paygate.Cell.FreezeFrame.Name" = "Fotograma congelado";

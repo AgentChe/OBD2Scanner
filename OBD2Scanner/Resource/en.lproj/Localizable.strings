@@ -79,7 +79,7 @@
 "Paygate.RestorePurchases" = "Restore Purchase";
 "Paygate.Title" = "Special offer";
 "Paygate.Header.Text" = "Unlimited";
-"Paygate.SubTitle" = "Save 67% with the Yearly plan";
+"Paygate.SubTitle" = "Save %i%% with the Lifetime plan";
 "Paygate.Cell.Diagnostics.Name" = "Diagnostics";
 "Paygate.Cell.Diagnostics.Text" = "Check your car health";
 "Paygate.Cell.FreezeFrame.Name" = "Freeze frame";

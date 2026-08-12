@@ -79,7 +79,7 @@
 "Paygate.RestorePurchases" = "Восстановить покупку";
 "Paygate.Title" = "Специальное предложение";
 "Paygate.Header.Text" = "Безлимит";
-"Paygate.SubTitle" = "Экономьте 67% с годовым планом";
+"Paygate.SubTitle" = "Экономьте %i%% с планом «Навсегда»";
 "Paygate.Cell.Diagnostics.Name" = "Диагностика";
 "Paygate.Cell.Diagnostics.Text" = "Проверьте состояние авто";
 "Paygate.Cell.FreezeFrame.Name" = "Стоп-кадр";

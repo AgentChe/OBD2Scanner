@@ -79,7 +79,7 @@
 "Paygate.RestorePurchases" = "恢复购买";
 "Paygate.Title" = "特别优惠";
 "Paygate.Header.Text" = "无限版";
-"Paygate.SubTitle" = "选择年度方案可省 67%";
+"Paygate.SubTitle" = "选择终身方案可省 %i%%";
 "Paygate.Cell.Diagnostics.Name" = "诊断";
 "Paygate.Cell.Diagnostics.Text" = "检查爱车状况";
 "Paygate.Cell.FreezeFrame.Name" = "冻结帧";

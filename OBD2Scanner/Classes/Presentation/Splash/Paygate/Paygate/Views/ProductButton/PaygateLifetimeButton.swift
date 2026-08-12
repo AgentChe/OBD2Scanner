@@ -176,13 +176,15 @@ extension PaygateLifetimeButton.Product {
         let periodPrice = Currency(iapProduct: lifetimeIAPProduct, div: 52).formatted() ?? ""
         
         let discount: Int = {
-            let lifetimePriceValue = lifetimeIAPProduct.price.doubleValue
-            let subscriptionPriceValue = subscriptionIAPProduct.price.doubleValue
-            
-            let periodPriceValue = lifetimePriceValue / 52
-            
-            let diff = subscriptionPriceValue - periodPriceValue
-            let discount = 100 / (subscriptionPriceValue / diff)
+            let lifetimeYearPrice = lifetimeIAPProduct.price.doubleValue
+            let subscriptionYearPrice = subscriptionIAPProduct.price.doubleValue * 12
+
+            guard subscriptionYearPrice > 0, lifetimeYearPrice < subscriptionYearPrice else {
+                return 0
+            }
+
+            let diff = subscriptionYearPrice - lifetimeYearPrice
+            let discount = 100 * diff / subscriptionYearPrice
             return Int(discount)
         }()
         

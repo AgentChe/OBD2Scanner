@@ -24,16 +24,29 @@ final class PaygateView: GradientView {
     lazy var separator = makeSeparator()
     lazy var actionsView = makeActionsView()
     lazy var preloader = makePreloader()
-    
+
+    private lazy var subTitleAttrs = TextAttributes()
+        .textColor(Appearance.color_DCDDDC)
+        .font(Fonts.NotoSans.regular(size: 14.scale))
+        .textAlignment(.center)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         makeConstraints()
         initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension PaygateView {
+    func setup(discount: Int) {
+        let text = String(format: "Paygate.SubTitle".localized, discount)
+        subTitleLabel.attributedText = text.attributed(with: subTitleAttrs)
     }
 }
 
@@ -81,7 +94,7 @@ private extension PaygateView {
         NSLayoutConstraint.activate([
             diagnosticsCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             diagnosticsCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            diagnosticsCell.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 20.scale),
+            diagnosticsCell.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 40.scale),
             diagnosticsCell.heightAnchor.constraint(equalToConstant: 88.scale)
         ])
         
@@ -194,13 +207,7 @@ private extension PaygateView {
     }
     
     func makeSubTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_DCDDDC)
-            .font(Fonts.NotoSans.regular(size: 14.scale))
-            .textAlignment(.center)
-        
         let view = UILabel()
-        view.attributedText = "Paygate.SubTitle".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

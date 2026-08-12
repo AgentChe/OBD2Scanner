@@ -246,6 +246,7 @@
 		DEA1000000000000000000B2 /* UnitsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000B1 /* UnitsElement.swift */; };
 		DEA1000000000000000000C2 /* UnitsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000C1 /* UnitsOptionButton.swift */; };
 		DEA1000000000000000000D2 /* UnitsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1000000000000000000D1 /* UnitsSectionView.swift */; };
+		DEA1B0022FF3000100973BA9 /* OnboardingPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */; };
 		DEB51F4C3019CB780098A5A5 /* DTCResultEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F4B3019CB780098A5A5 /* DTCResultEmptyView.swift */; };
 		DEB51F4F3019CC380098A5A5 /* DTCResultEmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F4E3019CC380098A5A5 /* DTCResultEmptyItemView.swift */; };
 		DEB51F55301A16AC0098A5A5 /* DTCLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB51F54301A16AC0098A5A5 /* DTCLogViewController.swift */; };
@@ -311,7 +312,6 @@
 		DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2B2FFC114F0044284D /* DashboardView.swift */; };
 		DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
-		DEA1B0022FF3000100973BA9 /* OnboardingPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
 		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
 		DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */; };
@@ -589,6 +589,7 @@
 		DEA1000000000000000000B1 /* UnitsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsElement.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000C1 /* UnitsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOptionButton.swift; sourceTree = "<group>"; };
 		DEA1000000000000000000D1 /* UnitsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsSectionView.swift; sourceTree = "<group>"; };
+		DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControlView.swift; sourceTree = "<group>"; };
 		DEB51F4B3019CB780098A5A5 /* DTCResultEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultEmptyView.swift; sourceTree = "<group>"; };
 		DEB51F4E3019CC380098A5A5 /* DTCResultEmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCResultEmptyItemView.swift; sourceTree = "<group>"; };
 		DEB51F54301A16AC0098A5A5 /* DTCLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCLogViewController.swift; sourceTree = "<group>"; };
@@ -654,7 +655,6 @@
 		DED81C2B2FFC114F0044284D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardActiveVehicleView.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
-		DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControlView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
 		DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPActionResult.swift; sourceTree = "<group>"; };
@@ -2848,7 +2848,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2863,7 +2863,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2889,7 +2889,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2904,7 +2904,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

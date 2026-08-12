@@ -311,6 +311,7 @@
 		DED81C2C2FFC114F0044284D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C2B2FFC114F0044284D /* DashboardView.swift */; };
 		DED81C3B2FFC12000044284D /* DashboardActiveVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */; };
 		DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */; };
+		DEA1B0022FF3000100973BA9 /* OnboardingPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */; };
 		DEDF4E072FF2C8D70001160D /* PurchaseValidationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E052FF2C8D70001160D /* PurchaseValidationObserver.swift */; };
 		DEDF4E082FF2C8D70001160D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4E042FF2C8D70001160D /* IAPManager.swift */; };
 		DEDF4E092FF2C8D70001160D /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */; };
@@ -653,6 +654,7 @@
 		DED81C2B2FFC114F0044284D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		DED81C3A2FFC12000044284D /* DashboardActiveVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardActiveVehicleView.swift; sourceTree = "<group>"; };
 		DEDF4DFB2FF2B84A0001160D /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
+		DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControlView.swift; sourceTree = "<group>"; };
 		DEDF4DFE2FF2C8D70001160D /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		DEDF4DFF2FF2C8D70001160D /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
 		DEDF4E012FF2C8D70001160D /* IAPActionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPActionResult.swift; sourceTree = "<group>"; };
@@ -1535,6 +1537,7 @@
 			isa = PBXGroup;
 			children = (
 				DE4B7E6E2FF2B39E00973BA9 /* Slider */,
+				DEA1B0012FF3000100973BA9 /* OnboardingPageControlView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2471,6 +2474,7 @@
 				DE223FEB2FF3EE250023E94C /* UnlimitedPlanUnlimitedView.swift in Sources */,
 				DE9C13CF30171C960095E927 /* DTCInfoViewController.swift in Sources */,
 				DEDF4DFC2FF2B84A0001160D /* OnboardingSliderView.swift in Sources */,
+				DEA1B0022FF3000100973BA9 /* OnboardingPageControlView.swift in Sources */,
 				DE2240CD2FF92CD20023E94C /* VehicleDetailsViewModel.swift in Sources */,
 				DE9C13C13010F7E70095E927 /* DTCClearInfoView.swift in Sources */,
 				DE2240BD2FF7CDCC0023E94C /* GarageView.swift in Sources */,

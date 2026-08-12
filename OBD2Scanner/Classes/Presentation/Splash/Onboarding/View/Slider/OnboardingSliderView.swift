@@ -8,18 +8,12 @@
 import UIKit
 
 final class OnboardingSliderView: UIView {
-    var onItemChanged: ((OnboardingSliderItemView.Item) -> Void)?
+    var onIndexChanged: ((Int) -> Void)?
 
     lazy var scrollView = makeScrollView()
     lazy var contentStackView = makeContentStackView()
-    lazy var pageControl = makePageControl()
 
-    private let items: [OnboardingSliderItemView.Item] = [
-        .diagnostic,
-        .hud,
-        .recallHistory,
-        .garage
-    ]
+    private let items = OnboardingSliderItemView.Item.allCases
 
     private var currentIndex = 0
 
@@ -38,8 +32,8 @@ final class OnboardingSliderView: UIView {
 
 // MARK: Public
 extension OnboardingSliderView {
-    var currentItem: OnboardingSliderItemView.Item {
-        items[currentIndex]
+    var numberOfItems: Int {
+        items.count
     }
 
     var isLastItem: Bool {
@@ -79,8 +73,7 @@ extension OnboardingSliderView: UIScrollViewDelegate {
         }
 
         currentIndex = index
-        pageControl.currentPage = index
-        onItemChanged?(items[index])
+        onIndexChanged?(index)
     }
 }
 
@@ -101,8 +94,8 @@ private extension OnboardingSliderView {
             page.addSubview(itemView)
 
             NSLayoutConstraint.activate([
-                itemView.leadingAnchor.constraint(equalTo: page.leadingAnchor, constant: 16.scale),
-                itemView.trailingAnchor.constraint(equalTo: page.trailingAnchor, constant: -16.scale),
+                itemView.leadingAnchor.constraint(equalTo: page.leadingAnchor),
+                itemView.trailingAnchor.constraint(equalTo: page.trailingAnchor),
                 itemView.topAnchor.constraint(equalTo: page.topAnchor),
                 itemView.bottomAnchor.constraint(equalTo: page.bottomAnchor)
             ])
@@ -111,8 +104,6 @@ private extension OnboardingSliderView {
 
             page.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
         }
-
-        pageControl.numberOfPages = items.count
     }
 }
 
@@ -122,7 +113,8 @@ private extension OnboardingSliderView {
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: topAnchor)
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -131,12 +123,6 @@ private extension OnboardingSliderView {
             contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             contentStackView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 12.scale),
-            pageControl.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
@@ -161,16 +147,6 @@ private extension OnboardingSliderView {
         view.spacing = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
-        return view
-    }
-
-    func makePageControl() -> UIPageControl {
-        let view = UIPageControl()
-        view.currentPage = 0
-        view.currentPageIndicatorTintColor = Appearance.color_FFFFFF
-        view.pageIndicatorTintColor = Appearance.color_FFFFFF.withAlphaComponent(0.2)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
         return view
     }
 }

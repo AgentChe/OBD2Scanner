@@ -22,8 +22,8 @@ final class OnboardingViewController: UIViewController {
         
         mainView.continueButton.rx.tap
             .bind(to: Binder(self) { base, void in
-                guard base.mainView.infoSlider.isLastItem else {
-                    base.mainView.infoSlider.scrollToNextItem()
+                guard base.mainView.slider.isLastItem else {
+                    base.mainView.slider.scrollToNextItem()
                     return
                 }
 

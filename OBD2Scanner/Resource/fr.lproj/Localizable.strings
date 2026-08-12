@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "DIAGNOSTIC INTELLIGENT";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "Continuer";
-"Onboarding.Info.Diagnostic.Title" = "LIRE, CORRIGER ET EFFACER LES CODES DÉFAUT";
-"Onboarding.Info.Diagnostic.SubTitle" = "Obtenez la liste complète des défauts enregistrés, découvrez comment les résoudre, puis effacez les codes.";
-"Onboarding.Info.HUD.Title" = "VITESSE, RÉGIME ET TEMP. DU LIQUIDE DE REFROIDISSEMENT";
-"Onboarding.Info.HUD.SubTitle" = "Uniquement l'essentiel. Pour rester concentré sur la route.";
-"Onboarding.Info.RecallHistory.Title" = "PLUS AUCUN RAPPEL MANQUÉ";
-"Onboarding.Info.RecallHistory.SubTitle" = "Consultez tous les rappels actifs et soyez informé des nouveaux";
-"Onboarding.Info.Garage.Title" = "AUTANT DE VOITURES QUE VOUS VOULEZ";
-"Onboarding.Info.Garage.SubTitle" = "Toutes les fonctions sont disponibles pour un nombre illimité de véhicules";
-"Onboarding.Slider.Diagnostic.Title" = "Lire, corriger, effacer";
-"Onboarding.Slider.Diagnostic.SubTitle" = "Les codes défaut exacts\net comment les résoudre";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "Affichage tête haute";
-"Onboarding.Slider.RecallHistory.Title" = "Historique des rappels";
-"Onboarding.Slider.RecallHistory.SubTitle" = "La liste complète des rappels\npour votre véhicule";
-"Onboarding.Slider.Garage.Title" = "Garage illimité";
-"Onboarding.Slider.Garage.SubTitle" = "Pour une grande collection\nou une gestion de flotte";
+"Onboarding.Slider.Pay.Title" = "Ne payez plus jamais trop cher";
+"Onboarding.Slider.Pay.SubTitle" = "L'app lit les mêmes codes défaut que le garage. Vous arrivez en sachant déjà ce qui est cassé — et ce qui ne l'est pas.";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "les mêmes codes défaut que le garage.";
+"Onboarding.Slider.CatchRecalls.Title" = "Repérez les rappels avant le concessionnaire";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "Les constructeurs rappellent sans cesse des pièces défectueuses — et les remplacent gratuitement.";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "les remplacent gratuitement.";
+"Onboarding.Slider.FrozenFault.Title" = "Chaque erreur a sa solution";
+"Onboarding.Slider.FrozenFault.SubTitle" = "Nous enregistrons ce que faisait le moteur à l'instant de la panne — puis nous en tirons des étapes claires pour votre modèle.";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "ce que faisait le moteur à l'instant de la panne";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Offre spéciale";

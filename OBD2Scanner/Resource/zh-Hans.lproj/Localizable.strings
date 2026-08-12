@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "智能诊断";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "继续";
-"Onboarding.Info.Diagnostic.Title" = "读取、修复并清除故障码";
-"Onboarding.Info.Diagnostic.SubTitle" = "获取所有已存故障的完整列表，了解如何解决问题，然后清除故障码。";
-"Onboarding.Info.HUD.Title" = "车速、转速与冷却液温度";
-"Onboarding.Info.HUD.SubTitle" = "只显示关键信息，让你专注驾驶。";
-"Onboarding.Info.RecallHistory.Title" = "不再错过任何召回";
-"Onboarding.Info.RecallHistory.SubTitle" = "查看所有生效中的召回，并及时了解新的召回";
-"Onboarding.Info.Garage.Title" = "想加多少车都可以";
-"Onboarding.Info.Garage.SubTitle" = "所有功能对你的车辆数量没有限制";
-"Onboarding.Slider.Diagnostic.Title" = "读取、修复、清除";
-"Onboarding.Slider.Diagnostic.SubTitle" = "查看确切的故障码\n并了解如何解决";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "抬头显示";
-"Onboarding.Slider.RecallHistory.Title" = "召回记录";
-"Onboarding.Slider.RecallHistory.SubTitle" = "你的车辆对应的\n完整召回列表";
-"Onboarding.Slider.Garage.Title" = "无限车库";
-"Onboarding.Slider.Garage.SubTitle" = "适合大量收藏\n或车队管理";
+"Onboarding.Slider.Pay.Title" = "不再多花冤枉钱";
+"Onboarding.Slider.Pay.SubTitle" = "应用读取的故障码和修理厂完全一样。进店之前你就知道哪里坏了、哪里没坏。";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "和修理厂完全一样。";
+"Onboarding.Slider.CatchRecalls.Title" = "比经销商更早发现召回";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "厂商经常悄悄召回问题零件，而且免费更换。";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "而且免费更换。";
+"Onboarding.Slider.FrozenFault.Title" = "每个故障都有解决方案";
+"Onboarding.Slider.FrozenFault.SubTitle" = "我们记录故障发生瞬间发动机的工作状态，再转化为适合你车型的清晰步骤。";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "故障发生瞬间发动机的工作状态";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "特别优惠";

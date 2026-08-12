@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "УМНАЯ ДИАГНОСТИКА";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "Продолжить";
-"Onboarding.Info.Diagnostic.Title" = "ЧИТАЙТЕ, ИСПРАВЛЯЙТЕ И СБРАСЫВАЙТЕ ОШИБКИ";
-"Onboarding.Info.Diagnostic.SubTitle" = "Получите полный список сохранённых ошибок, узнайте, как устранить неисправность, и сбросьте коды.";
-"Onboarding.Info.HUD.Title" = "СКОРОСТЬ, ОБОРОТЫ И ТЕМПЕРАТУРА ОЖ";
-"Onboarding.Info.HUD.SubTitle" = "Только самое важное. Помогает не отвлекаться от дороги.";
-"Onboarding.Info.RecallHistory.Title" = "БОЛЬШЕ НИ ОДНОГО ПРОПУЩЕННОГО ОТЗЫВА";
-"Onboarding.Info.RecallHistory.SubTitle" = "Смотрите все активные отзывные кампании и узнавайте о новых";
-"Onboarding.Info.Garage.Title" = "СКОЛЬКО УГОДНО АВТОМОБИЛЕЙ";
-"Onboarding.Info.Garage.SubTitle" = "Все функции доступны для неограниченного количества ваших машин";
-"Onboarding.Slider.Diagnostic.Title" = "Читай, исправляй, сбрасывай";
-"Onboarding.Slider.Diagnostic.SubTitle" = "Точные коды ошибок\nи способы их устранения";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "Проекционный дисплей";
-"Onboarding.Slider.RecallHistory.Title" = "Отзывные кампании";
-"Onboarding.Slider.RecallHistory.SubTitle" = "Полный список отзывных кампаний\nдля вашего автомобиля";
-"Onboarding.Slider.Garage.Title" = "Безлимитный гараж";
-"Onboarding.Slider.Garage.SubTitle" = "Для большой коллекции\nили автопарка";
+"Onboarding.Slider.Pay.Title" = "Больше никаких переплат";
+"Onboarding.Slider.Pay.SubTitle" = "Приложение читает те же коды ошибок, что и сервис. Вы приедете туда, уже зная, что сломано, а что нет.";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "те же коды ошибок, что и сервис.";
+"Onboarding.Slider.CatchRecalls.Title" = "Узнавайте об отзывах раньше дилера";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "Производители постоянно отзывают бракованные детали — и меняют их бесплатно.";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "меняют их бесплатно.";
+"Onboarding.Slider.FrozenFault.Title" = "У каждой ошибки есть решение";
+"Onboarding.Slider.FrozenFault.SubTitle" = "Мы фиксируем, что происходило с двигателем в момент сбоя, и превращаем это в понятные шаги для вашей модели.";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "что происходило с двигателем в момент сбоя";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Специальное предложение";

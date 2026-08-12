@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "DIAGNÓSTICO INTELIGENTE";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "Continuar";
-"Onboarding.Info.Diagnostic.Title" = "LEE, REPARA Y BORRA LOS CÓDIGOS DE AVERÍA";
-"Onboarding.Info.Diagnostic.SubTitle" = "Obtén la lista completa de todos los fallos guardados, descubre cómo solucionarlos y borra los códigos después.";
-"Onboarding.Info.HUD.Title" = "VELOCIDAD, RPM Y TEMP. DEL REFRIGERANTE";
-"Onboarding.Info.HUD.SubTitle" = "Solo lo imprescindible. Te ayuda a centrarte en la conducción.";
-"Onboarding.Info.RecallHistory.Title" = "NO TE PIERDAS NINGUNA LLAMADA A REVISIÓN";
-"Onboarding.Info.RecallHistory.SubTitle" = "Consulta todas las revisiones activas y entérate de las nuevas";
-"Onboarding.Info.Garage.Title" = "TANTOS COCHES COMO QUIERAS";
-"Onboarding.Info.Garage.SubTitle" = "Todas las funciones están disponibles para un número ilimitado de coches";
-"Onboarding.Slider.Diagnostic.Title" = "Lee, repara, borra";
-"Onboarding.Slider.Diagnostic.SubTitle" = "Consulta los códigos exactos\ny cómo solucionarlos";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "Pantalla de visualización frontal";
-"Onboarding.Slider.RecallHistory.Title" = "Historial de revisiones";
-"Onboarding.Slider.RecallHistory.SubTitle" = "La lista completa de llamadas\na revisión de tu vehículo";
-"Onboarding.Slider.Garage.Title" = "Garaje ilimitado";
-"Onboarding.Slider.Garage.SubTitle" = "Para una gran colección\no gestión de flotas";
+"Onboarding.Slider.Pay.Title" = "Nunca vuelvas a pagar de más";
+"Onboarding.Slider.Pay.SubTitle" = "La app lee los mismos códigos de avería que el taller. Llega sabiendo ya qué está roto — y qué no.";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "los mismos códigos de avería que el taller.";
+"Onboarding.Slider.CatchRecalls.Title" = "Detecta las llamadas a revisión antes que el concesionario";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "Los fabricantes retiran piezas defectuosas continuamente — y las reparan gratis.";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "las reparan gratis.";
+"Onboarding.Slider.FrozenFault.Title" = "Cada error tiene solución";
+"Onboarding.Slider.FrozenFault.SubTitle" = "Registramos qué hacía el motor en el momento del fallo — y lo convertimos en pasos claros para tu modelo.";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "qué hacía el motor en el momento del fallo";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Oferta especial";

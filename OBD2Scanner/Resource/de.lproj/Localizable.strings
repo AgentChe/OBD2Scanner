@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "SMARTE DIAGNOSE";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "Weiter";
-"Onboarding.Info.Diagnostic.Title" = "FEHLERCODES LESEN, BEHEBEN UND ZURÜCKSETZEN";
-"Onboarding.Info.Diagnostic.SubTitle" = "Erhalte eine vollständige Liste aller gespeicherten Fehler, erfahre, wie du sie behebst, und setze die Codes anschließend zurück.";
-"Onboarding.Info.HUD.Title" = "TEMPO, DREHZAHL & KÜHLMITTELTEMPERATUR";
-"Onboarding.Info.HUD.SubTitle" = "Nur das Wesentliche. Damit du dich auf die Straße konzentrieren kannst.";
-"Onboarding.Info.RecallHistory.Title" = "KEINE RÜCKRUFAKTION MEHR VERPASSEN";
-"Onboarding.Info.RecallHistory.SubTitle" = "Sieh alle aktiven Rückrufe und bleib bei neuen auf dem Laufenden";
-"Onboarding.Info.Garage.Title" = "SO VIELE AUTOS, WIE DU WILLST";
-"Onboarding.Info.Garage.SubTitle" = "Alle Funktionen stehen für beliebig viele Fahrzeuge zur Verfügung";
-"Onboarding.Slider.Diagnostic.Title" = "Lesen, beheben, zurücksetzen";
-"Onboarding.Slider.Diagnostic.SubTitle" = "Sieh die genauen Fehlercodes\nund wie du sie behebst";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "Head-up-Display";
-"Onboarding.Slider.RecallHistory.Title" = "Rückrufhistorie";
-"Onboarding.Slider.RecallHistory.SubTitle" = "Eine vollständige Liste der Rückrufe\nfür dein Fahrzeug";
-"Onboarding.Slider.Garage.Title" = "Unbegrenzte Garage";
-"Onboarding.Slider.Garage.SubTitle" = "Für große Sammlungen oder\ndie Flottenverwaltung";
+"Onboarding.Slider.Pay.Title" = "Nie wieder zu viel zahlen";
+"Onboarding.Slider.Pay.SubTitle" = "Die App liest dieselben Fehlercodes wie die Werkstatt. Du weißt schon vorher, was kaputt ist — und was nicht.";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "dieselben Fehlercodes wie die Werkstatt.";
+"Onboarding.Slider.CatchRecalls.Title" = "Rückrufe erkennen, bevor der Händler anruft";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "Hersteller rufen ständig fehlerhafte Teile zurück — und reparieren sie kostenlos.";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "reparieren sie kostenlos.";
+"Onboarding.Slider.FrozenFault.Title" = "Zu jedem Fehler gibt es eine Lösung";
+"Onboarding.Slider.FrozenFault.SubTitle" = "Wir erfassen, was der Motor im Moment des Fehlers gemacht hat — und machen daraus klare Schritte für dein Modell.";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "was der Motor im Moment des Fehlers gemacht hat";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Sonderangebot";

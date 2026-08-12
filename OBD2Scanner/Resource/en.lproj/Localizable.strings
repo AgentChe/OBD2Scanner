@@ -19,25 +19,17 @@
 
 // MARK: Onboarding
 "Onboarding.Title.1" = "OBD2";
-"Onboarding.Title.2" = " SCANNER";
-"Onboarding.SubTitle" = "SMART DIAGNOSTICS";
+"Onboarding.Title.2" = " Scanner";
 "Onboarding.ContinueButton" = "Continue";
-"Onboarding.Info.Diagnostic.Title" = "READ, FIX AND RESET TROUBLE CODES";
-"Onboarding.Info.Diagnostic.SubTitle" = "Get a comprehensive list of all stored errors, learn how to fix the problem and reset the codes after.";
-"Onboarding.Info.HUD.Title" = "SPEED, RPMS & COOLANT TEMP";
-"Onboarding.Info.HUD.SubTitle" = "Only crucial info. Helps to focus on your drive.";
-"Onboarding.Info.RecallHistory.Title" = "NO MORE MISSED RECALLS";
-"Onboarding.Info.RecallHistory.SubTitle" = "See all active recalls, stay up to date with the new ones";
-"Onboarding.Info.Garage.Title" = "AS MANY CARS AS YOU WANT";
-"Onboarding.Info.Garage.SubTitle" = "All of the features are available for the unlimited amount of your cars";
-"Onboarding.Slider.Diagnostic.Title" = "Read, fix, reset";
-"Onboarding.Slider.Diagnostic.SubTitle" = "See the exact trouble codes\nand learn how to fix them";
-"Onboarding.Slider.HUD.Title" = "HUD";
-"Onboarding.Slider.HUD.SubTitle" = "Head-up display";
-"Onboarding.Slider.RecallHistory.Title" = "Recall History";
-"Onboarding.Slider.RecallHistory.SubTitle" = "A comprehensive list of recalls\nfor your vehicle";
-"Onboarding.Slider.Garage.Title" = "Unlimited garage";
-"Onboarding.Slider.Garage.SubTitle" = "For a big collection or\nfleet management";
+"Onboarding.Slider.Pay.Title" = "Never overpay again";
+"Onboarding.Slider.Pay.SubTitle" = "The app reads the same fault codes the shop reads. Walk in already knowing what's broken — and what isn't.";
+"Onboarding.Slider.Pay.SubTitle.Highlight" = "same fault codes the shop reads.";
+"Onboarding.Slider.CatchRecalls.Title" = "Catch recalls before the dealer calls";
+"Onboarding.Slider.CatchRecalls.SubTitle" = "Manufacturers quietly recall faulty parts all the time — and fix them for free.";
+"Onboarding.Slider.CatchRecalls.SubTitle.Highlight" = "fix them for free.";
+"Onboarding.Slider.FrozenFault.Title" = "Every error comes with a fix";
+"Onboarding.Slider.FrozenFault.SubTitle" = "We capture what the engine was doing the second it failed — then turn it into clear steps for your exact model.";
+"Onboarding.Slider.FrozenFault.SubTitle.Highlight" = "what the engine was doing the second it failed";
 
 // MARK: UnlimitedPlan
 "UnlimitedPlan.Title" = "Special offer";

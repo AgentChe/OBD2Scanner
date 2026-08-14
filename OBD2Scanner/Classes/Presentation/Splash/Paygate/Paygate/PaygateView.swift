@@ -12,6 +12,8 @@ final class PaygateView: GradientView {
     lazy var titleLabel = makeTitleLabel()
     lazy var headerView = makeHeaderView()
     lazy var subTitleLabel = makeSubTitleLabel()
+    lazy var scrollView = makeScrollView()
+    lazy var contentView = makeContentView()
     lazy var diagnosticsCell = makeDiagnosticsCell()
     lazy var freezeFrameCell = makeCell(item: .freezeFrame)
     lazy var hudCell = makeCell(item: .hud)
@@ -92,72 +94,88 @@ private extension PaygateView {
         ])
         
         NSLayoutConstraint.activate([
-            diagnosticsCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            diagnosticsCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            diagnosticsCell.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 40.scale),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 40.scale),
+            scrollView.bottomAnchor.constraint(equalTo: buyButton.topAnchor, constant: -25.scale)
+        ])
+
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            diagnosticsCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            diagnosticsCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
+            diagnosticsCell.topAnchor.constraint(equalTo: contentView.topAnchor),
             diagnosticsCell.heightAnchor.constraint(equalToConstant: 88.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
-            freezeFrameCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            freezeFrameCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            freezeFrameCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            freezeFrameCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             freezeFrameCell.topAnchor.constraint(equalTo: diagnosticsCell.bottomAnchor, constant: 8.scale),
             freezeFrameCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
-            hudCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            hudCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            hudCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            hudCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             hudCell.topAnchor.constraint(equalTo: freezeFrameCell.bottomAnchor, constant: 8.scale),
             hudCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
-            recallHistoryCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            recallHistoryCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            recallHistoryCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            recallHistoryCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             recallHistoryCell.topAnchor.constraint(equalTo: hudCell.bottomAnchor, constant: 8.scale),
             recallHistoryCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
-            unlimitedGarageCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            unlimitedGarageCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            unlimitedGarageCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            unlimitedGarageCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             unlimitedGarageCell.topAnchor.constraint(equalTo: recallHistoryCell.bottomAnchor, constant: 8.scale),
             unlimitedGarageCell.heightAnchor.constraint(equalToConstant: 48.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             lifetimeButton.widthAnchor.constraint(equalToConstant: 186.scale),
             lifetimeButton.heightAnchor.constraint(equalToConstant: 185.scale),
             lifetimeButton.topAnchor.constraint(equalTo: unlimitedGarageCell.bottomAnchor, constant: 20.scale),
-            lifetimeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale)
+            lifetimeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
+            lifetimeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        
+
         NSLayoutConstraint.activate([
             subscriptionButton.widthAnchor.constraint(equalToConstant: 186.scale),
             subscriptionButton.heightAnchor.constraint(equalToConstant: 185.scale),
             subscriptionButton.topAnchor.constraint(equalTo: unlimitedGarageCell.bottomAnchor, constant: 20.scale),
-            subscriptionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale)
+            subscriptionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             buyButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             buyButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            buyButton.topAnchor.constraint(equalTo: lifetimeButton.bottomAnchor, constant: 25.scale),
+            buyButton.bottomAnchor.constraint(equalTo: cancelAnytimeLabel.topAnchor, constant: -16.scale),
             buyButton.heightAnchor.constraint(equalToConstant: 52.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             cancelAnytimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             cancelAnytimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            cancelAnytimeLabel.topAnchor.constraint(equalTo: buyButton.bottomAnchor, constant: 16.scale)
+            cancelAnytimeLabel.bottomAnchor.constraint(equalTo: separator.topAnchor, constant: -22.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             separator.heightAnchor.constraint(equalToConstant: 1.scale),
-            separator.topAnchor.constraint(equalTo: cancelAnytimeLabel.bottomAnchor, constant: 22.scale)
+            separator.bottomAnchor.constraint(equalTo: actionsView.topAnchor, constant: -22.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -213,31 +231,49 @@ private extension PaygateView {
         return view
     }
     
+    func makeScrollView() -> UIScrollView {
+        let view = UIScrollView()
+        view.showsHorizontalScrollIndicator = false
+        view.contentInsetAdjustmentBehavior = .never
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+
+    func makeContentView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+
     func makeDiagnosticsCell() -> PaygateCellWithTitles {
         let view = PaygateCellWithTitles()
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        contentView.addSubview(view)
         return view
     }
-    
+
     func makeCell(item: PaygateCellItemView.Item) -> PaygateCell {
         let view = PaygateCell(item: item)
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        contentView.addSubview(view)
         return view
     }
-    
+
     func makeLifetimeButton() -> PaygateLifetimeButton {
         let view = PaygateLifetimeButton()
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        contentView.addSubview(view)
         return view
     }
-    
+
     func makeSubscriptionButton() -> PaygateSubscriptionButton {
         let view = PaygateSubscriptionButton()
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        contentView.addSubview(view)
         return view
     }
     

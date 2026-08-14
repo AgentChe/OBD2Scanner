@@ -11,6 +11,7 @@ final class PaygateActionsView: UIView {
     lazy var termsOfUseButton = makeActionButton(text: "Paygate.TermsOfUse".localized)
     lazy var privacyPolicyButton = makeActionButton(text: "Paygate.PrivacyPolicy".localized)
     lazy var restoreButton = makeActionButton(text: "Paygate.RestorePurchases".localized)
+    lazy var stackView = makeStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,34 +36,46 @@ private extension PaygateActionsView {
 private extension PaygateActionsView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            termsOfUseButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 51.scale),
-            termsOfUseButton.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            privacyPolicyButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 167.scale),
-            privacyPolicyButton.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            restoreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 267.scale),
-            restoreButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension PaygateActionsView {
+    func makeStackView() -> UIStackView {
+        let view = UIStackView(arrangedSubviews: [
+            termsOfUseButton,
+            privacyPolicyButton,
+            restoreButton
+        ])
+        view.axis = .horizontal
+        view.distribution = .fillProportionally
+        view.alignment = .center
+        view.spacing = 8.scale
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+
     func makeActionButton(text: String) -> TapAreaButton {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.4))
             .font(Fonts.Inter.medium(size: 12.scale))
-        
+            .textAlignment(.center)
+            .lineBreakMode(.byTruncatingTail)
+
         let view = TapAreaButton()
+        view.dx = -4.scale
         view.backgroundColor = UIColor.clear
         view.setAttributedTitle(text.attributed(with: attrs), for: .normal)
+        view.titleLabel?.adjustsFontSizeToFitWidth = true
+        view.titleLabel?.minimumScaleFactor = 0.7
+        view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
         return view
     }
 }

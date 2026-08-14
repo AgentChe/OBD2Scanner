@@ -27,14 +27,17 @@ final class PaygateLifetimeButton: PaygateProductButton {
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.semiBold(size: 22.scale))
         .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
     private lazy var periodAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.medium(size: 12.scale))
         .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
     private lazy var discountAttrs = TextAttributes()
         .textColor(Appearance.color_121721)
         .font(Fonts.Inter.bold(size: 14.scale))
         .textAlignment(.center)
+        .lineBreakMode(.byTruncatingTail)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,13 +82,19 @@ private extension PaygateLifetimeButton {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.scale),
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 34.scale)
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([
+            oncePriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
+            oncePriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.scale),
+            oncePriceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.scale)
+        ])
+
+        NSLayoutConstraint.activate([
             periodPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
             periodPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.scale),
-            periodPriceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.scale)
+            periodPriceLabel.topAnchor.constraint(equalTo: oncePriceLabel.bottomAnchor, constant: 12.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -96,6 +105,7 @@ private extension PaygateLifetimeButton {
         
         NSLayoutConstraint.activate([
             discountView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
+            discountView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -12.scale),
             discountView.topAnchor.constraint(equalTo: inTermsLabel.bottomAnchor, constant: 9.scale)
         ])
         
@@ -104,12 +114,6 @@ private extension PaygateLifetimeButton {
             discountLabel.trailingAnchor.constraint(equalTo: discountView.trailingAnchor, constant: -6.scale),
             discountLabel.topAnchor.constraint(equalTo: discountView.topAnchor, constant: 4.scale),
             discountLabel.bottomAnchor.constraint(equalTo: discountView.bottomAnchor, constant: -4.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            oncePriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
-            oncePriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.scale),
-            oncePriceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.scale)
         ])
     }
 }
@@ -121,29 +125,40 @@ private extension PaygateLifetimeButton {
             .textColor(Appearance.color_FFFFFF)
             .font(Fonts.Inter.bold(size: 20.scale))
             .textAlignment(.left)
-        
+            .lineBreakMode(.byTruncatingTail)
+
         let view = UILabel()
         view.attributedText = "Paygate.Lifetime.Title".localized.attributed(with: attrs)
+        view.numberOfLines = 1
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
     }
-    
+
     func makeInTermsLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
             .font(Fonts.Inter.medium(size: 12.scale))
             .textAlignment(.left)
-        
+            .lineBreakMode(.byTruncatingTail)
+
         let view = UILabel()
         view.attributedText = "Paygate.Lifetime.InTerms".localized.attributed(with: attrs)
+        view.numberOfLines = 1
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
     }
-    
+
     func makeLabel() -> UILabel {
         let view = UILabel()
+        view.numberOfLines = 1
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
@@ -161,6 +176,10 @@ private extension PaygateLifetimeButton {
     
     func makeDiscountLabel() -> UILabel {
         let view = UILabel()
+        view.numberOfLines = 1
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.7
+        view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         view.translatesAutoresizingMaskIntoConstraints = false
         discountView.addSubview(view)
         return view

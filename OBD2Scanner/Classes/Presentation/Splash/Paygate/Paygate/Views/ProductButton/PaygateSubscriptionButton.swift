@@ -17,22 +17,25 @@ final class PaygateSubscriptionButton: PaygateProductButton {
         let bottomInfo: String
     }
     
-    lazy var nameLabel = makeLabel()
-    lazy var priceLabel = makeLabel()
-    lazy var bottomInfoLabel = makeLabel()
-    
+    lazy var nameLabel = makeSingleLineLabel()
+    lazy var priceLabel = makeSingleLineLabel()
+    lazy var bottomInfoLabel = makeBottomInfoLabel()
+
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.bold(size: 20.scale))
         .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
     private lazy var priceAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.semiBold(size: 22.scale))
         .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
     private lazy var periodAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.medium(size: 12.scale))
         .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
     private lazy var bottomInfoAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.medium(size: 12.scale))
@@ -92,8 +95,19 @@ private extension PaygateSubscriptionButton {
 
 // MARK: Lazy initialization
 private extension PaygateSubscriptionButton {
-    func makeLabel() -> UILabel {
+    func makeSingleLineLabel() -> UILabel {
         let view = UILabel()
+        view.numberOfLines = 1
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        return view
+    }
+
+    func makeBottomInfoLabel() -> UILabel {
+        let view = UILabel()
+        view.numberOfLines = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

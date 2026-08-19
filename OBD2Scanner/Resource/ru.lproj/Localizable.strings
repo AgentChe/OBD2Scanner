@@ -60,8 +60,8 @@
 "Paygate.Lifetime.InTerms" = "В пересчёте на  1  год";
 "Paygate.Lifetime.Discount" = "СКИДКА %i%%";
 "Paygate.Lifetime.Once" = "разово";
-"Paygate.Subscription.Name1" = "3 дня бесплатно";
-"Paygate.Subscription.Name2" = "Быстрый старт";
+"Paygate.Subscription.Name" = "Ежемесячно";
+"Paygate.Subscription.Trial" = "Первые 3 дня бесплатно";
 "Paygate.Subscription.Bottom1" = "После 3 дней пробного периода";
 "Paygate.Subscription.Bottom2" = "Пробный период закончился";
 "Paygate.Subscription.Period" = "месяц";

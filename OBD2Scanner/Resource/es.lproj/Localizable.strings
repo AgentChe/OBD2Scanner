@@ -60,8 +60,8 @@
 "Paygate.Lifetime.InTerms" = "El equivalente a  1  año";
 "Paygate.Lifetime.Discount" = "AHORRA %i%%";
 "Paygate.Lifetime.Once" = "pago único";
-"Paygate.Subscription.Name1" = "3 días gratis";
-"Paygate.Subscription.Name2" = "Inicio rápido";
+"Paygate.Subscription.Name" = "Mensual";
+"Paygate.Subscription.Trial" = "Primeros 3 días gratis";
 "Paygate.Subscription.Bottom1" = "Tras 3 días de prueba";
 "Paygate.Subscription.Bottom2" = "La prueba ha terminado";
 "Paygate.Subscription.Period" = "mes";

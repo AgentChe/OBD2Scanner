@@ -12,18 +12,33 @@ final class PaygateSubscriptionButton: PaygateProductButton {
     struct Product: PaygateProductButton.Product {
         let iapProduct: IAPProduct
         let name: String
+        let trial: String?
         let price: String
         let period: String
         let bottomInfo: String
     }
-    
+
+    override var marked: Bool {
+        didSet {
+            updateTrial()
+        }
+    }
+
     lazy var nameLabel = makeSingleLineLabel()
+    lazy var trialLabel = makeSingleLineLabel()
     lazy var priceLabel = makeSingleLineLabel()
     lazy var bottomInfoLabel = makeBottomInfoLabel()
+
+    private lazy var priceTopToTrial = priceLabel.topAnchor.constraint(equalTo: trialLabel.bottomAnchor, constant: 4.scale)
+    private lazy var priceTopToName = priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4.scale)
 
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.bold(size: 20.scale))
+        .textAlignment(.left)
+        .lineBreakMode(.byTruncatingTail)
+    private lazy var trialAttrs = TextAttributes()
+        .font(Fonts.Inter.semiBold(size: 14.scale))
         .textAlignment(.left)
         .lineBreakMode(.byTruncatingTail)
     private lazy var priceAttrs = TextAttributes()
@@ -67,6 +82,27 @@ extension PaygateSubscriptionButton {
             return result
         }()
         priceLabel.attributedText = price
+
+        updateTrial()
+    }
+}
+
+// MARK: Private
+private extension PaygateSubscriptionButton {
+    func updateTrial() {
+        let trial = (product as? Product)?.trial
+
+        trialLabel.isHidden = trial == nil
+        priceTopToTrial.isActive = trial != nil
+        priceTopToName.isActive = trial == nil
+
+        guard let trial else {
+            trialLabel.attributedText = nil
+            return
+        }
+
+        let attrs = trialAttrs.textColor(marked ? Appearance.color_FFFFFF : Appearance.color_28D799)
+        trialLabel.attributedText = trial.attributed(with: attrs)
     }
 }
 
@@ -78,13 +114,18 @@ private extension PaygateSubscriptionButton {
             nameLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale),
             nameLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 24.scale)
         ])
-        
+
+        NSLayoutConstraint.activate([
+            trialLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.scale),
+            trialLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale),
+            trialLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4.scale)
+        ])
+
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.scale),
-            priceLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale),
-            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4.scale)
+            priceLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             bottomInfoLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.scale),
             bottomInfoLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.scale),
@@ -126,7 +167,8 @@ extension PaygateSubscriptionButton.Product {
         
         return PaygateSubscriptionButton.Product(
             iapProduct: subscriptionIAPProduct,
-            name: withTrial ? "Paygate.Subscription.Name1".localized : "Paygate.Subscription.Name2".localized,
+            name: "Paygate.Subscription.Name".localized,
+            trial: withTrial ? "Paygate.Subscription.Trial".localized : nil,
             price: price,
             period: "Paygate.Subscription.Period".localized,
             bottomInfo: withTrial ? "Paygate.Subscription.Bottom1".localized : "Paygate.Subscription.Bottom2".localized

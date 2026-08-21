@@ -64,6 +64,8 @@ private extension RecallHistoryViewModel {
 
         return Driver
             .combineLatest(makeRecallHistory(), markedIds) { list, markedIds -> [RecallHistoryTableElement] in
+                guard let list else { return [] }
+                
                 let recalls = list.items.map { recall -> RecallHistory in
                     guard markedIds.contains(recall.id) else { return recall }
 
@@ -96,7 +98,7 @@ private extension RecallHistoryViewModel {
             }
     }
 
-    func makeRecallHistory() -> Driver<RecallHistoryList> {
+    func makeRecallHistory() -> Driver<RecallHistoryList?> {
         func source() -> Single<RecallHistoryList?> {
             vehicleManager
                 .obtainRecallHistory(vehicleId: vehicle.id)
@@ -113,7 +115,6 @@ private extension RecallHistoryViewModel {
             )
             .trackActivity(activityIndicator)
             .asDriver(onErrorDriveWith: .empty())
-            .compactMap { $0 }
     }
 
     func makeAction(didSelectRecall: Signal<RecallHistory>) -> Driver<Action> {

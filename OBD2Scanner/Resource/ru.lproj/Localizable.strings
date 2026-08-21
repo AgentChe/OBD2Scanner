@@ -178,6 +178,8 @@
 "RecallHistory.VIN" = "VIN: %@";
 "RecallHistory.ID" = "№%@";
 "RecallHistory.LastChecked" = "Проверено: %@";
+"RecallHistory.Empty.Title" = "ОТКРЫТЫХ ОТЗЫВОВ НЕТ";
+"RecallHistory.Empty.SubTitle" = "Производитель ничего не объявлял для вашего автомобиля.";
 "RecallHistory.Section.Open" = "Открытые отзывы";
 "RecallHistory.Section.Completed" = "Выполненные отзывы";
 "RecallHistory.Status.Open" = "Открыт";

@@ -178,6 +178,8 @@
 "RecallHistory.VIN" = "VIN : %@";
 "RecallHistory.ID" = "n° %@";
 "RecallHistory.LastChecked" = "Dernière vérification : %@";
+"RecallHistory.Empty.Title" = "AUCUN RAPPEL EN COURS";
+"RecallHistory.Empty.SubTitle" = "Le constructeur n’a rien annoncé pour votre véhicule.";
 "RecallHistory.Section.Open" = "Rappels ouverts";
 "RecallHistory.Section.Completed" = "Rappels traités";
 "RecallHistory.Status.Open" = "Ouvert";

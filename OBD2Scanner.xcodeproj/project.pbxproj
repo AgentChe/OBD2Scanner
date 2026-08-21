@@ -47,6 +47,7 @@
 		9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
+		A6F4537F2EE2BA0872A87FE1 /* RecallHistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */; };
 		AC10C0DE0000000000000021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC10C0DE0000000000000020 /* InfoPlist.strings */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
 		B3CA05024843B78E24CB2BC2 /* RecallDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DBF182B77BA4349174F31 /* RecallDetailsViewModel.swift */; };
@@ -380,6 +381,7 @@
 		8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8ECA93F529B9078CBBA1327E /* OBDProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDProfile.swift; sourceTree = "<group>"; };
 		90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.debug.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.debug.xcconfig"; sourceTree = "<group>"; };
+		93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallHistoryEmptyView.swift; sourceTree = "<group>"; };
 		9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableView.swift; sourceTree = "<group>"; };
 		9D730A8E813A8F4713A8C599 /* RecallHistoryTableElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallHistoryTableElement.swift; sourceTree = "<group>"; };
 		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
@@ -1292,6 +1294,7 @@
 				F5AAF3E8E5A3618A20DA1EBD /* RecallAdvisoryView.swift */,
 				B52CAE7D82FEF78E3DAAC951 /* RecallStatusView.swift */,
 				35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */,
+				93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2741,6 +2744,7 @@
 				4B18538515E1561D9CA7BB67 /* RecallDetailsViewController.swift in Sources */,
 				2E5E1E6867C2D09F62F6D6F0 /* RecallHistoryTableElement.swift in Sources */,
 				4D024FD9FB386612FA4A27B3 /* RecallHistorySectionCell.swift in Sources */,
+				A6F4537F2EE2BA0872A87FE1 /* RecallHistoryEmptyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -178,6 +178,8 @@
 "RecallHistory.VIN" = "VIN: %@";
 "RecallHistory.ID" = "#%@";
 "RecallHistory.LastChecked" = "Last checked: %@";
+"RecallHistory.Empty.Title" = "NO OPEN RECALLS";
+"RecallHistory.Empty.SubTitle" = "The manufacturer hasn’t announced anything for your car.";
 "RecallHistory.Section.Open" = "Open recalls";
 "RecallHistory.Section.Completed" = "Completed recalls";
 "RecallHistory.Status.Open" = "Open";

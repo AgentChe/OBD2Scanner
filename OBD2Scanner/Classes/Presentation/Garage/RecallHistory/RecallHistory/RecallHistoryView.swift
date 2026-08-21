@@ -15,7 +15,11 @@ final class RecallHistoryView: UIView {
     lazy var vinLabel = makeVINLabel()
     lazy var arrowView = makeArrowView()
     lazy var tableView = makeTableView()
+    lazy var emptyView = makeEmptyView()
     lazy var preloader = makePreloader()
+
+    private var isEmpty = false
+    private var isActive = false
 
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
@@ -63,12 +67,16 @@ extension RecallHistoryView {
 
     func setup(elements: [RecallHistoryTableElement]) {
         tableView.setup(elements: elements)
+
+        isEmpty = elements.isEmpty
+
+        updateContent()
     }
 
     func setup(activity: Bool) {
-        activity ? preloader.startAnimating() : preloader.stopAnimating()
+        isActive = activity
 
-        tableView.isHidden = activity
+        updateContent()
     }
 }
 
@@ -76,6 +84,15 @@ extension RecallHistoryView {
 private extension RecallHistoryView {
     func initialize() {
         backgroundColor = Appearance.color_121721
+
+        updateContent()
+    }
+
+    func updateContent() {
+        isActive ? preloader.startAnimating() : preloader.stopAnimating()
+
+        tableView.isHidden = isActive || isEmpty
+        emptyView.isHidden = isActive || !isEmpty
     }
 }
 
@@ -120,6 +137,12 @@ private extension RecallHistoryView {
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.topAnchor.constraint(equalTo: vehicleView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -177,6 +200,13 @@ private extension RecallHistoryView {
 
     func makeTableView() -> RecallHistoryTableView {
         let view = RecallHistoryTableView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+
+    func makeEmptyView() -> RecallHistoryEmptyView {
+        let view = RecallHistoryEmptyView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

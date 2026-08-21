@@ -178,6 +178,8 @@
 "RecallHistory.VIN" = "FIN: %@";
 "RecallHistory.ID" = "Nr. %@";
 "RecallHistory.LastChecked" = "Zuletzt geprüft: %@";
+"RecallHistory.Empty.Title" = "KEINE OFFENEN RÜCKRUFE";
+"RecallHistory.Empty.SubTitle" = "Der Hersteller hat für Ihr Fahrzeug nichts bekannt gegeben.";
 "RecallHistory.Section.Open" = "Offene Rückrufe";
 "RecallHistory.Section.Completed" = "Erledigte Rückrufe";
 "RecallHistory.Status.Open" = "Offen";

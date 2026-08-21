@@ -178,6 +178,8 @@
 "RecallHistory.VIN" = "VIN: %@";
 "RecallHistory.ID" = "n.º %@";
 "RecallHistory.LastChecked" = "Última comprobación: %@";
+"RecallHistory.Empty.Title" = "NO HAY REVISIONES ABIERTAS";
+"RecallHistory.Empty.SubTitle" = "El fabricante no ha anunciado nada para su coche.";
 "RecallHistory.Section.Open" = "Revisiones abiertas";
 "RecallHistory.Section.Completed" = "Revisiones completadas";
 "RecallHistory.Status.Open" = "Abierta";

@@ -176,16 +176,15 @@
 // MARK: RecallHistory
 "RecallHistory.Title" = "Отзывные кампании";
 "RecallHistory.VIN" = "VIN: %@";
-"RecallHistory.RecallsCount" = "Найдено в базе: %i";
-"RecallHistory.ID" = "NHTSA №%@";
-"RecallHistory.Level.Critical" = "Критический";
-"RecallHistory.Level.Moderate" = "Средний";
-"RecallHistory.Level.Low" = "Низкий";
+"RecallHistory.ID" = "№%@";
+"RecallHistory.Status.Open" = "Открыт";
+"RecallHistory.Status.Completed" = "Выполнено";
+"RecallHistory.Advisory.DoNotDrive" = "Не эксплуатировать — риск аварии";
+"RecallHistory.Advisory.ParkOutside" = "Парковать на улице — риск возгорания";
 "RecallHistory.ViewOnNHTSA" = "Открыть на NHTSA";
 "RecallHistory.Remedy" = "УСТРАНЕНИЕ";
 "RecallHistory.Notes" = "ПРИМЕЧАНИЯ";
 "RecallHistory.MarkAsCompleted" = "Отметить выполненным";
-"RecallHistory.Completed" = "Выполнено";
 
 // MARK: Settings
 "Settings.Title" = "Настройки";

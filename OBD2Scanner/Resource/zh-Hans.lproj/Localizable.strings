@@ -176,16 +176,15 @@
 // MARK: RecallHistory
 "RecallHistory.Title" = "召回记录";
 "RecallHistory.VIN" = "VIN：%@";
-"RecallHistory.RecallsCount" = "数据库中找到：%i";
-"RecallHistory.ID" = "NHTSA 编号 %@";
-"RecallHistory.Level.Critical" = "严重";
-"RecallHistory.Level.Moderate" = "中等";
-"RecallHistory.Level.Low" = "较低";
+"RecallHistory.ID" = "编号 %@";
+"RecallHistory.Status.Open" = "未处理";
+"RecallHistory.Status.Completed" = "已完成";
+"RecallHistory.Advisory.DoNotDrive" = "请勿驾驶 — 存在事故风险";
+"RecallHistory.Advisory.ParkOutside" = "请在室外停放 — 存在起火风险";
 "RecallHistory.ViewOnNHTSA" = "在 NHTSA 上查看";
 "RecallHistory.Remedy" = "解决方案";
 "RecallHistory.Notes" = "备注";
 "RecallHistory.MarkAsCompleted" = "标记为已完成";
-"RecallHistory.Completed" = "已完成";
 
 // MARK: Settings
 "Settings.Title" = "设置";

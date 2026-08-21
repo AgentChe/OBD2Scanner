@@ -11,16 +11,23 @@ struct RecallHistory {
     enum Level: String {
         case critical, moderate, low
     }
-    
+
+    enum Advisory: String {
+        case doNotDrive = "do_not_drive"
+        case parkOutside = "park_outside"
+    }
+
     let id: String
-    let marked: Bool
+    var marked: Bool
     let level: Level
-    let link: URL
+    let advisory: Advisory?
+    let date: Date?
+    let link: URL?
     let notes: String?
     let reason: String?
     let reasonContent: String?
     let remedy: String?
-    
+
     init?(json: [String: Any]) {
         guard
             let id = json["recall_id"] as? String,
@@ -28,17 +35,21 @@ struct RecallHistory {
             let level: Level = {
                 guard let rawValue = json["level"] as? String else { return nil }
                 return Level(rawValue: rawValue)
-            }(),
-            let link: URL = {
-                guard let string = json["link"] as? String else { return nil }
-                return URL(string: string)
             }()
         else { return nil }
-        
+
         self.id = id
         self.marked = marked
         self.level = level
-        self.link = link
+        self.advisory = .doNotDrive // TODO: убрать заглушку и получать из json
+        self.date = {
+            guard let timestamp = json["date"] as? TimeInterval, timestamp > 0 else { return nil }
+            return Date(timeIntervalSince1970: timestamp)
+        }()
+        self.link = {
+            guard let string = json["link"] as? String else { return nil }
+            return URL(string: string)
+        }()
         self.notes = json["notes"] as? String
         self.reason = json["reason"] as? String
         self.reasonContent = json["reason_content"] as? String
@@ -56,9 +67,9 @@ extension RecallHistory {
             let pageInfoJSON = body["pagination"] as? [String: Any],
             let pageInfo = PageInfo(json: pageInfoJSON)
         else { return nil }
-        
+
         let recallHistory = items.compactMap { RecallHistory(json: $0) }
-        
+
         return Page(info: pageInfo, elements: recallHistory)
     }
 }

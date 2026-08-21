@@ -38,7 +38,7 @@ final class RecallHistoryViewController: UIViewController {
         }
 
         let output = viewModel.configure(input: RecallHistoryViewModel.Input(
-            didTapLink: mainView.tableView.didTapLink,
+            didSelectRecall: mainView.tableView.didSelectRecall,
             didScrollToBottom: mainView.tableView.didScrollToBottom
         ))
 
@@ -87,8 +87,9 @@ extension RecallHistoryViewController {
 private extension RecallHistoryViewController {
     func action(_ action: RecallHistoryViewModel.Action) {
         switch action {
-        case .openLink(let url):
-            UIApplication.shared.open(url)
+        case .openDetails(let recall, let vehicle):
+            let vc = RecallDetailsViewController.make(recall: recall, vehicle: vehicle)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

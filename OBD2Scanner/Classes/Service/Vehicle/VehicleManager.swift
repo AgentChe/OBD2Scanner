@@ -28,7 +28,8 @@ protocol VehicleManagerProtocol {
     func obtainCurrentVehicleID() -> Single<String?>
     func setupCurrent(vehicleID: String) -> Single<Void>
     func obtainRecallHistory(vehicleId: String, page: Int) -> Single<Page<[RecallHistory]>?>
-    
+    func mark(recallId: String, vehicleId: String) -> Single<RequestResult>
+
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog>
     func remove(dtcLogId: String) -> Single<String>
     func obtainDTCLogs() -> Single<[DTCLog]>
@@ -201,10 +202,28 @@ extension VehicleManager: VehicleManagerProtocol {
             vehicleId: vehicleId,
             page: page
         )
-        
+
         return restAPITransport
             .callServerApi(requestBody: requestBody)
             .map { RecallHistory.make(response: $0) }
+    }
+
+    func mark(recallId: String, vehicleId: String) -> Single<RequestResult> {
+        let requestBody = MarkRecallRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            vehicleId: vehicleId,
+            recallId: recallId
+        )
+
+        return restAPITransport
+            .callServerApi(requestBody: requestBody)
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                if result.success {
+                    VehicleMediator.shared.mark(recallId: recallId)
+                }
+            })
     }
 
     func addDTCLog(vehicleId: String, codes: [DiagnosticTroubleCode]) -> Single<DTCLog> {

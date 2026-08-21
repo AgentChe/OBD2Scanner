@@ -14,7 +14,6 @@ final class RecallHistoryView: UIView {
     lazy var nameLabel = makeNameLabel()
     lazy var vinLabel = makeVINLabel()
     lazy var arrowView = makeArrowView()
-    lazy var countLabel = makeCountLabel()
     lazy var tableView = makeTableView()
     lazy var centerPreloader = makePreloader(style: .large)
     lazy var bottomPreloader = makePreloader(style: .medium)
@@ -25,10 +24,6 @@ final class RecallHistoryView: UIView {
         .textAlignment(.left)
     private lazy var vinAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
-        .font(Fonts.NotoSans.regular(size: 13.scale))
-        .textAlignment(.left)
-    private lazy var countAttrs = TextAttributes()
-        .textColor(Appearance.color_526387)
         .font(Fonts.NotoSans.regular(size: 13.scale))
         .textAlignment(.left)
 
@@ -68,16 +63,12 @@ extension RecallHistoryView {
     }
 
     func setup(recalls: [RecallHistory]) {
-        let count = String(format: "RecallHistory.RecallsCount".localized, recalls.count)
-        countLabel.attributedText = count.attributed(with: countAttrs)
-
         tableView.setup(elements: recalls)
     }
 
     func setup(firstPageActivity: Bool) {
         firstPageActivity ? centerPreloader.startAnimating() : centerPreloader.stopAnimating()
 
-        countLabel.isHidden = firstPageActivity
         tableView.isHidden = firstPageActivity
     }
 
@@ -85,7 +76,7 @@ extension RecallHistoryView {
         paginationActivity ? bottomPreloader.startAnimating() : bottomPreloader.stopAnimating()
 
         tableView.contentInset = UIEdgeInsets(
-            t: 8.scale,
+            t: 10.scale,
             b: paginationActivity ? 56.scale : 16.scale
         )
     }
@@ -135,15 +126,9 @@ private extension RecallHistoryView {
         ])
 
         NSLayoutConstraint.activate([
-            countLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            countLabel.topAnchor.constraint(equalTo: vehicleView.bottomAnchor, constant: 16.scale)
-        ])
-
-        NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 4.scale),
+            tableView.topAnchor.constraint(equalTo: vehicleView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
 
@@ -202,13 +187,6 @@ private extension RecallHistoryView {
         view.transform = CGAffineTransform(rotationAngle: .pi / 2)
         view.translatesAutoresizingMaskIntoConstraints = false
         vehicleView.addSubview(view)
-        return view
-    }
-
-    func makeCountLabel() -> UILabel {
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
         return view
     }
 

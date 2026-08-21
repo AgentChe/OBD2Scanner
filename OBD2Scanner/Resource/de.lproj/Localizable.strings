@@ -176,16 +176,15 @@
 // MARK: RecallHistory
 "RecallHistory.Title" = "Rückrufhistorie";
 "RecallHistory.VIN" = "FIN: %@";
-"RecallHistory.RecallsCount" = "In der Datenbank gefunden: %i";
-"RecallHistory.ID" = "NHTSA-Nr. %@";
-"RecallHistory.Level.Critical" = "Kritisch";
-"RecallHistory.Level.Moderate" = "Mittel";
-"RecallHistory.Level.Low" = "Gering";
+"RecallHistory.ID" = "Nr. %@";
+"RecallHistory.Status.Open" = "Offen";
+"RecallHistory.Status.Completed" = "Erledigt";
+"RecallHistory.Advisory.DoNotDrive" = "Nicht fahren — Unfallgefahr";
+"RecallHistory.Advisory.ParkOutside" = "Im Freien parken — Brandgefahr";
 "RecallHistory.ViewOnNHTSA" = "Bei NHTSA ansehen";
 "RecallHistory.Remedy" = "BEHEBUNG";
 "RecallHistory.Notes" = "HINWEISE";
 "RecallHistory.MarkAsCompleted" = "Als erledigt markieren";
-"RecallHistory.Completed" = "Erledigt";
 
 // MARK: Settings
 "Settings.Title" = "Einstellungen";

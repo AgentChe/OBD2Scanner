@@ -16,6 +16,8 @@ final class VehicleMediator {
     private lazy var didRemoveVehicleTrigger = PublishRelay<String>()
     private lazy var didChangeCurrentVehicleIDTrigger = PublishRelay<String>()
     
+    private lazy var didMarkRecallTrigger = PublishRelay<String>()
+
     private lazy var didAddDTCLogTrigger = PublishRelay<DTCLog>()
     private lazy var didRemoveDTCLogTrigger = PublishRelay<String>()
     
@@ -40,6 +42,10 @@ extension VehicleMediator {
         didChangeCurrentVehicleIDTrigger.accept(vehicleID)
     }
     
+    func mark(recallId: String) {
+        didMarkRecallTrigger.accept(recallId)
+    }
+
     func add(dtcLog: DTCLog) {
         didAddDTCLogTrigger.accept(dtcLog)
     }
@@ -64,6 +70,10 @@ extension VehicleMediator {
         didChangeCurrentVehicleIDTrigger.asSignal()
     }
     
+    var didMarkRecall: Signal<String> {
+        didMarkRecallTrigger.asSignal()
+    }
+
     var didAddDTCLog: Signal<DTCLog> {
         didAddDTCLogTrigger.asSignal()
     }

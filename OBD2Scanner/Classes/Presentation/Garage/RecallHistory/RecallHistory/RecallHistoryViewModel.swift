@@ -10,7 +10,7 @@ import RxCocoa
 
 final class RecallHistoryViewModel {
     enum Action {
-        case openLink(URL)
+        case openDetails(RecallHistory, Vehicle)
     }
 
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -18,7 +18,7 @@ final class RecallHistoryViewModel {
     private lazy var vehicleManager = VehicleManager()
 
     private lazy var observableRetrySingle = ObservableRetrySingle()
-    
+
     private lazy var firstPageActivity = RxActivityIndicator()
     private lazy var paginationActivity = RxActivityIndicator()
 
@@ -32,7 +32,7 @@ final class RecallHistoryViewModel {
 // MARK: Public
 extension RecallHistoryViewModel {
     struct Input {
-        let didTapLink: Signal<URL>
+        let didSelectRecall: Signal<RecallHistory>
         let didScrollToBottom: Signal<Void>
     }
 
@@ -46,13 +46,13 @@ extension RecallHistoryViewModel {
 
     func configure(input: Input) -> Output {
         let fetchPageRecalls = makePageRecalls(didScrollToBottom: input.didScrollToBottom)
-        
+
         return Output(
             vehicle: .just(vehicle),
             recalls: makeRecalls(fetchPageRecalls: fetchPageRecalls),
             firstPageActivity: firstPageActivity.asDriver(),
             paginationActivity: paginationActivity.asDriver(),
-            action: makeAction(didTapLink: input.didTapLink)
+            action: makeAction(didSelectRecall: input.didSelectRecall)
         )
     }
 }
@@ -60,15 +60,34 @@ extension RecallHistoryViewModel {
 // MARK: Private
 private extension RecallHistoryViewModel {
     func makeRecalls(fetchPageRecalls: Driver<Page<[RecallHistory]>>) -> Driver<[RecallHistory]> {
-        fetchPageRecalls
+        let allRecalls = fetchPageRecalls
             .scan([]) { allRecalls, page -> [RecallHistory] in
                 allRecalls + page.elements
             }
+
+        let markedIds = VehicleMediator.shared
+            .didMarkRecall
+            .asDriver(onErrorDriveWith: .never())
+            .scan(Set<String>()) { markedIds, recallId -> Set<String> in
+                markedIds.union([recallId])
+            }
+            .startWith([])
+
+        return Driver
+            .combineLatest(allRecalls, markedIds) { allRecalls, markedIds -> [RecallHistory] in
+                allRecalls.map { recall -> RecallHistory in
+                    guard markedIds.contains(recall.id) else { return recall }
+
+                    var marked = recall
+                    marked.marked = true
+                    return marked
+                }
+            }
     }
-    
+
     func makePageRecalls(didScrollToBottom: Signal<Void>) -> Driver<Page<[RecallHistory]>> {
         var lastPageInfo: PageInfo?
-        
+
         func fetch(page: Int) -> Driver<Page<[RecallHistory]>> {
             func source() -> Single<Page<[RecallHistory]>?> {
                 vehicleManager
@@ -91,9 +110,9 @@ private extension RecallHistoryViewModel {
                     lastPageInfo = page.info
                 })
         }
-        
+
         let firstPage = fetch(page: 1)
-        
+
         let downloadedPage = firstPage
             .flatMapLatest { firstPage -> Driver<Page<[RecallHistory]>> in
                 didScrollToBottom
@@ -112,9 +131,9 @@ private extension RecallHistoryViewModel {
         return downloadedPage
     }
 
-    func makeAction(didTapLink: Signal<URL>) -> Driver<Action> {
-        didTapLink
-            .map { Action.openLink($0) }
+    func makeAction(didSelectRecall: Signal<RecallHistory>) -> Driver<Action> {
+        didSelectRecall
+            .map { [vehicle] recall in Action.openDetails(recall, vehicle) }
             .asDriver(onErrorDriveWith: .never())
     }
 }

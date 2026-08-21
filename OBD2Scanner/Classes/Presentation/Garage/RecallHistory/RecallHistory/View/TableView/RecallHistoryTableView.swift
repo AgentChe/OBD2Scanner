@@ -12,7 +12,7 @@ import RxCocoa
 final class RecallHistoryTableView: UITableView {
     private lazy var elements = [RecallHistory]()
 
-    private lazy var didTapLinkTrigger = PublishRelay<URL>()
+    private lazy var didSelectRecallTrigger = PublishRelay<RecallHistory>()
     private lazy var didScrollToBottomTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
@@ -34,10 +34,10 @@ extension RecallHistoryTableView {
         reloadData()
     }
 
-    var didTapLink: Signal<URL> {
-        didTapLinkTrigger.asSignal()
+    var didSelectRecall: Signal<RecallHistory> {
+        didSelectRecallTrigger.asSignal()
     }
-    
+
     var didScrollToBottom: Signal<Void> {
         didScrollToBottomTrigger.asSignal()
     }
@@ -52,9 +52,6 @@ extension RecallHistoryTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: String(describing: RecallHistoryTableCell.self), for: indexPath) as! RecallHistoryTableCell
         cell.setup(element: elements[indexPath.row])
-        cell.didTapLink = { [weak self] url in
-            self?.didTapLinkTrigger.accept(url)
-        }
         return cell
     }
 }
@@ -64,10 +61,14 @@ extension RecallHistoryTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectRecallTrigger.accept(elements[indexPath.row])
+    }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard (elements.count - 1) == indexPath.row else { return }
-        
+
         didScrollToBottomTrigger.accept(Void())
     }
 }
@@ -84,8 +85,7 @@ private extension RecallHistoryTableView {
         separatorStyle = .none
         showsVerticalScrollIndicator = false
         rowHeight = UITableView.automaticDimension
-        estimatedRowHeight = 320.scale
-        contentInset = UIEdgeInsets(t: 8.scale, b: 16.scale)
-        setContentOffset(CGPoint(x: 0, y: -8.scale), animated: false)
+        estimatedRowHeight = 160.scale
+        contentInset = UIEdgeInsets(t: 10.scale, b: 16.scale)
     }
 }

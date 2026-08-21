@@ -177,6 +177,9 @@
 "RecallHistory.Title" = "Historique des rappels";
 "RecallHistory.VIN" = "VIN : %@";
 "RecallHistory.ID" = "n° %@";
+"RecallHistory.LastChecked" = "Dernière vérification : %@";
+"RecallHistory.Section.Open" = "Rappels ouverts";
+"RecallHistory.Section.Completed" = "Rappels traités";
 "RecallHistory.Status.Open" = "Ouvert";
 "RecallHistory.Status.Completed" = "Traité";
 "RecallHistory.Advisory.DoNotDrive" = "Ne pas conduire — risque d'accident";

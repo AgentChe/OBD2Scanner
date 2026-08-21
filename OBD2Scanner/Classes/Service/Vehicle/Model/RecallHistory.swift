@@ -7,20 +7,35 @@
 
 import Foundation
 
+struct RecallHistoryList {
+    let items: [RecallHistory]
+    let lastChecked: Date?
+    
+    init?(response: Any) {
+        guard
+            let json = response as? [String: Any],
+            let body = json["body"] as? [String: Any],
+            let items = body["items"] as? [[String: Any]]
+        else { return nil }
+
+        let lastChecked: Date? = {
+            guard let timestamp = body["last_checked_at"] as? TimeInterval, timestamp > 0 else { return nil }
+            return Date(timeIntervalSince1970: timestamp)
+        }()
+        
+        self.items = items.compactMap { RecallHistory(json: $0) }
+        self.lastChecked = lastChecked
+    }
+}
+
 struct RecallHistory {
     enum Level: String {
         case critical, moderate, low
     }
 
-    enum Advisory: String {
-        case doNotDrive = "do_not_drive"
-        case parkOutside = "park_outside"
-    }
-
     let id: String
     var marked: Bool
     let level: Level
-    let advisory: Advisory?
     let date: Date?
     let link: URL?
     let notes: String?
@@ -41,7 +56,6 @@ struct RecallHistory {
         self.id = id
         self.marked = marked
         self.level = level
-        self.advisory = .doNotDrive // TODO: убрать заглушку и получать из json
         self.date = {
             guard let timestamp = json["date"] as? TimeInterval, timestamp > 0 else { return nil }
             return Date(timeIntervalSince1970: timestamp)
@@ -54,22 +68,5 @@ struct RecallHistory {
         self.reason = json["reason"] as? String
         self.reasonContent = json["reason_content"] as? String
         self.remedy = json["remedy"] as? String
-    }
-}
-
-// MARK: Public
-extension RecallHistory {
-    static func make(response: Any) -> Page<[RecallHistory]>? {
-        guard
-            let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any],
-            let items = body["items"] as? [[String: Any]],
-            let pageInfoJSON = body["pagination"] as? [String: Any],
-            let pageInfo = PageInfo(json: pageInfoJSON)
-        else { return nil }
-
-        let recallHistory = items.compactMap { RecallHistory(json: $0) }
-
-        return Page(info: pageInfo, elements: recallHistory)
     }
 }

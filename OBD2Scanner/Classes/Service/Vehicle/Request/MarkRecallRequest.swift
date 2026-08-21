@@ -13,7 +13,6 @@ struct MarkRecallRequest: APIRequestBody {
     let vehicleId: String
     let recallId: String
 
-    // TODO: подтвердить у бэка, что в пути recall_id, а в теле id автомобиля
     var url: String {
         GlobalDefinitions.domain + "/api/v1/vehicle/recall/\(recallId)/mark"
     }

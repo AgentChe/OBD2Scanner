@@ -177,6 +177,9 @@
 "RecallHistory.Title" = "召回记录";
 "RecallHistory.VIN" = "VIN：%@";
 "RecallHistory.ID" = "编号 %@";
+"RecallHistory.LastChecked" = "最后检查：%@";
+"RecallHistory.Section.Open" = "未处理召回";
+"RecallHistory.Section.Completed" = "已完成召回";
 "RecallHistory.Status.Open" = "未处理";
 "RecallHistory.Status.Completed" = "已完成";
 "RecallHistory.Advisory.DoNotDrive" = "请勿驾驶 — 存在事故风险";

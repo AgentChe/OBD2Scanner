@@ -177,6 +177,9 @@
 "RecallHistory.Title" = "Отзывные кампании";
 "RecallHistory.VIN" = "VIN: %@";
 "RecallHistory.ID" = "№%@";
+"RecallHistory.LastChecked" = "Проверено: %@";
+"RecallHistory.Section.Open" = "Открытые отзывы";
+"RecallHistory.Section.Completed" = "Выполненные отзывы";
 "RecallHistory.Status.Open" = "Открыт";
 "RecallHistory.Status.Completed" = "Выполнено";
 "RecallHistory.Advisory.DoNotDrive" = "Не эксплуатировать — риск аварии";

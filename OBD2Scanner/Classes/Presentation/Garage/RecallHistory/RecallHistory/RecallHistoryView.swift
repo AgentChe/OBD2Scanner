@@ -15,8 +15,7 @@ final class RecallHistoryView: UIView {
     lazy var vinLabel = makeVINLabel()
     lazy var arrowView = makeArrowView()
     lazy var tableView = makeTableView()
-    lazy var centerPreloader = makePreloader(style: .large)
-    lazy var bottomPreloader = makePreloader(style: .medium)
+    lazy var preloader = makePreloader()
 
     private lazy var nameAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
@@ -62,23 +61,14 @@ extension RecallHistoryView {
         vinLabel.attributedText = vin.attributed(with: vinAttrs)
     }
 
-    func setup(recalls: [RecallHistory]) {
-        tableView.setup(elements: recalls)
+    func setup(elements: [RecallHistoryTableElement]) {
+        tableView.setup(elements: elements)
     }
 
-    func setup(firstPageActivity: Bool) {
-        firstPageActivity ? centerPreloader.startAnimating() : centerPreloader.stopAnimating()
+    func setup(activity: Bool) {
+        activity ? preloader.startAnimating() : preloader.stopAnimating()
 
-        tableView.isHidden = firstPageActivity
-    }
-
-    func setup(paginationActivity: Bool) {
-        paginationActivity ? bottomPreloader.startAnimating() : bottomPreloader.stopAnimating()
-
-        tableView.contentInset = UIEdgeInsets(
-            t: 10.scale,
-            b: paginationActivity ? 56.scale : 16.scale
-        )
+        tableView.isHidden = activity
     }
 }
 
@@ -133,13 +123,8 @@ private extension RecallHistoryView {
         ])
 
         NSLayoutConstraint.activate([
-            centerPreloader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            centerPreloader.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            bottomPreloader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            bottomPreloader.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
+            preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
+            preloader.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
@@ -197,8 +182,8 @@ private extension RecallHistoryView {
         return view
     }
 
-    func makePreloader(style: UIActivityIndicatorView.Style) -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: style)
+    func makePreloader() -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView(style: .large)
         view.color = Appearance.color_28D799
         view.hidesWhenStopped = true
         view.translatesAutoresizingMaskIntoConstraints = false

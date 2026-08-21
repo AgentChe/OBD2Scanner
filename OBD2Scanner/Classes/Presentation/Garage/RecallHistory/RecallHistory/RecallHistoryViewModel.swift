@@ -19,8 +19,7 @@ final class RecallHistoryViewModel {
 
     private lazy var observableRetrySingle = ObservableRetrySingle()
 
-    private lazy var firstPageActivity = RxActivityIndicator()
-    private lazy var paginationActivity = RxActivityIndicator()
+    private lazy var activityIndicator = RxActivityIndicator()
 
     private let vehicle: Vehicle
 
@@ -33,25 +32,20 @@ final class RecallHistoryViewModel {
 extension RecallHistoryViewModel {
     struct Input {
         let didSelectRecall: Signal<RecallHistory>
-        let didScrollToBottom: Signal<Void>
     }
 
     struct Output {
         let vehicle: Driver<Vehicle>
-        let recalls: Driver<[RecallHistory]>
-        let firstPageActivity: Driver<Bool>
-        let paginationActivity: Driver<Bool>
+        let elements: Driver<[RecallHistoryTableElement]>
+        let activity: Driver<Bool>
         let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
-        let fetchPageRecalls = makePageRecalls(didScrollToBottom: input.didScrollToBottom)
-
-        return Output(
+        Output(
             vehicle: .just(vehicle),
-            recalls: makeRecalls(fetchPageRecalls: fetchPageRecalls),
-            firstPageActivity: firstPageActivity.asDriver(),
-            paginationActivity: paginationActivity.asDriver(),
+            elements: makeElements(),
+            activity: activityIndicator.asDriver(),
             action: makeAction(didSelectRecall: input.didSelectRecall)
         )
     }
@@ -59,12 +53,7 @@ extension RecallHistoryViewModel {
 
 // MARK: Private
 private extension RecallHistoryViewModel {
-    func makeRecalls(fetchPageRecalls: Driver<Page<[RecallHistory]>>) -> Driver<[RecallHistory]> {
-        let allRecalls = fetchPageRecalls
-            .scan([]) { allRecalls, page -> [RecallHistory] in
-                allRecalls + page.elements
-            }
-
+    func makeElements() -> Driver<[RecallHistoryTableElement]> {
         let markedIds = VehicleMediator.shared
             .didMarkRecall
             .asDriver(onErrorDriveWith: .never())
@@ -74,61 +63,57 @@ private extension RecallHistoryViewModel {
             .startWith([])
 
         return Driver
-            .combineLatest(allRecalls, markedIds) { allRecalls, markedIds -> [RecallHistory] in
-                allRecalls.map { recall -> RecallHistory in
+            .combineLatest(makeRecallHistory(), markedIds) { list, markedIds -> [RecallHistoryTableElement] in
+                let recalls = list.items.map { recall -> RecallHistory in
                     guard markedIds.contains(recall.id) else { return recall }
 
                     var marked = recall
                     marked.marked = true
                     return marked
                 }
+
+                var elements = [RecallHistoryTableElement]()
+
+                let open = recalls.filter { !$0.marked }
+                if !open.isEmpty {
+                    elements.append(.section(RecallHistoryTableSection(
+                        marked: false,
+                        lastChecked: list.lastChecked
+                    )))
+                    elements.append(contentsOf: open.map { .recall($0) })
+                }
+
+                let completed = recalls.filter { $0.marked }
+                if !completed.isEmpty {
+                    elements.append(.section(RecallHistoryTableSection(
+                        marked: true,
+                        lastChecked: nil
+                    )))
+                    elements.append(contentsOf: completed.map { .recall($0) })
+                }
+
+                return elements
             }
     }
 
-    func makePageRecalls(didScrollToBottom: Signal<Void>) -> Driver<Page<[RecallHistory]>> {
-        var lastPageInfo: PageInfo?
-
-        func fetch(page: Int) -> Driver<Page<[RecallHistory]>> {
-            func source() -> Single<Page<[RecallHistory]>?> {
-                vehicleManager
-                    .obtainRecallHistory(vehicleId: vehicle.id, page: page)
-            }
-
-            func trigger(error: Error) -> Observable<Void> {
-                tryAgain?(error) ?? .empty()
-            }
-
-            return observableRetrySingle
-                .retry(
-                    source: { source() },
-                    trigger: { trigger(error: $0) }
-                )
-                .trackActivity(page == 1 ? firstPageActivity : paginationActivity)
-                .asDriver(onErrorDriveWith: .empty())
-                .compactMap { $0 }
-                .do(onNext: { page in
-                    lastPageInfo = page.info
-                })
+    func makeRecallHistory() -> Driver<RecallHistoryList> {
+        func source() -> Single<RecallHistoryList?> {
+            vehicleManager
+                .obtainRecallHistory(vehicleId: vehicle.id)
         }
 
-        let firstPage = fetch(page: 1)
+        func trigger(error: Error) -> Observable<Void> {
+            tryAgain?(error) ?? .empty()
+        }
 
-        let downloadedPage = firstPage
-            .flatMapLatest { firstPage -> Driver<Page<[RecallHistory]>> in
-                didScrollToBottom
-                    .asDriver(onErrorDriveWith: .never())
-                    .compactMap { lastPageInfo }
-                    .filter { lastPageInfo -> Bool in
-                        let nextPageNotTotal = lastPageInfo.next <= lastPageInfo.total
-                        let currentNotTotal = lastPageInfo.current != lastPageInfo.total
-                        return nextPageNotTotal && currentNotTotal
-                    }
-                    .flatMapFirst { lastPageInfo -> Driver<Page<[RecallHistory]>> in
-                        fetch(page: lastPageInfo.next)
-                    }
-                    .startWith(firstPage)
-            }
-        return downloadedPage
+        return observableRetrySingle
+            .retry(
+                source: { source() },
+                trigger: { trigger(error: $0) }
+            )
+            .trackActivity(activityIndicator)
+            .asDriver(onErrorDriveWith: .empty())
+            .compactMap { $0 }
     }
 
     func makeAction(didSelectRecall: Signal<RecallHistory>) -> Driver<Action> {

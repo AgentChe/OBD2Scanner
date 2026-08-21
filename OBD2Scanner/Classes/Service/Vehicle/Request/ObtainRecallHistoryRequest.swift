@@ -11,7 +11,6 @@ struct ObtainRecallHistoryRequest: APIRequestBody {
     let anonymousId: String
     let internalId: String
     let vehicleId: String
-    let page: Int
 
     var url: String {
         GlobalDefinitions.domain + "/api/v1/vehicle/recall"
@@ -31,8 +30,7 @@ struct ObtainRecallHistoryRequest: APIRequestBody {
         [
             "anonymous_id": anonymousId,
             "internal_id": internalId,
-            "id": vehicleId,
-            "page": page
+            "id": vehicleId
         ]
     }
 }

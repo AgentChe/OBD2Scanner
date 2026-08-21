@@ -25,18 +25,23 @@ final class RecallAdvisoryView: UIView {
 
 // MARK: Public
 extension RecallAdvisoryView {
-    func setup(advisory: RecallHistory.Advisory) {
+    func setup(level: RecallHistory.Level) {
         let color: UIColor
         let text: String
 
-        switch advisory {
-        case .doNotDrive:
+        switch level {
+        case .critical:
             color = Appearance.color_F5403A
             text = "RecallHistory.Advisory.DoNotDrive".localized
-        case .parkOutside:
+        case .moderate:
             color = Appearance.color_FF6B35
             text = "RecallHistory.Advisory.ParkOutside".localized
+        case .low:
+            isHidden = true
+            return
         }
+
+        isHidden = false
 
         let attrs = TextAttributes()
             .textColor(color)

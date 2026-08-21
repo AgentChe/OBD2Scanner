@@ -177,6 +177,9 @@
 "RecallHistory.Title" = "Historial de revisiones";
 "RecallHistory.VIN" = "VIN: %@";
 "RecallHistory.ID" = "n.º %@";
+"RecallHistory.LastChecked" = "Última comprobación: %@";
+"RecallHistory.Section.Open" = "Revisiones abiertas";
+"RecallHistory.Section.Completed" = "Revisiones completadas";
 "RecallHistory.Status.Open" = "Abierta";
 "RecallHistory.Status.Completed" = "Completada";
 "RecallHistory.Advisory.DoNotDrive" = "No conduzca: riesgo de accidente";

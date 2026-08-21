@@ -22,12 +22,14 @@
 		245B1550870FDD935A921E72 /* vag-mqb.json in Resources */ = {isa = PBXBuildFile; fileRef = AB67790B6A8F5495B31AEC9F /* vag-mqb.json */; };
 		25C2E76177CC79652F649B86 /* ford.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FAE6AB80FEBF5FA3C331EE /* ford.json */; };
 		2B7F58F2E27455E7860105D9 /* MarkRecallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF41603626E592D0F45DFB1 /* MarkRecallRequest.swift */; };
+		2E5E1E6867C2D09F62F6D6F0 /* RecallHistoryTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D730A8E813A8F4713A8C599 /* RecallHistoryTableElement.swift */; };
 		306621564DE4A899A48DD220 /* LiveDataGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */; };
 		3408346C720747739902B049 /* MFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */; };
 		385C43940830A9626C56C93A /* OBDServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */; };
 		3CBE527CB4B6CE75E0DFE47E /* LiveDataTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */; };
 		3E18C617E16BB213DCFF4EBA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */; };
 		4B18538515E1561D9CA7BB67 /* RecallDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721615D3BB4D6A68D664D43 /* RecallDetailsViewController.swift */; };
+		4D024FD9FB386612FA4A27B3 /* RecallHistorySectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619E471F2C34219D25D82A1 /* RecallHistorySectionCell.swift */; };
 		51B5D1A424A535C841D59249 /* LiveDataReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */; };
 		537465747594B86ED448ADEF /* WiFiTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */; };
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
@@ -374,10 +376,12 @@
 		7DA2EC8D03CF4BB0BBD2F1A1 /* MFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFiTransport.swift; sourceTree = "<group>"; };
 		82E0FA24BA7CB36938ACE677 /* CANResponseAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANResponseAssembler.swift; sourceTree = "<group>"; };
 		841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatcher.swift; sourceTree = "<group>"; };
+		8619E471F2C34219D25D82A1 /* RecallHistorySectionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallHistorySectionCell.swift; sourceTree = "<group>"; };
 		8BC30B4E83F88854C714B4E9 /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8ECA93F529B9078CBBA1327E /* OBDProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDProfile.swift; sourceTree = "<group>"; };
 		90A130E6B814DC7C21F0A146 /* Pods-OBD2Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.debug.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.debug.xcconfig"; sourceTree = "<group>"; };
 		9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableView.swift; sourceTree = "<group>"; };
+		9D730A8E813A8F4713A8C599 /* RecallHistoryTableElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallHistoryTableElement.swift; sourceTree = "<group>"; };
 		9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOBDService.swift; sourceTree = "<group>"; };
 		A06B781E75DE91D333084F2F /* BLETransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETransport.swift; sourceTree = "<group>"; };
 		A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsModels.swift; sourceTree = "<group>"; };
@@ -1295,8 +1299,9 @@
 		DE2240DF2FFAC4D20023E94C /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				DE2CF06F30386AC80080BC98 /* Cells */,
 				DE2240E02FFAC4DE0023E94C /* RecallHistoryTableView.swift */,
-				DE2240E32FFAC5100023E94C /* RecallHistoryTableCell.swift */,
+				9D730A8E813A8F4713A8C599 /* RecallHistoryTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1310,6 +1315,15 @@
 				DE2240DC2FFAC4C30023E94C /* RecallHistoryView.swift */,
 			);
 			path = RecallHistory;
+			sourceTree = "<group>";
+		};
+		DE2CF06F30386AC80080BC98 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8619E471F2C34219D25D82A1 /* RecallHistorySectionCell.swift */,
+				DE2240E32FFAC5100023E94C /* RecallHistoryTableCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DE2F0A4E2A698C0100471667 = {
@@ -2725,6 +2739,8 @@
 				E84B2168D66344D785170B9B /* RecallDetailsView.swift in Sources */,
 				B3CA05024843B78E24CB2BC2 /* RecallDetailsViewModel.swift in Sources */,
 				4B18538515E1561D9CA7BB67 /* RecallDetailsViewController.swift in Sources */,
+				2E5E1E6867C2D09F62F6D6F0 /* RecallHistoryTableElement.swift in Sources */,
+				4D024FD9FB386612FA4A27B3 /* RecallHistorySectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

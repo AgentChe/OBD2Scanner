@@ -10,10 +10,9 @@ import RxSwift
 import RxCocoa
 
 final class RecallHistoryTableView: UITableView {
-    private lazy var elements = [RecallHistory]()
+    private lazy var elements = [RecallHistoryTableElement]()
 
     private lazy var didSelectRecallTrigger = PublishRelay<RecallHistory>()
-    private lazy var didScrollToBottomTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -28,7 +27,7 @@ final class RecallHistoryTableView: UITableView {
 
 // MARK: Public
 extension RecallHistoryTableView {
-    func setup(elements: [RecallHistory]) {
+    func setup(elements: [RecallHistoryTableElement]) {
         self.elements = elements
 
         reloadData()
@@ -36,10 +35,6 @@ extension RecallHistoryTableView {
 
     var didSelectRecall: Signal<RecallHistory> {
         didSelectRecallTrigger.asSignal()
-    }
-
-    var didScrollToBottom: Signal<Void> {
-        didScrollToBottomTrigger.asSignal()
     }
 }
 
@@ -50,9 +45,16 @@ extension RecallHistoryTableView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dequeueReusableCell(withIdentifier: String(describing: RecallHistoryTableCell.self), for: indexPath) as! RecallHistoryTableCell
-        cell.setup(element: elements[indexPath.row])
-        return cell
+        switch elements[indexPath.row] {
+        case .section(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: RecallHistorySectionCell.self), for: indexPath) as! RecallHistorySectionCell
+            cell.setup(element: element)
+            return cell
+        case .recall(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: RecallHistoryTableCell.self), for: indexPath) as! RecallHistoryTableCell
+            cell.setup(element: element)
+            return cell
+        }
     }
 }
 
@@ -63,13 +65,9 @@ extension RecallHistoryTableView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectRecallTrigger.accept(elements[indexPath.row])
-    }
+        guard case .recall(let element) = elements[indexPath.row] else { return }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard (elements.count - 1) == indexPath.row else { return }
-
-        didScrollToBottomTrigger.accept(Void())
+        didSelectRecallTrigger.accept(element)
     }
 }
 
@@ -77,6 +75,7 @@ extension RecallHistoryTableView: UITableViewDelegate {
 private extension RecallHistoryTableView {
     func initialize() {
         register(RecallHistoryTableCell.self, forCellReuseIdentifier: String(describing: RecallHistoryTableCell.self))
+        register(RecallHistorySectionCell.self, forCellReuseIdentifier: String(describing: RecallHistorySectionCell.self))
 
         dataSource = self
         delegate = self
@@ -86,6 +85,6 @@ private extension RecallHistoryTableView {
         showsVerticalScrollIndicator = false
         rowHeight = UITableView.automaticDimension
         estimatedRowHeight = 160.scale
-        contentInset = UIEdgeInsets(t: 10.scale, b: 16.scale)
+        contentInset = UIEdgeInsets(t: 0, b: 16.scale)
     }
 }

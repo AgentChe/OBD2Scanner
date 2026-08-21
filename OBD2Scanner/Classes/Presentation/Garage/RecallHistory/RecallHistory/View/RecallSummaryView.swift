@@ -45,12 +45,7 @@ final class RecallSummaryView: UIView {
 // MARK: Public
 extension RecallSummaryView {
     func setup(element: RecallHistory) {
-        if let advisory = element.advisory {
-            advisoryView.setup(advisory: advisory)
-            advisoryView.isHidden = false
-        } else {
-            advisoryView.isHidden = true
-        }
+        advisoryView.setup(level: element.level)
 
         statusView.setup(marked: element.marked)
 
@@ -59,7 +54,6 @@ extension RecallSummaryView {
         dateIconView.isHidden = date.isEmpty
         dateLabel.isHidden = date.isEmpty
 
-        // TODO: если бэк подтвердит, что reason — это узел, а reason_content — заголовок, поменять местами
         let title = element.reason ?? ""
         titleLabel.attributedText = title.attributed(with: titleAttrs)
         titleLabel.isHidden = title.isEmpty

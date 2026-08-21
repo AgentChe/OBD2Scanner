@@ -38,8 +38,7 @@ final class RecallHistoryViewController: UIViewController {
         }
 
         let output = viewModel.configure(input: RecallHistoryViewModel.Input(
-            didSelectRecall: mainView.tableView.didSelectRecall,
-            didScrollToBottom: mainView.tableView.didScrollToBottom
+            didSelectRecall: mainView.tableView.didSelectRecall
         ))
 
         output.vehicle
@@ -48,21 +47,15 @@ final class RecallHistoryViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        output.firstPageActivity
+        output.activity
             .drive(Binder(mainView) { base, isActive in
-                base.setup(firstPageActivity: isActive)
+                base.setup(activity: isActive)
             })
             .disposed(by: disposeBag)
 
-        output.paginationActivity
-            .drive(Binder(mainView) { base, isActive in
-                base.setup(paginationActivity: isActive)
-            })
-            .disposed(by: disposeBag)
-
-        output.recalls
-            .drive(Binder(mainView) { base, recalls in
-                base.setup(recalls: recalls)
+        output.elements
+            .drive(Binder(mainView) { base, elements in
+                base.setup(elements: elements)
             })
             .disposed(by: disposeBag)
 

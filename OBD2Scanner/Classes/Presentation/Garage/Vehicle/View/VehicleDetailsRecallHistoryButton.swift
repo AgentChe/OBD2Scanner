@@ -37,7 +37,11 @@ extension VehicleDetailsRecallHistoryButton {
 // MARK: Private
 private extension VehicleDetailsRecallHistoryButton {
     func initialize() {
-        backgroundColor = UIColor.clear
+        backgroundColor = Appearance.color_191F2B
+
+        layer.cornerRadius = 12.scale
+        layer.borderWidth = 1.scale
+        layer.borderColor = Appearance.color_FFFFFF.withAlphaComponent(0.05).cgColor
     }
 }
 
@@ -45,31 +49,33 @@ private extension VehicleDetailsRecallHistoryButton {
 private extension VehicleDetailsRecallHistoryButton {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            iconView.widthAnchor.constraint(equalToConstant: 44.scale),
-            iconView.heightAnchor.constraint(equalToConstant: 44.scale),
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 32.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 32.scale),
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             iconView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
             recallTitleLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12.scale),
+            recallTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: arrowView.leadingAnchor, constant: -8.scale),
             recallTitleLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -1.scale)
         ])
 
         NSLayoutConstraint.activate([
             recallSubTitleLabel.leadingAnchor.constraint(equalTo: recallTitleLabel.leadingAnchor),
+            recallSubTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: arrowView.leadingAnchor, constant: -8.scale),
             recallSubTitleLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 1.scale)
         ])
 
         NSLayoutConstraint.activate([
             arrowView.widthAnchor.constraint(equalToConstant: 20.scale),
             arrowView.heightAnchor.constraint(equalToConstant: 20.scale),
-            arrowView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            arrowView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             arrowView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            vinRequiredLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            vinRequiredLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             vinRequiredLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }

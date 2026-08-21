@@ -132,7 +132,7 @@ private extension VehicleDetailsView {
             recallHistoryButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
             recallHistoryButton.topAnchor.constraint(equalTo: container.bottomAnchor, constant: 24.scale),
             recallHistoryButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            recallHistoryButton.heightAnchor.constraint(equalToConstant: 44.scale)
+            recallHistoryButton.heightAnchor.constraint(equalToConstant: 76.scale)
         ])
 
         NSLayoutConstraint.activate([

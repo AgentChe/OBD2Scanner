@@ -170,7 +170,7 @@ private extension RecallDetailsView {
     }
 
     func makeSummaryView() -> RecallSummaryView {
-        let view = RecallSummaryView()
+        let view = RecallSummaryView(subtitleNumberOfLines: 0)
         view.translatesAutoresizingMaskIntoConstraints = false
         summaryContainer.addSubview(view)
         return view

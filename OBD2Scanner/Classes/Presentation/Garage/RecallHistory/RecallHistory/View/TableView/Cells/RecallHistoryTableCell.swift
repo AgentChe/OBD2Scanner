@@ -71,7 +71,7 @@ private extension RecallHistoryTableCell {
     }
 
     func makeSummaryView() -> RecallSummaryView {
-        let view = RecallSummaryView()
+        let view = RecallSummaryView(subtitleNumberOfLines: 2)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

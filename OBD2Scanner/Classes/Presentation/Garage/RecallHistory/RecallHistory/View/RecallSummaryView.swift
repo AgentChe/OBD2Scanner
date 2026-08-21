@@ -29,9 +29,14 @@ final class RecallSummaryView: UIView {
         .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.5))
         .font(Fonts.NotoSans.regular(size: 14.scale))
         .textAlignment(.left)
+        .lineBreakMode(subtitleNumberOfLines == 0 ? .byWordWrapping : .byTruncatingTail)
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let subtitleNumberOfLines: Int
+
+    init(subtitleNumberOfLines: Int) {
+        self.subtitleNumberOfLines = subtitleNumberOfLines
+
+        super.init(frame: .zero)
 
         makeConstraints()
         initialize()
@@ -184,7 +189,7 @@ private extension RecallSummaryView {
 
     func makeSubtitleLabel() -> UILabel {
         let view = UILabel()
-        view.numberOfLines = 2
+        view.numberOfLines = subtitleNumberOfLines
         return view
     }
 }

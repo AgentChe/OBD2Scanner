@@ -17,6 +17,7 @@ final class DashboardViewModel {
         case openDTC(String?)
         case openFreezeFrame
         case openRecallHistory(Vehicle)
+        case enterVINForRecallHistory(Vehicle)
         case clearDTC
         case errorNeedConnect
         case errorNeedMakeActiveVehicle
@@ -171,10 +172,15 @@ private extension DashboardViewModel {
                     if locked {
                         return .openPaygate
                     }
-                    if let activeVehicle {
-                        return .openRecallHistory(activeVehicle)
+                    guard let activeVehicle else {
+                        return .errorNeedMakeActiveVehicle
                     }
-                    return .errorNeedMakeActiveVehicle
+                    let hasVIN = !(activeVehicle.vin ?? "")
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                        .isEmpty
+                    return hasVIN
+                        ? .openRecallHistory(activeVehicle)
+                        : .enterVINForRecallHistory(activeVehicle)
                 case .freezeFrame:
                     if locked {
                         return .openPaygate

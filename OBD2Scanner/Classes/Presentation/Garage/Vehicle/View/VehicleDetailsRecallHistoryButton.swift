@@ -28,13 +28,9 @@ final class VehicleDetailsRecallHistoryButton: UIButton {
 
 // MARK: Public
 extension VehicleDetailsRecallHistoryButton {
-    func setup(isEnabled: Bool) {
-        isUserInteractionEnabled = isEnabled
-
-        arrowView.isHidden = !isEnabled
-        vinRequiredLabel.isHidden = isEnabled
-
-        alpha = isEnabled ? 1 : 0.5
+    func setup(hasVIN: Bool) {
+        arrowView.isHidden = !hasVIN
+        vinRequiredLabel.isHidden = hasVIN
     }
 }
 

@@ -12,6 +12,7 @@ final class VehicleDetailsViewModel {
     enum Action {
         case addVIN(String)
         case openRecallHistory(Vehicle)
+        case enterVINForRecallHistory(Vehicle)
         case copyVIN(String)
         case openPaygate
     }
@@ -121,7 +122,12 @@ private extension VehicleDetailsViewModel {
         let openRecallHistoryOrPaygate = didTapRecallHistory
             .withLatestFrom(vehicle)
             .map { vehicle -> Action in
-                SessionManager().hasActiveSubscriptions() ? .openRecallHistory(vehicle) : .openPaygate
+                guard SessionManager().hasActiveSubscriptions() else {
+                    return .openPaygate
+                }
+
+                let hasVIN = !(vehicle.vin ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                return hasVIN ? .openRecallHistory(vehicle) : .enterVINForRecallHistory(vehicle)
             }
             .asDriver(onErrorDriveWith: .never())
         

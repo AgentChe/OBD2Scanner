@@ -133,8 +133,12 @@ private extension DashboardViewController {
             let vc = FreezeFrameViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         case .openRecallHistory(let vehicle):
-            let vc = RecallHistoryViewController.make(vehicle: vehicle)
-            navigationController?.pushViewController(vc, animated: true)
+            openRecallHistory(vehicle: vehicle)
+        case .enterVINForRecallHistory(let vehicle):
+            let vc = RecallVINViewController.make(vehicle: vehicle) { [weak self] vehicle in
+                self?.openRecallHistory(vehicle: vehicle)
+            }
+            present(vc, animated: false)
         case .clearDTC:
             let vc = DTCClearInfoViewController.make { [weak self] in
                 let vc = DTCClearingViewController.make()
@@ -154,6 +158,11 @@ private extension DashboardViewController {
         }
     }
     
+    func openRecallHistory(vehicle: Vehicle) {
+        let vc = RecallHistoryViewController.make(vehicle: vehicle)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     func errorNeedConnect() {
         let alert = UIAlertController(
             title: "Dashboard.ErrorNeedConnect.Title".localized,

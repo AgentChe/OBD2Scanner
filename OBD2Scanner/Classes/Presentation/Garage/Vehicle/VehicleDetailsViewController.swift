@@ -98,8 +98,13 @@ private extension VehicleDetailsViewController {
         case .copyVIN(let vin):
             UIPasteboard.general.string = vin
         case .openRecallHistory(let vehicle):
-            let vc = RecallHistoryViewController.make(vehicle: vehicle)
-            navigationController?.pushViewController(vc, animated: true)
+            openRecallHistory(vehicle: vehicle)
+        case .enterVINForRecallHistory(let vehicle):
+            let vc = RecallVINViewController.make(vehicle: vehicle) { [weak self] vehicle in
+                self?.didDecodeVINTrigger.accept(vehicle)
+                self?.openRecallHistory(vehicle: vehicle)
+            }
+            present(vc, animated: false)
         case .openPaygate:
             let vc = UnlimitedPlanViewController.make { [weak self] in
                 let vc = PaygateViewController.make()
@@ -107,6 +112,11 @@ private extension VehicleDetailsViewController {
             }
             present(vc, animated: false)
         }
+    }
+
+    func openRecallHistory(vehicle: Vehicle) {
+        let vc = RecallHistoryViewController.make(vehicle: vehicle)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func makeActiveBarButtonItem() -> UIBarButtonItem {

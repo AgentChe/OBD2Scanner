@@ -35,10 +35,12 @@
 		555D2A415D5AC2CA995C39D3 /* toyota-prius.json in Resources */ = {isa = PBXBuildFile; fileRef = C47278DE0B6F096D2BEF8C42 /* toyota-prius.json */; };
 		56881663F03D452AA6BE3C07 /* ReadingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */; };
 		57D1677C03C67447D09EBEA5 /* DiagnosticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46AE2CA3C3E6C6E5BAF0AAD /* DiagnosticEngine.swift */; };
+		5B90E04CC3A4B5FCB891FFD7 /* RecallVINCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BF43F540311D3E8111E19 /* RecallVINCardView.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
 		66687EDF92AACB5F088AEBAA /* RecallStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CAE7D82FEF78E3DAAC951 /* RecallStatusView.swift */; };
 		6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */; };
+		72C5F05142AF434D27A81DD0 /* RecallVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496CAFABEDBE674F4EE5D41B /* RecallVINView.swift */; };
 		72F07D4FDA089BA765F57F19 /* OBDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA93F529B9078CBBA1327E /* OBDProfile.swift */; };
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
@@ -61,6 +63,7 @@
 		CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */ = {isa = PBXBuildFile; fileRef = CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */; };
 		CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */; };
 		D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B781E75DE91D333084F2F /* BLETransport.swift */; };
+		D9C2AE41F7256D5A30C813C2 /* RecallVINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273807A524EEB0F1FDAD9251 /* RecallVINViewController.swift */; };
 		DE0A5C6F2FF29BDE003D95B0 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */; };
 		DE0A5C712FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C702FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf */; };
 		DE0A5C732FF29BE9003D95B0 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C722FF29BE9003D95B0 /* NotoSans-Medium.ttf */; };
@@ -341,6 +344,7 @@
 		E0EA6810E6E91D2BE1081B51 /* OBDParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */; };
 		E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */; };
 		E84B2168D66344D785170B9B /* RecallDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94AB4707684AC8E5C1D88B1 /* RecallDetailsView.swift */; };
+		F0D6035AD1F588E6237BAE0D /* RecallVINViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EFB1A667006E40C024F124 /* RecallVINViewModel.swift */; };
 		F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC60C496368C976B78E1EAB /* ELM327Session.swift */; };
 		F56FFC28B06E753B1ED444C0 /* RecallAdvisoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAF3E8E5A3618A20DA1EBD /* RecallAdvisoryView.swift */; };
 		FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F18AB9B038C92F113CC75AE /* DemoOBDService.swift */; };
@@ -362,11 +366,15 @@
 		17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableGaugesCell.swift; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
 		1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataReadings.swift; sourceTree = "<group>"; };
+		273807A524EEB0F1FDAD9251 /* RecallVINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINViewController.swift; sourceTree = "<group>"; };
 		284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticTroubleCode.swift; sourceTree = "<group>"; };
 		2CF41603626E592D0F45DFB1 /* MarkRecallRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarkRecallRequest.swift; sourceTree = "<group>"; };
+		2D1BF43F540311D3E8111E19 /* RecallVINCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINCardView.swift; sourceTree = "<group>"; };
 		35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataGaugeView.swift; sourceTree = "<group>"; };
 		35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallSummaryView.swift; sourceTree = "<group>"; };
 		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
+		39EFB1A667006E40C024F124 /* RecallVINViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINViewModel.swift; sourceTree = "<group>"; };
+		496CAFABEDBE674F4EE5D41B /* RecallVINView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINView.swift; sourceTree = "<group>"; };
 		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataUpgradeBadgeView.swift; sourceTree = "<group>"; };
 		65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTitleView.swift; sourceTree = "<group>"; };
@@ -745,6 +753,17 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		2C04DA253AC2AC7C8FABFB54 /* RecallVIN */ = {
+			isa = PBXGroup;
+			children = (
+				9D6E1BE52934CE684E849921 /* View */,
+				496CAFABEDBE674F4EE5D41B /* RecallVINView.swift */,
+				273807A524EEB0F1FDAD9251 /* RecallVINViewController.swift */,
+				39EFB1A667006E40C024F124 /* RecallVINViewModel.swift */,
+			);
+			path = RecallVIN;
+			sourceTree = "<group>";
+		};
 		40C2F9DC5AEFE80E76051627 /* Matcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,6 +857,14 @@
 				0BDB0000000000000000FE05 /* peugeot-407.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9D6E1BE52934CE684E849921 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D1BF43F540311D3E8111E19 /* RecallVINCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A0F2C94EE505130E85A85406 /* Adapter */ = {
@@ -1283,6 +1310,7 @@
 			children = (
 				DE2CF06E30385E2E0080BC98 /* RecallHistory */,
 				462F451384EDCF52B386089D /* Details */,
+				2C04DA253AC2AC7C8FABFB54 /* RecallVIN */,
 			);
 			path = RecallHistory;
 			sourceTree = "<group>";
@@ -2745,6 +2773,10 @@
 				2E5E1E6867C2D09F62F6D6F0 /* RecallHistoryTableElement.swift in Sources */,
 				4D024FD9FB386612FA4A27B3 /* RecallHistorySectionCell.swift in Sources */,
 				A6F4537F2EE2BA0872A87FE1 /* RecallHistoryEmptyView.swift in Sources */,
+				72C5F05142AF434D27A81DD0 /* RecallVINView.swift in Sources */,
+				D9C2AE41F7256D5A30C813C2 /* RecallVINViewController.swift in Sources */,
+				F0D6035AD1F588E6237BAE0D /* RecallVINViewModel.swift in Sources */,
+				5B90E04CC3A4B5FCB891FFD7 /* RecallVINCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

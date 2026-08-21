@@ -191,6 +191,15 @@
 "RecallHistory.Notes" = "NOTAS";
 "RecallHistory.MarkAsCompleted" = "Marcar como completada";
 
+// MARK: RecallVIN
+"RecallVIN.Title" = "LAS REVISIONES NECESITAN VIN";
+"RecallVIN.SubTitle" = "Mismo modelo, mismo año — %@.\nLas campañas cubren lotes de fabricación concretos, así que solo el VIN dice si el tuyo está incluido.";
+"RecallVIN.SubTitle.Highlight" = "pero son coches distintos";
+"RecallVIN.Card.Affected" = "VIN ···4352";
+"RecallVIN.Card.Unaffected" = "VIN ···9107";
+"RecallVIN.Example" = "VIN de ejemplo: 1HGCM82633A004352";
+"RecallVIN.DecodeVIN" = "Decodificar VIN";
+
 // MARK: Settings
 "Settings.Title" = "Ajustes";
 "Settings.Units.Title" = "Unidades";

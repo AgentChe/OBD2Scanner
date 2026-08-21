@@ -191,6 +191,15 @@
 "RecallHistory.Notes" = "备注";
 "RecallHistory.MarkAsCompleted" = "标记为已完成";
 
+// MARK: RecallVIN
+"RecallVIN.Title" = "查召回需要 VIN";
+"RecallVIN.SubTitle" = "同款同年 — %@。\n召回只针对特定生产批次，只有 VIN 才能确认你的车是否在其中。";
+"RecallVIN.SubTitle.Highlight" = "车却各不相同";
+"RecallVIN.Card.Affected" = "VIN ···4352";
+"RecallVIN.Card.Unaffected" = "VIN ···9107";
+"RecallVIN.Example" = "VIN 示例：1HGCM82633A004352";
+"RecallVIN.DecodeVIN" = "解析 VIN";
+
 // MARK: Settings
 "Settings.Title" = "设置";
 "Settings.Units.Title" = "单位";

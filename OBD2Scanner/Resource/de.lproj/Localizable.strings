@@ -191,6 +191,15 @@
 "RecallHistory.Notes" = "HINWEISE";
 "RecallHistory.MarkAsCompleted" = "Als erledigt markieren";
 
+// MARK: RecallVIN
+"RecallVIN.Title" = "RÜCKRUFE BRAUCHEN EINE FIN";
+"RecallVIN.SubTitle" = "Gleiches Modell, gleiches Jahr — %@.\nRückrufe betreffen genau bestimmte Baulose, nur die FIN zeigt, ob deins dazugehört.";
+"RecallVIN.SubTitle.Highlight" = "trotzdem andere Autos";
+"RecallVIN.Card.Affected" = "FIN ···4352";
+"RecallVIN.Card.Unaffected" = "FIN ···9107";
+"RecallVIN.Example" = "Beispiel-FIN: 1HGCM82633A004352";
+"RecallVIN.DecodeVIN" = "FIN entschlüsseln";
+
 // MARK: Settings
 "Settings.Title" = "Einstellungen";
 "Settings.Units.Title" = "Einheiten";

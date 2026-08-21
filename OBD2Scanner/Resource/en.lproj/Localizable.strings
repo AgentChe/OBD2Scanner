@@ -191,6 +191,15 @@
 "RecallHistory.Notes" = "NOTES";
 "RecallHistory.MarkAsCompleted" = "Mark completed";
 
+// MARK: RecallVIN
+"RecallVIN.Title" = "RECALLS NEED A VIN";
+"RecallVIN.SubTitle" = "Same model, same year — %@.\nCampaigns cover exact build batches, so only the VIN tells if yours is one of them.";
+"RecallVIN.SubTitle.Highlight" = "still different cars";
+"RecallVIN.Card.Affected" = "VIN ···4352";
+"RecallVIN.Card.Unaffected" = "VIN ···9107";
+"RecallVIN.Example" = "Example VIN: 1HGCM82633A004352";
+"RecallVIN.DecodeVIN" = "Decode VIN";
+
 // MARK: Settings
 "Settings.Title" = "Settings";
 "Settings.Units.Title" = "Units";

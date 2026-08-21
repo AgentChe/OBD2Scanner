@@ -191,6 +191,15 @@
 "RecallHistory.Notes" = "ПРИМЕЧАНИЯ";
 "RecallHistory.MarkAsCompleted" = "Отметить выполненным";
 
+// MARK: RecallVIN
+"RecallVIN.Title" = "ДЛЯ ОТЗЫВОВ НУЖЕН VIN";
+"RecallVIN.SubTitle" = "Та же модель, тот же год — %@.\nКампании охватывают конкретные партии выпуска, и только VIN покажет, попала ли в них ваша машина.";
+"RecallVIN.SubTitle.Highlight" = "но машины разные";
+"RecallVIN.Card.Affected" = "VIN ···4352";
+"RecallVIN.Card.Unaffected" = "VIN ···9107";
+"RecallVIN.Example" = "Пример VIN: 1HGCM82633A004352";
+"RecallVIN.DecodeVIN" = "Расшифровать VIN";
+
 // MARK: Settings
 "Settings.Title" = "Настройки";
 "Settings.Units.Title" = "Единицы измерения";

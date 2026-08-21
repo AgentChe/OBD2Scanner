@@ -51,7 +51,7 @@ extension VehicleDetailsView {
         }())
 
         let hasVIN = !(vehicle.vin ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        recallHistoryButton.setup(isEnabled: hasVIN)
+        recallHistoryButton.setup(hasVIN: hasVIN)
     }
 
     func setup(isActive: Bool) {

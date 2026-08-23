@@ -71,6 +71,8 @@ private extension FreezeFrameEmptyItemView {
 
         let view = UILabel()
         view.attributedText = "FreezeFrame.EmptyItem.\(number)".localized.attributed(with: attrs)
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.5
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

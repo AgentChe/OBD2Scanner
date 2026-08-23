@@ -310,9 +310,9 @@
 "FreezeFrame.Status.Permanent" = "PERMANENT";
 "FreezeFrame.Captured" = "Captured %@";
 "FreezeFrame.JustNow" = "just now";
-"FreezeFrame.Empty.Title" = "NO FREEZE FRAME\nDATA AVAILABLE";
-"FreezeFrame.Empty.SubTitle" = "Freeze frame captures vehicle parameters at the moment a fault occurs. It helps diagnose issues more accurately";
-"FreezeFrame.Empty.Back" = "Back";
+"FreezeFrame.Empty.Title" = "NOTHING\nHAPPENED";
+"FreezeFrame.Empty.SubTitle" = "The moment an error appears, your car takes a snapshot of what the engine was doing.";
+"FreezeFrame.Empty.Back" = "Back to dashboard";
 "FreezeFrame.EmptyItem.1" = "A fault code is detected by the ECU";
 "FreezeFrame.EmptyItem.2" = "Vehicle data is captured automatically";
 "FreezeFrame.EmptyItem.3" = "You can review and analyze the snapshot";

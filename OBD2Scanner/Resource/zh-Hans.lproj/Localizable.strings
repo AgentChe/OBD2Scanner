@@ -310,9 +310,9 @@
 "FreezeFrame.Status.Permanent" = "永久";
 "FreezeFrame.Captured" = "记录于 %@";
 "FreezeFrame.JustNow" = "刚刚";
-"FreezeFrame.Empty.Title" = "暂无冻结帧\n数据";
-"FreezeFrame.Empty.SubTitle" = "冻结帧会记录故障发生瞬间的车辆参数，有助于更准确地判断问题";
-"FreezeFrame.Empty.Back" = "返回";
+"FreezeFrame.Empty.Title" = "什么都\n没发生";
+"FreezeFrame.Empty.SubTitle" = "故障出现的瞬间，车辆会记录下发动机当时的状态快照。";
+"FreezeFrame.Empty.Back" = "返回面板";
 "FreezeFrame.EmptyItem.1" = "ECU 检测到故障码";
 "FreezeFrame.EmptyItem.2" = "车辆数据被自动记录";
 "FreezeFrame.EmptyItem.3" = "你可以查看并分析这份快照";

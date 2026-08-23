@@ -310,9 +310,9 @@
 "FreezeFrame.Status.Permanent" = "PERMANENTE";
 "FreezeFrame.Captured" = "Capturado %@";
 "FreezeFrame.JustNow" = "ahora mismo";
-"FreezeFrame.Empty.Title" = "NO HAY DATOS DE\nFOTOGRAMA CONGELADO";
-"FreezeFrame.Empty.SubTitle" = "El fotograma congelado guarda los parámetros del vehículo en el momento en que se produce el fallo. Ayuda a diagnosticar con más precisión";
-"FreezeFrame.Empty.Back" = "Atrás";
+"FreezeFrame.Empty.Title" = "NO HA PASADO\nNADA";
+"FreezeFrame.Empty.SubTitle" = "En el momento en que aparece un error, tu coche toma una instantánea de lo que estaba haciendo el motor.";
+"FreezeFrame.Empty.Back" = "Volver al panel";
 "FreezeFrame.EmptyItem.1" = "La centralita detecta un código de avería";
 "FreezeFrame.EmptyItem.2" = "Los datos del vehículo se guardan automáticamente";
 "FreezeFrame.EmptyItem.3" = "Puedes revisar y analizar la instantánea";

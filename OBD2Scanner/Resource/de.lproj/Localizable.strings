@@ -310,9 +310,9 @@
 "FreezeFrame.Status.Permanent" = "PERMANENT";
 "FreezeFrame.Captured" = "Aufgezeichnet %@";
 "FreezeFrame.JustNow" = "gerade eben";
-"FreezeFrame.Empty.Title" = "KEINE FREEZE-FRAME-\nDATEN VORHANDEN";
-"FreezeFrame.Empty.SubTitle" = "Der Freeze Frame speichert die Fahrzeugwerte im Moment des Fehlers. Das hilft, Probleme genauer zu diagnostizieren";
-"FreezeFrame.Empty.Back" = "Zurück";
+"FreezeFrame.Empty.Title" = "NICHTS\nPASSIERT";
+"FreezeFrame.Empty.SubTitle" = "Sobald ein Fehler auftritt, macht dein Auto eine Momentaufnahme davon, was der Motor gerade tat.";
+"FreezeFrame.Empty.Back" = "Zurück zur Übersicht";
 "FreezeFrame.EmptyItem.1" = "Das Steuergerät erkennt einen Fehlercode";
 "FreezeFrame.EmptyItem.2" = "Die Fahrzeugdaten werden automatisch gespeichert";
 "FreezeFrame.EmptyItem.3" = "Du kannst die Momentaufnahme ansehen und auswerten";

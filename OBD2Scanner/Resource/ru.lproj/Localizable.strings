@@ -310,9 +310,9 @@
 "FreezeFrame.Status.Permanent" = "ПОСТОЯННЫЙ";
 "FreezeFrame.Captured" = "Записано %@";
 "FreezeFrame.JustNow" = "только что";
-"FreezeFrame.Empty.Title" = "ДАННЫХ СТОП-КАДРА\nПОКА НЕТ";
-"FreezeFrame.Empty.SubTitle" = "Стоп-кадр сохраняет параметры автомобиля в момент возникновения неисправности. Это помогает точнее поставить диагноз";
-"FreezeFrame.Empty.Back" = "Назад";
+"FreezeFrame.Empty.Title" = "НИЧЕГО\nНЕ СЛУЧИЛОСЬ";
+"FreezeFrame.Empty.SubTitle" = "В момент появления ошибки автомобиль делает снимок того, что происходило с двигателем.";
+"FreezeFrame.Empty.Back" = "Вернуться на панель";
 "FreezeFrame.EmptyItem.1" = "ЭБУ фиксирует код неисправности";
 "FreezeFrame.EmptyItem.2" = "Данные автомобиля сохраняются автоматически";
 "FreezeFrame.EmptyItem.3" = "Вы можете просмотреть и разобрать снимок";

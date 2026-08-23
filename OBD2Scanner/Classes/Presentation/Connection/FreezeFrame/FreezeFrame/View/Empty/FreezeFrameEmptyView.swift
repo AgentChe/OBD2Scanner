@@ -8,7 +8,6 @@
 import UIKit
 
 final class FreezeFrameEmptyView: UIView {
-    lazy var gradientView = makeGradientView()
     lazy var imageView = makeImageView()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
@@ -43,23 +42,16 @@ private extension FreezeFrameEmptyView {
 private extension FreezeFrameEmptyView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            gradientView.widthAnchor.constraint(equalToConstant: 250.scale),
-            gradientView.heightAnchor.constraint(equalToConstant: 250.scale),
-            gradientView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            gradientView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 127.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 111.scale),
+            imageView.widthAnchor.constraint(equalToConstant: 80.scale),
+            imageView.heightAnchor.constraint(equalToConstant: 80.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 32.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 134.scale)
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -70,28 +62,28 @@ private extension FreezeFrameEmptyView {
         
         NSLayoutConstraint.activate([
             item1View.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
-            item1View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            item1View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             item1View.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 32.scale),
             item1View.heightAnchor.constraint(equalToConstant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([
             item2View.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
-            item2View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            item2View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             item2View.topAnchor.constraint(equalTo: item1View.bottomAnchor, constant: 24.scale),
             item2View.heightAnchor.constraint(equalToConstant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([
             item3View.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
-            item3View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            item3View.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             item3View.topAnchor.constraint(equalTo: item2View.bottomAnchor, constant: 24.scale),
             item3View.heightAnchor.constraint(equalToConstant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            backButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            backButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             backButton.topAnchor.constraint(equalTo: item3View.bottomAnchor, constant: 32.scale),
             backButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32.scale),
             backButton.heightAnchor.constraint(equalToConstant: 52.scale)
@@ -101,14 +93,6 @@ private extension FreezeFrameEmptyView {
 
 // MARK: Lazy initialization
 private extension FreezeFrameEmptyView {
-    func makeGradientView() -> RadialGradientView {
-        let view = RadialGradientView()
-        view.backgroundColor = UIColor.clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeImageView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -134,7 +118,7 @@ private extension FreezeFrameEmptyView {
 
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_526387)
+            .textColor(Appearance.color_6377A1)
             .font(Fonts.NotoSans.regular(size: 14.scale))
             .textAlignment(.center)
 
@@ -157,9 +141,9 @@ private extension FreezeFrameEmptyView {
         let attrs = TextAttributes()
             .textColor(Appearance.color_FFFFFF)
             .font(Fonts.NotoSans.semiBold(size: 16.scale))
-        
+
         let view = UIButton()
-        view.backgroundColor = Appearance.color_1A2231
+        view.backgroundColor = Appearance.color_28D799
         view.layer.cornerRadius = 12.scale
         view.setAttributedTitle("FreezeFrame.Empty.Back".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false

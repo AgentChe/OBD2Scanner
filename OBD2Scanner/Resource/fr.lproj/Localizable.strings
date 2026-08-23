@@ -423,6 +423,14 @@
 "LiveData.Gauge.Speed" = "Vitesse du véhicule";
 "LiveData.Gauge.Coolant" = "Temp. liquide refr.";
 "LiveData.Upgrade" = "PASSER À LA VERSION SUP.";
+"LiveData.Unusual.Banner" = "Relevés inhabituels : %i";
+"UnusualReadings.Title" = "Relevés inhabituels";
+"UnusualReadings.SubTitle" = "Valeurs hors de la plage attendue : %i";
+"UnusualReadings.Parameters" = "PARAMÈTRES";
+"UnusualReadings.Meaning" = "CE QUE CELA SIGNIFIE";
+"UnusualReadings.Meaning.Text1" = "Ces valeurs sortent de la plage plausible pour leur capteur. Nous affichons exactement ce que l'adaptateur a renvoyé : une telle valeur peut signifier %@ (certains véhicules codent les données différemment).";
+"UnusualReadings.Meaning.Text1.Highlight" = "une vraie panne, un capteur défectueux ou une erreur de lecture";
+"UnusualReadings.Meaning.Text2" = "Essayez de vous reconnecter et vérifiez les codes défaut dans le diagnostic. Si la valeur persiste sans aucun code, il s'agit le plus souvent d'un décodage inexact, pas d'une panne.";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

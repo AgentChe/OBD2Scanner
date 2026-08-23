@@ -432,6 +432,14 @@
 "LiveData.Gauge.Speed" = "Geschwindigkeit";
 "LiveData.Gauge.Coolant" = "Kühlmitteltemp.";
 "LiveData.Upgrade" = "UPGRADE";
+"LiveData.Unusual.Banner" = "Auffällige Messwerte: %i";
+"UnusualReadings.Title" = "Auffällige Messwerte";
+"UnusualReadings.SubTitle" = "Werte außerhalb des erwarteten Bereichs: %i";
+"UnusualReadings.Parameters" = "PARAMETER";
+"UnusualReadings.Meaning" = "WAS DAS BEDEUTET";
+"UnusualReadings.Meaning.Text1" = "Diese Werte liegen außerhalb des für ihren Sensor plausiblen Bereichs. Wir zeigen genau das, was der Adapter gemeldet hat — ein solcher Wert kann %@ bedeuten (manche Fahrzeuge codieren Daten anders).";
+"UnusualReadings.Meaning.Text1.Highlight" = "einen echten Defekt, einen fehlerhaften Sensor oder einen Lesefehler";
+"UnusualReadings.Meaning.Text2" = "Verbinden Sie sich neu und prüfen Sie die Fehlercodes in der Diagnose. Bleibt der Wert und es gibt keine Codes, liegt es meist an der Decodierung und nicht an einem Defekt.";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

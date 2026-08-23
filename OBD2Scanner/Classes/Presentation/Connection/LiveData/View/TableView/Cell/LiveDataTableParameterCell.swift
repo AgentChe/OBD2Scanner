@@ -53,21 +53,19 @@ extension LiveDataTableParameterCell {
     func setup(item: LiveDataItem) {
         isLocked = item.isLocked
 
-        let isSuspicious = item.isSuspicious && !item.isLocked
-
         nameLabel.attributedText = item.name.attributed(with: nameAttrs)
         valueLabel.attributedText = (item.value?.text ?? "")
-            .attributed(with: isSuspicious ? suspiciousValueAttrs : valueAttrs)
+            .attributed(with: item.showsWarning ? suspiciousValueAttrs : valueAttrs)
 
         valueLabel.isHidden = item.isLocked
-        warningView.isHidden = !isSuspicious
+        warningView.isHidden = !item.showsWarning
         upgradeBadgeView.isHidden = !item.isLocked
 
         nameWithValueConstraint.isActive = !item.isLocked
         nameWithBadgeConstraint.isActive = item.isLocked
 
-        valueTrailingConstraint.isActive = !isSuspicious
-        valueWithWarningConstraint.isActive = isSuspicious
+        valueTrailingConstraint.isActive = !item.showsWarning
+        valueWithWarningConstraint.isActive = item.showsWarning
     }
 }
 

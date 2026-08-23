@@ -432,6 +432,14 @@
 "LiveData.Gauge.Speed" = "Vehicle speed";
 "LiveData.Gauge.Coolant" = "Coolant temp.";
 "LiveData.Upgrade" = "UPGRADE";
+"LiveData.Unusual.Banner" = "%i parameters look unusual";
+"UnusualReadings.Title" = "Unusual readings";
+"UnusualReadings.SubTitle" = "%i values outside the expected range";
+"UnusualReadings.Parameters" = "PARAMETERS";
+"UnusualReadings.Meaning" = "WHAT IT MEANS";
+"UnusualReadings.Meaning.Text1" = "These values fall outside the plausible range for their sensor. We show exactly what the adapter reported — a value like this can mean %@ (some vehicles encode data differently).";
+"UnusualReadings.Meaning.Text1.Highlight" = "a real issue, a faulty sensor, or a misread";
+"UnusualReadings.Meaning.Text2" = "Try reconnecting and check Diagnostics for trouble codes. If it persists with no codes, it's most likely a decode quirk — not a fault.";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

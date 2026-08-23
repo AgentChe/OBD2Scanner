@@ -10,9 +10,10 @@ import RxSwift
 import RxCocoa
 
 final class LiveDataTableView: UITableView {
-    private lazy var items = [LiveDataItem]()
+    private lazy var elements = [LiveDataTableElement]()
 
     private lazy var didTapUpgradeTrigger = PublishRelay<Void>()
+    private lazy var didTapWarningTrigger = PublishRelay<Void>()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -27,11 +28,11 @@ final class LiveDataTableView: UITableView {
 
 // MARK: Public
 extension LiveDataTableView {
-    func setup(items: [LiveDataItem]) {
-        let signature = items.map { $0.signature }
-        let sameStructure = signature == self.items.map { $0.signature }
+    func setup(elements: [LiveDataTableElement]) {
+        let signature = elements.map { $0.signature }
+        let sameStructure = signature == self.elements.map { $0.signature }
 
-        self.items = items
+        self.elements = elements
 
         guard sameStructure else {
             reloadData()
@@ -48,19 +49,29 @@ extension LiveDataTableView {
     var didTapUpgrade: Signal<Void> {
         didTapUpgradeTrigger.asSignal()
     }
+
+    var didTapWarning: Signal<Void> {
+        didTapWarningTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
 extension LiveDataTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        elements.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dequeueReusableCell(
-            withIdentifier: String(describing: LiveDataTableParameterCell.self),
-            for: indexPath
-        )
+        let identifier: String
+
+        switch elements[indexPath.row] {
+        case .warning:
+            identifier = String(describing: LiveDataTableWarningCell.self)
+        case .parameter:
+            identifier = String(describing: LiveDataTableParameterCell.self)
+        }
+
+        let cell = dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         setup(cell: cell, at: indexPath)
         return cell
     }
@@ -76,6 +87,7 @@ extension LiveDataTableView: UITableViewDelegate {
 // MARK: Private
 private extension LiveDataTableView {
     func initialize() {
+        register(LiveDataTableWarningCell.self, forCellReuseIdentifier: String(describing: LiveDataTableWarningCell.self))
         register(LiveDataTableParameterCell.self, forCellReuseIdentifier: String(describing: LiveDataTableParameterCell.self))
 
         dataSource = self
@@ -91,11 +103,21 @@ private extension LiveDataTableView {
     }
 
     func setup(cell: UITableViewCell, at indexPath: IndexPath) {
-        guard let cell = cell as? LiveDataTableParameterCell else { return }
+        switch elements[indexPath.row] {
+        case .warning(let count):
+            guard let cell = cell as? LiveDataTableWarningCell else { return }
 
-        cell.setup(item: items[indexPath.row])
-        cell.didTapUpgrade = { [weak self] in
-            self?.didTapUpgradeTrigger.accept(Void())
+            cell.setup(count: count)
+            cell.didTap = { [weak self] in
+                self?.didTapWarningTrigger.accept(Void())
+            }
+        case .parameter(let item):
+            guard let cell = cell as? LiveDataTableParameterCell else { return }
+
+            cell.setup(item: item)
+            cell.didTapUpgrade = { [weak self] in
+                self?.didTapUpgradeTrigger.accept(Void())
+            }
         }
     }
 }

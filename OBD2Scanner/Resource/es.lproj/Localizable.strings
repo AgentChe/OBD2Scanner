@@ -432,6 +432,14 @@
 "LiveData.Gauge.Speed" = "Velocidad del vehículo";
 "LiveData.Gauge.Coolant" = "Temp. refrigerante";
 "LiveData.Upgrade" = "MEJORAR";
+"LiveData.Unusual.Banner" = "Lecturas inusuales: %i";
+"UnusualReadings.Title" = "Lecturas inusuales";
+"UnusualReadings.SubTitle" = "Valores fuera del rango esperado: %i";
+"UnusualReadings.Parameters" = "PARÁMETROS";
+"UnusualReadings.Meaning" = "QUÉ SIGNIFICA";
+"UnusualReadings.Meaning.Text1" = "Estos valores quedan fuera del rango plausible para su sensor. Mostramos exactamente lo que informó el adaptador: un valor así puede significar %@ (algunos vehículos codifican los datos de otra forma).";
+"UnusualReadings.Meaning.Text1.Highlight" = "una avería real, un sensor defectuoso o una lectura errónea";
+"UnusualReadings.Meaning.Text2" = "Prueba a reconectar y revisa los códigos de avería en Diagnóstico. Si persiste y no hay códigos, lo más probable es que sea un problema de descodificación, no una avería.";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

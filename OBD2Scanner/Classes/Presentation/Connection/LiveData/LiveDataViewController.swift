@@ -29,6 +29,7 @@ final class LiveDataViewController: UIViewController {
 
         let output = viewModel.configure(input: LiveDataViewModel.Input(
             didTapUpgrade: mainView.tableView.didTapUpgrade,
+            didTapWarning: mainView.tableView.didTapWarning,
             searchText: mainView.searchField.searchText
         ))
 
@@ -38,9 +39,9 @@ final class LiveDataViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        output.items
-            .drive(Binder(mainView.tableView) { base, items in
-                base.setup(items: items)
+        output.elements
+            .drive(Binder(mainView.tableView) { base, elements in
+                base.setup(elements: elements)
             })
             .disposed(by: disposeBag)
 
@@ -73,6 +74,9 @@ private extension LiveDataViewController {
         switch action {
         case .openPaygate:
             let vc = PaygateViewController.make()
+            present(vc, animated: true)
+        case .openUnusualReadings(let items):
+            let vc = UnusualReadingsViewController.make(items: items)
             present(vc, animated: true)
         }
     }

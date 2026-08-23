@@ -432,6 +432,14 @@
 "LiveData.Gauge.Speed" = "车速";
 "LiveData.Gauge.Coolant" = "冷却液温度";
 "LiveData.Upgrade" = "升级";
+"LiveData.Unusual.Banner" = "异常读数：%i";
+"UnusualReadings.Title" = "异常读数";
+"UnusualReadings.SubTitle" = "超出预期范围的数值：%i";
+"UnusualReadings.Parameters" = "参数";
+"UnusualReadings.Meaning" = "这意味着什么";
+"UnusualReadings.Meaning.Text1" = "这些数值超出了对应传感器的合理范围。我们原样显示适配器返回的数据——这样的数值可能意味着%@（有些车型的数据编码方式不同）。";
+"UnusualReadings.Meaning.Text1.Highlight" = "真实故障、传感器损坏或解析有误";
+"UnusualReadings.Meaning.Text2" = "可以尝试重新连接，并在诊断中查看故障码。如果数值依旧异常却没有故障码，多半是解析问题，而不是车辆故障。";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

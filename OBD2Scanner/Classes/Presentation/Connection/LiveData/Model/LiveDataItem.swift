@@ -12,6 +12,10 @@ struct LiveDataItem {
     let isLocked: Bool
     let isSuspicious: Bool
 
+    var showsWarning: Bool {
+        isSuspicious && !isLocked
+    }
+
     var signature: String {
         isLocked ? "\(id).locked" : id
     }
@@ -25,4 +29,5 @@ struct LiveDataGaugeItem {
 struct LiveDataContent {
     let gauges: [LiveDataGaugeItem]
     let items: [LiveDataItem]
+    let hasActiveSubscription: Bool
 }

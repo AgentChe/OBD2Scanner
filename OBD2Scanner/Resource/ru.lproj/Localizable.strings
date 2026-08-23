@@ -432,6 +432,14 @@
 "LiveData.Gauge.Speed" = "Скорость";
 "LiveData.Gauge.Coolant" = "Темп. ОЖ";
 "LiveData.Upgrade" = "УЛУЧШИТЬ";
+"LiveData.Unusual.Banner" = "Необычных показаний: %i";
+"UnusualReadings.Title" = "Необычные показания";
+"UnusualReadings.SubTitle" = "Значений вне ожидаемого диапазона: %i";
+"UnusualReadings.Parameters" = "ПАРАМЕТРЫ";
+"UnusualReadings.Meaning" = "ЧТО ЭТО ЗНАЧИТ";
+"UnusualReadings.Meaning.Text1" = "Эти значения выходят за диапазон, возможный для их датчика. Мы показываем ровно то, что прислал адаптер: такое значение может означать %@ (некоторые машины кодируют данные иначе).";
+"UnusualReadings.Meaning.Text1.Highlight" = "реальную неисправность, отказ датчика или ошибку расшифровки";
+"UnusualReadings.Meaning.Text2" = "Попробуйте переподключиться и проверьте коды ошибок в диагностике. Если значение осталось, а кодов нет, скорее всего дело в расшифровке, а не в поломке.";
 
 // MARK: HUD
 "HUD.Title" = "HUD";

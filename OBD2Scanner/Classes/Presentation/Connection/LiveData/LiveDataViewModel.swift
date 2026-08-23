@@ -11,6 +11,7 @@ import RxCocoa
 final class LiveDataViewModel {
     enum Action {
         case openPaygate
+        case openUnusualReadings([LiveDataItem])
     }
 
     private enum Constants {
@@ -26,12 +27,13 @@ final class LiveDataViewModel {
 extension LiveDataViewModel {
     struct Input {
         let didTapUpgrade: Signal<Void>
+        let didTapWarning: Signal<Void>
         let searchText: Signal<String>
     }
 
     struct Output {
         let gauges: Driver<[LiveDataGaugeItem]>
-        let items: Driver<[LiveDataItem]>
+        let elements: Driver<[LiveDataTableElement]>
         let connection: Driver<String?>
         let action: Driver<Action>
     }
@@ -41,9 +43,13 @@ extension LiveDataViewModel {
 
         return Output(
             gauges: content.map { $0.gauges },
-            items: makeItems(content: content, searchText: input.searchText),
+            elements: makeElements(content: content, searchText: input.searchText),
             connection: makeConnection(),
-            action: makeAction(didTapUpgrade: input.didTapUpgrade)
+            action: makeAction(
+                didTapUpgrade: input.didTapUpgrade,
+                didTapWarning: input.didTapWarning,
+                content: content
+            )
         )
     }
 }
@@ -94,25 +100,36 @@ private extension LiveDataViewModel {
                     )
                 }
 
-                return LiveDataContent(gauges: gaugeItems, items: items)
+                return LiveDataContent(
+                    gauges: gaugeItems,
+                    items: items,
+                    hasActiveSubscription: activeSubscription
+                )
             }
     }
 
-    func makeItems(content: Driver<LiveDataContent>, searchText: Signal<String>) -> Driver<[LiveDataItem]> {
+    func makeElements(content: Driver<LiveDataContent>, searchText: Signal<String>) -> Driver<[LiveDataTableElement]> {
         let query = searchText
             .asObservable()
             .startWith("")
             .asDriver(onErrorJustReturn: "")
 
         return Driver
-            .combineLatest(content, query) { content, query -> [LiveDataItem] in
+            .combineLatest(content, query) { content, query -> [LiveDataTableElement] in
                 let query = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
 
-                guard !query.isEmpty else {
-                    return content.items
+                let items = query.isEmpty
+                    ? content.items
+                    : content.items.filter { $0.name.lowercased().contains(query) }
+
+                let elements = items.map { LiveDataTableElement.parameter($0) }
+                let warned = content.items.filter { $0.isSuspicious }.count
+
+                guard warned > 0 else {
+                    return elements
                 }
 
-                return content.items.filter { $0.name.lowercased().contains(query) }
+                return [.warning(warned)] + elements
             }
     }
 
@@ -139,10 +156,25 @@ private extension LiveDataViewModel {
         return Driver.just(String(format: "LiveData.Connection".localized, adapter, method))
     }
 
-    func makeAction(didTapUpgrade: Signal<Void>) -> Driver<Action> {
-        didTapUpgrade
+    func makeAction(didTapUpgrade: Signal<Void>,
+                    didTapWarning: Signal<Void>,
+                    content: Driver<LiveDataContent>) -> Driver<Action> {
+        let openPaygate = didTapUpgrade
             .map { Action.openPaygate }
             .asDriver(onErrorDriveWith: .never())
+
+        let openUnusualReadings = didTapWarning
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(content) { _, content -> Action in
+                guard content.hasActiveSubscription else {
+                    return .openPaygate
+                }
+
+                return .openUnusualReadings(content.items.filter { $0.isSuspicious })
+            }
+
+        return Driver
+            .merge(openPaygate, openUnusualReadings)
     }
 
     func makeActiveSubscription() -> Driver<Bool> {

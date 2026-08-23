@@ -28,12 +28,19 @@ final class LiveDataViewController: UIViewController {
         navigationItem.titleView = titleView
 
         let output = viewModel.configure(input: LiveDataViewModel.Input(
-            didTapUpgrade: mainView.tableView.didTapUpgrade
+            didTapUpgrade: mainView.tableView.didTapUpgrade,
+            searchText: mainView.searchField.searchText
         ))
 
-        output.elements
-            .drive(Binder(mainView.tableView) { base, elements in
-                base.setup(elements: elements)
+        output.gauges
+            .drive(Binder(mainView.dashboardView) { base, gauges in
+                base.setup(items: gauges)
+            })
+            .disposed(by: disposeBag)
+
+        output.items
+            .drive(Binder(mainView.tableView) { base, items in
+                base.setup(items: items)
             })
             .disposed(by: disposeBag)
 

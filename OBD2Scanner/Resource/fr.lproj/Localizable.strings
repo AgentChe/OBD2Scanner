@@ -418,6 +418,7 @@
 "LiveData.Connection.MFi" = "Bluetooth MFi";
 "LiveData.DemoMode" = "Mode démo • données d'exemple";
 "LiveData.Dashboard.Title" = "Tableau de bord";
+"LiveData.Search.Placeholder" = "Rechercher une mesure";
 "LiveData.Gauge.RPM" = "Régime moteur";
 "LiveData.Gauge.Speed" = "Vitesse du véhicule";
 "LiveData.Gauge.Coolant" = "Temp. liquide refr.";

@@ -10,9 +10,18 @@ struct LiveDataItem {
     let name: String
     let value: LiveDataValue?
     let isLocked: Bool
+    
+    var signature: String {
+        isLocked ? "\(id).locked" : id
+    }
 }
 
 struct LiveDataGaugeItem {
     let gauge: LiveDataGauge
     let value: LiveDataValue?
+}
+
+struct LiveDataContent {
+    let gauges: [LiveDataGaugeItem]
+    let items: [LiveDataItem]
 }

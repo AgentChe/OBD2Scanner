@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class LiveDataTableView: UITableView {
-    private lazy var elements = [LiveDataTableElement]()
+    private lazy var items = [LiveDataItem]()
 
     private lazy var didTapUpgradeTrigger = PublishRelay<Void>()
 
@@ -27,11 +27,11 @@ final class LiveDataTableView: UITableView {
 
 // MARK: Public
 extension LiveDataTableView {
-    func setup(elements: [LiveDataTableElement]) {
-        let signature = elements.map { $0.signature }
-        let sameStructure = signature == self.elements.map { $0.signature }
+    func setup(items: [LiveDataItem]) {
+        let signature = items.map { $0.signature }
+        let sameStructure = signature == self.items.map { $0.signature }
 
-        self.elements = elements
+        self.items = items
 
         guard sameStructure else {
             reloadData()
@@ -53,20 +53,14 @@ extension LiveDataTableView {
 // MARK: UITableViewDataSource
 extension LiveDataTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        elements.count
+        items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier: String
-
-        switch elements[indexPath.row] {
-        case .gauges:
-            identifier = String(describing: LiveDataTableGaugesCell.self)
-        case .parameter:
-            identifier = String(describing: LiveDataTableParameterCell.self)
-        }
-
-        let cell = dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = dequeueReusableCell(
+            withIdentifier: String(describing: LiveDataTableParameterCell.self),
+            for: indexPath
+        )
         setup(cell: cell, at: indexPath)
         return cell
     }
@@ -82,7 +76,6 @@ extension LiveDataTableView: UITableViewDelegate {
 // MARK: Private
 private extension LiveDataTableView {
     func initialize() {
-        register(LiveDataTableGaugesCell.self, forCellReuseIdentifier: String(describing: LiveDataTableGaugesCell.self))
         register(LiveDataTableParameterCell.self, forCellReuseIdentifier: String(describing: LiveDataTableParameterCell.self))
 
         dataSource = self
@@ -93,21 +86,16 @@ private extension LiveDataTableView {
         showsVerticalScrollIndicator = false
         rowHeight = UITableView.automaticDimension
         estimatedRowHeight = 60.scale
-        contentInset = UIEdgeInsets(t: 8.scale, b: 16.scale)
-        setContentOffset(CGPoint(x: 0, y: -8.scale), animated: false)
+        keyboardDismissMode = .onDrag
+        contentInset = UIEdgeInsets(b: 16.scale)
     }
 
     func setup(cell: UITableViewCell, at indexPath: IndexPath) {
-        switch elements[indexPath.row] {
-        case .gauges(let items):
-            (cell as? LiveDataTableGaugesCell)?.setup(items: items)
-        case .parameter(let item):
-            guard let cell = cell as? LiveDataTableParameterCell else { return }
+        guard let cell = cell as? LiveDataTableParameterCell else { return }
 
-            cell.setup(item: item)
-            cell.didTapUpgrade = { [weak self] in
-                self?.didTapUpgradeTrigger.accept(Void())
-            }
+        cell.setup(item: items[indexPath.row])
+        cell.didTapUpgrade = { [weak self] in
+            self?.didTapUpgradeTrigger.accept(Void())
         }
     }
 }

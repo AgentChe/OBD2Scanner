@@ -427,6 +427,7 @@
 "LiveData.Connection.MFi" = "Bluetooth MFi";
 "LiveData.DemoMode" = "Demomodus • Beispieldaten";
 "LiveData.Dashboard.Title" = "Dashboard";
+"LiveData.Search.Placeholder" = "Messwert suchen";
 "LiveData.Gauge.RPM" = "Motordrehzahl";
 "LiveData.Gauge.Speed" = "Geschwindigkeit";
 "LiveData.Gauge.Coolant" = "Kühlmitteltemp.";

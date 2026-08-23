@@ -427,6 +427,7 @@
 "LiveData.Connection.MFi" = "Bluetooth MFi";
 "LiveData.DemoMode" = "Modo demo • datos de ejemplo";
 "LiveData.Dashboard.Title" = "Panel";
+"LiveData.Search.Placeholder" = "Buscar métrica";
 "LiveData.Gauge.RPM" = "Régimen del motor";
 "LiveData.Gauge.Speed" = "Velocidad del vehículo";
 "LiveData.Gauge.Coolant" = "Temp. refrigerante";

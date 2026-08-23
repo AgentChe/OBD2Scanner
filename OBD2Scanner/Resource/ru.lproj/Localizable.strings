@@ -427,6 +427,7 @@
 "LiveData.Connection.MFi" = "Bluetooth MFi";
 "LiveData.DemoMode" = "Демо-режим • демо-данные";
 "LiveData.Dashboard.Title" = "Панель";
+"LiveData.Search.Placeholder" = "Поиск параметра";
 "LiveData.Gauge.RPM" = "Обороты двигателя";
 "LiveData.Gauge.Speed" = "Скорость";
 "LiveData.Gauge.Coolant" = "Темп. ОЖ";

@@ -48,7 +48,7 @@
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
 		7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */; };
 		953209E60F0DBD0746A1222F /* RecallAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EB0FD06E95E074FD207F59 /* RecallAlertsView.swift */; };
-		958CD685999D7D5E28E59CB2 /* LiveDataTableGaugesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */; };
+		958CD685999D7D5E28E59CB2 /* LiveDataDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAE39250E551551C04661E /* LiveDataDashboardView.swift */; };
 		9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
 		A13EF29885BA491A233FF579 /* ProfileAttributesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0357D544F373D4050C509F /* ProfileAttributesRequest.swift */; };
@@ -65,7 +65,6 @@
 		C470089BCAD9ABF80A9130C0 /* RecallSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */; };
 		C78C4AA9B1EDC29F0F06F626 /* PushNotificationsAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E8A9504ADA428A895763F1 /* PushNotificationsAuthorizationStatus.swift */; };
 		C7A1FD4E96AB9A30F2D36D69 /* OBDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CD11EDD2616D50EC7C1FF /* OBDValue.swift */; };
-		C827DE6C0626C80ADCC754AF /* LiveDataTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */; };
 		CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */ = {isa = PBXBuildFile; fileRef = CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */; };
 		CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */; };
 		D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B781E75DE91D333084F2F /* BLETransport.swift */; };
@@ -363,7 +362,6 @@
 /* Begin PBXFileReference section */
 		01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableParameterCell.swift; sourceTree = "<group>"; };
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
-		03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableElement.swift; sourceTree = "<group>"; };
 		05CBF36F43D677D793E225A4 /* RecallAlertsObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallAlertsObserver.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
@@ -373,7 +371,7 @@
 		0BDB0000000000000000FE04 /* vw-transporter-t5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "vw-transporter-t5.json"; sourceTree = "<group>"; };
 		0BDB0000000000000000FE05 /* peugeot-407.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "peugeot-407.json"; sourceTree = "<group>"; };
 		1374B247BCCADB42F2D3584E /* Pods-OBD2Scanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OBD2Scanner.release.xcconfig"; path = "Target Support Files/Pods-OBD2Scanner/Pods-OBD2Scanner.release.xcconfig"; sourceTree = "<group>"; };
-		17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableGaugesCell.swift; sourceTree = "<group>"; };
+		17CAE39250E551551C04661E /* LiveDataDashboardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataDashboardView.swift; sourceTree = "<group>"; };
 		1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-camry.json"; sourceTree = "<group>"; };
 		1DBC6BC808F9981B53D790B3 /* LiveDataReadings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataReadings.swift; sourceTree = "<group>"; };
 		273807A524EEB0F1FDAD9251 /* RecallVINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINViewController.swift; sourceTree = "<group>"; };
@@ -805,7 +803,6 @@
 			isa = PBXGroup;
 			children = (
 				35771C8BF1600353788C2089 /* LiveDataGaugeView.swift */,
-				17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */,
 				5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */,
 				01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */,
 			);
@@ -832,7 +829,6 @@
 			isa = PBXGroup;
 			children = (
 				4C33614A812F50E3471D6500 /* Cell */,
-				03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */,
 				9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */,
 			);
 			path = TableView;
@@ -2363,6 +2359,7 @@
 			children = (
 				58D6C3E2837461FE36CA7896 /* TableView */,
 				65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */,
+				17CAE39250E551551C04661E /* LiveDataDashboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2811,10 +2808,9 @@
 				51B5D1A424A535C841D59249 /* LiveDataReadings.swift in Sources */,
 				B601AA141AFBE26184D56886 /* LiveDataItem.swift in Sources */,
 				3CBE527CB4B6CE75E0DFE47E /* LiveDataTitleView.swift in Sources */,
-				C827DE6C0626C80ADCC754AF /* LiveDataTableElement.swift in Sources */,
 				CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */,
 				306621564DE4A899A48DD220 /* LiveDataGaugeView.swift in Sources */,
-				958CD685999D7D5E28E59CB2 /* LiveDataTableGaugesCell.swift in Sources */,
+				958CD685999D7D5E28E59CB2 /* LiveDataDashboardView.swift in Sources */,
 				0F27A64EF30C805167FB8812 /* LiveDataUpgradeBadgeView.swift in Sources */,
 				9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */,
 				2B7F58F2E27455E7860105D9 /* MarkRecallRequest.swift in Sources */,

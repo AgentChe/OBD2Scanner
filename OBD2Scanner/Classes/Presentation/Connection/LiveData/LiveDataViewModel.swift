@@ -26,17 +26,22 @@ final class LiveDataViewModel {
 extension LiveDataViewModel {
     struct Input {
         let didTapUpgrade: Signal<Void>
+        let searchText: Signal<String>
     }
 
     struct Output {
-        let elements: Driver<[LiveDataTableElement]>
+        let gauges: Driver<[LiveDataGaugeItem]>
+        let items: Driver<[LiveDataItem]>
         let connection: Driver<String?>
         let action: Driver<Action>
     }
 
     func configure(input: Input) -> Output {
-        Output(
-            elements: makeElements(),
+        let content = makeContent()
+
+        return Output(
+            gauges: content.map { $0.gauges },
+            items: makeItems(content: content, searchText: input.searchText),
             connection: makeConnection(),
             action: makeAction(didTapUpgrade: input.didTapUpgrade)
         )
@@ -45,7 +50,7 @@ extension LiveDataViewModel {
 
 // MARK: Private
 private extension LiveDataViewModel {
-    func makeElements() -> Driver<[LiveDataTableElement]> {
+    func makeContent() -> Driver<LiveDataContent> {
         let readings = service
             .liveData(categories: nil)
             .scan(into: LiveDataReadings()) { readings, reading in
@@ -61,7 +66,7 @@ private extension LiveDataViewModel {
 
         return Driver
             .combineLatest(readings, units, makeActiveSubscription())
-            .map { readings, units, activeSubscription -> [LiveDataTableElement] in
+            .map { readings, units, activeSubscription -> LiveDataContent in
                 let all = readings.all
                 let gauges = LiveDataGauge.allCases.map { gauge in
                     all.first { gauge.matches($0.parameter) }
@@ -70,15 +75,15 @@ private extension LiveDataViewModel {
                 let freeIDs = Set(gauges.compactMap { $0?.parameter.id })
                 let ordered = gauges.compactMap { $0 } + all.filter { !freeIDs.contains($0.parameter.id) }
 
-                let items = ordered.map { reading -> LiveDataTableElement in
+                let items = ordered.map { reading -> LiveDataItem in
                     let isLocked = !activeSubscription && !freeIDs.contains(reading.parameter.id)
 
-                    return .parameter(LiveDataItem(
+                    return LiveDataItem(
                         id: reading.parameter.id,
                         name: reading.parameter.name,
                         value: isLocked ? nil : LiveDataValue(reading: reading, units: units),
                         isLocked: isLocked
-                    ))
+                    )
                 }
 
                 let gaugeItems = zip(LiveDataGauge.allCases, gauges).map { gauge, reading in
@@ -88,7 +93,25 @@ private extension LiveDataViewModel {
                     )
                 }
 
-                return [.gauges(gaugeItems)] + items
+                return LiveDataContent(gauges: gaugeItems, items: items)
+            }
+    }
+
+    func makeItems(content: Driver<LiveDataContent>, searchText: Signal<String>) -> Driver<[LiveDataItem]> {
+        let query = searchText
+            .asObservable()
+            .startWith("")
+            .asDriver(onErrorJustReturn: "")
+
+        return Driver
+            .combineLatest(content, query) { content, query -> [LiveDataItem] in
+                let query = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+
+                guard !query.isEmpty else {
+                    return content.items
+                }
+
+                return content.items.filter { $0.name.lowercased().contains(query) }
             }
     }
 

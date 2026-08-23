@@ -427,6 +427,7 @@
 "LiveData.Connection.MFi" = "Bluetooth MFi";
 "LiveData.DemoMode" = "演示模式 • 示例数据";
 "LiveData.Dashboard.Title" = "仪表盘";
+"LiveData.Search.Placeholder" = "搜索参数";
 "LiveData.Gauge.RPM" = "发动机转速";
 "LiveData.Gauge.Speed" = "车速";
 "LiveData.Gauge.Coolant" = "冷却液温度";

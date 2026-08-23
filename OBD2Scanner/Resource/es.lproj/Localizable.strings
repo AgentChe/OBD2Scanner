@@ -305,10 +305,9 @@
 
 // MARK: FreezeFrame
 "FreezeFrame.Title" = "Fotograma congelado";
-"FreezeFrame.Status.Confirmed" = "CONFIRMADO";
-"FreezeFrame.Status.Pending" = "PENDIENTE";
-"FreezeFrame.Status.Permanent" = "PERMANENTE";
-"FreezeFrame.Captured" = "Capturado %@";
+"FreezeFrame.Status.Confirmed" = "Confirmado";
+"FreezeFrame.Status.Pending" = "Pendiente";
+"FreezeFrame.Status.Permanent" = "Permanente";
 "FreezeFrame.JustNow" = "ahora mismo";
 "FreezeFrame.Empty.Title" = "NO HA PASADO\nNADA";
 "FreezeFrame.Empty.SubTitle" = "En el momento en que aparece un error, tu coche toma una instantánea de lo que estaba haciendo el motor.";

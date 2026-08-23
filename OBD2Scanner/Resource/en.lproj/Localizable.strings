@@ -305,10 +305,9 @@
 
 // MARK: FreezeFrame
 "FreezeFrame.Title" = "Freeze frame";
-"FreezeFrame.Status.Confirmed" = "CONFIRMED";
-"FreezeFrame.Status.Pending" = "PENDING";
-"FreezeFrame.Status.Permanent" = "PERMANENT";
-"FreezeFrame.Captured" = "Captured %@";
+"FreezeFrame.Status.Confirmed" = "Confirmed";
+"FreezeFrame.Status.Pending" = "Pending";
+"FreezeFrame.Status.Permanent" = "Permanent";
 "FreezeFrame.JustNow" = "just now";
 "FreezeFrame.Empty.Title" = "NOTHING\nHAPPENED";
 "FreezeFrame.Empty.SubTitle" = "The moment an error appears, your car takes a snapshot of what the engine was doing.";

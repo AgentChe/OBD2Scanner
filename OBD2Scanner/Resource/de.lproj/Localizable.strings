@@ -305,10 +305,9 @@
 
 // MARK: FreezeFrame
 "FreezeFrame.Title" = "Freeze Frame";
-"FreezeFrame.Status.Confirmed" = "BESTÄTIGT";
-"FreezeFrame.Status.Pending" = "AUSSTEHEND";
-"FreezeFrame.Status.Permanent" = "PERMANENT";
-"FreezeFrame.Captured" = "Aufgezeichnet %@";
+"FreezeFrame.Status.Confirmed" = "Bestätigt";
+"FreezeFrame.Status.Pending" = "Ausstehend";
+"FreezeFrame.Status.Permanent" = "Permanent";
 "FreezeFrame.JustNow" = "gerade eben";
 "FreezeFrame.Empty.Title" = "NICHTS\nPASSIERT";
 "FreezeFrame.Empty.SubTitle" = "Sobald ein Fehler auftritt, macht dein Auto eine Momentaufnahme davon, was der Motor gerade tat.";

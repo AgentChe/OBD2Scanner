@@ -305,10 +305,9 @@
 
 // MARK: FreezeFrame
 "FreezeFrame.Title" = "Стоп-кадр";
-"FreezeFrame.Status.Confirmed" = "ПОДТВЕРЖДЁН";
-"FreezeFrame.Status.Pending" = "ОЖИДАЕТ";
-"FreezeFrame.Status.Permanent" = "ПОСТОЯННЫЙ";
-"FreezeFrame.Captured" = "Записано %@";
+"FreezeFrame.Status.Confirmed" = "Подтверждён";
+"FreezeFrame.Status.Pending" = "Ожидает";
+"FreezeFrame.Status.Permanent" = "Постоянный";
 "FreezeFrame.JustNow" = "только что";
 "FreezeFrame.Empty.Title" = "НИЧЕГО\nНЕ СЛУЧИЛОСЬ";
 "FreezeFrame.Empty.SubTitle" = "В момент появления ошибки автомобиль делает снимок того, что происходило с двигателем.";

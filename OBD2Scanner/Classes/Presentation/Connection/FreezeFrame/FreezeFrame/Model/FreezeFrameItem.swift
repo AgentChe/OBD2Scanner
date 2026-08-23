@@ -54,7 +54,7 @@ extension FreezeFrameItem {
     var statusColor: UIColor {
         switch dtc.origin {
         case .stored:
-            return Appearance.color_28D799
+            return Appearance.color_D7C828
         case .pending:
             return Appearance.color_FF6B35
         case .permanent:

@@ -10,7 +10,8 @@ struct LiveDataItem {
     let name: String
     let value: LiveDataValue?
     let isLocked: Bool
-    
+    let isSuspicious: Bool
+
     var signature: String {
         isLocked ? "\(id).locked" : id
     }

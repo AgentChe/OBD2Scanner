@@ -8,6 +8,7 @@
 struct LiveDataReadings {
     private var order = [String]()
     private var readings = [String: ParameterReading]()
+    private var suspicious = Set<String>()
 }
 
 // MARK: Public
@@ -20,9 +21,17 @@ extension LiveDataReadings {
         }
 
         readings[id] = reading
+
+        if reading.isSuspicious {
+            suspicious.insert(id)
+        }
     }
 
     var all: [ParameterReading] {
         order.compactMap { readings[$0] }
+    }
+
+    func isSuspicious(id: String) -> Bool {
+        suspicious.contains(id)
     }
 }

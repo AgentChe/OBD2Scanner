@@ -520,6 +520,19 @@ private extension DemoVehicleSimulator {
         case "std.baro":
             return 99
         default:
+            return misreadNumber(for: id, at: t)
+        }
+    }
+
+    func misreadNumber(for id: String, at t: Double) -> Double? {
+        switch id {
+        case "std.stft_2":
+            return -128 - noise(t, seed: 17, amplitude: 0.6)
+        case "std.o2_b1s3_v":
+            return 4.98 + noise(t, seed: 19, amplitude: 0.03)
+        case "std.egr_error":
+            return 158 + noise(t, seed: 23, amplitude: 1.4)
+        default:
             return nil
         }
     }

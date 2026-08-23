@@ -663,12 +663,14 @@ private extension DiagnosticEngine {
                               let value = ParameterDecoder.decode(payload: data, parameter: parameter) else {
                             continue
                         }
-                        let reading = ParameterReading(profileID: channel.profileID,
+                        var reading = ParameterReading(profileID: channel.profileID,
                                                        ecuID: channel.definition.id,
                                                        parameter: parameter,
                                                        value: value,
                                                        capturedAt: Date())
-                        self.auditor?.record(reading)
+                        if let verdict = self.auditor?.record(reading) {
+                            reading.verdict = verdict
+                        }
                         self.emit(reading)
                     }
                 }

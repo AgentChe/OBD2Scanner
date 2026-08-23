@@ -82,7 +82,8 @@ private extension LiveDataViewModel {
                         id: reading.parameter.id,
                         name: reading.parameter.name,
                         value: isLocked ? nil : LiveDataValue(reading: reading, units: units),
-                        isLocked: isLocked
+                        isLocked: isLocked,
+                        isSuspicious: readings.isSuspicious(id: reading.parameter.id)
                     )
                 }
 

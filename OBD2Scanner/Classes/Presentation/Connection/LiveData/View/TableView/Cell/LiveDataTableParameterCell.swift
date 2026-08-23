@@ -13,6 +13,7 @@ final class LiveDataTableParameterCell: UITableViewCell {
     lazy var container = makeContainer()
     lazy var nameLabel = makeNameLabel()
     lazy var valueLabel = makeValueLabel()
+    lazy var warningView = makeWarningView()
     lazy var upgradeBadgeView = makeUpgradeBadgeView()
 
     private lazy var nameAttrs = TextAttributes()
@@ -24,9 +25,14 @@ final class LiveDataTableParameterCell: UITableViewCell {
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.NotoSans.medium(size: 14.scale))
         .textAlignment(.right)
+    private lazy var suspiciousValueAttrs = valueAttrs
+        .textColor(Appearance.color_F5B239)
 
     private lazy var nameWithValueConstraint = nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: valueLabel.leadingAnchor, constant: -12.scale)
     private lazy var nameWithBadgeConstraint = nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: upgradeBadgeView.leadingAnchor, constant: -12.scale)
+
+    private lazy var valueTrailingConstraint = valueLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale)
+    private lazy var valueWithWarningConstraint = valueLabel.trailingAnchor.constraint(equalTo: warningView.leadingAnchor, constant: -8.scale)
 
     private var isLocked = false
 
@@ -47,14 +53,21 @@ extension LiveDataTableParameterCell {
     func setup(item: LiveDataItem) {
         isLocked = item.isLocked
 
+        let isSuspicious = item.isSuspicious && !item.isLocked
+
         nameLabel.attributedText = item.name.attributed(with: nameAttrs)
-        valueLabel.attributedText = (item.value?.text ?? "").attributed(with: valueAttrs)
+        valueLabel.attributedText = (item.value?.text ?? "")
+            .attributed(with: isSuspicious ? suspiciousValueAttrs : valueAttrs)
 
         valueLabel.isHidden = item.isLocked
+        warningView.isHidden = !isSuspicious
         upgradeBadgeView.isHidden = !item.isLocked
 
         nameWithValueConstraint.isActive = !item.isLocked
         nameWithBadgeConstraint.isActive = item.isLocked
+
+        valueTrailingConstraint.isActive = !isSuspicious
+        valueWithWarningConstraint.isActive = isSuspicious
     }
 }
 
@@ -96,8 +109,14 @@ private extension LiveDataTableParameterCell {
         ])
 
         NSLayoutConstraint.activate([
-            valueLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
             valueLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            warningView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
+            warningView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            warningView.widthAnchor.constraint(equalToConstant: 16.scale),
+            warningView.heightAnchor.constraint(equalToConstant: 16.scale)
         ])
 
         NSLayoutConstraint.activate([
@@ -129,6 +148,18 @@ private extension LiveDataTableParameterCell {
         let view = UILabel()
         view.setContentHuggingPriority(.required, for: .horizontal)
         view.setContentCompressionResistancePriority(.required, for: .horizontal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        return view
+    }
+
+    func makeWarningView() -> UIImageView {
+        let configuration = UIImage.SymbolConfiguration(pointSize: 16.scale, weight: .semibold)
+
+        let view = UIImageView(image: UIImage(systemName: "exclamationmark.circle.fill", withConfiguration: configuration))
+        view.tintColor = Appearance.color_F5B239
+        view.contentMode = .scaleAspectFit
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

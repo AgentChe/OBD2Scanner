@@ -54,7 +54,26 @@ struct ParameterReading: Equatable {
     let parameter: OBDParameter
     let value: OBDValue
     let capturedAt: Date
+    var verdict: ReadingVerdict
+
+    init(profileID: String,
+         ecuID: String,
+         parameter: OBDParameter,
+         value: OBDValue,
+         capturedAt: Date,
+         verdict: ReadingVerdict? = nil) {
+        self.profileID = profileID
+        self.ecuID = ecuID
+        self.parameter = parameter
+        self.value = value
+        self.capturedAt = capturedAt
+        self.verdict = verdict ?? ReadingValidator.validate(value: value,
+                                                            parameter: parameter,
+                                                            reference: nil)
+    }
 
     /// Готовая строка для UI, напр. `"850 rpm"`.
     var formatted: String { value.formatted(unit: parameter.unit) }
+
+    var isSuspicious: Bool { verdict != .ok }
 }

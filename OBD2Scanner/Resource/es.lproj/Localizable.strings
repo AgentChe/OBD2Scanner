@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "SOLUCIÓN";
 "RecallHistory.Notes" = "NOTAS";
 "RecallHistory.MarkAsCompleted" = "Marcar como completada";
+"RecallHistory.Alerts.Title" = "Avisos de revisiones";
+"RecallHistory.Alerts.SubTitle" = "Entérate el día que aparezca";
+"RecallHistory.Alerts.Action" = "Activar";
 
 // MARK: RecallVIN
 "RecallVIN.Title" = "LAS REVISIONES NECESITAN VIN";

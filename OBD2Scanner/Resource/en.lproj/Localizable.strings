@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "REMEDY";
 "RecallHistory.Notes" = "NOTES";
 "RecallHistory.MarkAsCompleted" = "Mark completed";
+"RecallHistory.Alerts.Title" = "Recall alerts";
+"RecallHistory.Alerts.SubTitle" = "Know the day it appears";
+"RecallHistory.Alerts.Action" = "Turn on";
 
 // MARK: RecallVIN
 "RecallVIN.Title" = "RECALLS NEED A VIN";

@@ -38,6 +38,8 @@
 		5B90E04CC3A4B5FCB891FFD7 /* RecallVINCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BF43F540311D3E8111E19 /* RecallVINCardView.swift */; };
 		5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF426959D192FD7255A87A6B /* Hex.swift */; };
 		604A073C9366247228F4CAC6 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C090BBC91DFBA0AF0EB597 /* OBDService.swift */; };
+		63FA51F2A4F70D228540B613 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BF0DD5E40EEBC8E56357E /* Weak.swift */; };
+		654CD1874BBC587249F3DE82 /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4272D71F7DE6B9CE06DDA87C /* PushNotificationsManager.swift */; };
 		66687EDF92AACB5F088AEBAA /* RecallStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CAE7D82FEF78E3DAAC951 /* RecallStatusView.swift */; };
 		6FFF703BDA18ECA8EA338F46 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6831062D6C1ED084752EE9 /* ParameterDecoder.swift */; };
 		72C5F05142AF434D27A81DD0 /* RecallVINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496CAFABEDBE674F4EE5D41B /* RecallVINView.swift */; };
@@ -45,9 +47,12 @@
 		7394EA9B5BB74430ADE21955 /* ProfileMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AF97610791A5BEC7A97C5 /* ProfileMatcher.swift */; };
 		7B91D42A99D255E6599BB575 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353490CD5355CCA8009FFC5 /* ProfileStore.swift */; };
 		7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */; };
+		953209E60F0DBD0746A1222F /* RecallAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EB0FD06E95E074FD207F59 /* RecallAlertsView.swift */; };
 		958CD685999D7D5E28E59CB2 /* LiveDataTableGaugesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CAE39250E551551C04661E /* LiveDataTableGaugesCell.swift */; };
 		9728DA28095A63E7F6FB3FB7 /* LiveDataTableParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */; };
 		9C5387687B42AC940395A3B7 /* DTCDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */; };
+		A13EF29885BA491A233FF579 /* ProfileAttributesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0357D544F373D4050C509F /* ProfileAttributesRequest.swift */; };
+		A190BAF637B5CA577DDC3DCF /* RecallAlertsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBF36F43D677D793E225A4 /* RecallAlertsObserver.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
 		A6F4537F2EE2BA0872A87FE1 /* RecallHistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */; };
 		AC10C0DE0000000000000021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC10C0DE0000000000000020 /* InfoPlist.strings */; };
@@ -58,11 +63,13 @@
 		BB0E7D2505CBF3E4566AC5F5 /* gm.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E599C4FFC96757C382E2F8 /* gm.json */; };
 		C39DB6CC4101E8007C2A76F1 /* ECUChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF865F61B7376BC458FA2CE3 /* ECUChannel.swift */; };
 		C470089BCAD9ABF80A9130C0 /* RecallSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */; };
+		C78C4AA9B1EDC29F0F06F626 /* PushNotificationsAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E8A9504ADA428A895763F1 /* PushNotificationsAuthorizationStatus.swift */; };
 		C7A1FD4E96AB9A30F2D36D69 /* OBDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CD11EDD2616D50EC7C1FF /* OBDValue.swift */; };
 		C827DE6C0626C80ADCC754AF /* LiveDataTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */; };
 		CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */ = {isa = PBXBuildFile; fileRef = CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */; };
 		CBCB1932E31E1EABAF50638F /* LiveDataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680308B684D74F2DC7AA58E /* LiveDataTableView.swift */; };
 		D04422F0E1689D9B9D1DFBFC /* BLETransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B781E75DE91D333084F2F /* BLETransport.swift */; };
+		D1C55AC41EEBE160526FC845 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF1DB9A6070C0C445B07F0 /* PushNotificationsModel.swift */; };
 		D9C2AE41F7256D5A30C813C2 /* RecallVINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273807A524EEB0F1FDAD9251 /* RecallVINViewController.swift */; };
 		DE0A5C6F2FF29BDE003D95B0 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */; };
 		DE0A5C712FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A5C702FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf */; };
@@ -206,6 +213,7 @@
 		DE2F0B3C2A6AC64700471667 /* GetVehicleYearsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */; };
 		DE2F0B412A6AC7E200471667 /* GetVehicleBrandsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */; };
 		DE2F0B462A6AC86300471667 /* GetVehicleModelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */; };
+		DE49CA4E303B2FD8008A492B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE49CA4D303B2FD8008A492B /* GoogleService-Info.plist */; };
 		DE4B7E5B2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */; };
 		DE4B7E5D2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */; };
 		DE4B7E5F2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */; };
@@ -344,6 +352,7 @@
 		E0EA6810E6E91D2BE1081B51 /* OBDParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */; };
 		E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */; };
 		E84B2168D66344D785170B9B /* RecallDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94AB4707684AC8E5C1D88B1 /* RecallDetailsView.swift */; };
+		EB5E084F437E3D27BA0BA589 /* NotificationTokenObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88BE2DDE24E6F90899FE21 /* NotificationTokenObserver.swift */; };
 		F0D6035AD1F588E6237BAE0D /* RecallVINViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EFB1A667006E40C024F124 /* RecallVINViewModel.swift */; };
 		F213A14FEF73287CC827BF24 /* ELM327Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC60C496368C976B78E1EAB /* ELM327Session.swift */; };
 		F56FFC28B06E753B1ED444C0 /* RecallAdvisoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAF3E8E5A3618A20DA1EBD /* RecallAdvisoryView.swift */; };
@@ -355,6 +364,7 @@
 		01BFC903E1F56F798F7E59E0 /* LiveDataTableParameterCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableParameterCell.swift; sourceTree = "<group>"; };
 		0353490CD5355CCA8009FFC5 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
 		03E6C83906CB487250DABBFE /* LiveDataTableElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTableElement.swift; sourceTree = "<group>"; };
+		05CBF36F43D677D793E225A4 /* RecallAlertsObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallAlertsObserver.swift; sourceTree = "<group>"; };
 		09B93393D4B6B9C724E8E9CF /* WiFiTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTransport.swift; sourceTree = "<group>"; };
 		0B1F1ADB12799C57BADB2F54 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
 		0BDB0000000000000000FE01 /* toyota-prius-zw30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-prius-zw30.json"; sourceTree = "<group>"; };
@@ -374,11 +384,14 @@
 		35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallSummaryView.swift; sourceTree = "<group>"; };
 		35CB1CFF4D5346EEA165495B /* ReadingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingValidator.swift; sourceTree = "<group>"; };
 		39EFB1A667006E40C024F124 /* RecallVINViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINViewModel.swift; sourceTree = "<group>"; };
+		4272D71F7DE6B9CE06DDA87C /* PushNotificationsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushNotificationsManager.swift; sourceTree = "<group>"; };
 		496CAFABEDBE674F4EE5D41B /* RecallVINView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallVINView.swift; sourceTree = "<group>"; };
 		5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeManager.swift; sourceTree = "<group>"; };
 		5635E1DB0B642447CA206FAA /* LiveDataUpgradeBadgeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataUpgradeBadgeView.swift; sourceTree = "<group>"; };
 		65BF292F12C8BBC61CDB1D24 /* LiveDataTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataTitleView.swift; sourceTree = "<group>"; };
 		6AA8C6A1C92112EF403F1228 /* LiveDataValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataValue.swift; sourceTree = "<group>"; };
+		6BFF1DB9A6070C0C445B07F0 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
+		6C0357D544F373D4050C509F /* ProfileAttributesRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileAttributesRequest.swift; sourceTree = "<group>"; };
 		6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParameter.swift; sourceTree = "<group>"; };
 		749CD11EDD2616D50EC7C1FF /* OBDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDValue.swift; sourceTree = "<group>"; };
 		787ECAED237EB6EF980917C6 /* LiveDataItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveDataItem.swift; sourceTree = "<group>"; };
@@ -410,6 +423,7 @@
 		AC10C0DE0000000000000014 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC10C0DE0000000000000015 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC10C0DE0000000000000016 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		AC2BF0DD5E40EEBC8E56357E /* Weak.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		AF426959D192FD7255A87A6B /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		AFAF60FA4B2D89A876BB2FF1 /* UDSSnapshotParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSSnapshotParser.swift; sourceTree = "<group>"; };
 		B52CAE7D82FEF78E3DAAC951 /* RecallStatusView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallStatusView.swift; sourceTree = "<group>"; };
@@ -419,6 +433,7 @@
 		C6AD63B173D1404555BAE5F6 /* ECUDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUDefinition.swift; sourceTree = "<group>"; };
 		C721615D3BB4D6A68D664D43 /* RecallDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallDetailsViewController.swift; sourceTree = "<group>"; };
 		CA91ED32E91DB17C0F4D6DF9 /* toyota-tnga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "toyota-tnga.json"; sourceTree = "<group>"; };
+		CB88BE2DDE24E6F90899FE21 /* NotificationTokenObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationTokenObserver.swift; sourceTree = "<group>"; };
 		D94AB4707684AC8E5C1D88B1 /* RecallDetailsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallDetailsView.swift; sourceTree = "<group>"; };
 		DE0A5C6E2FF29BDE003D95B0 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		DE0A5C702FF29BE4003D95B0 /* NotoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -564,6 +579,8 @@
 		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
+		DE49CA4C303B2D87008A492B /* OBD2Scanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OBD2Scanner.entitlements; sourceTree = "<group>"; };
+		DE49CA4D303B2FD8008A492B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
 		DE4B7E5C2FF2A09400973BA9 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
 		DE4B7E5E2FF2A09800973BA9 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -698,9 +715,11 @@
 		DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsView.swift; sourceTree = "<group>"; };
 		DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameGaugeView.swift; sourceTree = "<group>"; };
 		DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameParameterRowView.swift; sourceTree = "<group>"; };
+		E8EB0FD06E95E074FD207F59 /* RecallAlertsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallAlertsView.swift; sourceTree = "<group>"; };
 		EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCDecoder.swift; sourceTree = "<group>"; };
 		EB65549DC99D42ADF3C03946 /* obd2-standard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "obd2-standard.json"; sourceTree = "<group>"; };
 		ECC60C496368C976B78E1EAB /* ELM327Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELM327Session.swift; sourceTree = "<group>"; };
+		F0E8A9504ADA428A895763F1 /* PushNotificationsAuthorizationStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushNotificationsAuthorizationStatus.swift; sourceTree = "<group>"; };
 		F0F3F3A6D431D3DAD7F6C2CD /* OBDServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDServiceProtocol.swift; sourceTree = "<group>"; };
 		F128851A445FB1255FFFEFBD /* Pods_OBD2Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OBD2Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44DBF182B77BA4349174F31 /* RecallDetailsViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -883,6 +902,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B6F88371F93572F1969499E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0E8A9504ADA428A895763F1 /* PushNotificationsAuthorizationStatus.swift */,
+				6BFF1DB9A6070C0C445B07F0 /* PushNotificationsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CD5A435A05D969DA3DAE96E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +935,16 @@
 				5633E9F9B250490D8EC444B7 /* DemoModeManager.swift */,
 			);
 			path = DemoMode;
+			sourceTree = "<group>";
+		};
+		D73F0E8FFC79CD031ED5E7C3 /* PushNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				B6F88371F93572F1969499E7 /* Model */,
+				4272D71F7DE6B9CE06DDA87C /* PushNotificationsManager.swift */,
+				CB88BE2DDE24E6F90899FE21 /* NotificationTokenObserver.swift */,
+			);
+			path = PushNotifications;
 			sourceTree = "<group>";
 		};
 		DE0A5C6D2FF29B4E003D95B0 /* NotoSans */ = {
@@ -1212,6 +1250,7 @@
 			children = (
 				DE2240962FF6CCB10023E94C /* ProfileBindingRequest.swift */,
 				DE2240972FF6CCB10023E94C /* ProfileCreateRequest.swift */,
+				6C0357D544F373D4050C509F /* ProfileAttributesRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1323,6 +1362,7 @@
 				B52CAE7D82FEF78E3DAAC951 /* RecallStatusView.swift */,
 				35B56ED550C48E11C0673FA6 /* RecallSummaryView.swift */,
 				93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */,
+				E8EB0FD06E95E074FD207F59 /* RecallAlertsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1340,6 +1380,7 @@
 		DE2CF06E30385E2E0080BC98 /* RecallHistory */ = {
 			isa = PBXGroup;
 			children = (
+				DE49CA4B303B2B16008A492B /* Utils */,
 				DE2240DE2FFAC4CC0023E94C /* View */,
 				DE2240D82FFAC4B50023E94C /* RecallHistoryViewController.swift */,
 				DE2240DA2FFAC4BD0023E94C /* RecallHistoryViewModel.swift */,
@@ -1378,6 +1419,7 @@
 		DE2F0A592A698C0100471667 /* OBD2Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				DE49CA4C303B2D87008A492B /* OBD2Scanner.entitlements */,
 				DE2F0A6F2A698DA400471667 /* Classes */,
 				DE2F0A6E2A698D9B00471667 /* Resource */,
 			);
@@ -1391,6 +1433,7 @@
 				DE2F0A632A698C0300471667 /* Assets.xcassets */,
 				DE2F0A652A698C0300471667 /* LaunchScreen.storyboard */,
 				DE2F0A682A698C0300471667 /* Info.plist */,
+				DE49CA4D303B2FD8008A492B /* GoogleService-Info.plist */,
 				DE2F0B052A69937200471667 /* Localizable.strings */,
 				AC10C0DE0000000000000020 /* InfoPlist.strings */,
 			);
@@ -1411,6 +1454,7 @@
 		DE2F0A702A698E0B00471667 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				D73F0E8FFC79CD031ED5E7C3 /* PushNotifications */,
 				DE2F0A712A698E0B00471667 /* Extension */,
 				DE2F0A7B2A698E0B00471667 /* Network */,
 				DE2F0A802A698E0B00471667 /* Utils */,
@@ -1457,6 +1501,7 @@
 				DE2F0A842A698E0B00471667 /* ScreenSize.swift */,
 				DE2F0A852A698E0B00471667 /* ObservableRetrySingle.swift */,
 				DE2F0A872A698E0B00471667 /* Fonts.swift */,
+				AC2BF0DD5E40EEBC8E56357E /* Weak.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1579,6 +1624,14 @@
 				2CF41603626E592D0F45DFB1 /* MarkRecallRequest.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		DE49CA4B303B2B16008A492B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				05CBF36F43D677D793E225A4 /* RecallAlertsObserver.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DE4B7E592FF2A07C00973BA9 /* PlusJakartaSans */ = {
@@ -2388,6 +2441,7 @@
 				21500EE37061E11EFFB7938A /* obd2-standard.json in Resources */,
 				CAA482353E2586D77C6159A7 /* toyota-tnga.json in Resources */,
 				0BDB0000000000000000BF01 /* toyota-prius-zw30.json in Resources */,
+				DE49CA4E303B2FD8008A492B /* GoogleService-Info.plist in Resources */,
 				0BDB0000000000000000BF02 /* honda-civic-typer.json in Resources */,
 				0BDB0000000000000000BF03 /* honda-s2000.json in Resources */,
 				0BDB0000000000000000BF04 /* vw-transporter-t5.json in Resources */,
@@ -2777,6 +2831,14 @@
 				D9C2AE41F7256D5A30C813C2 /* RecallVINViewController.swift in Sources */,
 				F0D6035AD1F588E6237BAE0D /* RecallVINViewModel.swift in Sources */,
 				5B90E04CC3A4B5FCB891FFD7 /* RecallVINCardView.swift in Sources */,
+				63FA51F2A4F70D228540B613 /* Weak.swift in Sources */,
+				654CD1874BBC587249F3DE82 /* PushNotificationsManager.swift in Sources */,
+				EB5E084F437E3D27BA0BA589 /* NotificationTokenObserver.swift in Sources */,
+				C78C4AA9B1EDC29F0F06F626 /* PushNotificationsAuthorizationStatus.swift in Sources */,
+				D1C55AC41EEBE160526FC845 /* PushNotificationsModel.swift in Sources */,
+				A13EF29885BA491A233FF579 /* ProfileAttributesRequest.swift in Sources */,
+				953209E60F0DBD0746A1222F /* RecallAlertsView.swift in Sources */,
+				A190BAF637B5CA577DDC3DCF /* RecallAlertsObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2942,6 +3004,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 26;
@@ -2983,6 +3046,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 26;

@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "BEHEBUNG";
 "RecallHistory.Notes" = "HINWEISE";
 "RecallHistory.MarkAsCompleted" = "Als erledigt markieren";
+"RecallHistory.Alerts.Title" = "Rückruf-Hinweise";
+"RecallHistory.Alerts.SubTitle" = "Erfahren Sie es am selben Tag";
+"RecallHistory.Alerts.Action" = "Aktivieren";
 
 // MARK: RecallVIN
 "RecallVIN.Title" = "RÜCKRUFE BRAUCHEN EINE FIN";

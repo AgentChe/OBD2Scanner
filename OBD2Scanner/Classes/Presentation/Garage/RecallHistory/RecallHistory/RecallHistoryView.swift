@@ -16,6 +16,7 @@ final class RecallHistoryView: UIView {
     lazy var arrowView = makeArrowView()
     lazy var tableView = makeTableView()
     lazy var emptyView = makeEmptyView()
+    lazy var alertsView = makeAlertsView()
     lazy var preloader = makePreloader()
 
     private var isEmpty = false
@@ -77,6 +78,16 @@ extension RecallHistoryView {
         isActive = activity
 
         updateContent()
+    }
+
+    func setup(notificationsStatus: PushNotificationsAuthorizationStatus) {
+        let isHidden = notificationsStatus == .authorized
+
+        alertsView.isHidden = isHidden
+        tableView.contentInset = UIEdgeInsets(
+            t: 0,
+            b: isHidden ? 16.scale : RecallAlertsView.Constants.height + 32.scale
+        )
     }
 }
 
@@ -146,6 +157,13 @@ private extension RecallHistoryView {
         ])
 
         NSLayoutConstraint.activate([
+            alertsView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            alertsView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            alertsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale),
+            alertsView.heightAnchor.constraint(equalToConstant: RecallAlertsView.Constants.height)
+        ])
+
+        NSLayoutConstraint.activate([
             preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
             preloader.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
@@ -207,6 +225,14 @@ private extension RecallHistoryView {
 
     func makeEmptyView() -> RecallHistoryEmptyView {
         let view = RecallHistoryEmptyView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+
+    func makeAlertsView() -> RecallAlertsView {
+        let view = RecallAlertsView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

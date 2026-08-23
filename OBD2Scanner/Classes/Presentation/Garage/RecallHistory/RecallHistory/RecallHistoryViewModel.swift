@@ -11,6 +11,8 @@ import RxCocoa
 final class RecallHistoryViewModel {
     enum Action {
         case openDetails(RecallHistory, Vehicle)
+        case requestNotifications
+        case openNotificationsSettings
     }
 
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -32,12 +34,15 @@ final class RecallHistoryViewModel {
 extension RecallHistoryViewModel {
     struct Input {
         let didSelectRecall: Signal<RecallHistory>
+        let didTapAlerts: Signal<Void>
+        let notificationsStatus: Driver<PushNotificationsAuthorizationStatus>
     }
 
     struct Output {
         let vehicle: Driver<Vehicle>
         let elements: Driver<[RecallHistoryTableElement]>
         let activity: Driver<Bool>
+        let notificationsStatus: Driver<PushNotificationsAuthorizationStatus>
         let action: Driver<Action>
     }
 
@@ -46,7 +51,12 @@ extension RecallHistoryViewModel {
             vehicle: .just(vehicle),
             elements: makeElements(),
             activity: activityIndicator.asDriver(),
-            action: makeAction(didSelectRecall: input.didSelectRecall)
+            notificationsStatus: input.notificationsStatus,
+            action: makeAction(
+                didSelectRecall: input.didSelectRecall,
+                didTapAlerts: input.didTapAlerts,
+                notificationsStatus: input.notificationsStatus
+            )
         )
     }
 }
@@ -117,9 +127,31 @@ private extension RecallHistoryViewModel {
             .asDriver(onErrorDriveWith: .empty())
     }
 
-    func makeAction(didSelectRecall: Signal<RecallHistory>) -> Driver<Action> {
-        didSelectRecall
+    func makeAction(
+        didSelectRecall: Signal<RecallHistory>,
+        didTapAlerts: Signal<Void>,
+        notificationsStatus: Driver<PushNotificationsAuthorizationStatus>
+    ) -> Driver<Action> {
+        let openDetails = didSelectRecall
             .map { [vehicle] recall in Action.openDetails(recall, vehicle) }
+            .asObservable()
+
+        let alerts = didTapAlerts
+            .asObservable()
+            .withLatestFrom(notificationsStatus.asObservable())
+            .compactMap { status -> Action? in
+                switch status {
+                case .notDetermined:
+                    return .requestNotifications
+                case .denied:
+                    return .openNotificationsSettings
+                case .authorized:
+                    return nil
+                }
+            }
+
+        return Observable
+            .merge(openDetails, alerts)
             .asDriver(onErrorDriveWith: .never())
     }
 }

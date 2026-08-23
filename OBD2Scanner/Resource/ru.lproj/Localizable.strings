@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "УСТРАНЕНИЕ";
 "RecallHistory.Notes" = "ПРИМЕЧАНИЯ";
 "RecallHistory.MarkAsCompleted" = "Отметить выполненным";
+"RecallHistory.Alerts.Title" = "Уведомления об отзывах";
+"RecallHistory.Alerts.SubTitle" = "Узнаете в день появления";
+"RecallHistory.Alerts.Action" = "Включить";
 
 // MARK: RecallVIN
 "RecallVIN.Title" = "ДЛЯ ОТЗЫВОВ НУЖЕН VIN";

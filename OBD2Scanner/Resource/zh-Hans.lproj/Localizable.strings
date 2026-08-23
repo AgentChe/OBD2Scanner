@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "解决方案";
 "RecallHistory.Notes" = "备注";
 "RecallHistory.MarkAsCompleted" = "标记为已完成";
+"RecallHistory.Alerts.Title" = "召回提醒";
+"RecallHistory.Alerts.SubTitle" = "第一时间知晓";
+"RecallHistory.Alerts.Action" = "开启";
 
 // MARK: RecallVIN
 "RecallVIN.Title" = "查召回需要 VIN";

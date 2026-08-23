@@ -190,6 +190,9 @@
 "RecallHistory.Remedy" = "SOLUTION";
 "RecallHistory.Notes" = "REMARQUES";
 "RecallHistory.MarkAsCompleted" = "Marquer comme traité";
+"RecallHistory.Alerts.Title" = "Alertes de rappel";
+"RecallHistory.Alerts.SubTitle" = "Soyez informé dès le premier jour";
+"RecallHistory.Alerts.Action" = "Activer";
 
 // MARK: Settings
 "Settings.Title" = "Réglages";

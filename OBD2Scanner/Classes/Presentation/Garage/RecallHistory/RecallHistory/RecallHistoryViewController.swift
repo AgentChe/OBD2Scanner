@@ -16,6 +16,8 @@ final class RecallHistoryViewController: UIViewController {
 
     private lazy var disposeBag = DisposeBag()
 
+    private lazy var alertsObserver = RecallAlertsObserver()
+
     private init(vehicle: Vehicle) {
         self.viewModel = RecallHistoryViewModel(vehicle: vehicle)
 
@@ -38,7 +40,9 @@ final class RecallHistoryViewController: UIViewController {
         }
 
         let output = viewModel.configure(input: RecallHistoryViewModel.Input(
-            didSelectRecall: mainView.tableView.didSelectRecall
+            didSelectRecall: mainView.tableView.didSelectRecall,
+            didTapAlerts: mainView.alertsView.didTapAction,
+            notificationsStatus: alertsObserver.status
         ))
 
         output.vehicle
@@ -59,11 +63,23 @@ final class RecallHistoryViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        output.notificationsStatus
+            .drive(Binder(mainView) { base, status in
+                base.setup(notificationsStatus: status)
+            })
+            .disposed(by: disposeBag)
+
         output.action
             .drive(Binder(self) { base, action in
                 base.action(action)
             })
             .disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        alertsObserver.refresh()
     }
 }
 
@@ -83,6 +99,12 @@ private extension RecallHistoryViewController {
         case .openDetails(let recall, let vehicle):
             let vc = RecallDetailsViewController.make(recall: recall, vehicle: vehicle)
             navigationController?.pushViewController(vc, animated: true)
+        case .requestNotifications:
+            alertsObserver.requestAuthorization()
+        case .openNotificationsSettings:
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+
+            UIApplication.shared.open(url)
         }
     }
 

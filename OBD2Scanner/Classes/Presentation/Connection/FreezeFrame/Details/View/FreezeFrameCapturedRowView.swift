@@ -54,7 +54,7 @@ private extension FreezeFrameCapturedRowView {
     func makeIconView() -> UIImageView {
         let configuration = UIImage.SymbolConfiguration(pointSize: 16.scale, weight: .medium)
         let view = UIImageView(image: UIImage(systemName: icon, withConfiguration: configuration))
-        view.tintColor = Appearance.color_FFFFFF.withAlphaComponent(0.6)
+        view.tintColor = Appearance.color_526387
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -63,8 +63,8 @@ private extension FreezeFrameCapturedRowView {
 
     func makeLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.6))
-            .font(Fonts.NotoSans.regular(size: 12.scale))
+            .textColor(Appearance.color_526387)
+            .font(Fonts.NotoSans.regular(size: 13.scale))
             .textAlignment(.left)
         
         let view = UILabel()

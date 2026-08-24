@@ -318,7 +318,6 @@
 
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "冻结帧详情";
-"FreezeFrameDetails.CapturedCaption" = "在检测到故障时记录";
 "FreezeFrameDetails.VehicleState" = "当时你的车辆状态";
 
 // MARK: DTCClearInfo

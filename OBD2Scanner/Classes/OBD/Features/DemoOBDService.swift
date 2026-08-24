@@ -191,7 +191,7 @@ extension DemoOBDService {
     /// двигатель, бедная смесь (топливные коррекции в плюсе).
     func readFreezeFrame(for dtc: DiagnosticTroubleCode) -> Single<[ParameterReading]> {
         demoRequest(delayMs: 800, traffic: ["→ 02 \(Hex.string(dtc.raw)) 00", "← 42 …"]) { [weak self] in
-            self?.makeFreezeFrame() ?? []
+            self?.makeFreezeFrame(for: dtc) ?? []
         }
     }
 
@@ -275,11 +275,15 @@ private extension DemoOBDService {
         )
     }
 
-    func makeFreezeFrame() -> [ParameterReading] {
+    func makeFreezeFrame(for dtc: DiagnosticTroubleCode) -> [ParameterReading] {
         let capturedAt = Date()
 
+        let values = dtc.code == Self.unusualFreezeFrameCode
+            ? Self.freezeFrameValues.merging(Self.unusualFreezeFrameValues) { _, unusual in unusual }
+            : Self.freezeFrameValues
+
         return source.parameters.compactMap { parameter in
-            guard let number = Self.freezeFrameValues[parameter.id] else {
+            guard let number = values[parameter.id] else {
                 return nil
             }
 
@@ -381,6 +385,14 @@ private extension DemoOBDService {
         "std.timing_advance": 21.5,
         "std.fuel_level": 58,
         "std.control_module_voltage": 14.0
+    ]
+
+    static let unusualFreezeFrameCode = "P0420"
+
+    static let unusualFreezeFrameValues: [String: Double] = [
+        "std.engine_load": 141.2,
+        "std.coolant_temp": 233,
+        "std.intake_map": 301
     ]
 }
 

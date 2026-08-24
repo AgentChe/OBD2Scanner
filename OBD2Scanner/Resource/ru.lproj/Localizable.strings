@@ -318,7 +318,6 @@
 
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "Детали стоп-кадра";
-"FreezeFrameDetails.CapturedCaption" = "Записано в момент обнаружения ошибки";
 "FreezeFrameDetails.VehicleState" = "Ваш автомобиль в этот момент";
 
 // MARK: DTCClearInfo

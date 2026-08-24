@@ -15,6 +15,8 @@ final class FreezeFrameViewController: UIViewController {
 
     private lazy var disposeBag = DisposeBag()
 
+    private var vehicleId: String?
+
     override func loadView() {
         view = mainView
     }
@@ -49,8 +51,9 @@ final class FreezeFrameViewController: UIViewController {
 
 // MARK: Public
 extension FreezeFrameViewController {
-    static func make() -> FreezeFrameViewController {
+    static func make(vehicleId: String?) -> FreezeFrameViewController {
         let vc = FreezeFrameViewController()
+        vc.vehicleId = vehicleId
         vc.navigationItem.title = "FreezeFrame.Title".localized
         vc.navigationItem.backButtonTitle = " "
         return vc
@@ -62,7 +65,7 @@ private extension FreezeFrameViewController {
     func action(_ action: FreezeFrameViewModel.Action) {
         switch action {
         case .openDetails(let item):
-            let vc = FreezeFrameDetailsViewController.make(item: item)
+            let vc = FreezeFrameDetailsViewController.make(item: item, vehicleId: vehicleId)
             navigationController?.pushViewController(vc, animated: true)
         case .close:
             navigationController?.popViewController(animated: true)

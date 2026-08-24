@@ -19,23 +19,6 @@ extension FreezeFrameItem {
         readings.first?.capturedAt
     }
     
-    var speed: ParameterReading? {
-        readings.first { $0.parameter.unit == "km/h" }
-    }
-
-    var rpm: ParameterReading? {
-        readings.first { $0.parameter.unit == "rpm" }
-    }
-
-    var coolantTemp: ParameterReading? {
-        readings.first { $0.parameter.id.contains("coolant") } ?? readings.first { $0.parameter.unit == "°C" }
-    }
-
-    var otherReadings: [ParameterReading] {
-        let featured = [speed, rpm, coolantTemp].compactMap { $0?.parameter.id }
-        return readings.filter { !featured.contains($0.parameter.id) }
-    }
-    
     var codeDescription: String? {
         DTCDescriptionLibrary.description(for: dtc.code)
     }

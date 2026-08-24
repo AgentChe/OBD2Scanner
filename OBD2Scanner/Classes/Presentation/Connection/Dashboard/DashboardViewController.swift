@@ -129,8 +129,8 @@ private extension DashboardViewController {
         case .openDTC(let vehicleId):
             let vc = DTCInfoViewController.make(vehicleId: vehicleId)
             navigationController?.pushViewController(vc, animated: true)
-        case .openFreezeFrame:
-            let vc = FreezeFrameViewController.make()
+        case .openFreezeFrame(let vehicleId):
+            let vc = FreezeFrameViewController.make(vehicleId: vehicleId)
             navigationController?.pushViewController(vc, animated: true)
         case .openRecallHistory(let vehicle):
             openRecallHistory(vehicle: vehicle)

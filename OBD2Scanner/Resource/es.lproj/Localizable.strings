@@ -318,7 +318,6 @@
 
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "Detalles del fotograma congelado";
-"FreezeFrameDetails.CapturedCaption" = "Capturado al detectarse el fallo";
 "FreezeFrameDetails.VehicleState" = "Tu coche en ese momento";
 
 // MARK: DTCClearInfo

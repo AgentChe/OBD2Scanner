@@ -238,7 +238,6 @@
 		DE7029B8300A58F100203CFF /* FreezeFrameEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029B7300A58F100203CFF /* FreezeFrameEmptyView.swift */; };
 		DE7029BB300A5CD300203CFF /* FreezeFrameEmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029BA300A5CD300203CFF /* FreezeFrameEmptyItemView.swift */; };
 		DE7029BD300AB21F00203CFF /* FreezeFrameCapturedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */; };
-		DE7029C1300AB32100203CFF /* FreezeFrameCapturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */; };
 		DE947E3F30039E10004271C3 /* ConnectingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */; };
 		DE947E4130039E18004271C3 /* ConnectingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E4030039E18004271C3 /* ConnectingTypeView.swift */; };
 		DE947E453003A851004271C3 /* ConnectingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE947E443003A850004271C3 /* ConnectingTypeButton.swift */; };
@@ -351,8 +350,9 @@
 		DEFF200730091111000000B7 /* FreezeFrameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100730091111000000A7 /* FreezeFrameTableCell.swift */; };
 		DEFF200830091111000000B8 /* FreezeFrameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100830091111000000A8 /* FreezeFrameDetailsViewController.swift */; };
 		DEFF200930091111000000B9 /* FreezeFrameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */; };
-		DEFF200A30091111000000BA /* FreezeFrameGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */; };
 		DEFF200B30091111000000BB /* FreezeFrameParameterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */; };
+		DEFF200C30091111000000BC /* FreezeFrameUnusualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100C30091111000000AC /* FreezeFrameUnusualView.swift */; };
+		DEFF200D30091111000000BD /* FreezeFrameDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF100D30091111000000AD /* FreezeFrameDetailsHeaderView.swift */; };
 		E0EA6810E6E91D2BE1081B51 /* OBDParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47AFB3D0BD601F44DA5BA9 /* OBDParameter.swift */; };
 		E1ED9455249C48B2A24A0CCA /* toyota-camry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1AA53F68FE48F39C8DF753 /* toyota-camry.json */; };
 		E84B2168D66344D785170B9B /* RecallDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94AB4707684AC8E5C1D88B1 /* RecallDetailsView.swift */; };
@@ -609,7 +609,6 @@
 		DE7029B7300A58F100203CFF /* FreezeFrameEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameEmptyView.swift; sourceTree = "<group>"; };
 		DE7029BA300A5CD300203CFF /* FreezeFrameEmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameEmptyItemView.swift; sourceTree = "<group>"; };
 		DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameCapturedRowView.swift; sourceTree = "<group>"; };
-		DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameCapturedView.swift; sourceTree = "<group>"; };
 		DE947E3E30039E10004271C3 /* ConnectingTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeViewController.swift; sourceTree = "<group>"; };
 		DE947E4030039E18004271C3 /* ConnectingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeView.swift; sourceTree = "<group>"; };
 		DE947E443003A850004271C3 /* ConnectingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTypeButton.swift; sourceTree = "<group>"; };
@@ -721,8 +720,9 @@
 		DEFF100730091111000000A7 /* FreezeFrameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameTableCell.swift; sourceTree = "<group>"; };
 		DEFF100830091111000000A8 /* FreezeFrameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsViewController.swift; sourceTree = "<group>"; };
 		DEFF100930091111000000A9 /* FreezeFrameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsView.swift; sourceTree = "<group>"; };
-		DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameGaugeView.swift; sourceTree = "<group>"; };
 		DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameParameterRowView.swift; sourceTree = "<group>"; };
+		DEFF100C30091111000000AC /* FreezeFrameUnusualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameUnusualView.swift; sourceTree = "<group>"; };
+		DEFF100D30091111000000AD /* FreezeFrameDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezeFrameDetailsHeaderView.swift; sourceTree = "<group>"; };
 		E8EB0FD06E95E074FD207F59 /* RecallAlertsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecallAlertsView.swift; sourceTree = "<group>"; };
 		EAB7A3E90536A941E7E7E694 /* DTCDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCDecoder.swift; sourceTree = "<group>"; };
 		EB65549DC99D42ADF3C03946 /* obd2-standard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "obd2-standard.json"; sourceTree = "<group>"; };
@@ -1787,15 +1787,6 @@
 			path = Empty;
 			sourceTree = "<group>";
 		};
-		DE7029BF300AB28200203CFF /* Captured */ = {
-			isa = PBXGroup;
-			children = (
-				DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */,
-				DE7029C0300AB32100203CFF /* FreezeFrameCapturedView.swift */,
-			);
-			path = Captured;
-			sourceTree = "<group>";
-		};
 		DE947E3D30039DF1004271C3 /* ConnectingType */ = {
 			isa = PBXGroup;
 			children = (
@@ -2367,9 +2358,10 @@
 		DEFF300530091111000000C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE7029BF300AB28200203CFF /* Captured */,
-				DEFF100A30091111000000AA /* FreezeFrameGaugeView.swift */,
 				DEFF100B30091111000000AB /* FreezeFrameParameterRowView.swift */,
+				DEFF100C30091111000000AC /* FreezeFrameUnusualView.swift */,
+				DEFF100D30091111000000AD /* FreezeFrameDetailsHeaderView.swift */,
+				DE7029BC300AB21F00203CFF /* FreezeFrameCapturedRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2568,7 +2560,6 @@
 				FB957A7169E1FDFD27107352 /* DemoOBDService.swift in Sources */,
 				075113B94FD7D07EB1968686 /* DemoModeManager.swift in Sources */,
 				DE9C13DD30172B080095E927 /* DTCResultView.swift in Sources */,
-				DE7029C1300AB32100203CFF /* FreezeFrameCapturedView.swift in Sources */,
 				12F819A3BDB9AD4351ECCDAC /* CANResponseAssembler.swift in Sources */,
 				7C6C715B381581CE6B63A221 /* UDSSnapshotParser.swift in Sources */,
 				5CDCB0FE593BCD2F5BBB3932 /* Hex.swift in Sources */,
@@ -2744,8 +2735,9 @@
 				DEFF200730091111000000B7 /* FreezeFrameTableCell.swift in Sources */,
 				DEFF200830091111000000B8 /* FreezeFrameDetailsViewController.swift in Sources */,
 				DEFF200930091111000000B9 /* FreezeFrameDetailsView.swift in Sources */,
-				DEFF200A30091111000000BA /* FreezeFrameGaugeView.swift in Sources */,
 				DEFF200B30091111000000BB /* FreezeFrameParameterRowView.swift in Sources */,
+				DEFF200C30091111000000BC /* FreezeFrameUnusualView.swift in Sources */,
+				DEFF200D30091111000000BD /* FreezeFrameDetailsHeaderView.swift in Sources */,
 				DE22409C2FF6CCB10023E94C /* ProfileCreateRequest.swift in Sources */,
 				DE22409D2FF6CCB10023E94C /* RequestResult.swift in Sources */,
 				DE2240CF2FF92CD70023E94C /* VehicleDetailsView.swift in Sources */,

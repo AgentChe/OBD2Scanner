@@ -318,7 +318,6 @@
 
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "Freeze frame details";
-"FreezeFrameDetails.CapturedCaption" = "Captured at fault detection";
 "FreezeFrameDetails.VehicleState" = "Your car at that moment";
 
 // MARK: DTCClearInfo

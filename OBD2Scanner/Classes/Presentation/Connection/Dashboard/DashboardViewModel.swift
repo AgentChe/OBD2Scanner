@@ -15,7 +15,7 @@ final class DashboardViewModel {
         case disconnect
         case openPaygate
         case openDTC(String?)
-        case openFreezeFrame
+        case openFreezeFrame(String?)
         case openRecallHistory(Vehicle)
         case enterVINForRecallHistory(Vehicle)
         case clearDTC
@@ -185,7 +185,7 @@ private extension DashboardViewModel {
                     if locked {
                         return .openPaygate
                     }
-                    return hasSource ? .openFreezeFrame : .errorNeedConnect
+                    return hasSource ? .openFreezeFrame(activeVehicle?.id) : .errorNeedConnect
                 case .dtcClear:
                     if locked {
                         return .openPaygate

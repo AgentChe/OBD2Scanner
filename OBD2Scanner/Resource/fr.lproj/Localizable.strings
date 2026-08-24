@@ -296,21 +296,19 @@
 
 // MARK: FreezeFrame
 "FreezeFrame.Title" = "Image figée";
-"FreezeFrame.Status.Confirmed" = "CONFIRMÉ";
-"FreezeFrame.Status.Pending" = "EN ATTENTE";
-"FreezeFrame.Status.Permanent" = "PERMANENT";
-"FreezeFrame.Captured" = "Capturé %@";
+"FreezeFrame.Status.Confirmed" = "Confirmé";
+"FreezeFrame.Status.Pending" = "En attente";
+"FreezeFrame.Status.Permanent" = "Permanent";
 "FreezeFrame.JustNow" = "à l'instant";
-"FreezeFrame.Empty.Title" = "AUCUNE DONNÉE\nD'IMAGE FIGÉE";
-"FreezeFrame.Empty.SubTitle" = "L'image figée enregistre les paramètres du véhicule au moment où le défaut survient. Elle aide à diagnostiquer plus précisément";
-"FreezeFrame.Empty.Back" = "Retour";
+"FreezeFrame.Empty.Title" = "IL NE S'EST\nRIEN PASSÉ";
+"FreezeFrame.Empty.SubTitle" = "Au moment où une erreur apparaît, votre voiture prend un instantané de ce que faisait le moteur.";
+"FreezeFrame.Empty.Back" = "Retour au tableau de bord";
 "FreezeFrame.EmptyItem.1" = "Le calculateur détecte un code défaut";
 "FreezeFrame.EmptyItem.2" = "Les données du véhicule sont enregistrées automatiquement";
 "FreezeFrame.EmptyItem.3" = "Vous pouvez consulter et analyser l'instantané";
 
 // MARK: FreezeFrame Details
 "FreezeFrameDetails.Title" = "Détails de l'image figée";
-"FreezeFrameDetails.CapturedCaption" = "Capturé à la détection du défaut";
 "FreezeFrameDetails.VehicleState" = "Votre voiture à cet instant";
 
 // MARK: DTCClearInfo

@@ -16,6 +16,8 @@ target 'OBD2Scanner' do
 
   pod 'FirebaseMessaging', '~> 11.0'
 
+  pod 'PostHog'
+
   pod 'OtterScaleiOS', :git => "https://github.com/AgentChe/OtterScaleiOS.git"
 end
 

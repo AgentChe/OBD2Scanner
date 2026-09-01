@@ -57,6 +57,7 @@
 		A190BAF637B5CA577DDC3DCF /* RecallAlertsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBF36F43D677D793E225A4 /* RecallAlertsObserver.swift */; };
 		A530900F82976C46F6EEDE6D /* DiagnosticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B785C47A3B44C434A36288 /* DiagnosticsModels.swift */; };
 		A6F4537F2EE2BA0872A87FE1 /* RecallHistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FFD5316EECAD294F3D4875 /* RecallHistoryEmptyView.swift */; };
+		AB6E607B5614E96C9BA83134 /* PostHogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F77AFB0CA2F945B237895 /* PostHogManager.swift */; };
 		AC10C0DE0000000000000021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC10C0DE0000000000000020 /* InfoPlist.strings */; };
 		ADEE03A9F6FC16CA263A6FCE /* UnusualReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB5012D4CBC55CC128032E /* UnusualReadingsView.swift */; };
 		B3B02903F21AB27DE3F7FA52 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C0439B2D0B7FB2FC23DA3 /* DiagnosticTroubleCode.swift */; };
@@ -587,6 +588,7 @@
 		DE2F0B3B2A6AC64700471667 /* GetVehicleYearsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleYearsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B402A6AC7E200471667 /* GetVehicleBrandsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleBrandsRequest.swift; sourceTree = "<group>"; };
 		DE2F0B452A6AC86300471667 /* GetVehicleModelsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVehicleModelsRequest.swift; sourceTree = "<group>"; };
+		DE2F77AFB0CA2F945B237895 /* PostHogManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostHogManager.swift; sourceTree = "<group>"; };
 		DE49CA4C303B2D87008A492B /* OBD2Scanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OBD2Scanner.entitlements; sourceTree = "<group>"; };
 		DE49CA4D303B2FD8008A492B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE4B7E5A2FF2A08D00973BA9 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -1480,6 +1482,7 @@
 		DE2F0A702A698E0B00471667 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				F318E8563C6ABE9F855519E5 /* Analytics */,
 				D73F0E8FFC79CD031ED5E7C3 /* PushNotifications */,
 				DE2F0A712A698E0B00471667 /* Extension */,
 				DE2F0A7B2A698E0B00471667 /* Network */,
@@ -2377,6 +2380,14 @@
 			path = Transport;
 			sourceTree = "<group>";
 		};
+		F318E8563C6ABE9F855519E5 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F77AFB0CA2F945B237895 /* PostHogManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		F421751ECAA376AE1DEB9602 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2863,6 +2874,7 @@
 				A13EF29885BA491A233FF579 /* ProfileAttributesRequest.swift in Sources */,
 				953209E60F0DBD0746A1222F /* RecallAlertsView.swift in Sources */,
 				A190BAF637B5CA577DDC3DCF /* RecallAlertsObserver.swift in Sources */,
+				AB6E607B5614E96C9BA83134 /* PostHogManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3031,7 +3043,7 @@
 				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3046,7 +3058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.6;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3073,7 +3085,7 @@
 				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3088,7 +3100,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.6;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = utility.app.obd2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

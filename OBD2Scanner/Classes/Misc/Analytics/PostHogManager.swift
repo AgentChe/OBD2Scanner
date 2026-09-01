@@ -37,6 +37,16 @@ extension PostHogManager {
         identify()
 
         observePaymentDataChanges()
+
+        installFirstLaunchIfNeeded()
+    }
+
+    func logEvent(name: String, parameters: [String: Any] = [:]) {
+        var dictionary = parameters
+        dictionary["anonymous_id"] = sessionManager.anonymousId
+        dictionary["app"] = GlobalDefinitions.applicationTag
+
+        PostHogSDK.shared.capture(name, properties: dictionary)
     }
 }
 
@@ -62,5 +72,13 @@ private extension PostHogManager {
             PersonProperty.otterScaleInternalId: sessionManager.internalId,
             PersonProperty.hasActiveSubscription: sessionManager.hasActiveSubscriptions()
         ])
+    }
+
+    func installFirstLaunchIfNeeded() {
+        guard NumberLaunches().isFirstLaunch() else {
+            return
+        }
+
+        logEvent(name: "First Launch")
     }
 }

@@ -3043,7 +3043,7 @@
 				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3085,7 +3085,7 @@
 				CODE_SIGN_ENTITLEMENTS = OBD2Scanner/OBD2Scanner.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
